@@ -6,7 +6,7 @@ permalink: /about/
 
 Greeting!
 
-My name is Dachi Xu, and I am a graduate student major in computer science at DePaul university. I love programming and computer science(maybe)!
+My name is Dachi Xu, and I am a graduate student major in computer science at DePaul university. I love programming(for sure) and computer science(maybe)!
 
 This is my website that I can blog about my study of computer science and programming. And I will also put my portfolio of programming projects and my personal academic/professional track on this website. 
 
