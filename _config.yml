@@ -2,7 +2,7 @@
 title: Dachi Coding Journal
 email: dachi.xu@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Dachi's Website about study computer science and programming.
+  Dachi's Website about studying computer science and programming.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://dachicj.com" # the base hostname & protocol for your site
 twitter_username: DachiXu
