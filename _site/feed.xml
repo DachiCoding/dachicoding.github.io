@@ -1,40 +1,518 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <title>Dachi Coding Journal</title>
+    <description>Dachi&#39;s Website about studying computer science and programming.
 </description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 04 Nov 2014 20:06:11 -0600</pubDate>
-    <lastBuildDate>Tue, 04 Nov 2014 20:06:11 -0600</lastBuildDate>
+    <link>http://dachicj.com/</link>
+    <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 05 Nov 2014 11:29:01 -0600</pubDate>
+    <lastBuildDate>Wed, 05 Nov 2014 11:29:01 -0600</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve --watch&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+        <title>DCJ 2014-10-28 My First Web App</title>
+        <description>&lt;p&gt;My first web app “Unbeatable Tic Tac Toe A.I” has gone live at http://dachicoding.github.io/tictactoe/, I sincerely invite you to try it if you feel like to, and I welcome your feedback and comments. Thank you!&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 04 Nov 2014 13:14:38 -0600</pubDate>
-        <link>http://yourdomain.com/jekyll/update/2014/11/04/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2014/11/04/welcome-to-jekyll.html</guid>
+        <pubDate>Tue, 28 Oct 2014 19:54:43 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/10/28/dcj-2014-10-28-my-first-web-app.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/10/28/dcj-2014-10-28-my-first-web-app.html</guid>
         
         
-        <category>jekyll</category>
+        <category>general</category>
         
-        <category>update</category>
+      </item>
+    
+      <item>
+        <title>DCJ 2014-10-27 Summary</title>
+        <description>&lt;h1 id=&quot;study-focus-unix-io-and-standard-io-in-c&quot;&gt;Study Focus: Unix I/O and Standard I/O in C&lt;/h1&gt;
+
+&lt;h1 id=&quot;study-material-computer-system-a-programmers-perspective&quot;&gt;Study Material: Computer System A Programmer’s Perspective&lt;/h1&gt;
+
+&lt;h1 id=&quot;study-summary&quot;&gt;Study Summary:&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;1. What is I/O (Input/Output)?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;According to the definitions in CSAPP:&lt;/p&gt;
+
+&lt;p&gt;Memory ==(Output)===&amp;gt; I/O Devices&lt;/p&gt;
+
+&lt;p&gt;Memory &amp;lt;==(Input)====  I/O Devices&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Type and levels of I/O operations&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2.1 Unix I/O (Low level)&lt;/p&gt;
+
+&lt;p&gt;function calls including: open(), close(), read(), write()&lt;/p&gt;
+
+&lt;p&gt;2.2 Standard I/O (C Library)&lt;/p&gt;
+
+&lt;p&gt;function calls including: fopen(), fread(), fwrite(), fclose(),fstat() and etc.&lt;/p&gt;
+
+&lt;p&gt;Those functions are mostly used in c programming i/o operations&lt;/p&gt;
+
+&lt;p&gt;2.3 Robust I/O&lt;/p&gt;
+
+&lt;p&gt;Inlcuding rio_readn, rio_writen(), RIO are mostly used for network socket related programming.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 27 Oct 2014 16:49:29 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/10/27/dcj-2014-10-27-summary.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/10/27/dcj-2014-10-27-summary.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>DCJ 2014-10-16 BACK SOON</title>
+        <description>&lt;p&gt;Sorry for being so lazy during the past weeks, will get back to normal frequent post soon.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/10/BIG_PICTURE_OF_COM_SCI.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/10/BIG_PICTURE_OF_COM_SCI-300x286.png&quot; alt=&quot;BIG_PICTURE_OF_COM_SCI&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 16 Oct 2014 14:22:20 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/10/16/dcj-2014-10-16-back-soon.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/10/16/dcj-2014-10-16-back-soon.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>DCJ 2014-09-27 Study Summary</title>
+        <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;study-material-computer-systems-a-programmers-perspective&quot;&gt;Study material: Computer Systems A Programmer’s Perspective&lt;/h1&gt;
+
+&lt;h1 id=&quot;study-focus-chapter-07-linker&quot;&gt;Study focus: Chapter 07 Linker&lt;/h1&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-27-上午10-31-46.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-27-上午10-31-46-300x225.png&quot; alt=&quot;照片 14-9-27 上午10 31 46&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 27 Sep 2014 10:34:00 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/09/27/dcj-2014-09-27-study-summary.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/09/27/dcj-2014-09-27-study-summary.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>DCJ 2014-09-20 Daily Summary</title>
+        <description>&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;product-name-sidebar&quot;&gt;Product name: Sidebar&lt;/h1&gt;
+
+&lt;h1 id=&quot;description-5-curated-design-links-every-day&quot;&gt;Description: 5 curated design links, every day&lt;/h1&gt;
+
+&lt;h1 id=&quot;mock-up&quot;&gt;Mock-up:&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-20-下午8-06-03.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-20-下午8-06-03-300x225.png&quot; alt=&quot;照片 14-9-20 下午8 06 03&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 20 Sep 2014 20:06:50 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/09/20/dcj-2014-09-20-daily-summary.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/09/20/dcj-2014-09-20-daily-summary.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>DCJ 2014-09-17 Daily Summary</title>
+        <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;study-material-computer-systems-a-programmers-perspective&quot;&gt;Study material: Computer Systems A Programmer’s Perspective&lt;/h1&gt;
+
+&lt;h1 id=&quot;study-focus-optimization-in-c-language&quot;&gt;Study focus: Optimization (in C language)&lt;/h1&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+
+&lt;p&gt;One of the most important concerning when optimizing you code is to ensure a safety optimization, which is your optimization&lt;/p&gt;
+
+&lt;p&gt;will not change the behavior of your program.&lt;/p&gt;
+
+&lt;p&gt;For example : pointer aliasing.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;void foo1(int *xp, int *yp){&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;  *xp += *yp;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;  *xp += *yp;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;could be optimized into&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;void foo2(int *xp, int *yp){&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt; &lt;em&gt;xp += 2&lt;/em&gt; *yp;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;However when I was trying to execute following code.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-17-at-3.45.09-PM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-17-at-3.45.09-PM-300x232.png&quot; alt=&quot;Screen Shot 2014-09-17 at 3.45.09 PM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I am getting an unexpected output like this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Before Swap
+1 1
+0x7fff5f659978 0x7fff5f659978&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;After Swap
+0 0
+0x7fff5f659978 0x7fff5f659978&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Be careful when optimizing involved pointer aliasing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;No time for product analysis today. You catch me! Send “catch you lazy man!” to me on Weixin(WeChat) and there is a small reward for you! （offer expires at 23:59 09/17/2014)&lt;/p&gt;
+</description>
+        <pubDate>Wed, 17 Sep 2014 15:49:39 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/09/17/dcj-2014-09-17-daily-summary.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/09/17/dcj-2014-09-17-daily-summary.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>DCJ 2014-09-16 Daily Summary</title>
+        <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;study-material-javascript-and-jquery&quot;&gt;Study material: JavaScript and JQuery&lt;/h1&gt;
+
+&lt;h1 id=&quot;study-focus-dom-getupdate-element-content&quot;&gt;Study focus: DOM get/update element content&lt;/h1&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+
+&lt;p&gt;Assume we have a list element&lt;/p&gt;
+
+&lt;li id=&quot;one&quot;&gt;List&lt;/li&gt;
+
+&lt;p&gt;we can modify two things about this element: content and property.&lt;/p&gt;
+
+&lt;p&gt;Content:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;li.iinerHTML  // text and markup&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;li.textContent  // text only&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;li.iinerText&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;document.getElementById(“one”).firstChild.nodeValue // when you select the text node, you can change its value by this way&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Property:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;element.getAttribute();&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;element.setAttribute();&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;element.removeAttribute():&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Changing Elements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;document.createElment() // create element&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;document.createTextNode(); // create text node&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;element.appendChild(new_element); // insert the new element into the element calling this function.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;element.revmoveChild(); // remove child element from its parent node.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;o2o-online-to-offline-products-analysis&quot;&gt;O2O (Online to Offline) Products Analysis:&lt;/h1&gt;
+
+&lt;p&gt;dropbox link: https://www.dropbox.com/s/kg4n441drd03sok/%E5%8C%97%E4%BA%AC%E4%BA%8C%E6%9C%9F-%E5%BE%90%E8%BE%BE%E8%BF%9F-%E7%AC%AC%E4%B9%9D%E8%AF%BE%E5%A0%82%E4%B9%9D%E6%9C%88%E4%BD%9C%E4%B8%9A.pdf?dl=0&lt;/p&gt;
+
+&lt;p&gt;If the link is not working and you are interested in reading my analysis, please email me at dachi.xu@gmail.com and I will send you an copy.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Sep 2014 17:04:43 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/09/16/dcj-2014-09-16-daily-summary.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/09/16/dcj-2014-09-16-daily-summary.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>DCJ 2014-09-15 Daily Summary</title>
+        <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;study-materialjavascript--jquery-jon-duckett&quot;&gt;Study material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h1&gt;
+
+&lt;h1 id=&quot;study-focus-how-to-select-elements-in-dom-tree&quot;&gt;Study focus: how to select elements in DOM Tree&lt;/h1&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+
+&lt;p&gt;Let’s write some simple piece of mark-ups:&lt;/p&gt;
+
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+&amp;lt;h1 id=“header”&amp;gt;Header
+&lt;ul&gt;
+&amp;lt;li id=“1” class=“list&quot;&amp;gt;1
+&amp;lt;li id=“2” class=“list”&amp;gt;2
+&amp;lt;li id=“3” class=“list”&amp;gt;3
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Selecting individual element:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s say the “h1” element, we can do it by&lt;/p&gt;
+
+&lt;p&gt;var headerElement = &lt;strong&gt;document.getElementById(‘header’);  //document.getElementById(id of the element you want to select)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;p&gt;var ulElement = &lt;strong&gt;document.querySelector(‘ul’); // return the first match &lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;And if we want to select a group of elements:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;var listElement = &lt;strong&gt;document.getElementByClassName(“list”); // parameter should be the class name of the elements&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;var listElement = &lt;strong&gt;document.getElementByTagName(“li”); //parameter should be the element type, such as h1, p, li and etc…&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;var listElement = &lt;strong&gt;document.querySelectorAll(“li.list”); // parameter could be type or id or class.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt; Once we get some elements , we can traverse around the element(s):&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;going up: listElement.&lt;strong&gt;parentNode&lt;/strong&gt; is ulElement&lt;/p&gt;
+
+&lt;p&gt;going dn: ulElement.&lt;strong&gt;firstChild&lt;/strong&gt; is the first li element, ulElement.&lt;strong&gt;lastChild&lt;/strong&gt; is the third li element&lt;/p&gt;
+
+&lt;p&gt;going left &amp;amp; right:  listElement[1].&lt;strong&gt;previousSibling&lt;/strong&gt; will be listElement[0], listElement[1].&lt;strong&gt;nextSibling&lt;/strong&gt; will be listElement[2];&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt; Timeline Hunt (http://timeline-product-hunt.herokuapp.com/)&lt;/p&gt;
+
+&lt;h1 id=&quot;description-the-best-products-of-product-hunt-on-a-timeline&quot;&gt;Description: The best products of Product Hunt on a timeline&lt;/h1&gt;
+
+&lt;h1 id=&quot;prototype&quot;&gt;Prototype:&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-15-at-10.25.24-AM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-15-at-10.25.24-AM-300x194.png&quot; alt=&quot;Screen Shot 2014-09-15 at 10.25.24 AM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 15 Sep 2014 10:26:30 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/09/15/dcj-2014-09-15-daily-summary.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/09/15/dcj-2014-09-15-daily-summary.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>DCJ 2014-09-14 Daily Summary</title>
+        <description>&lt;p&gt;&lt;strong&gt;Programming: &lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;studying-material-javascript--jquery-jon-duckett&quot;&gt;Studying material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h1&gt;
+
+&lt;h1 id=&quot;studying-focus-javascript-objects&quot;&gt;Studying focus: JavaScript Objects&lt;/h1&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+
+&lt;p&gt;Objects Structure in JavaScript&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;  Browser Objects:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Window Object (Browser object, contains property and methods of browser interface , such as window.alert() //pop-up)&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;p&gt;Document Object (Object of DOM Tree, HTML -&amp;gt; HEAD / BODY)&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;History (stores info about the pages you visited)&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;Location (url of page)&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;Navigator (info about browser)&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;Screen (info about devices)&lt;/p&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;  Global Objects:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;String(string type)&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Number(number type)&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Boolean(boolean type)&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Other built-in : date/math/regex(regular expression)&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;product-name-hacker-experience-httpshackerexperiencecomwelcome&quot;&gt;Product Name: Hacker Experience (https://hackerexperience.com/welcome)&lt;/h1&gt;
+
+&lt;h1 id=&quot;description-online-hacking-simulation-game&quot;&gt;Description: Online hacking simulation game&lt;/h1&gt;
+
+&lt;h1 id=&quot;prototypes&quot;&gt;Prototypes:&lt;/h1&gt;
+
+&lt;p&gt;Front Page&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-03-05.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-03-05-225x300.png&quot; alt=&quot;照片 14-9-14 上午11 03 05&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Back-end&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-07-14.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-07-14-225x300.png&quot; alt=&quot;照片 14-9-14 上午11 07 14&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 14 Sep 2014 11:23:18 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/09/14/dcj-2014-09-14-daily-summary.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/09/14/dcj-2014-09-14-daily-summary.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>DCJ 2014-09-13 Daily Summary</title>
+        <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Programming: AngularJS (Material: https://docs.angularjs.org/tutorial)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A example of Angular JS application template structure&lt;/p&gt;
+
+&lt;html ng-app=&quot;appName&quot;&gt; // ng-app set the root of the angularJS application
+
+&lt;head&gt;&lt;/head&gt;
+
+&lt;body ng-controller=&quot;controllerName&quot;&gt; // ng-controller set the scope of application
+
+&lt;div ng-repeat=&quot;&quot;&gt;
+
+&lt;p&gt;Hello,  // binding data with the controller
+
+
+
+
+
+
+
+The connection between the template / model / controller would looks like
+
+[![tutorial_02](http://dachicj.com/wp-content/uploads/2014/09/tutorial_02-300x182.png)](http://dachicj.com/wp-content/uploads/2014/09/tutorial_02.png)
+
+
+
+_**Product: http://www.algomation.com/**_
+
+Strategy: NA
+
+Scope: NA
+
+Skeleton: NA
+
+Structure: NA
+
+Surface:
+
+
+
+	
+  * wireframe
+
+
+[![Screen Shot 2014-09-13 at 12.33.18 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.33.18-PM-300x202.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.33.18-PM.png)
+
+[![Screen Shot 2014-09-13 at 12.18.12 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM-300x203.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM.png)
+
+
+
+
+
+
+
+	
+  * sitemap
+
+
+[![Screen Shot 2014-09-13 at 12.28.23 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.28.23-PM-300x242.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM.png)
+&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+</description>
+        <pubDate>Sat, 13 Sep 2014 12:43:47 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/09/13/dcj-2014-09-13-daily-summary.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/09/13/dcj-2014-09-13-daily-summary.html</guid>
+        
+        
+        <category>general</category>
         
       </item>
     
