@@ -149,21 +149,14 @@
   
   <url>
     <loc>http://dachicj.com/about/</loc>
-    <lastmod>2014-12-05T11:51:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>http://dachicj.com/about/</loc>
-    <lastmod>2014-12-05T11:51:34+08:00</lastmod>
+    <lastmod>2014-12-06T08:26:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://dachicj.com/</loc>
-    <lastmod>2014-12-05T11:51:34+08:00</lastmod>
+    <lastmod>2014-12-06T08:26:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -173,12 +166,6 @@
   <url>
     <loc>http://dachicj.com/about.html</loc>
     <lastmod>2014-11-05T12:40:53Z</lastmod>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://dachicj.com/hack.html</loc>
-    <lastmod>2014-11-05T12:40:49Z</lastmod>
     <priority>0.6</priority>
   </url>
   
