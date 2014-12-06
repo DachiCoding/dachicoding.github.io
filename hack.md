@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Hack
-permalink: /hack/
+title: Hacks
+permalink: /hacks/
 ---
 
 Projects and Hacks Oh Yeah.
