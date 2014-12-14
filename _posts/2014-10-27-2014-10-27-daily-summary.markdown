@@ -4,7 +4,7 @@ comments: true
 date: 2014-10-27 21:49:29+00:00
 layout: post
 slug: dcj-2014-10-27-summary
-title: DCJ 2014-10-27 Summary
+title: 2014-10-27 Daily Summary
 wordpress_id: 114
 categories:
 - General

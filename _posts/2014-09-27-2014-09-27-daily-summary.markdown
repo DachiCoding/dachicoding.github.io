@@ -4,7 +4,7 @@ comments: true
 date: 2014-09-27 15:34:00+00:00
 layout: post
 slug: dcj-2014-09-27-study-summary
-title: DCJ 2014-09-27 Study Summary
+title: 2014-09-27 Daily Summary
 wordpress_id: 106
 categories:
 - General

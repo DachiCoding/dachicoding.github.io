@@ -4,7 +4,7 @@ comments: true
 date: 2014-10-16 19:22:20+00:00
 layout: post
 slug: dcj-2014-10-16-back-soon
-title: DCJ 2014-10-16 BACK SOON
+title: 2014-10-16 Back Soon
 wordpress_id: 110
 categories:
 - General

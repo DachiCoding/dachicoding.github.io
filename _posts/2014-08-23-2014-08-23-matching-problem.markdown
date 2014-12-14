@@ -4,7 +4,7 @@ comments: true
 date: 2014-08-23 21:33:20+00:00
 layout: post
 slug: 2014-08-23-matching-problem
-title: DCJ 2014-08-23 "Matching Problem"
+title: 2014-08-23 "Matching Problem"
 wordpress_id: 57
 categories:
 - General

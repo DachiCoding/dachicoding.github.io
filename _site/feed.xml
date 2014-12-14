@@ -6,13 +6,13 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 14 Dec 2014 15:15:19 +0800</pubDate>
-    <lastBuildDate>Sun, 14 Dec 2014 15:15:19 +0800</lastBuildDate>
+    <pubDate>Sun, 14 Dec 2014 15:20:54 +0800</pubDate>
+    <lastBuildDate>Sun, 14 Dec 2014 15:20:54 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
-        <title>DCJ 2014-10-28 My First Web App</title>
-        <description>&lt;p&gt;My first web app “Unbeatable Tic Tac Toe A.I” has gone live at http://dachicoding.github.io/tictactoe/, I sincerely invite you to try it if you feel like to, and I welcome your feedback and comments. Thank you!&lt;/p&gt;
+        <title>2014-10-28 My First Web App</title>
+        <description>&lt;p&gt;My first web app “Unbeatable Tic Tac Toe A.I” has gone live at {http://dachicoding.github.io/tictactoe/}, I sincerely invite you to try it if you feel like to, and I welcome your feedback and comments. Thank you!&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 29 Oct 2014 08:54:43 +0800</pubDate>
@@ -25,7 +25,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-10-27 Summary</title>
+        <title>2014-10-27 Daily Summary</title>
         <description>&lt;h1 id=&quot;study-focus-unix-io-and-standard-io-in-c&quot;&gt;Study Focus: Unix I/O and Standard I/O in C&lt;/h1&gt;
 
 &lt;h1 id=&quot;study-material-computer-system-a-programmers-perspective&quot;&gt;Study Material: Computer System A Programmer’s Perspective&lt;/h1&gt;
@@ -67,7 +67,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-10-16 BACK SOON</title>
+        <title>2014-10-16 Back Soon</title>
         <description>&lt;p&gt;Sorry for being so lazy during the past weeks, will get back to normal frequent post soon.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/10/BIG_PICTURE_OF_COM_SCI.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/10/BIG_PICTURE_OF_COM_SCI-300x286.png&quot; alt=&quot;BIG_PICTURE_OF_COM_SCI&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -82,7 +82,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-09-27 Study Summary</title>
+        <title>2014-09-27 Daily Summary</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;study-material-computer-systems-a-programmers-perspective&quot;&gt;Study material: Computer Systems A Programmer’s Perspective&lt;/h1&gt;
@@ -103,7 +103,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-09-20 Daily Summary</title>
+        <title>2014-09-20 Daily Summary</title>
         <description>&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;product-name-sidebar&quot;&gt;Product name: Sidebar&lt;/h1&gt;
@@ -124,7 +124,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-09-17 Daily Summary</title>
+        <title>2014-09-17 Daily Summary</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;study-material-computer-systems-a-programmers-perspective&quot;&gt;Study material: Computer Systems A Programmer’s Perspective&lt;/h1&gt;
@@ -203,7 +203,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-09-16 Daily Summary</title>
+        <title>2014-09-16 Daily Summary</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;study-material-javascript-and-jquery&quot;&gt;Study material: JavaScript and JQuery&lt;/h1&gt;
@@ -284,7 +284,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-09-15 Daily Summary</title>
+        <title>2014-09-15 Daily Summary</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;study-materialjavascript--jquery-jon-duckett&quot;&gt;Study material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h1&gt;
@@ -360,7 +360,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-09-14 Daily Summary</title>
+        <title>2014-09-14 Daily Summary</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming: &lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;studying-material-javascript--jquery-jon-duckett&quot;&gt;Studying material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h1&gt;
@@ -445,7 +445,7 @@
       </item>
     
       <item>
-        <title>DCJ 2014-09-13 Daily Summary</title>
+        <title>2014-09-13 Daily Summary</title>
         <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Programming: AngularJS (Material: https://docs.angularjs.org/tutorial)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;A example of Angular JS application template structure&lt;/p&gt;

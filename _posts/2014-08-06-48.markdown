@@ -4,7 +4,7 @@ comments: true
 date: 2014-08-06 16:02:33+00:00
 layout: post
 slug: '48'
-title: DCJ 2014-08-06 "Turing's Code"
+title: 2014-08-06 "Turing's Code"
 wordpress_id: 48
 categories:
 - Daily
