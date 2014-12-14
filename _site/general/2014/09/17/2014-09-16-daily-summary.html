@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>DCJ 2014-10-27 Summary</title>
+    <title>DCJ 2014-09-16 Daily Summary</title>
     <meta name="description" content="Dachi's Website about studying computer science and programming.
 ">
 
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="http://dachicj.com/general/2014/10/28/dcj-2014-10-27-summary.html">
+    <link rel="canonical" href="http://dachicj.com/general/2014/09/17/2014-09-16-daily-summary.html">
 </head>
 
 
@@ -61,41 +61,80 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">DCJ 2014-10-27 Summary</h1>
-    <p class="post-meta">Oct 28, 2014 • dachi.xu@gmail.com</p>
+    <h1 class="post-title">DCJ 2014-09-16 Daily Summary</h1>
+    <p class="post-meta">Sep 17, 2014 • dachi.xu@gmail.com</p>
   </header>
 
   <article class="post-content">
-    <h1 id="study-focus-unix-io-and-standard-io-in-c">Study Focus: Unix I/O and Standard I/O in C</h1>
+    <p><strong>Programming:</strong></p>
 
-<h1 id="study-material-computer-system-a-programmers-perspective">Study Material: Computer System A Programmer’s Perspective</h1>
+<h1 id="study-material-javascript-and-jquery">Study material: JavaScript and JQuery</h1>
 
-<h1 id="study-summary">Study Summary:</h1>
+<h1 id="study-focus-dom-getupdate-element-content">Study focus: DOM get/update element content</h1>
 
-<p><strong>1. What is I/O (Input/Output)?</strong></p>
+<h1 id="summary">Summary:</h1>
 
-<p>According to the definitions in CSAPP:</p>
+<p>Assume we have a list element</p>
 
-<p>Memory ==(Output)===&gt; I/O Devices</p>
+<li id="one">List</li>
 
-<p>Memory &lt;==(Input)====  I/O Devices</p>
+<p>we can modify two things about this element: content and property.</p>
 
-<p><strong>2. Type and levels of I/O operations</strong></p>
+<p>Content:</p>
 
-<p>2.1 Unix I/O (Low level)</p>
+<ul>
+  <li>
+    <p>li.iinerHTML  // text and markup</p>
+  </li>
+  <li>
+    <p>li.textContent  // text only</p>
+  </li>
+  <li>
+    <p>li.iinerText</p>
+  </li>
+  <li>
+    <p>document.getElementById(“one”).firstChild.nodeValue // when you select the text node, you can change its value by this way</p>
+  </li>
+</ul>
 
-<p>function calls including: open(), close(), read(), write()</p>
+<p>Property:</p>
 
-<p>2.2 Standard I/O (C Library)</p>
+<ul>
+  <li>
+    <p>element.getAttribute();</p>
+  </li>
+  <li>
+    <p>element.setAttribute();</p>
+  </li>
+  <li>
+    <p>element.removeAttribute():</p>
+  </li>
+</ul>
 
-<p>function calls including: fopen(), fread(), fwrite(), fclose(),fstat() and etc.</p>
+<p>Changing Elements:</p>
 
-<p>Those functions are mostly used in c programming i/o operations</p>
+<ul>
+  <li>
+    <p>document.createElment() // create element</p>
+  </li>
+  <li>
+    <p>document.createTextNode(); // create text node</p>
+  </li>
+  <li>
+    <p>element.appendChild(new_element); // insert the new element into the element calling this function.</p>
+  </li>
+  <li>
+    <p>element.revmoveChild(); // remove child element from its parent node.</p>
+  </li>
+</ul>
 
-<p>2.3 Robust I/O</p>
+<p><strong>Product:</strong></p>
 
-<p>Inlcuding rio_readn, rio_writen(), RIO are mostly used for network socket related programming.</p>
+<h1 id="o2o-online-to-offline-products-analysis">O2O (Online to Offline) Products Analysis:</h1>
 
+<p>dropbox link: https://www.dropbox.com/s/kg4n441drd03sok/%E5%8C%97%E4%BA%AC%E4%BA%8C%E6%9C%9F-%E5%BE%90%E8%BE%BE%E8%BF%9F-%E7%AC%AC%E4%B9%9D%E8%AF%BE%E5%A0%82%E4%B9%9D%E6%9C%88%E4%BD%9C%E4%B8%9A.pdf?dl=0</p>
+
+<p>If the link is not working and you are interested in reading my analysis, please email me at dachi.xu@gmail.com and I will send you an copy.</p>
 
   </article>
 

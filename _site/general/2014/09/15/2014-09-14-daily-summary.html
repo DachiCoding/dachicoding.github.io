@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>DCJ 2014-09-17 Daily Summary</title>
+    <title>DCJ 2014-09-14 Daily Summary</title>
     <meta name="description" content="Dachi's Website about studying computer science and programming.
 ">
 
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="http://dachicj.com/general/2014/09/18/dcj-2014-09-17-daily-summary.html">
+    <link rel="canonical" href="http://dachicj.com/general/2014/09/15/2014-09-14-daily-summary.html">
 </head>
 
 
@@ -61,78 +61,84 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">DCJ 2014-09-17 Daily Summary</h1>
-    <p class="post-meta">Sep 18, 2014 • dachi.xu@gmail.com</p>
+    <h1 class="post-title">DCJ 2014-09-14 Daily Summary</h1>
+    <p class="post-meta">Sep 15, 2014 • dachi.xu@gmail.com</p>
   </header>
 
   <article class="post-content">
-    <p><strong>Programming:</strong></p>
+    <p><strong>Programming: </strong></p>
 
-<h1 id="study-material-computer-systems-a-programmers-perspective">Study material: Computer Systems A Programmer’s Perspective</h1>
+<h1 id="studying-material-javascript--jquery-jon-duckett">Studying material: JavaScript &amp; JQuery (Jon Duckett)</h1>
 
-<h1 id="study-focus-optimization-in-c-language">Study focus: Optimization (in C language)</h1>
+<h1 id="studying-focus-javascript-objects">Studying focus: JavaScript Objects</h1>
 
 <h1 id="summary">Summary:</h1>
 
-<p>One of the most important concerning when optimizing you code is to ensure a safety optimization, which is your optimization</p>
-
-<p>will not change the behavior of your program.</p>
-
-<p>For example : pointer aliasing.</p>
-
-<ol>
-  <li>
-    <p>void foo1(int *xp, int *yp){</p>
-  </li>
-  <li>
-    <p>  *xp += *yp;</p>
-  </li>
-  <li>
-    <p>  *xp += *yp;</p>
-  </li>
-  <li>
-    <p>}</p>
-  </li>
-</ol>
-
-<p>could be optimized into</p>
-
-<ol>
-  <li>
-    <p>void foo2(int *xp, int *yp){</p>
-  </li>
-  <li>
-    <p> <em>xp += 2</em> *yp;</p>
-  </li>
-  <li>
-    <p>}</p>
-  </li>
-</ol>
-
-<p>However when I was trying to execute following code.</p>
-
-<p><a href="http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-17-at-3.45.09-PM.png"><img src="http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-17-at-3.45.09-PM-300x232.png" alt="Screen Shot 2014-09-17 at 3.45.09 PM" /></a></p>
-
-<p>I am getting an unexpected output like this:</p>
+<p>Objects Structure in JavaScript</p>
 
 <ul>
   <li>
-    <p>Before Swap
-1 1
-0x7fff5f659978 0x7fff5f659978</p>
+    <p>  Browser Objects:</p>
+
+    <ul>
+      <li>
+        <p>Window Object (Browser object, contains property and methods of browser interface , such as window.alert() //pop-up)</p>
+
+        <ul>
+          <li>
+            <p>Document Object (Object of DOM Tree, HTML -&gt; HEAD / BODY)</p>
+          </li>
+          <li>
+            <p>History (stores info about the pages you visited)</p>
+          </li>
+          <li>
+            <p>Location (url of page)</p>
+          </li>
+          <li>
+            <p>Navigator (info about browser)</p>
+          </li>
+          <li>
+            <p>Screen (info about devices)</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </li>
   <li>
-    <p>After Swap
-0 0
-0x7fff5f659978 0x7fff5f659978</p>
+    <p>  Global Objects:</p>
+
+    <ul>
+      <li>
+        <p>String(string type)</p>
+      </li>
+      <li>
+        <p>Number(number type)</p>
+      </li>
+      <li>
+        <p>Boolean(boolean type)</p>
+      </li>
+      <li>
+        <p>Other built-in : date/math/regex(regular expression)</p>
+      </li>
+    </ul>
   </li>
 </ul>
 
-<p>Be careful when optimizing involved pointer aliasing.</p>
-
 <p><strong>Product:</strong></p>
 
-<p>No time for product analysis today. You catch me! Send “catch you lazy man!” to me on Weixin(WeChat) and there is a small reward for you! （offer expires at 23:59 09/17/2014)</p>
+<h1 id="product-name-hacker-experience-httpshackerexperiencecomwelcome">Product Name: Hacker Experience (https://hackerexperience.com/welcome)</h1>
+
+<h1 id="description-online-hacking-simulation-game">Description: Online hacking simulation game</h1>
+
+<h1 id="prototypes">Prototypes:</h1>
+
+<p>Front Page</p>
+
+<p><a href="http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-03-05.png"><img src="http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-03-05-225x300.png" alt="照片 14-9-14 上午11 03 05" /></a></p>
+
+<p>Back-end</p>
+
+<p><a href="http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-07-14.png"><img src="http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-07-14-225x300.png" alt="照片 14-9-14 上午11 07 14" /></a></p>
 
   </article>
 
