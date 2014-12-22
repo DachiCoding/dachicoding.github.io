@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+.... . .-.. .-.. --- / .-- --- .-. .-.. -..
+
 Greeting!
 
 My name is Dachi Xu, and I am a graduate student major in computer science at DePaul university. I love programming(for sure) and computer science(maybe)!
