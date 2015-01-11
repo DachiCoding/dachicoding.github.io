@@ -17,16 +17,19 @@ Second, we still need make some new wishes.
 Ok, I hope in 2015 I can:
 
 1.read one book of computer science per month
+
 2.hack one programming project per month(web or mobile or hardware)
 
 So for january I would like to 
 
 Read a book: Mastering TCP/IP by Takafumi Takeshita, Yukio murayama, Toru Arai, Yukio Karita
+
 Hack a web app: PHP & YII Framework.
 
 I wish I can keep it.
 
 Thanks,
+
 Dachi
 
 
