@@ -4,10 +4,9 @@ title: Blog
 permalink: /blog/
 ---
 
-Posts
+Blogs
 
 {% for post in site.posts %}
 {{ post.date | date: "%b %-d, %Y" }}
 {{ post.title }}
-
 {% endfor %}
