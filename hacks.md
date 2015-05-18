@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hacks
+title: Hacks 作品
 permalink: /hacks/
 ---
 

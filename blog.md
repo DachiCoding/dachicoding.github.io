@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Blog
+title: Blog 文章
 permalink: /blog/
 ---
 
