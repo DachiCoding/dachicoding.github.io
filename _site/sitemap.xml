@@ -1,185 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  
   <url>
-    <loc>http://dachicj.com/general/2014/10/29/2014-10-28-my-first-web-app.html</loc>
-    
-    <lastmod>2014-10-29T08:54:43+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2015/01/09/2015-01-10-2015-New-Year-To-Do-List.html</loc>
+    <lastmod>2015-01-09T18:54:43-06:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/10/28/2014-10-27-daily-summary.html</loc>
-    
-    <lastmod>2014-10-28T05:49:29+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/10/28/2014-10-28-my-first-web-app.html</loc>
+    <lastmod>2014-10-28T19:54:43-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/10/17/2014-10-16-back-soon.html</loc>
-    
-    <lastmod>2014-10-17T03:22:20+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/10/27/2014-10-27-daily-summary.html</loc>
+    <lastmod>2014-10-27T16:49:29-05:00</lastmod>
   </url>
-  
+  <url>
+    <loc>http://dachicj.com/general/2014/10/16/2014-10-16-back-soon.html</loc>
+    <lastmod>2014-10-16T14:22:20-05:00</lastmod>
+  </url>
   <url>
     <loc>http://dachicj.com/general/2014/09/27/2014-09-27-daily-summary.html</loc>
-    
-    <lastmod>2014-09-27T23:34:00+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <lastmod>2014-09-27T10:34:00-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/09/21/2014-09-20-daily-summary.html</loc>
-    
-    <lastmod>2014-09-21T09:06:50+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/09/20/2014-09-20-daily-summary.html</loc>
+    <lastmod>2014-09-20T20:06:50-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/09/18/2014-09-17-daily-summary.html</loc>
-    
-    <lastmod>2014-09-18T04:49:39+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/09/17/2014-09-17-daily-summary.html</loc>
+    <lastmod>2014-09-17T15:49:39-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/09/17/2014-09-16-daily-summary.html</loc>
-    
-    <lastmod>2014-09-17T06:04:43+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/09/16/2014-09-16-daily-summary.html</loc>
+    <lastmod>2014-09-16T17:04:43-05:00</lastmod>
   </url>
-  
   <url>
     <loc>http://dachicj.com/general/2014/09/15/2014-09-15-daily-summary.html</loc>
-    
-    <lastmod>2014-09-15T23:26:30+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <lastmod>2014-09-15T10:26:30-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/09/15/2014-09-14-daily-summary.html</loc>
-    
-    <lastmod>2014-09-15T00:23:18+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/09/14/2014-09-14-daily-summary.html</loc>
+    <lastmod>2014-09-14T11:23:18-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/09/14/2014-09-13-daily-summary.html</loc>
-    
-    <lastmod>2014-09-14T01:43:47+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/09/13/2014-09-13-daily-summary.html</loc>
+    <lastmod>2014-09-13T12:43:47-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/09/05/2014-09-04-daily-summary.html</loc>
-    
-    <lastmod>2014-09-05T07:03:18+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/09/04/2014-09-04-daily-summary.html</loc>
+    <lastmod>2014-09-04T18:03:18-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/09/04/2014-09-03-daily-summary.html</loc>
-    
-    <lastmod>2014-09-04T04:23:42+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/09/03/2014-09-03-daily-summary.html</loc>
+    <lastmod>2014-09-03T15:23:42-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/08/26/2014-08-25-daily-summary.html</loc>
-    
-    <lastmod>2014-08-26T08:34:52+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/08/25/2014-08-25-daily-summary.html</loc>
+    <lastmod>2014-08-25T19:34:52-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/general/2014/08/24/2014-08-23-matching-problem.html</loc>
-    
-    <lastmod>2014-08-24T05:33:20+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/general/2014/08/23/2014-08-23-matching-problem.html</loc>
+    <lastmod>2014-08-23T16:33:20-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/daily/2014/08/07/48.html</loc>
-    
-    <lastmod>2014-08-07T00:02:33+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/daily/2014/08/06/48.html</loc>
+    <lastmod>2014-08-06T11:02:33-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/daily/2014/08/05/2014-08-04-strong-induction.html</loc>
-    
-    <lastmod>2014-08-05T11:09:00+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/daily/2014/08/04/2014-08-04-strong-induction.html</loc>
+    <lastmod>2014-08-04T22:09:00-05:00</lastmod>
   </url>
-  
   <url>
-    <loc>http://dachicj.com/daily/2014/08/04/2014-08-03-jugs-problem.html</loc>
-    
-    <lastmod>2014-08-04T04:21:37+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <loc>http://dachicj.com/daily/2014/08/03/2014-08-03-jugs-problem.html</loc>
+    <lastmod>2014-08-03T15:21:37-05:00</lastmod>
   </url>
-  
   <url>
     <loc>http://dachicj.com/general/2014/08/02/hello-world-2.html</loc>
-    
-    <lastmod>2014-08-02T22:51:42+08:00</lastmod>
-    
-    <priority>0.8</priority>
+    <lastmod>2014-08-02T09:51:42-05:00</lastmod>
   </url>
-  
-  
   <url>
     <loc>http://dachicj.com/about/</loc>
-    <lastmod>2014-12-14T15:20:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
-  
+  <url>
+    <loc>http://dachicj.com/blog/</loc>
+  </url>
   <url>
     <loc>http://dachicj.com/hacks/</loc>
-    <lastmod>2014-12-14T15:20:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>http://dachicj.com/</loc>
-    <lastmod>2014-12-14T15:20:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
-  
-  
-  
-  <url>
-    <loc>http://dachicj.com/about.html</loc>
-    <lastmod>2014-11-05T12:40:53Z</lastmod>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://dachicj.com/hacks.html</loc>
-    <lastmod>2014-12-06T08:27:57Z</lastmod>
-    <priority>0.6</priority>
-  </url>
-  
 </urlset>

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>2014-09-04 Daily Summary</title>
-    <meta name="description" content="Dachi's Website about studying computer science and programming.
+    <title>2014-08-04 "Strong Induction"</title>
+    <meta name="description" content="Dachi's Personal Blog.
 ">
 
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="http://dachicj.com/general/2014/09/05/2014-09-04-daily-summary.html">
+    <link rel="canonical" href="http://dachicj.com/daily/2014/08/04/2014-08-04-strong-induction.html">
 </head>
 
 
@@ -21,7 +21,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">Dachi Coding Journal</a>
+    <a class="site-title" href="/">Dachi's Blog</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -36,6 +36,10 @@
         
           
           <a class="page-link" href="/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/blog/">Blog</a>
           
         
           
@@ -61,41 +65,40 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">2014-09-04 Daily Summary</h1>
-    <p class="post-meta">Sep 5, 2014 • dachi.xu@gmail.com</p>
+    <h1 class="post-title">2014-08-04 "Strong Induction"</h1>
+    <p class="post-meta">Aug 4, 2014 • dachi.xu@gmail.com</p>
   </header>
 
   <article class="post-content">
-    <p>Summary of what I’ve studied today:</p>
+    <p>What I’ve studied today:</p>
 
-<p><strong><em>Python</em></strong>:</p>
+<p>1.MIT OCW: Mathematics For Computer Science Lecture 3 Strong Induction.</p>
 
-<p>Python Project Skeleton should look like this:
-~/bin
-~/docs
-~/source
-~/tests</p>
+<p>Ok, why we need to study induction?</p>
 
-<p>Helpful Python packages:
-# pip
-# nosetest
-# virtualenv</p>
+<p>According to the textbook of this course: </p>
 
-<p><strong><em>Vim</em></strong>:</p>
+<p>“One of the most important uses of induction in computer science involves proving that a program or process preserves
+one or more desirable properties as it proceeds. A property that is preserved through a series of operations or steps 
+is known as an invariant. “</p>
 
-<p>Searching:
-# /search text + ENTER
-# after search use n to go to next match or ? go to previous match
-# use “set hlsearch” to turn on the highlight of matched text.
-# use “set incsearch” to highlight matching text as soon as you type(rather than after you press the ‘ENTER’)</p>
+<p>Have you ever play the 8 puzzle game? (In China we have a similar game named “Hua Rong Dao”, which have a better UI I guess.)
+<a href="http://dachicj.com/wp-content/uploads/2014/08/8_puzzle_goal_state_a.png"><img src="http://dachicj.com/wp-content/uploads/2014/08/8_puzzle_goal_state_a.png" alt="8_puzzle_goal_state_a" /></a></p>
 
-<p><strong><em>LINUX</em></strong>:
-# passwd: to change password of user
-# useful shortcuts:
-CTRL + A : go to the left side of the line.
-CTRL + E : go to the right side of the line.
-CTRL + D : log out or exit
-CTRL + R : search command history ( you can also type ‘history’ to list all previous commands you typed. )</p>
+<p>Whether if you are a fan of this game, let’s try to figure out whether the chart on the left could reach to the right?</p>
+
+<p><a href="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.02.29-PM.png"><img src="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.02.29-PM-300x140.png" alt="Screen Shot 2014-08-04 at 10.02.29 PM" /></a></p>
+
+<p>The answer is no actually.</p>
+
+<p>Because in the situation above there only exist one set of inversion, but a row move(moving from left to right or vice versa)does not change the 
+number of inversion, and a column move(change up and down)change even number of inversion. It is unreachable to make it right by the move allowed
+in this game.</p>
+
+<p>Official proof goes here:</p>
+
+<p><a href="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.08.19-PM.png"><img src="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.08.19-PM-300x135.png" alt="Screen Shot 2014-08-04 at 10.08.19 PM" /></a></p>
+
 
   </article>
 
@@ -108,12 +111,12 @@ CTRL + R : search command history ( you can also type ‘history’ to list all 
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Dachi Coding Journal</h2>
+    <h2 class="footer-heading">Dachi's Blog</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>Dachi Coding Journal</li>
+          <li>Dachi's Blog</li>
           <li><a href="mailto:dachi.xu@gmail.com">dachi.xu@gmail.com</a></li>
         </ul>
       </div>
@@ -152,7 +155,7 @@ CTRL + R : search command history ( you can also type ‘history’ to list all 
       </div>
 
       <div class="footer-col  footer-col-3">
-        <p class="text">Dachi's Website about studying computer science and programming.
+        <p class="text">Dachi's Personal Blog.
 </p>
       </div>
     </div>
