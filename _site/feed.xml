@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dachi&#39;s Blog</title>
+    <title>Dachi&#39;s Blog 达迟的博客</title>
     <description>Dachi&#39;s Personal Blog.
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 17 May 2015 19:11:00 -0500</pubDate>
-    <lastBuildDate>Sun, 17 May 2015 19:11:00 -0500</lastBuildDate>
+    <pubDate>Mon, 18 May 2015 21:56:49 -0500</pubDate>
+    <lastBuildDate>Mon, 18 May 2015 21:56:49 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
