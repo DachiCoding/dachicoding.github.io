@@ -6,8 +6,7 @@ layout: post
 slug: '48'
 title: 2014-08-06 "Turing's Code"
 wordpress_id: 48
-categories:
-- Daily
+categories: general
 ---
 
 Today I studied:
