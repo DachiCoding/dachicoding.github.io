@@ -2,7 +2,6 @@
 layout: page
 title: Hacks 作品
 permalink: /hacks/
-index:1
 ---
 
 Projects and Hacks Oh Yeah.
