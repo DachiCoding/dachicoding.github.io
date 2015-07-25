@@ -16,7 +16,8 @@ layout: default
   <ul class="post-list">
     {% for post in site.posts reversed limit:2 %}
     <li class="post"></li>
-    <h3><strong>{{post.date}} {{post.title}}</strong></h3>
+    <h3><strong>{{post.title}}</strong></h3>
+    <p><em>{{post.date}}</em></p>
     <p>{{post.abstract}}</p>
     <p class="post-link-read-more">
     <a href="{{post.url}}">Read mroe</a>
