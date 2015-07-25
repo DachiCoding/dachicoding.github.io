@@ -2,6 +2,7 @@
 layout: page
 title: Blog 文章
 permalink: /blog/
+index:0
 ---
 
 <div class="home">

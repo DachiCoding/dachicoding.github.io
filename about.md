@@ -2,6 +2,7 @@
 layout: page
 title: About 关于
 permalink: /about/
+index:2
 ---
 
 .... . .-.. .-.. --- / .-- --- .-. .-.. -..
