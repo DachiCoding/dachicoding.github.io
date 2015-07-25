@@ -3,11 +3,13 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-10-27 21:49:29+00:00
 layout: post
-slug: dcj-2014-10-27-summary
-title: 2014-10-27 Daily Summary
-wordpress_id: 114
-categories:
-- General
+title: CSAPP Study Notes 10/27/2014
+abstract: 
+**1. What is I/O (Input/Output)?**
+According to the definitions in CSAPP:
+Memory ==(Output)===> I/O Devices
+Memory <==(Input)====  I/O Devices
+
 ---
 
 #### Study Focus: Unix I/O and Standard I/O in C

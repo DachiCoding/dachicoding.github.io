@@ -3,11 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-08-26 00:34:52+00:00
 layout: post
-slug: dcj-2014-08-25-daily-summary
-title: jQuery Notes
-wordpress_id: 63
-categories:
-- General
+title: JS and jQuery Notes 08/26/2014
 ---
 
 Today's study summary:

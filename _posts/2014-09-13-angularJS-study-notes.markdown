@@ -3,11 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-09-13 17:43:47+00:00
 layout: post
-slug: dcj-2014-09-13-daily-summary
-title: 2014-09-13 Daily Summary
-wordpress_id: 74
-categories:
-- General
+title: angularJS study notes 09/13/2014
 ---
 
 _**Programming: AngularJS (Material: https://docs.angularjs.org/tutorial)**_

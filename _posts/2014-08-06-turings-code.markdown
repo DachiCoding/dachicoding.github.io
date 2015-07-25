@@ -3,10 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-08-06 16:02:33+00:00
 layout: post
-slug: '48'
-title: 2014-08-06 "Turing's Code"
-wordpress_id: 48
-categories: general
+title: Turing's Code
 ---
 
 Today I studied:

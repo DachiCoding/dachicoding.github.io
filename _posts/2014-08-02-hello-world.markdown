@@ -3,13 +3,9 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-08-02 14:51:42+00:00
 layout: post
-slug: hello-world-2
 title: printf("Hello World!\n");
-wordpress_id: 5
-categories:
-- General
+categories: general
 ---
-
 Hi There!
 
 This website is about how I learn computer science and make cool stuff, I will post articles about learning computer science and hacking programming projects at this site.

@@ -3,11 +3,8 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-08-03 20:21:37+00:00
 layout: post
-slug: dcj-2014-08-03-jugs-problem
-title: 2014-08-03 "Jugs Problem"
-wordpress_id: 36
-categories:
-- Daily
+title: Jugs Problem
+categories: general
 ---
 
 What I've studied today:

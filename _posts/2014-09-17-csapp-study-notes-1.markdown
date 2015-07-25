@@ -3,11 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-09-17 20:49:39+00:00
 layout: post
-slug: dcj-2014-09-17-daily-summary
-title: 2014-09-17 Daily Summary
-wordpress_id: 91
-categories:
-- General
+title: CSAPP Study Notes 09/17/2014
 ---
 
 **Programming:**

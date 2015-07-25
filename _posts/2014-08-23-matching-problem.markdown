@@ -3,11 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-08-23 21:33:20+00:00
 layout: post
-slug: 2014-08-23-matching-problem
-title: 2014-08-23 "Matching Problem"
-wordpress_id: 57
-categories:
-- General
+title: Matching Problem
 ---
 
 First of all, my deep apologies for not updating about weeks. My excuses are:

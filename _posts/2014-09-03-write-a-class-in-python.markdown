@@ -3,11 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-09-03 20:23:42+00:00
 layout: post
-slug: dcj-2014-09-03-summary
-title: write a class in python
-wordpress_id: 66
-categories:
-- General
+title: Write a class in python
 ---
 
 **_Programming:_**

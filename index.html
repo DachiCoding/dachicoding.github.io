@@ -14,7 +14,7 @@ layout: default
   <!--Lastest articles-->
   <h1 class="page-heading">Latest updates on Dachi's blog</h1>
   <ul class="post-list">
-    {% for post in site.posts reversed limit:1 %}
+    {% for post in site.posts reversed limit:2 %}
     <li class="post"></li>
     <h3><strong>{{post.title}}</strong></h3>
     <p>{{post.abstract}}</p>

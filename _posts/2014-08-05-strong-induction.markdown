@@ -3,11 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-08-05 03:09:00+00:00
 layout: post
-slug: dcj-2014-08-04-strong-induction
-title: 2014-08-04 "Strong Induction"
-wordpress_id: 43
-categories:
-- Daily
+title: Strong Induction
 ---
 
 What I’ve studied today:

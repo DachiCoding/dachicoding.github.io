@@ -3,11 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-09-04 23:03:18+00:00
 layout: post
-slug: dcj-2014-09-04-daily-summary
-title: 2014-09-04 Daily Summary
-wordpress_id: 71
-categories:
-- General
+title: Python Study Notes 09/04/2014
 ---
 
 Summary of what I've studied today:

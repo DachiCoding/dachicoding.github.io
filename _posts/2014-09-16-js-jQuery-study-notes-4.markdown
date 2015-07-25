@@ -3,11 +3,7 @@ author: dachi.xu@gmail.com
 comments: true
 date: 2014-09-16 22:04:43+00:00
 layout: post
-slug: dcj-2014-09-16-daily-summary
-title: 2014-09-16 Daily Summary
-wordpress_id: 88
-categories:
-- General
+title: JS and jQuery Study Notes 09/16/2014
 ---
 
 **Programming:**
