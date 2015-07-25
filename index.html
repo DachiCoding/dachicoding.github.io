@@ -17,8 +17,8 @@ layout: default
   <ul class="post-list">
     {% for post in site.posts reversed limit:1 %}
     <li class="post"></li>
-    <h4><a href="#">Title: {{post.abstract}}</a></h4>
-    <p>{{post.content}}</p>
+    <h4><a href="#">Title: {{post.title}}</a></h4>
+    <p>{{post.abstract}}</p>
     <p class="post-link-read-more">
       <a href="#">Read mroe</a>
     </p>
