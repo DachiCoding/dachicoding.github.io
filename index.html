@@ -15,9 +15,9 @@ layout: default
   <h1 class="page-heading">Latest updates on Dachi's blog</h1>
 
   <ul class="post-list">
-    {% for post in site.posts limit:2 %}
+    {% for post in site.posts reversed limit:1 %}
     <li class="post"></li>
-    <h4>Title: {{post.title}}</h4>
+    <h4>Title: {{post.abstract}}</h4>
     <p>{{post.content}}</p>
     <p class="post-link-read-more">
       <a href="#">Read mroe</a>
