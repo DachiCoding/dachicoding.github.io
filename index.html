@@ -15,7 +15,7 @@ layout: default
   <h1 class="page-heading">Latest updates on Dachi's blog</h1>
 
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in site.posts limit:4 %}
     <li class="post"></li>
     <h2>{{post.title}}</h2>
     <p>{{post.content}}</p>
