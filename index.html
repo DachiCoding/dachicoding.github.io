@@ -4,27 +4,25 @@ layout: default
 
 <div class="home">
 
+  <!--Header-->
   <h1 class="page-heading">Welcome to Dachi's Blog</h1>
- 
   <p>You can read my <a href="/blog/">articles</a>
   ,or check my <a href="/hacks/">projects.</a>
   Last but not least, you can learn more about <a href="/about/">me</a></p>
-
   <hr/><br/><br/>
-
+  
+  <!--Lastest articles-->
   <h1 class="page-heading">Latest updates on Dachi's blog</h1>
-
   <ul class="post-list">
     {% for post in site.posts reversed limit:1 %}
     <li class="post"></li>
-    <h4><a href="#">Title: {{post.title}}</a></h4>
+    <h3>Title: {{post.title}}</h3>
     <p>{{post.abstract}}</p>
     <p class="post-link-read-more">
-      <a href="#">Read mroe</a>
+    <a href="{{post.url}}">Read mroe</a>
     </p>
     </li>
     {% endfor %}
   </ul>
-  
 
 </div>
