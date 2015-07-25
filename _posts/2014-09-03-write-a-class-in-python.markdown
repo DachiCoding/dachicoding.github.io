@@ -4,7 +4,7 @@ comments: true
 date: 2014-09-03 20:23:42+00:00
 layout: post
 slug: dcj-2014-09-03-summary
-title: 2014-09-03 Daily Summary
+title: write a class in python
 wordpress_id: 66
 categories:
 - General
@@ -12,46 +12,46 @@ categories:
 
 **_Programming:_**
 **Python**
-# write a class in python:
+#### write a class in python:
 class Parent(object):
   def __init__(self):
-    # constructor
+    #### constructor
 
   def method(self,parameter):
-    # do something
+    #### do something
 
 class Child(Parent):
 
    def __init__(self):
-     # constructor
+     #### constructor
 
    def method(self,parameter):
-      super(Child).method(self,parameter) # override parent's method
+      super(Child).method(self,parameter) #### override parent's method
 
 **Vim:**
 Searching
-# f : find text
-# t : stop before text
+#### f : find text
+#### t : stop before text
 
 Moving
-# ctrl + u: scroll up pages
-# ctrl + d: scroll down pages
+#### ctrl + u: scroll up pages
+#### ctrl + d: scroll down pages
 
 Deleting
-# dw : delete a word
+#### dw : delete a word
 
-# J : joining
+#### J : joining
 
-# ~ : change case
+#### ~ : change case
 
-# how to record a macro:
+#### how to record a macro:
 qa - q:record / a: store the macro at register a
 do something
 q - stop recording
 @a - call the macro at register a
 
 **_Product:_**
-# 1 mockup per day
+#### 1 mockup per day
 https://itunes.apple.com/cn/app/bao-he-jian-fei-jian-shen/id457856023?l=en&mt;=8
 
 [![mockup](http://dachicj.com/wp-content/uploads/2014/09/mockup-300x100.png)](http://dachicj.com/wp-content/uploads/2014/09/mockup.png)

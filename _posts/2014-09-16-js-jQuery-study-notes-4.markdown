@@ -12,11 +12,11 @@ categories:
 
 **Programming:**
 
-# Study material: JavaScript and JQuery
+#### Study material: JavaScript and JQuery
 
-# Study focus: DOM get/update element content
+#### Study focus: DOM get/update element content
 
-# Summary:
+#### Summary:
 
 Assume we have a list element
 
@@ -70,7 +70,7 @@ Changing Elements:
 
 **Product:**
 
-# O2O (Online to Offline) Products Analysis:
+#### O2O (Online to Offline) Products Analysis:
 
 dropbox link: https://www.dropbox.com/s/kg4n441drd03sok/%E5%8C%97%E4%BA%AC%E4%BA%8C%E6%9C%9F-%E5%BE%90%E8%BE%BE%E8%BF%9F-%E7%AC%AC%E4%B9%9D%E8%AF%BE%E5%A0%82%E4%B9%9D%E6%9C%88%E4%BD%9C%E4%B8%9A.pdf?dl=0
 

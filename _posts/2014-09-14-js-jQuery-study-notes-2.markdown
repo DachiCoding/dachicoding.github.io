@@ -12,11 +12,11 @@ categories:
 
 **Programming: **
 
-# Studying material: JavaScript & JQuery (Jon Duckett)
+#### Studying material: JavaScript & JQuery (Jon Duckett)
 
-# Studying focus: JavaScript Objects
+#### Studying focus: JavaScript Objects
 
-# Summary:
+#### Summary:
 
 Objects Structure in JavaScript
 
@@ -70,11 +70,11 @@ Objects Structure in JavaScript
 
 **Product:**
 
-# Product Name: Hacker Experience (https://hackerexperience.com/welcome)
+#### Product Name: Hacker Experience (https://hackerexperience.com/welcome)
 
-# Description: Online hacking simulation game
+#### Description: Online hacking simulation game
 
-# Prototypes:
+#### Prototypes:
 
 Front Page
 

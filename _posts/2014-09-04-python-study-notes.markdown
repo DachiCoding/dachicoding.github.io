@@ -21,21 +21,21 @@ Python Project Skeleton should look like this:
 ~/tests
 
 Helpful Python packages:
-# pip
-# nosetest
-# virtualenv
+#### pip
+#### nosetest
+#### virtualenv
 
 **_Vim_**:
 
 Searching:
-# /search text + ENTER
-# after search use n to go to next match or ? go to previous match
-# use "set hlsearch" to turn on the highlight of matched text.
-# use "set incsearch" to highlight matching text as soon as you type(rather than after you press the 'ENTER')
+#### /search text + ENTER
+#### after search use n to go to next match or ? go to previous match
+#### use "set hlsearch" to turn on the highlight of matched text.
+#### use "set incsearch" to highlight matching text as soon as you type(rather than after you press the 'ENTER')
 
 **_LINUX_**:
-# passwd: to change password of user
-# useful shortcuts:
+#### passwd: to change password of user
+#### useful shortcuts:
 CTRL + A : go to the left side of the line.
 CTRL + E : go to the right side of the line.
 CTRL + D : log out or exit

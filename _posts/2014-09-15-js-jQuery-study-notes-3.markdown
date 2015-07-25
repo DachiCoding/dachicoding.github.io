@@ -12,11 +12,11 @@ categories:
 
 **Programming:**
 
-# Study material: JavaScript & JQuery (Jon Duckett)
+#### Study material: JavaScript & JQuery (Jon Duckett)
 
-# Study focus: how to select elements in DOM Tree
+#### Study focus: how to select elements in DOM Tree
 
-# Summary:
+#### Summary:
 
 Let's write some simple piece of mark-ups:
 
@@ -80,9 +80,9 @@ going left & right:  listElement[1].**previousSibling** will be listElement[0],
 
 **Product:** Timeline Hunt (http://timeline-product-hunt.herokuapp.com/)
 
-# Description: The best products of Product Hunt on a timeline
+#### Description: The best products of Product Hunt on a timeline
 
-# Prototype:
+#### Prototype:
 
 [![Screen Shot 2014-09-15 at 10.25.24 AM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-15-at-10.25.24-AM-300x194.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-15-at-10.25.24-AM.png)
 

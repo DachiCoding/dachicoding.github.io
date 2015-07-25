@@ -4,7 +4,7 @@ comments: true
 date: 2014-08-26 00:34:52+00:00
 layout: post
 slug: dcj-2014-08-25-daily-summary
-title: DCJ 2014-08-25 Daily Summary
+title: jQuery Notes
 wordpress_id: 63
 categories:
 - General
@@ -13,23 +13,23 @@ categories:
 Today's study summary:
 
 **JQuery:**
-# JQuery event methods: 
+#### JQuery event methods: 
     UI: focus, blur
     Keyboard: input, keydown, keyup, keypress
     Mouse: click, mouseover
     Form: submit
 
-# JQuery event object:
+#### JQuery event object:
     event.type
     event.which
     event.data
     event.target
 
-# Basic Effect:
+#### Basic Effect:
     .show() / .hide() /.toggle()
     .fadeIn() / .fadeOut() / .slideUp() / .slideDown()
 
-# Animation:
+#### Animation:
     $(element).animate([effect],[,speed],[,easing],[,complete]);
 
 A really well designed and informative website I found today: http://www.evolutionoftheweb.com/?hl=en

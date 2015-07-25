@@ -10,24 +10,19 @@ categories:
 - General
 ---
 
-# Study Focus: Unix I/O and Standard I/O in C
+#### Study Focus: Unix I/O and Standard I/O in C
 
-# Study Material: Computer System A Programmer's Perspective
+#### Study Material: Computer System A Programmer's Perspective
 
-# Study Summary:
+#### Study Summary:
 
 **1. What is I/O (Input/Output)?**
 
 According to the definitions in CSAPP:
 
-
 Memory ==(Output)===> I/O Devices
 
-
-
-
 Memory <==(Input)====  I/O Devices
-
 
 **2. Type and levels of I/O operations**
 

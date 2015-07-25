@@ -12,11 +12,11 @@ categories:
 
 **Programming:**
 
-# Study material: Computer Systems A Programmer's Perspective
+#### Study material: Computer Systems A Programmer's Perspective
 
-# Study focus: Optimization (in C language)
+#### Study focus: Optimization (in C language)
 
-# Summary:
+#### Summary:
 
 One of the most important concerning when optimizing you code is to ensure a safety optimization, which is your optimization
 
