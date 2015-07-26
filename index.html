@@ -9,19 +9,16 @@ layout: default
   <p>You can read my <a href="/blog/">articles</a>
   ,or check my <a href="/hacks/">projects.</a>
   Last but not least, you can learn more about <a href="/about/">me</a></p>
-  <hr/><br/><br/>
+  <hr/>
   
   <!--Lastest articles-->
   <h1 class="page-heading">Latest updates on Dachi's blog 最近更新</h1>
   <ul class="post-list">
     {% for post in site.posts reversed limit:2 %}
     <li class="post"></li>
-    <h3><strong>{{post.title}}</strong></h3>
+    <h3><strong><a href="{{post.url}}"> {{post.title}} </a> </strong><span class="label label-info">new</span></h3>
     <p><em>{{post.date}}</em></p>
     <p>{{post.abstract}}</p>
-    <p class="post-link-read-more">
-    <a href="{{post.url}}">Read mroe</a>
-    </p>
     </li>
     {% endfor %}
   </ul>

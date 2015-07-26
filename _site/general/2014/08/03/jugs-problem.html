@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dachi's Blog 达迟的博客</title>
+    <title>Jugs Problem</title>
     <meta name="description" content="Dachi's Personal Blog.
 ">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="canonical" href="http://dachicj.com/">
+    <link rel="canonical" href="http://dachicj.com/general/2014/08/03/jugs-problem.html">
     <link rel="icon" href="#">
 </head>
 
@@ -58,32 +58,40 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <!--Header-->
-  <h1 class="page-heading">Welcome to Dachi's Blog</h1>
-  <p>You can read my <a href="/blog/">articles</a>
-  ,or check my <a href="/hacks/">projects.</a>
-  Last but not least, you can learn more about <a href="/about/">me</a></p>
-  <hr/>
-  
-  <!--Lastest articles-->
-  <h1 class="page-heading">Latest updates on Dachi's blog 最近更新</h1>
-  <ul class="post-list">
-    
-    <li class="post"></li>
-    <h3><strong><a href="/2014/10/27/csapp-study-notes-2.html"> CSAPP Study Notes 10/27/2014 </a> </strong><span class="label label-info">new</span></h3>
-    <p><em>2014-10-27 16:49:29 -0500</em></p>
-    <p></p>
-    </li>
-    
-    <li class="post"></li>
-    <h3><strong><a href="/general/2014/10/28/my-first-web-app.html"> My First Web App </a> </strong><span class="label label-info">new</span></h3>
-    <p><em>2014-10-28 19:54:43 -0500</em></p>
-    <p>My first web app "Unbeatable Tic Tac Toe A.I" has gone live at http://dachicoding.github.io/tictactoe</p>
-    </li>
-    
-  </ul>
+  <header class="post-header">
+    <h1 class="post-title">Jugs Problem</h1>
+    <p class="post-meta">Aug 3, 2014 • dachi.xu@gmail.com</p>
+  </header>
+
+  <article class="post-content">
+    <p>What I’ve studied today:</p>
+
+<p>1.MIT OCW: Mathematics For Computer Science Lecture 4 Number Theory I</p>
+
+<p>Let’s watch a clip from “Die Hard 3” first.
+<a href="https://www.youtube.com/watch?v=BVtQNK_ZUJg">Die Hard 3 Jugs Problem</a></p>
+
+<p>My solution is: 
+1.Fill the 3 gallon jug, and pour it into the 5 gallon jug, then we have (0,3) gallons in the 3g and 5g jugs
+2.Fill the 3 gallon jug again , and pour the water into the 5 gallon jug until it is full, then we have (1,5) gallons.
+3.Dump all the water in the 5 gallon jug and then pour the 1 gallon of water from the 3 gallon jug to 5 gallon (1,5) -&gt; (1, 0) -&gt; (0, 1)
+4.Fill the 3 gallon jug and pour all the water into the 5 gallon jug (3,1) -&gt; (0, 4).
+5.Done</p>
+
+<p>Let’s look at the problem from a more abstract perspective, can we use a 3 gallon jug and 6 gallon jug to get 4 gallons of water? 
+Maybe not, “suppose that we have water jugs with capacities a and b, the amount of water in each jugs is always a linear combination 
+of a and b.”  </p>
+
+<p>Below is the proof steps using induction from the MIT text-note.
+[gallery ids=”37”]</p>
+
+<p>Ok, but why bother studying the number theory? because SECURITY matters! “Number theory underlies modern cryptography, which is what 
+enable secure online communication.”</p>
+
+
+  </article>
 
 </div>
 

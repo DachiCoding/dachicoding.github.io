@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dachi's Blog 达迟的博客</title>
+    <title>CSAPP Study Notes 09/17/2014</title>
     <meta name="description" content="Dachi's Personal Blog.
 ">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="canonical" href="http://dachicj.com/">
+    <link rel="canonical" href="http://dachicj.com/2014/09/17/csapp-study-notes-1.html">
     <link rel="icon" href="#">
 </head>
 
@@ -58,32 +58,83 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <!--Header-->
-  <h1 class="page-heading">Welcome to Dachi's Blog</h1>
-  <p>You can read my <a href="/blog/">articles</a>
-  ,or check my <a href="/hacks/">projects.</a>
-  Last but not least, you can learn more about <a href="/about/">me</a></p>
-  <hr/>
-  
-  <!--Lastest articles-->
-  <h1 class="page-heading">Latest updates on Dachi's blog 最近更新</h1>
-  <ul class="post-list">
-    
-    <li class="post"></li>
-    <h3><strong><a href="/2014/10/27/csapp-study-notes-2.html"> CSAPP Study Notes 10/27/2014 </a> </strong><span class="label label-info">new</span></h3>
-    <p><em>2014-10-27 16:49:29 -0500</em></p>
-    <p></p>
-    </li>
-    
-    <li class="post"></li>
-    <h3><strong><a href="/general/2014/10/28/my-first-web-app.html"> My First Web App </a> </strong><span class="label label-info">new</span></h3>
-    <p><em>2014-10-28 19:54:43 -0500</em></p>
-    <p>My first web app "Unbeatable Tic Tac Toe A.I" has gone live at http://dachicoding.github.io/tictactoe</p>
-    </li>
-    
-  </ul>
+  <header class="post-header">
+    <h1 class="post-title">CSAPP Study Notes 09/17/2014</h1>
+    <p class="post-meta">Sep 17, 2014 • dachi.xu@gmail.com</p>
+  </header>
+
+  <article class="post-content">
+    <p><strong>Programming:</strong></p>
+
+<h4 id="study-material-computer-systems-a-programmers-perspective">Study material: Computer Systems A Programmer’s Perspective</h4>
+
+<h4 id="study-focus-optimization-in-c-language">Study focus: Optimization (in C language)</h4>
+
+<h4 id="summary">Summary:</h4>
+
+<p>One of the most important concerning when optimizing you code is to ensure a safety optimization, which is your optimization</p>
+
+<p>will not change the behavior of your program.</p>
+
+<p>For example : pointer aliasing.</p>
+
+<ol>
+  <li>
+    <p>void foo1(int *xp, int *yp){</p>
+  </li>
+  <li>
+    <p>  *xp += *yp;</p>
+  </li>
+  <li>
+    <p>  *xp += *yp;</p>
+  </li>
+  <li>
+    <p>}</p>
+  </li>
+</ol>
+
+<p>could be optimized into</p>
+
+<ol>
+  <li>
+    <p>void foo2(int *xp, int *yp){</p>
+  </li>
+  <li>
+    <p> <em>xp += 2</em> *yp;</p>
+  </li>
+  <li>
+    <p>}</p>
+  </li>
+</ol>
+
+<p>However when I was trying to execute following code.</p>
+
+<p><a href="http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-17-at-3.45.09-PM.png"><img src="http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-17-at-3.45.09-PM-300x232.png" alt="Screen Shot 2014-09-17 at 3.45.09 PM" /></a></p>
+
+<p>I am getting an unexpected output like this:</p>
+
+<ul>
+  <li>
+    <p>Before Swap
+1 1
+0x7fff5f659978 0x7fff5f659978</p>
+  </li>
+  <li>
+    <p>After Swap
+0 0
+0x7fff5f659978 0x7fff5f659978</p>
+  </li>
+</ul>
+
+<p>Be careful when optimizing involved pointer aliasing.</p>
+
+<p><strong>Product:</strong></p>
+
+<p>No time for product analysis today. You catch me! Send “catch you lazy man!” to me on Weixin(WeChat) and there is a small reward for you! （offer expires at 23:59 09/17/2014)</p>
+
+  </article>
 
 </div>
 

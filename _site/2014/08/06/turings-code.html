@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dachi's Blog 达迟的博客</title>
+    <title>Turing's Code</title>
     <meta name="description" content="Dachi's Personal Blog.
 ">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="canonical" href="http://dachicj.com/">
+    <link rel="canonical" href="http://dachicj.com/2014/08/06/turings-code.html">
     <link rel="icon" href="#">
 </head>
 
@@ -58,32 +58,47 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <!--Header-->
-  <h1 class="page-heading">Welcome to Dachi's Blog</h1>
-  <p>You can read my <a href="/blog/">articles</a>
-  ,or check my <a href="/hacks/">projects.</a>
-  Last but not least, you can learn more about <a href="/about/">me</a></p>
-  <hr/>
-  
-  <!--Lastest articles-->
-  <h1 class="page-heading">Latest updates on Dachi's blog 最近更新</h1>
-  <ul class="post-list">
-    
-    <li class="post"></li>
-    <h3><strong><a href="/2014/10/27/csapp-study-notes-2.html"> CSAPP Study Notes 10/27/2014 </a> </strong><span class="label label-info">new</span></h3>
-    <p><em>2014-10-27 16:49:29 -0500</em></p>
-    <p></p>
-    </li>
-    
-    <li class="post"></li>
-    <h3><strong><a href="/general/2014/10/28/my-first-web-app.html"> My First Web App </a> </strong><span class="label label-info">new</span></h3>
-    <p><em>2014-10-28 19:54:43 -0500</em></p>
-    <p>My first web app "Unbeatable Tic Tac Toe A.I" has gone live at http://dachicoding.github.io/tictactoe</p>
-    </li>
-    
-  </ul>
+  <header class="post-header">
+    <h1 class="post-title">Turing's Code</h1>
+    <p class="post-meta">Aug 6, 2014 • dachi.xu@gmail.com</p>
+  </header>
+
+  <article class="post-content">
+    <p>Today I studied:</p>
+
+<p>MIT OCW Mathematic For Computer Science Text-note 1-4.3 Alan Turing:</p>
+
+<p>At the beginning, let’s look at a string of numbers:</p>
+
+<pre><code>           **50369825549820718594667857.**
+</code></pre>
+
+<p>What the heck is that huh? Imagine it’s WWII now, and that is actually a piece of encrypted information which hidden the secret to defeat Nazi! World Peace depends on you!</p>
+
+<p>Ok so how do we decipher this piece of code? One equation will helpful:</p>
+
+<pre><code>           **m* = m * k** 
+</code></pre>
+
+<p>m is the original number representation of the word (A = 01, B = 02, … e.g Hello = 08 05 12 12 15), please note the number has to be a prime, if the original number is not a prime, we will append numbers to make it a prime.</p>
+
+<p>k is the secret key number shared only between sender and receiver ( a large prime)</p>
+
+<p>m* is the encrypted number.</p>
+
+<p>During the war time figuring out the key prime would take endless computations, so are the secrets all safe?</p>
+
+<p>Actually not, though computing or guessing the k is mission impossible, but if the Nazi get two message, they can use Euclid’s algorithm to figure out the great common divisor of m<em>1 and m</em>2. the Nazi can keep calculating using “gcd(a,b) = gcd(b,rem(a,b))” until they get the k!</p>
+
+<p>Oops!</p>
+
+<p>(The hidden message is “victory” , 22 09 03 20 15 18 25 appending 13 to make it a prime, and key is 22801763489, so
+m* = 2209032015182513 * 22801763489)</p>
+
+
+  </article>
 
 </div>
 

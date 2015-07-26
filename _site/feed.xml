@@ -6,52 +6,18 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 18 May 2015 21:56:49 -0500</pubDate>
-    <lastBuildDate>Mon, 18 May 2015 21:56:49 -0500</lastBuildDate>
+    <pubDate>Sat, 25 Jul 2015 22:02:27 -0500</pubDate>
+    <lastBuildDate>Sat, 25 Jul 2015 22:02:27 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
-        <title>2015-01-10 2015 New Year To Do List</title>
-        <description>&lt;p&gt;First of all, my apology for not updating my blog for couple of months, slap on my face!&lt;/p&gt;
-
-&lt;p&gt;Second, we still need make some new wishes.&lt;/p&gt;
-
-&lt;p&gt;Ok, I hope in 2015 I can:&lt;/p&gt;
-
-&lt;p&gt;1.read one book of computer science per month&lt;/p&gt;
-
-&lt;p&gt;2.hack one programming project per month(web or mobile or hardware)&lt;/p&gt;
-
-&lt;p&gt;So for january I would like to &lt;/p&gt;
-
-&lt;p&gt;Read a book: Mastering TCP/IP by Takafumi Takeshita, Yukio murayama, Toru Arai, Yukio Karita&lt;/p&gt;
-
-&lt;p&gt;Hack a web app: Using AngularJS MVC&lt;/p&gt;
-
-&lt;p&gt;I wish I can keep it.&lt;/p&gt;
-
-&lt;p&gt;Thanks,&lt;/p&gt;
-
-&lt;p&gt;Dachi&lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 09 Jan 2015 18:54:43 -0600</pubDate>
-        <link>http://dachicj.com/general/2015/01/09/2015-01-10-2015-New-Year-To-Do-List.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2015/01/09/2015-01-10-2015-New-Year-To-Do-List.html</guid>
-        
-        
-        <category>general</category>
-        
-      </item>
-    
-      <item>
-        <title>2014-10-28 My First Web App</title>
+        <title>My First Web App</title>
         <description>&lt;p&gt;My first web app “Unbeatable Tic Tac Toe A.I” has gone live at {http://dachicoding.github.io/tictactoe/}, I sincerely invite you to try it if you feel like to, and I welcome your feedback and comments. Thank you!&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 28 Oct 2014 19:54:43 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/10/28/2014-10-28-my-first-web-app.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/10/28/2014-10-28-my-first-web-app.html</guid>
+        <link>http://dachicj.com/general/2014/10/28/my-first-web-app.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/10/28/my-first-web-app.html</guid>
         
         
         <category>general</category>
@@ -59,12 +25,12 @@
       </item>
     
       <item>
-        <title>2014-10-27 Daily Summary</title>
-        <description>&lt;h1 id=&quot;study-focus-unix-io-and-standard-io-in-c&quot;&gt;Study Focus: Unix I/O and Standard I/O in C&lt;/h1&gt;
+        <title>CSAPP Study Notes 10/27/2014</title>
+        <description>&lt;h4 id=&quot;study-focus-unix-io-and-standard-io-in-c&quot;&gt;Study Focus: Unix I/O and Standard I/O in C&lt;/h4&gt;
 
-&lt;h1 id=&quot;study-material-computer-system-a-programmers-perspective&quot;&gt;Study Material: Computer System A Programmer’s Perspective&lt;/h1&gt;
+&lt;h4 id=&quot;study-material-computer-system-a-programmers-perspective&quot;&gt;Study Material: Computer System A Programmer’s Perspective&lt;/h4&gt;
 
-&lt;h1 id=&quot;study-summary&quot;&gt;Study Summary:&lt;/h1&gt;
+&lt;h4 id=&quot;study-summary&quot;&gt;Study Summary:&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;1. What is I/O (Input/Output)?&lt;/strong&gt;&lt;/p&gt;
 
@@ -92,80 +58,21 @@
 
 </description>
         <pubDate>Mon, 27 Oct 2014 16:49:29 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/10/27/2014-10-27-daily-summary.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/10/27/2014-10-27-daily-summary.html</guid>
+        <link>http://dachicj.com/2014/10/27/csapp-study-notes-2.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/10/27/csapp-study-notes-2.html</guid>
         
-        
-        <category>general</category>
         
       </item>
     
       <item>
-        <title>2014-10-16 Back Soon</title>
-        <description>&lt;p&gt;Sorry for being so lazy during the past weeks, will get back to normal frequent post soon.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/10/BIG_PICTURE_OF_COM_SCI.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/10/BIG_PICTURE_OF_COM_SCI-300x286.png&quot; alt=&quot;BIG_PICTURE_OF_COM_SCI&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 16 Oct 2014 14:22:20 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/10/16/2014-10-16-back-soon.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/10/16/2014-10-16-back-soon.html</guid>
-        
-        
-        <category>general</category>
-        
-      </item>
-    
-      <item>
-        <title>2014-09-27 Daily Summary</title>
+        <title>CSAPP Study Notes 09/17/2014</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;study-material-computer-systems-a-programmers-perspective&quot;&gt;Study material: Computer Systems A Programmer’s Perspective&lt;/h1&gt;
+&lt;h4 id=&quot;study-material-computer-systems-a-programmers-perspective&quot;&gt;Study material: Computer Systems A Programmer’s Perspective&lt;/h4&gt;
 
-&lt;h1 id=&quot;study-focus-chapter-07-linker&quot;&gt;Study focus: Chapter 07 Linker&lt;/h1&gt;
+&lt;h4 id=&quot;study-focus-optimization-in-c-language&quot;&gt;Study focus: Optimization (in C language)&lt;/h4&gt;
 
-&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-27-上午10-31-46.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-27-上午10-31-46-300x225.png&quot; alt=&quot;照片 14-9-27 上午10 31 46&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 27 Sep 2014 10:34:00 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/09/27/2014-09-27-daily-summary.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/09/27/2014-09-27-daily-summary.html</guid>
-        
-        
-        <category>general</category>
-        
-      </item>
-    
-      <item>
-        <title>2014-09-20 Daily Summary</title>
-        <description>&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;product-name-sidebar&quot;&gt;Product name: Sidebar&lt;/h1&gt;
-
-&lt;h1 id=&quot;description-5-curated-design-links-every-day&quot;&gt;Description: 5 curated design links, every day&lt;/h1&gt;
-
-&lt;h1 id=&quot;mock-up&quot;&gt;Mock-up:&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-20-下午8-06-03.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-20-下午8-06-03-300x225.png&quot; alt=&quot;照片 14-9-20 下午8 06 03&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 20 Sep 2014 20:06:50 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/09/20/2014-09-20-daily-summary.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/09/20/2014-09-20-daily-summary.html</guid>
-        
-        
-        <category>general</category>
-        
-      </item>
-    
-      <item>
-        <title>2014-09-17 Daily Summary</title>
-        <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;study-material-computer-systems-a-programmers-perspective&quot;&gt;Study material: Computer Systems A Programmer’s Perspective&lt;/h1&gt;
-
-&lt;h1 id=&quot;study-focus-optimization-in-c-language&quot;&gt;Study focus: Optimization (in C language)&lt;/h1&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+&lt;h4 id=&quot;summary&quot;&gt;Summary:&lt;/h4&gt;
 
 &lt;p&gt;One of the most important concerning when optimizing you code is to ensure a safety optimization, which is your optimization&lt;/p&gt;
 
@@ -228,23 +135,21 @@
 &lt;p&gt;No time for product analysis today. You catch me! Send “catch you lazy man!” to me on Weixin(WeChat) and there is a small reward for you! （offer expires at 23:59 09/17/2014)&lt;/p&gt;
 </description>
         <pubDate>Wed, 17 Sep 2014 15:49:39 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/09/17/2014-09-17-daily-summary.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/09/17/2014-09-17-daily-summary.html</guid>
+        <link>http://dachicj.com/2014/09/17/csapp-study-notes-1.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/09/17/csapp-study-notes-1.html</guid>
         
-        
-        <category>general</category>
         
       </item>
     
       <item>
-        <title>2014-09-16 Daily Summary</title>
+        <title>JS and jQuery Study Notes 09/16/2014</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;study-material-javascript-and-jquery&quot;&gt;Study material: JavaScript and JQuery&lt;/h1&gt;
+&lt;h4 id=&quot;study-material-javascript-and-jquery&quot;&gt;Study material: JavaScript and JQuery&lt;/h4&gt;
 
-&lt;h1 id=&quot;study-focus-dom-getupdate-element-content&quot;&gt;Study focus: DOM get/update element content&lt;/h1&gt;
+&lt;h4 id=&quot;study-focus-dom-getupdate-element-content&quot;&gt;Study focus: DOM get/update element content&lt;/h4&gt;
 
-&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+&lt;h4 id=&quot;summary&quot;&gt;Summary:&lt;/h4&gt;
 
 &lt;p&gt;Assume we have a list element&lt;/p&gt;
 
@@ -302,30 +207,28 @@
 
 &lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;o2o-online-to-offline-products-analysis&quot;&gt;O2O (Online to Offline) Products Analysis:&lt;/h1&gt;
+&lt;h4 id=&quot;o2o-online-to-offline-products-analysis&quot;&gt;O2O (Online to Offline) Products Analysis:&lt;/h4&gt;
 
 &lt;p&gt;dropbox link: https://www.dropbox.com/s/kg4n441drd03sok/%E5%8C%97%E4%BA%AC%E4%BA%8C%E6%9C%9F-%E5%BE%90%E8%BE%BE%E8%BF%9F-%E7%AC%AC%E4%B9%9D%E8%AF%BE%E5%A0%82%E4%B9%9D%E6%9C%88%E4%BD%9C%E4%B8%9A.pdf?dl=0&lt;/p&gt;
 
 &lt;p&gt;If the link is not working and you are interested in reading my analysis, please email me at dachi.xu@gmail.com and I will send you an copy.&lt;/p&gt;
 </description>
         <pubDate>Tue, 16 Sep 2014 17:04:43 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/09/16/2014-09-16-daily-summary.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/09/16/2014-09-16-daily-summary.html</guid>
+        <link>http://dachicj.com/2014/09/16/js-jQuery-study-notes-4.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/09/16/js-jQuery-study-notes-4.html</guid>
         
-        
-        <category>general</category>
         
       </item>
     
       <item>
-        <title>2014-09-15 Daily Summary</title>
+        <title>JS and jQuery Study Notes 09/15/2014</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;study-materialjavascript--jquery-jon-duckett&quot;&gt;Study material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h1&gt;
+&lt;h4 id=&quot;study-materialjavascript--jquery-jon-duckett&quot;&gt;Study material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h4&gt;
 
-&lt;h1 id=&quot;study-focus-how-to-select-elements-in-dom-tree&quot;&gt;Study focus: how to select elements in DOM Tree&lt;/h1&gt;
+&lt;h4 id=&quot;study-focus-how-to-select-elements-in-dom-tree&quot;&gt;Study focus: how to select elements in DOM Tree&lt;/h4&gt;
 
-&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+&lt;h4 id=&quot;summary&quot;&gt;Summary:&lt;/h4&gt;
 
 &lt;p&gt;Let’s write some simple piece of mark-ups:&lt;/p&gt;
 
@@ -377,31 +280,29 @@
 
 &lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt; Timeline Hunt (http://timeline-product-hunt.herokuapp.com/)&lt;/p&gt;
 
-&lt;h1 id=&quot;description-the-best-products-of-product-hunt-on-a-timeline&quot;&gt;Description: The best products of Product Hunt on a timeline&lt;/h1&gt;
+&lt;h4 id=&quot;description-the-best-products-of-product-hunt-on-a-timeline&quot;&gt;Description: The best products of Product Hunt on a timeline&lt;/h4&gt;
 
-&lt;h1 id=&quot;prototype&quot;&gt;Prototype:&lt;/h1&gt;
+&lt;h4 id=&quot;prototype&quot;&gt;Prototype:&lt;/h4&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-15-at-10.25.24-AM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-15-at-10.25.24-AM-300x194.png&quot; alt=&quot;Screen Shot 2014-09-15 at 10.25.24 AM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 15 Sep 2014 10:26:30 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/09/15/2014-09-15-daily-summary.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/09/15/2014-09-15-daily-summary.html</guid>
+        <link>http://dachicj.com/2014/09/15/js-jQuery-study-notes-3.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/09/15/js-jQuery-study-notes-3.html</guid>
         
-        
-        <category>general</category>
         
       </item>
     
       <item>
-        <title>2014-09-14 Daily Summary</title>
+        <title>JS and jQuery Study Notes 09/14/2014</title>
         <description>&lt;p&gt;&lt;strong&gt;Programming: &lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;studying-material-javascript--jquery-jon-duckett&quot;&gt;Studying material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h1&gt;
+&lt;h4 id=&quot;studying-material-javascript--jquery-jon-duckett&quot;&gt;Studying material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h4&gt;
 
-&lt;h1 id=&quot;studying-focus-javascript-objects&quot;&gt;Studying focus: JavaScript Objects&lt;/h1&gt;
+&lt;h4 id=&quot;studying-focus-javascript-objects&quot;&gt;Studying focus: JavaScript Objects&lt;/h4&gt;
 
-&lt;h1 id=&quot;summary&quot;&gt;Summary:&lt;/h1&gt;
+&lt;h4 id=&quot;summary&quot;&gt;Summary:&lt;/h4&gt;
 
 &lt;p&gt;Objects Structure in JavaScript&lt;/p&gt;
 
@@ -455,11 +356,11 @@
 
 &lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;product-name-hacker-experience-httpshackerexperiencecomwelcome&quot;&gt;Product Name: Hacker Experience (https://hackerexperience.com/welcome)&lt;/h1&gt;
+&lt;h4 id=&quot;product-name-hacker-experience-httpshackerexperiencecomwelcome&quot;&gt;Product Name: Hacker Experience (https://hackerexperience.com/welcome)&lt;/h4&gt;
 
-&lt;h1 id=&quot;description-online-hacking-simulation-game&quot;&gt;Description: Online hacking simulation game&lt;/h1&gt;
+&lt;h4 id=&quot;description-online-hacking-simulation-game&quot;&gt;Description: Online hacking simulation game&lt;/h4&gt;
 
-&lt;h1 id=&quot;prototypes&quot;&gt;Prototypes:&lt;/h1&gt;
+&lt;h4 id=&quot;prototypes&quot;&gt;Prototypes:&lt;/h4&gt;
 
 &lt;p&gt;Front Page&lt;/p&gt;
 
@@ -470,11 +371,210 @@
 &lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-07-14.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-07-14-225x300.png&quot; alt=&quot;照片 14-9-14 上午11 07 14&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 14 Sep 2014 11:23:18 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/09/14/2014-09-14-daily-summary.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/09/14/2014-09-14-daily-summary.html</guid>
+        <link>http://dachicj.com/2014/09/14/js-jQuery-study-notes-2.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/09/14/js-jQuery-study-notes-2.html</guid>
         
         
-        <category>general</category>
+      </item>
+    
+      <item>
+        <title>angularJS study notes 09/13/2014</title>
+        <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Programming: AngularJS (Material: https://docs.angularjs.org/tutorial)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A example of Angular JS application template structure&lt;/p&gt;
+
+&lt;html ng-app=&quot;appName&quot;&gt; // ng-app set the root of the angularJS application
+
+&lt;head&gt;&lt;/head&gt;
+
+&lt;body ng-controller=&quot;controllerName&quot;&gt; // ng-controller set the scope of application
+
+&lt;div ng-repeat=&quot;&quot;&gt;
+
+&lt;p&gt;Hello,  // binding data with the controller
+
+
+
+
+
+
+
+The connection between the template / model / controller would looks like
+
+[![tutorial_02](http://dachicj.com/wp-content/uploads/2014/09/tutorial_02-300x182.png)](http://dachicj.com/wp-content/uploads/2014/09/tutorial_02.png)
+
+
+
+_**Product: http://www.algomation.com/**_
+
+Strategy: NA
+
+Scope: NA
+
+Skeleton: NA
+
+Structure: NA
+
+Surface:
+
+
+
+	
+  * wireframe
+
+
+[![Screen Shot 2014-09-13 at 12.33.18 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.33.18-PM-300x202.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.33.18-PM.png)
+
+[![Screen Shot 2014-09-13 at 12.18.12 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM-300x203.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM.png)
+
+
+
+
+
+
+
+	
+  * sitemap
+
+
+[![Screen Shot 2014-09-13 at 12.28.23 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.28.23-PM-300x242.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM.png)
+&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+</description>
+        <pubDate>Sat, 13 Sep 2014 12:43:47 -0500</pubDate>
+        <link>http://dachicj.com/2014/09/13/angularJS-study-notes.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/09/13/angularJS-study-notes.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Python Study Notes 09/04/2014</title>
+        <description>&lt;p&gt;Summary of what I’ve studied today:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;Python Project Skeleton should look like this:
+~/bin
+~/docs
+~/source
+~/tests&lt;/p&gt;
+
+&lt;p&gt;Helpful Python packages:
+#### pip
+#### nosetest
+#### virtualenv&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;Searching:
+#### /search text + ENTER
+#### after search use n to go to next match or ? go to previous match
+#### use “set hlsearch” to turn on the highlight of matched text.
+#### use “set incsearch” to highlight matching text as soon as you type(rather than after you press the ‘ENTER’)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;LINUX&lt;/em&gt;&lt;/strong&gt;:
+#### passwd: to change password of user
+#### useful shortcuts:
+CTRL + A : go to the left side of the line.
+CTRL + E : go to the right side of the line.
+CTRL + D : log out or exit
+CTRL + R : search command history ( you can also type ‘history’ to list all previous commands you typed. )&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Sep 2014 18:03:18 -0500</pubDate>
+        <link>http://dachicj.com/2014/09/04/python-study-notes.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/09/04/python-study-notes.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Write a class in python</title>
+        <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Programming:&lt;/em&gt;&lt;/strong&gt;
+&lt;strong&gt;Python&lt;/strong&gt;
+#### write a class in python:
+class Parent(object):
+  def &lt;strong&gt;init&lt;/strong&gt;(self):
+    #### constructor&lt;/p&gt;
+
+&lt;p&gt;def method(self,parameter):
+    #### do something&lt;/p&gt;
+
+&lt;p&gt;class Child(Parent):&lt;/p&gt;
+
+&lt;p&gt;def &lt;strong&gt;init&lt;/strong&gt;(self):
+     #### constructor&lt;/p&gt;
+
+&lt;p&gt;def method(self,parameter):
+      super(Child).method(self,parameter) #### override parent’s method&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Vim:&lt;/strong&gt;
+Searching
+#### f : find text
+#### t : stop before text&lt;/p&gt;
+
+&lt;p&gt;Moving
+#### ctrl + u: scroll up pages
+#### ctrl + d: scroll down pages&lt;/p&gt;
+
+&lt;p&gt;Deleting
+#### dw : delete a word&lt;/p&gt;
+
+&lt;h4 id=&quot;j--joining&quot;&gt;J : joining&lt;/h4&gt;
+
+&lt;h4 id=&quot;change-case&quot;&gt;~ : change case&lt;/h4&gt;
+
+&lt;h4 id=&quot;how-to-record-a-macro&quot;&gt;how to record a macro:&lt;/h4&gt;
+&lt;p&gt;qa - q:record / a: store the macro at register a
+do something
+q - stop recording
+&lt;a href=&quot;https://github.com/a&quot; class=&quot;user-mention&quot;&gt;@a&lt;/a&gt; - call the macro at register a&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Product:&lt;/em&gt;&lt;/strong&gt;
+#### 1 mockup per day
+https://itunes.apple.com/cn/app/bao-he-jian-fei-jian-shen/id457856023?l=en&amp;amp;mt;=8&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/mockup.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/mockup-300x100.png&quot; alt=&quot;mockup&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Sep 2014 15:23:42 -0500</pubDate>
+        <link>http://dachicj.com/2014/09/03/write-a-class-in-python.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/09/03/write-a-class-in-python.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>JS and jQuery Notes 08/26/2014</title>
+        <description>&lt;p&gt;Today’s study summary:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JQuery:&lt;/strong&gt;
+#### JQuery event methods: 
+    UI: focus, blur
+    Keyboard: input, keydown, keyup, keypress
+    Mouse: click, mouseover
+    Form: submit&lt;/p&gt;
+
+&lt;h4 id=&quot;jquery-event-object&quot;&gt;JQuery event object:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;event.type
+event.which
+event.data
+event.target
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;basic-effect&quot;&gt;Basic Effect:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;.show() / .hide() /.toggle()
+.fadeIn() / .fadeOut() / .slideUp() / .slideDown()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;animation&quot;&gt;Animation:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$(element).animate([effect],[,speed],[,easing],[,complete]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A really well designed and informative website I found today: http://www.evolutionoftheweb.com/?hl=en&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Aug 2014 19:34:52 -0500</pubDate>
+        <link>http://dachicj.com/2014/08/25/js-jQuery-notes-1.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/08/25/js-jQuery-notes-1.html</guid>
+        
         
       </item>
     
