@@ -6,9 +6,119 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 27 Sep 2015 11:50:20 -0500</pubDate>
-    <lastBuildDate>Sun, 27 Sep 2015 11:50:20 -0500</lastBuildDate>
+    <pubDate>Sun, 25 Oct 2015 20:16:59 -0500</pubDate>
+    <lastBuildDate>Sun, 25 Oct 2015 20:16:59 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Notes on preapring technique interview</title>
+        <description>&lt;p&gt;I recently had a phone screen interview with Google, unfortunately I was not able to move forward to an onsite interview, but I would love to share something about preparing a technique interview. &lt;/p&gt;
+
+&lt;p&gt;Technique interview questions could have a great variety of different stuff, let me “hash” them into few categories:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Data Structure and Algorithm:&lt;/strong&gt;
+This is where most of your interview questiones will come from, you might have to spend a lot of time on it. DataS and algorithm topics includes:&lt;/li&gt;
+&lt;/ul&gt;
+
+ 	- Bits manipulation: Bitwise opeartions
+&lt;pre&gt;&lt;code&gt;- Data type related: Math(number theory),String(String conversion, pattern matching)
+- Data structure related: Linear DS(Array,LinkedList),Hahsed,Trees and Graph
+ 	- General algo design: Divide and conquer, Dynamic programming/Greedy algo
+ 	- Design: e.g Implementing iteratro 
+
+There is a logic order might help you better understand the layers relationship between different topics above:
+
+Bit(0101010...) =(Enconde)=&amp;gt; Data Type(int, char, string) =(Organize)=&amp;gt; Data Structure =(Design &amp;amp; Coding)=&amp;gt; Programs.
+
+When reviewing DS/algorithm problems, it will be good to **study fundamental theory and practice algorithm exercises** at the same time. You definitely want to use some OJ such as LeetCode but it is also necessary to review your algorithm textbook in case you run across some question that has never seen, so you still can recoginze what kind of problem it is in an instant.
+
+*Recommend material:*
+
+1 [Algorithm 4th Ed](http://www.amazon.com/Algorithms-4th-Edition-Robert-Sedgewick/dp/032157351X)
+	
+2 [Intro to algorithm](http://www.amazon.com/gp/product/0262033844/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=1944687762&amp;amp;pf_rd_s=lpo-top-stripe-1&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=032157351X&amp;amp;pf_rd_m=ATVPDKIKX0DER&amp;amp;pf_rd_r=0JG05DDS4Z9GBQD0JX5A)
+	
+3 [CC150](http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150)
+	
+4 [LeetCode](http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150)
+	
+5 I also found this data strucutre open course on [courera](https://www.coursera.org/learn/shuju-jiegou-suanfa) really helpful  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Coding&lt;/strong&gt;:&lt;/p&gt;
+
+    &lt;p&gt;Know detail stuff about your favoriate language, try to pracitce them with implemnting different data structures and solving the algorihtm problems, for python lover I recommend this &lt;a href=&quot;http://docs.python-guide.org/en/latest/&quot;&gt;article&lt;/a&gt;  &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Opearting System knowledeges&lt;/strong&gt;:&lt;/p&gt;
+
+    &lt;p&gt;You might need to familar yourself with process manageemnt, mutex, semaphore, lock(deadlock) and parallel concepts.&lt;/p&gt;
+
+    &lt;p&gt;Recommend material:
+  1.&lt;a href=&quot;http://www.amazon.com/gp/product/0136006639?keywords=modern%20operating%20system&amp;amp;qid=1445800770&amp;amp;ref_=sr_1_2&amp;amp;sr=8-2&quot;&gt;Modern Opearting System&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;2.&lt;a href=&quot;https://www.coursera.org/course/os&quot;&gt;A coursera open course from PKU about OS&lt;/a&gt;  &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Shell scripting/Regex&lt;/strong&gt;:
+  I was given a regex problem at the interview, so you should expect yourself will run across it too, try to play with command line and regex (grep/sed/awk) a little bit.  &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;System Design&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Read google mapreduce/big table papers  &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Discrete mathematics&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Induction and recursive&lt;/li&gt;
+      &lt;li&gt;Boolean algebra&lt;/li&gt;
+      &lt;li&gt;Couting&lt;/li&gt;
+      &lt;li&gt;Probablity  &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;further-reading&quot;&gt;Further reading:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Great system desing interview stuff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page&#39;s canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&#39;s unique identifier variable
+    };
+    */
+    (function() {  // DON&#39;T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement(&#39;script&#39;);
+        
+        s.src = &#39;//dachicjcom.disqus.com/embed.js&#39;;
+        
+        s.setAttribute(&#39;data-timestamp&#39;, +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+</description>
+        <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
+        <link>http://dachicj.com/general/2015/10/25/Notes-on-preparing-technique-interview.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2015/10/25/Notes-on-preparing-technique-interview.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
     
       <item>
         <title>My First Web App</title>
@@ -538,42 +648,6 @@ https://itunes.apple.com/cn/app/bao-he-jian-fei-jian-shen/id457856023?l=en&amp;a
         <pubDate>Wed, 03 Sep 2014 15:23:42 -0500</pubDate>
         <link>http://dachicj.com/2014/09/03/write-a-class-in-python.html</link>
         <guid isPermaLink="true">http://dachicj.com/2014/09/03/write-a-class-in-python.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>JS and jQuery Notes 08/26/2014</title>
-        <description>&lt;p&gt;Today’s study summary:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;JQuery:&lt;/strong&gt;
-#### JQuery event methods: 
-    UI: focus, blur
-    Keyboard: input, keydown, keyup, keypress
-    Mouse: click, mouseover
-    Form: submit&lt;/p&gt;
-
-&lt;h4 id=&quot;jquery-event-object&quot;&gt;JQuery event object:&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;event.type
-event.which
-event.data
-event.target
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;basic-effect&quot;&gt;Basic Effect:&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;.show() / .hide() /.toggle()
-.fadeIn() / .fadeOut() / .slideUp() / .slideDown()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;animation&quot;&gt;Animation:&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;$(element).animate([effect],[,speed],[,easing],[,complete]);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A really well designed and informative website I found today: http://www.evolutionoftheweb.com/?hl=en&lt;/p&gt;
-</description>
-        <pubDate>Mon, 25 Aug 2014 19:34:52 -0500</pubDate>
-        <link>http://dachicj.com/2014/08/25/js-jQuery-notes-1.html</link>
-        <guid isPermaLink="true">http://dachicj.com/2014/08/25/js-jQuery-notes-1.html</guid>
         
         
       </item>
