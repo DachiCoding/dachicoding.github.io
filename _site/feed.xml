@@ -6,8 +6,8 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 25 Oct 2015 20:16:59 -0500</pubDate>
-    <lastBuildDate>Sun, 25 Oct 2015 20:16:59 -0500</lastBuildDate>
+    <pubDate>Sun, 25 Oct 2015 21:20:09 -0500</pubDate>
+    <lastBuildDate>Sun, 25 Oct 2015 21:20:09 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -17,99 +17,74 @@
 &lt;p&gt;Technique interview questions could have a great variety of different stuff, let me “hash” them into few categories:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Data Structure and Algorithm:&lt;/strong&gt;
-This is where most of your interview questiones will come from, you might have to spend a lot of time on it. DataS and algorithm topics includes:&lt;/li&gt;
-&lt;/ul&gt;
-
- 	- Bits manipulation: Bitwise opeartions
-&lt;pre&gt;&lt;code&gt;- Data type related: Math(number theory),String(String conversion, pattern matching)
-- Data structure related: Linear DS(Array,LinkedList),Hahsed,Trees and Graph
- 	- General algo design: Divide and conquer, Dynamic programming/Greedy algo
- 	- Design: e.g Implementing iteratro 
-
-There is a logic order might help you better understand the layers relationship between different topics above:
-
-Bit(0101010...) =(Enconde)=&amp;gt; Data Type(int, char, string) =(Organize)=&amp;gt; Data Structure =(Design &amp;amp; Coding)=&amp;gt; Programs.
-
-When reviewing DS/algorithm problems, it will be good to **study fundamental theory and practice algorithm exercises** at the same time. You definitely want to use some OJ such as LeetCode but it is also necessary to review your algorithm textbook in case you run across some question that has never seen, so you still can recoginze what kind of problem it is in an instant.
-
-*Recommend material:*
-
-1 [Algorithm 4th Ed](http://www.amazon.com/Algorithms-4th-Edition-Robert-Sedgewick/dp/032157351X)
-	
-2 [Intro to algorithm](http://www.amazon.com/gp/product/0262033844/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=1944687762&amp;amp;pf_rd_s=lpo-top-stripe-1&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=032157351X&amp;amp;pf_rd_m=ATVPDKIKX0DER&amp;amp;pf_rd_r=0JG05DDS4Z9GBQD0JX5A)
-	
-3 [CC150](http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150)
-	
-4 [LeetCode](http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150)
-	
-5 I also found this data strucutre open course on [courera](https://www.coursera.org/learn/shuju-jiegou-suanfa) really helpful  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Coding&lt;/strong&gt;:&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Data Structure and Algorithm:&lt;/strong&gt;
+&lt;br /&gt;&lt;br /&gt;
+This is where most of your interview questiones will come from, you might have to spend a lot of time on it. DataS and algorithm topics includes:&lt;/p&gt;
 
-    &lt;p&gt;Know detail stuff about your favoriate language, try to pracitce them with implemnting different data structures and solving the algorihtm problems, for python lover I recommend this &lt;a href=&quot;http://docs.python-guide.org/en/latest/&quot;&gt;article&lt;/a&gt;  &lt;/p&gt;
+    &lt;p&gt;1.Bits manipulation: Bitwise opeartions&lt;br /&gt;
+  2.Data type related: Math(number theory),String(String conversion, pattern matching)&lt;br /&gt;
+  3.Data structure related: Linear DS(Array,LinkedList), Hahses, Trees and Graph.&lt;br /&gt;
+  4.General algo design: Divide and conquer, Dynamic programming/Greedy algo.&lt;br /&gt;
+  5.Design: e.g Implementing iteratro&lt;br /&gt;
+&lt;br /&gt;  	
+  There is a logic sequence might help you better connecting different topics above togather:&lt;br /&gt;  &lt;br /&gt;
+&lt;strong&gt;Bit(01)=(Enconde)=&amp;gt;Data Type(int, string) =(Organize)=&amp;gt;Data Structure =(Design)=&amp;gt;Programs.&lt;/strong&gt;
+&lt;br /&gt;  &lt;br /&gt;
+  When reviewing DS/algorithm problems, it will be good to &lt;strong&gt;study fundamental theory and practice algorithm exercises&lt;/strong&gt; at the same time. You definitely want to use some OJ such as LeetCode but it is also necessary to review your algorithm textbook in case you run across some question that has never seen, so you still can recoginze what kind of problem it is in an instant.&lt;br /&gt;
+  &lt;br /&gt;
+  &lt;em&gt;Recommend study material:&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;
+  1.&lt;a href=&quot;http://www.amazon.com/Algorithms-4th-Edition-Robert-Sedgewick/dp/032157351X&quot;&gt;Algorithm 4th Ed&lt;/a&gt;&lt;br /&gt;
+  2.&lt;a href=&quot;http://www.amazon.com/gp/product/0262033844/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=1944687762&amp;amp;pf_rd_s=lpo-top-stripe-1&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=032157351X&amp;amp;pf_rd_m=ATVPDKIKX0DER&amp;amp;pf_rd_r=0JG05DDS4Z9GBQD0JX5A&quot;&gt;Intro to algorithm&lt;/a&gt;&lt;br /&gt;
+  3.&lt;a href=&quot;http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150&quot;&gt;CC150&lt;/a&gt;&lt;br /&gt;
+  4.&lt;a href=&quot;http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150&quot;&gt;LeetCode&lt;/a&gt;&lt;br /&gt;
+  5.I also found this data strucutre open course on &lt;a href=&quot;https://www.coursera.org/learn/shuju-jiegou-suanfa&quot;&gt;Coursera&lt;/a&gt; really helpful.  &lt;br /&gt;
+&lt;br /&gt;	    &lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Opearting System knowledeges&lt;/strong&gt;:&lt;/p&gt;
-
-    &lt;p&gt;You might need to familar yourself with process manageemnt, mutex, semaphore, lock(deadlock) and parallel concepts.&lt;/p&gt;
-
-    &lt;p&gt;Recommend material:
-  1.&lt;a href=&quot;http://www.amazon.com/gp/product/0136006639?keywords=modern%20operating%20system&amp;amp;qid=1445800770&amp;amp;ref_=sr_1_2&amp;amp;sr=8-2&quot;&gt;Modern Opearting System&lt;/a&gt;&lt;/p&gt;
-
-    &lt;p&gt;2.&lt;a href=&quot;https://www.coursera.org/course/os&quot;&gt;A coursera open course from PKU about OS&lt;/a&gt;  &lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Coding&lt;/strong&gt;:&lt;br /&gt;	    &lt;br /&gt;
+  Know detail stuff about your favoriate language, try to pracitce them with implemnting different data structures and algorihtms, for python lover I recommend this &lt;a href=&quot;http://docs.python-guide.org/en/latest/&quot;&gt;The Hitchhiker’s guide to python&lt;/a&gt;
+&lt;br /&gt;&lt;br /&gt;    	            &lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Shell scripting/Regex&lt;/strong&gt;:
-  I was given a regex problem at the interview, so you should expect yourself will run across it too, try to play with command line and regex (grep/sed/awk) a little bit.  &lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Opearting System knowledeges&lt;/strong&gt;:&lt;br /&gt;&lt;br /&gt;
+  You might need to familar yourself with process manageemnt, mutex, semaphore, lock(deadlock) and parallel computing concepts.&lt;/p&gt;
+
+    &lt;p&gt;Recommend material:&lt;br /&gt;
+  1 &lt;a href=&quot;http://www.amazon.com/gp/product/0136006639?keywords=modern%20operating%20system&amp;amp;qid=1445800770&amp;amp;ref_=sr_1_2&amp;amp;sr=8-2&quot;&gt;Modern Opearting System&lt;/a&gt;&lt;br /&gt;
+  2 &lt;a href=&quot;https://www.coursera.org/course/os&quot;&gt;A coursera open course from PKU about OS&lt;/a&gt;  &lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;System Design&lt;/strong&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;Read google mapreduce/big table papers  &lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Shell scripting/Regex&lt;/strong&gt;:&lt;br /&gt;&lt;br /&gt;
+  I was given a regex problem at the interview, so you should expect yourself will run across it too, try to play with command line and regex (grep/sed/awk) a little bit. One of my favorite book on the topic is &lt;a href=&quot;http://www.amazon.com/gp/product/1593275676?keywords=how%20linux%20works&amp;amp;qid=1445824874&amp;amp;ref_=sr_1_1&amp;amp;sr=8-1&quot;&gt;How Linux Works&lt;/a&gt;  &lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Discrete mathematics&lt;/strong&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;Induction and recursive&lt;/li&gt;
-      &lt;li&gt;Boolean algebra&lt;/li&gt;
-      &lt;li&gt;Couting&lt;/li&gt;
-      &lt;li&gt;Probablity  &lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;System Design&lt;/strong&gt;:&lt;br /&gt;&lt;br /&gt;
+  Read google &lt;a href=&quot;http://research.google.com/archive/mapreduce.html&quot;&gt;mapreduce&lt;/a&gt;/&lt;a href=&quot;http://research.google.com/archive/bigtable.html&quot;&gt;big table&lt;/a&gt; papers and stuff recommend in further reading.&lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Discrete mathematics&lt;/strong&gt;:&lt;br /&gt;&lt;/p&gt;
+
+    &lt;p&gt;You might want to take sometime to review:&lt;br /&gt;
+  1.Induction and recursive&lt;br /&gt;
+  2.Boolean algebra&lt;br /&gt;
+  3.Couting&lt;br /&gt;
+  4.Probablity&lt;/p&gt;
+
+    &lt;p&gt;This &lt;a href=&quot;http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm?utm_source=OCWDept&amp;amp;utm_medium=CarouselSm&amp;amp;utm_campaign=FeaturedCourse&quot;&gt;MIT Open Course of discrete mathematic&lt;/a&gt; is a great stuff to check out. 
+&lt;br /&gt;&lt;br /&gt;    &lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;further-reading&quot;&gt;Further reading:&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Great system desing interview stuff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Godd read on system desing interview&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    /*
-    var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page&#39;s canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&#39;s unique identifier variable
-    };
-    */
-    (function() {  // DON&#39;T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement(&#39;script&#39;);
-        
-        s.src = &#39;//dachicjcom.disqus.com/embed.js&#39;;
-        
-        s.setAttribute(&#39;data-timestamp&#39;, +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-&lt;/script&gt;
-
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
 </description>
         <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
         <link>http://dachicj.com/general/2015/10/25/Notes-on-preparing-technique-interview.html</link>
