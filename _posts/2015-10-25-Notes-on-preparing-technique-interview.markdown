@@ -68,5 +68,5 @@ This is where most of your interview questiones will come from, you have to spen
 
 ###Further reading:
 * [The Five Essential Phone-Screen Questions](https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions)
-* [Godd read on system desing interview](https://github.com/checkcheckzz/system-design-interview)
+* [Good read on system desing interview](https://github.com/checkcheckzz/system-design-interview)
 
