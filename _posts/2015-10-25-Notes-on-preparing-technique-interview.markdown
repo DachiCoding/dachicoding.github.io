@@ -14,7 +14,7 @@ Technique interview questions could have a great variety of different stuff, let
 
 + **Data Structure and Algorithm:**
 <br>  
-This is where most of your interview questiones will come from, you might have to spend a lot of time on it. DataS and algorithm topics includes:
+This is where most of your interview questiones will come from, you have to spend a decent amount of time on it. Data structure and algorithm topics includes:
 
 	1.Bits manipulation: Bitwise opeartions  
 	2.Data type related: Math(number theory),String(String conversion, pattern matching)  
