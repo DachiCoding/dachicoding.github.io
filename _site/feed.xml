@@ -6,8 +6,8 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 25 Oct 2015 21:20:09 -0500</pubDate>
-    <lastBuildDate>Sun, 25 Oct 2015 21:20:09 -0500</lastBuildDate>
+    <pubDate>Mon, 26 Oct 2015 10:14:22 -0500</pubDate>
+    <lastBuildDate>Mon, 26 Oct 2015 10:14:22 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -20,7 +20,7 @@
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Data Structure and Algorithm:&lt;/strong&gt;
 &lt;br /&gt;&lt;br /&gt;
-This is where most of your interview questiones will come from, you might have to spend a lot of time on it. DataS and algorithm topics includes:&lt;/p&gt;
+This is where most of your interview questiones will come from, you have to spend a decent amount of time on it. Data structure and algorithm topics includes:&lt;/p&gt;
 
     &lt;p&gt;1.Bits manipulation: Bitwise opeartions&lt;br /&gt;
   2.Data type related: Math(number theory),String(String conversion, pattern matching)&lt;br /&gt;
@@ -82,27 +82,13 @@ This is where most of your interview questiones will come from, you might have t
 &lt;h3 id=&quot;further-reading&quot;&gt;Further reading:&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Godd read on system desing interview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Good read on system desing interview&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
         <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
         <link>http://dachicj.com/general/2015/10/25/Notes-on-preparing-technique-interview.html</link>
         <guid isPermaLink="true">http://dachicj.com/general/2015/10/25/Notes-on-preparing-technique-interview.html</guid>
-        
-        
-        <category>general</category>
-        
-      </item>
-    
-      <item>
-        <title>My First Web App</title>
-        <description>&lt;p&gt;My first web app “Unbeatable Tic Tac Toe A.I” has gone live at {http://dachicoding.github.io/tictactoe/}, I sincerely invite you to try it if you feel like to, and I welcome your feedback and comments. Thank you!&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 28 Oct 2014 19:54:43 -0500</pubDate>
-        <link>http://dachicj.com/general/2014/10/28/my-first-web-app.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/10/28/my-first-web-app.html</guid>
         
         
         <category>general</category>
@@ -623,6 +609,42 @@ https://itunes.apple.com/cn/app/bao-he-jian-fei-jian-shen/id457856023?l=en&amp;a
         <pubDate>Wed, 03 Sep 2014 15:23:42 -0500</pubDate>
         <link>http://dachicj.com/2014/09/03/write-a-class-in-python.html</link>
         <guid isPermaLink="true">http://dachicj.com/2014/09/03/write-a-class-in-python.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>JS and jQuery Notes 08/26/2014</title>
+        <description>&lt;p&gt;Today’s study summary:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JQuery:&lt;/strong&gt;
+#### JQuery event methods: 
+    UI: focus, blur
+    Keyboard: input, keydown, keyup, keypress
+    Mouse: click, mouseover
+    Form: submit&lt;/p&gt;
+
+&lt;h4 id=&quot;jquery-event-object&quot;&gt;JQuery event object:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;event.type
+event.which
+event.data
+event.target
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;basic-effect&quot;&gt;Basic Effect:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;.show() / .hide() /.toggle()
+.fadeIn() / .fadeOut() / .slideUp() / .slideDown()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;animation&quot;&gt;Animation:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$(element).animate([effect],[,speed],[,easing],[,complete]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A really well designed and informative website I found today: http://www.evolutionoftheweb.com/?hl=en&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Aug 2014 19:34:52 -0500</pubDate>
+        <link>http://dachicj.com/2014/08/25/js-jQuery-notes-1.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2014/08/25/js-jQuery-notes-1.html</guid>
         
         
       </item>
