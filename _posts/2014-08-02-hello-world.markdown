@@ -6,20 +6,20 @@ layout: post
 title: printf("Hello World!\n");
 categories: general
 ---
-Hi There!
 
-This website is about how I learn computer science and make cool stuff, I will post articles about learning computer science and hacking programming projects at this site.
+####Greetings!
 
-A few notes about the website structure:
-1.Daily -> I will post something about what I learn about computer science on a daily basis(Hopefully).
+Welcome to Dachi's blog! A place that you can see my blogs, projects and gain more knowledege about myself.
 
-2.Hack  -> I will present the track of my programming projects(web app, mobile app, hardware hacking and etc) at this section.
+There are some fun places that you can go to on this website :)  
 
-3.Blog  -> Comparing to the "Daily section", I will post summarized and more systematical articles here about computer science, programming or stuff about making product.
+**Hacks**: My programming projects, you can play with them and let me know how cool it is.
+  
+**Blog** : Stuff about studying computer science, programming, general technolgy and all kinds of brain hole output.
+  
+**About**: About who I was, who I am and who I am going to be. (Please do not use those information for social engineering!)
+  
+Thanks for your visiting and I hope you will enjoy it. 
 
-4.Dachi -> Contacts, Resume, CV and what else I would like to share with you about me.
-
-I appreciate your visit and I hope you may enjoy it. 
-
-Thanks,
+Thanks,  
 Dachi
