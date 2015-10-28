@@ -4,7 +4,7 @@ comments: true
 date: 2014-08-03 20:21:37+00:00
 layout: post
 title: Jugs Problem
-categories: general
+categories: computer science
 ---
 
 What I've studied today:

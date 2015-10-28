@@ -4,6 +4,7 @@ comments: true
 date: 2014-08-06 16:02:33+00:00
 layout: post
 title: Turing's Code
+categories: computer science
 ---
 
 Today I studied:

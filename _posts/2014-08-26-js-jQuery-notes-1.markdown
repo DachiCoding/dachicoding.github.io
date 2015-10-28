@@ -4,6 +4,7 @@ comments: true
 date: 2014-08-26 00:34:52+00:00
 layout: post
 title: JS and jQuery Notes 08/26/2014
+categories: web development
 ---
 
 Today's study summary:

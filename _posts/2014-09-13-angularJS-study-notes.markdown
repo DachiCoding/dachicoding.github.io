@@ -4,6 +4,7 @@ comments: true
 date: 2014-09-13 17:43:47+00:00
 layout: post
 title: angularJS study notes 09/13/2014
+categories: web development
 ---
 
 _**Programming: AngularJS (Material: https://docs.angularjs.org/tutorial)**_

@@ -4,6 +4,7 @@ comments: true
 date: 2014-08-05 03:09:00+00:00
 layout: post
 title: Strong Induction
+categories: computer science
 ---
 
 What I’ve studied today:

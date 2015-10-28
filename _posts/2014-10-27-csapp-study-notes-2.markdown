@@ -4,6 +4,7 @@ comments: true
 date: 2014-10-27 21:49:29+00:00
 layout: post
 title: CSAPP Study Notes 10/27/2014
+categories: computer science
 ---
 
 #### Study Focus: Unix I/O and Standard I/O in C

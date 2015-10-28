@@ -4,8 +4,7 @@ comments: true
 date: 2015-10-25
 layout: post
 title:  Notes on preapring technique interview
-categories: General
-
+categories: job searching
 ---
 
 I recently had a phone screen interview with Google, unfortunately I was not able to move forward to an onsite interview, but I would love to share something about preparing a technique interview. 

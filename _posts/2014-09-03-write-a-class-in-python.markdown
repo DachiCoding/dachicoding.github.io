@@ -4,6 +4,7 @@ comments: true
 date: 2014-09-03 20:23:42+00:00
 layout: post
 title: Write a class in python
+categories: programming language
 ---
 
 **_Programming:_**

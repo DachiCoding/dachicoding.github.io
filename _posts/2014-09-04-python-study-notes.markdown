@@ -4,6 +4,7 @@ comments: true
 date: 2014-09-04 23:03:18+00:00
 layout: post
 title: Python Study Notes 09/04/2014
+categories: programming language
 ---
 
 Summary of what I've studied today:

@@ -4,6 +4,7 @@ comments: true
 date: 2014-09-17 20:49:39+00:00
 layout: post
 title: CSAPP Study Notes 09/17/2014
+categories: computer science
 ---
 
 **Programming:**
