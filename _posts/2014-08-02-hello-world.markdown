@@ -9,7 +9,7 @@ categories: general
 
 ####Greetings!
 
-Welcome to Dachi's blog! A place that you can see my blogs, projects and gain more knowledege about myself.
+Welcome to Dachi's blog! A place that you can see my blogs, projects and learn more about me.
 
 There are some fun places that you can go to on this website :)  
 
