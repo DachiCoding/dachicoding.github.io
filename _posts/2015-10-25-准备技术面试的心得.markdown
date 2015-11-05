@@ -68,5 +68,6 @@ categories: job searching
 ###延伸阅读:
 * [The Five Essential Phone-Screen Questions](https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions) 著名程序员加喷神Steve Yegge所写的电面五个经典题目
 * [Good read on system desing interview](https://github.com/checkcheckzz/system-design-interview) 系统设计读物
+* [我自己用Python实现各种排序算法的代码](https://github.com/DachiCoding/programming_practice/blob/master/python/sort.py) 
 
 祝所有在准备技术面试的同学同仁们取得好成绩，我继续刷题去了噢耶。
