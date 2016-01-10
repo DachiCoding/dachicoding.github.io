@@ -6,8 +6,8 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 29 Oct 2015 12:01:55 -0500</pubDate>
-    <lastBuildDate>Thu, 29 Oct 2015 12:01:55 -0500</lastBuildDate>
+    <pubDate>Thu, 05 Nov 2015 23:25:38 -0600</pubDate>
+    <lastBuildDate>Thu, 05 Nov 2015 23:25:38 -0600</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -83,6 +83,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt; 著名程序员加喷神Steve Yegge所写的电面五个经典题目&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Good read on system desing interview&lt;/a&gt; 系统设计读物&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/DachiCoding/programming_practice/blob/master/python/sort.py&quot;&gt;我自己用Python实现各种排序算法的代码&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;祝所有在准备技术面试的同学同仁们取得好成绩，我继续刷题去了噢耶。&lt;/p&gt;
