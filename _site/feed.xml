@@ -6,8 +6,8 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 05 Nov 2015 23:25:38 -0600</pubDate>
-    <lastBuildDate>Thu, 05 Nov 2015 23:25:38 -0600</lastBuildDate>
+    <pubDate>Mon, 25 Jan 2016 23:24:48 -0600</pubDate>
+    <lastBuildDate>Mon, 25 Jan 2016 23:24:48 -0600</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -39,12 +39,12 @@
   3.&lt;a href=&quot;http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150&quot;&gt;CC150&lt;/a&gt;&lt;br /&gt;
   4.&lt;a href=&quot;http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150&quot;&gt;LeetCode&lt;/a&gt;&lt;br /&gt;
   5.这个北大在&lt;a href=&quot;https://www.coursera.org/learn/shuju-jiegou-suanfa&quot;&gt;Coursera&lt;/a&gt;上的公开课我也觉得很不错.  &lt;br /&gt;
-&lt;br /&gt;	    &lt;/p&gt;
+&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;写代码&lt;/strong&gt;:&lt;br /&gt;	    &lt;br /&gt;
   在面试的时候，（谷歌电面的时候是在Google Doc上写代码，onsite是在白板上），你需要不依赖IDE来写代码，所以你必须熟练掌握你惯用语言的语法以及种种细节，练习的最好方式是先复习语法基础，然后用你的语言来实现种种数据结构与算法，尽量使用text editor来实现。对于Python爱好者我推荐这篇文章&lt;a href=&quot;http://docs.python-guide.org/en/latest/&quot;&gt;The Hitchhiker’s guide to python&lt;/a&gt;来提高Python的姿势水平。
-&lt;br /&gt;&lt;br /&gt;    	            &lt;/p&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;操作系统&lt;/strong&gt;:&lt;br /&gt;&lt;br /&gt;
@@ -72,10 +72,10 @@
   1.递归证明&lt;br /&gt;
   2.布尔代数&lt;br /&gt;
   3.排列组合&lt;br /&gt;
-  4.概率论  &lt;/p&gt;
+  4.概率论&lt;/p&gt;
 
     &lt;p&gt;这个&lt;a href=&quot;http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm?utm_source=OCWDept&amp;amp;utm_medium=CarouselSm&amp;amp;utm_campaign=FeaturedCourse&quot;&gt;MIT的离散数学公开课&lt;/a&gt; 非常好，其中有一趟跟图论有关的课更是非常“内涵”，去看就懂了。 &lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;    &lt;/p&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -83,7 +83,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt; 著名程序员加喷神Steve Yegge所写的电面五个经典题目&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Good read on system desing interview&lt;/a&gt; 系统设计读物&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/DachiCoding/programming_practice/blob/master/python/sort.py&quot;&gt;我自己用Python实现各种排序算法的代码&lt;/a&gt; &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/DachiCoding/programming_practice/blob/master/python/sort.py&quot;&gt;我自己用Python实现各种排序算法的代码&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;祝所有在准备技术面试的同学同仁们取得好成绩，我继续刷题去了噢耶。&lt;/p&gt;
@@ -101,7 +101,7 @@
     
       <item>
         <title>Notes on preapring technique interview</title>
-        <description>&lt;p&gt;I recently had a phone screen interview with Google, unfortunately I was not able to move forward to an onsite interview, but I would love to share something about preparing a technique interview. &lt;/p&gt;
+        <description>&lt;p&gt;I recently had a phone screen interview with Google, unfortunately I was not able to move forward to an onsite interview, but I would love to share something about preparing a technique interview.&lt;/p&gt;
 
 &lt;p&gt;Technique interview questions could have a great variety of different stuff, let me “hash” them into few categories:&lt;/p&gt;
 
@@ -128,12 +128,12 @@ This is where most of your interview questiones will come from, you have to spen
   3.&lt;a href=&quot;http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150&quot;&gt;CC150&lt;/a&gt;&lt;br /&gt;
   4.&lt;a href=&quot;http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150&quot;&gt;LeetCode&lt;/a&gt;&lt;br /&gt;
   5.I also found this data strucutre open course on &lt;a href=&quot;https://www.coursera.org/learn/shuju-jiegou-suanfa&quot;&gt;Coursera&lt;/a&gt; really helpful.  &lt;br /&gt;
-&lt;br /&gt;	    &lt;/p&gt;
+&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Coding&lt;/strong&gt;:&lt;br /&gt;	    &lt;br /&gt;
   Know detail stuff about your favoriate language, try to pracitce them with implemnting different data structures and algorihtms, for python lover I recommend this &lt;a href=&quot;http://docs.python-guide.org/en/latest/&quot;&gt;The Hitchhiker’s guide to python&lt;/a&gt;
-&lt;br /&gt;&lt;br /&gt;    	            &lt;/p&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Opearting System knowledeges&lt;/strong&gt;:&lt;br /&gt;&lt;br /&gt;
@@ -164,7 +164,7 @@ This is where most of your interview questiones will come from, you have to spen
   4.Probablity&lt;/p&gt;
 
     &lt;p&gt;This &lt;a href=&quot;http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm?utm_source=OCWDept&amp;amp;utm_medium=CarouselSm&amp;amp;utm_campaign=FeaturedCourse&quot;&gt;MIT Open Course of discrete mathematic&lt;/a&gt; is a great stuff to check out. 
-&lt;br /&gt;&lt;br /&gt;    &lt;/p&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
