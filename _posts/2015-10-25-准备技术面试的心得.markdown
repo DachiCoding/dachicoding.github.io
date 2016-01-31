@@ -4,7 +4,7 @@ comments: true
 date: 2015-10-25
 layout: post
 title:  准备技术面试的心得
-categories: job searching
+categories: Career Development
 ---
 
 笔者最近刚刚经历了一次谷歌的电话面试，遗憾的是笔者并没有获得onsite面试的机会，但是我还是想把准备面试中的心得体会和大家分享，希望为将来会准备技术面试的朋友提供一些帮助。

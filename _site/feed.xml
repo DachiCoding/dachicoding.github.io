@@ -6,8 +6,8 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 25 Jan 2016 23:24:48 -0600</pubDate>
-    <lastBuildDate>Mon, 25 Jan 2016 23:24:48 -0600</lastBuildDate>
+    <pubDate>Sat, 30 Jan 2016 22:21:16 -0600</pubDate>
+    <lastBuildDate>Sat, 30 Jan 2016 22:21:16 -0600</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -89,13 +89,13 @@
 &lt;p&gt;祝所有在准备技术面试的同学同仁们取得好成绩，我继续刷题去了噢耶。&lt;/p&gt;
 </description>
         <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
-        <link>http://dachicj.com/job/searching/2015/10/25/%E5%87%86%E5%A4%87%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%83%E5%BE%97.html</link>
-        <guid isPermaLink="true">http://dachicj.com/job/searching/2015/10/25/%E5%87%86%E5%A4%87%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%83%E5%BE%97.html</guid>
+        <link>http://dachicj.com/career/development/2015/10/25/%E5%87%86%E5%A4%87%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%83%E5%BE%97.html</link>
+        <guid isPermaLink="true">http://dachicj.com/career/development/2015/10/25/%E5%87%86%E5%A4%87%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%83%E5%BE%97.html</guid>
         
         
-        <category>job</category>
+        <category>career</category>
         
-        <category>searching</category>
+        <category>development</category>
         
       </item>
     
@@ -183,6 +183,32 @@ This is where most of your interview questiones will come from, you have to spen
         <category>job</category>
         
         <category>searching</category>
+        
+      </item>
+    
+      <item>
+        <title>Artificial Intelligence Search Algorithms</title>
+        <description>&lt;p&gt;I am taking a A.I class for this quarter. It’s so much fun and challenging. I wanted to take some notes on what I am learning.&lt;/p&gt;
+
+&lt;p&gt;DFS
+BFS
+Iterative Deepening
+Uniform Cost
+Best First Search
+A* Algorithm&lt;/p&gt;
+</description>
+        <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
+        <link>http://dachicj.com/comptuer/science/-/a.i/2015/10/25/Artificial-Intelligence-Search-Algorithms.html</link>
+        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/2015/10/25/Artificial-Intelligence-Search-Algorithms.html</guid>
+        
+        
+        <category>comptuer</category>
+        
+        <category>science</category>
+        
+        <category>-</category>
+        
+        <category>a.i</category>
         
       </item>
     
@@ -669,65 +695,6 @@ CTRL + R : search command history ( you can also type ‘history’ to list all 
         <pubDate>Thu, 04 Sep 2014 18:03:18 -0500</pubDate>
         <link>http://dachicj.com/programming/language/2014/09/04/python-study-notes.html</link>
         <guid isPermaLink="true">http://dachicj.com/programming/language/2014/09/04/python-study-notes.html</guid>
-        
-        
-        <category>programming</category>
-        
-        <category>language</category>
-        
-      </item>
-    
-      <item>
-        <title>Write a class in python</title>
-        <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Programming:&lt;/em&gt;&lt;/strong&gt;
-&lt;strong&gt;Python&lt;/strong&gt;
-#### write a class in python:
-class Parent(object):
-  def &lt;strong&gt;init&lt;/strong&gt;(self):
-    #### constructor&lt;/p&gt;
-
-&lt;p&gt;def method(self,parameter):
-    #### do something&lt;/p&gt;
-
-&lt;p&gt;class Child(Parent):&lt;/p&gt;
-
-&lt;p&gt;def &lt;strong&gt;init&lt;/strong&gt;(self):
-     #### constructor&lt;/p&gt;
-
-&lt;p&gt;def method(self,parameter):
-      super(Child).method(self,parameter) #### override parent’s method&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Vim:&lt;/strong&gt;
-Searching
-#### f : find text
-#### t : stop before text&lt;/p&gt;
-
-&lt;p&gt;Moving
-#### ctrl + u: scroll up pages
-#### ctrl + d: scroll down pages&lt;/p&gt;
-
-&lt;p&gt;Deleting
-#### dw : delete a word&lt;/p&gt;
-
-&lt;h4 id=&quot;j--joining&quot;&gt;J : joining&lt;/h4&gt;
-
-&lt;h4 id=&quot;change-case&quot;&gt;~ : change case&lt;/h4&gt;
-
-&lt;h4 id=&quot;how-to-record-a-macro&quot;&gt;how to record a macro:&lt;/h4&gt;
-&lt;p&gt;qa - q:record / a: store the macro at register a
-do something
-q - stop recording
-&lt;a href=&quot;https://github.com/a&quot; class=&quot;user-mention&quot;&gt;@a&lt;/a&gt; - call the macro at register a&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Product:&lt;/em&gt;&lt;/strong&gt;
-#### 1 mockup per day
-https://itunes.apple.com/cn/app/bao-he-jian-fei-jian-shen/id457856023?l=en&amp;amp;mt;=8&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/mockup.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/mockup-300x100.png&quot; alt=&quot;mockup&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 03 Sep 2014 15:23:42 -0500</pubDate>
-        <link>http://dachicj.com/programming/language/2014/09/03/write-a-class-in-python.html</link>
-        <guid isPermaLink="true">http://dachicj.com/programming/language/2014/09/03/write-a-class-in-python.html</guid>
         
         
         <category>programming</category>
