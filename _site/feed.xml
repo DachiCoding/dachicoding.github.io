@@ -6,9 +6,339 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 30 Jan 2016 22:21:16 -0600</pubDate>
-    <lastBuildDate>Sat, 30 Jan 2016 22:21:16 -0600</lastBuildDate>
+    <pubDate>Sat, 30 Jan 2016 23:27:24 -0600</pubDate>
+    <lastBuildDate>Sat, 30 Jan 2016 23:27:24 -0600</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Artificial Intelligence Search Algorithms (Draft)</title>
+        <description>&lt;!--Custome style--&gt;
+&lt;style&gt;
+    body{
+    	width:960px;
+    	margin:10px auto;
+    }
+    circle{
+      fill:white;
+      stroke:steelblue;  
+      stroke-width:2px;
+    }
+    line{
+      stroke:grey;
+      stroke-width:3px;
+    }
+    .incRect{
+    	stroke:grey;
+    	shape-rendering:crispEdges;
+    }
+    #incMatx text{
+    	text-anchor:middle;
+    	cursor:default;
+    }
+    #treesvg g text:hover, #treesvg g circle:hover{
+    	cursor:pointer;
+    }
+    #navdiv{
+    	background:#555;
+    }
+    #treesvg{
+    	border:1px solid grey;
+    }
+    #labelpos{
+    	color:white;
+    }
+    #navdiv button, #navdiv textarea{
+    	vertical-align:middle;
+    }
+    #g_labels text{
+    	text-anchor:middle;
+    }
+    #g_elabels text{
+    	text-anchor:middle;
+    	fill:red;
+    	font-weight:bold;
+    }
+&lt;/style&gt;
+
+&lt;!--Contents--&gt;
+&lt;div id=&quot;content-wrapper&quot;&gt;
+&lt;h4&gt;I am taking a artificial intelligence class for this quarter. It&#39;s so much fun and challenging. I wanted to take some notes on what I am learning.&lt;/h4&gt;
+
+&lt;h4&gt;I will go through several things in this post:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;h5&gt;What is a search algorithm in A.I context?&lt;/h5&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;h5&gt;What kind of problem does search algorithms solve?&lt;/h5&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;h5&gt;What are most widely used search algorithms and how to implement them.&lt;/h5&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Algorithm concepts and implementations&lt;/h4&gt;
+&lt;ol&gt;
+    &lt;li&gt;DFS&lt;/li&gt;
+    &lt;li&gt;BFS&lt;/li&gt;
+    &lt;li&gt;Iterative Deepening&lt;/li&gt;
+    &lt;li&gt;Uniform Cost&lt;/li&gt;
+    &lt;li&gt;Best First Search&lt;/li&gt;
+    &lt;li&gt;A* Algorithms with different heuristics functions&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+
+&lt;!--Additional javascript--&gt;
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+function tree(){
+	var svgW=958, svgH =460, vRad=12, tree={cx:300, cy:30, w:40, h:70};
+	tree.vis={v:0, l:&#39;?&#39;, p:{x:tree.cx, y:tree.cy},c:[]};	
+	tree.size=1;
+	tree.glabels =[];
+	tree.incMatx =[];
+	tree.incX=500, tree.incY=30, tree.incS=20;
+	
+	tree.getVertices =  function(){
+		var v =[];
+		function getVertices(t,f){	
+			v.push({v:t.v, l:t.l, p:t.p, f:f});	
+			t.c.forEach(function(d){ return getVertices(d,{v:t.v, p:t.p}); });
+		}
+		getVertices(tree.vis,{});
+		return v.sort(function(a,b){ return a.v - b.v;});
+	}
+	
+	tree.getEdges =  function(){
+		var e =[];
+		function getEdges(_){
+			_.c.forEach(function(d){ e.push({v1:_.v, l1:_.l, p1:_.p, v2:d.v, l2:d.l, p2:d.p});});
+			_.c.forEach(getEdges);
+		}
+		getEdges(tree.vis);
+		return e.sort(function(a,b){ return a.v2 - b.v2;});	
+	}
+	
+	tree.addLeaf = function(_){
+		function addLeaf(t){
+			if(t.v==_){ t.c.push({v:tree.size++, l:&#39;?&#39;, p:{},c:[]}); return; }
+			t.c.forEach(addLeaf);
+		}
+		addLeaf(tree.vis);
+		reposition(tree.vis);
+		if(tree.glabels.length != 0){
+			tree.glabels =[]
+			relabel(
+				{
+					lbl:d3.range(0, tree.size).map(function(d){ return &#39;?&#39;;}), 
+					incMatx:d3.range(0,tree.size-1).map(function(){ return 0;})
+				});
+			d3.select(&quot;#labelnav&quot;).style(&#39;visibility&#39;,&#39;hidden&#39;);
+		}
+		else tree.incMatx = d3.range(0,tree.size-1).map(function(){ return 0;});
+		redraw();
+	}
+	
+	tree.gracefulLabels = function(){
+		tree.glabels =[], v = tree.getVertices();
+		var vlbls =[], elbls=[];
+		gracefulLbl = function(c){
+			if(c == tree.size) { 
+				var lbl = {lbl:vlbls.map(function(_){return _;}) }; 
+				relabel(lbl);
+				updateIncMatx();
+				var incMatx = tree.incMatx.map(function(_){ return _; });
+				if( (tree.incMatx[0] &amp; 2)&gt;&gt; 1 ==1 &amp;&amp; tree.glabels.every(function(d){ return d.incMatx.toString() != incMatx.toString(); })){
+					lbl.incMatx = incMatx;
+					tree.glabels.push(lbl); 
+				}
+				return; 
+			}
+			d3.range(0, tree.size)
+				.filter(function(d){ return (vlbls.indexOf(d) ==-1) &amp;&amp;(elbls.indexOf(Math.abs(vlbls[v[c].f.v] - d)) == -1);})
+				.forEach(function(d){  
+					vlbls[c]=d; 
+					elbls[c]=Math.abs(vlbls[v[c].f.v] - d); 
+					gracefulLbl(c+1); 
+					delete vlbls[c]; 		
+					delete elbls[c]; 				
+				});			
+		}
+		d3.range(0, tree.size).forEach(function(d){ vlbls =[d]; elbls=[]; gracefulLbl(1); });
+		tree.showLabel(1);
+		d3.select(&quot;#labelpos&quot;).text(tree.currLbl+&#39;/&#39;+tree.glabels.length);
+		d3.select(&quot;#labelnav&quot;).style(&#39;visibility&#39;,&#39;visible&#39;);
+	}
+	
+	updateIncMatx = function(){
+		var n = tree.size-1;
+		tree.incMatx = d3.range(0,tree.size-1).map(function(){return 0;});
+		updateIncMatxl = function(t){
+			t.c.forEach(function(c){
+				t.l &lt; c.l ? tree.incMatx[t.l]= tree.incMatx[t.l] | (1&lt;&lt;(n-c.l)) : tree.incMatx[c.l]= tree.incMatx[c.l] | (1&lt;&lt;(n-t.l));
+				updateIncMatxl(c);
+			});
+		}
+		updateIncMatxl(tree.vis);		
+	}
+	
+	getIncMatxRow = function(i){
+		return d3.range(0,tree.size-1-i).map(function(d,j){ var n=tree.size-2-i-j; return (tree.incMatx[i] &amp; 1&lt;&lt;n)&gt;&gt;n; });
+	}
+	
+	tree.showLabel = function(i){
+		if(i &gt;tree.glabels.length || i &lt; 1){ alert(&#39;invalid label position&#39;); return; } 
+		
+		relabel(tree.glabels[i-1]);
+		redraw();
+		tree.currLbl = i;
+		d3.select(&quot;#labelpos&quot;).text(tree.currLbl+&#39;/&#39;+tree.glabels.length);
+	}
+	
+	relabel = function(lbl){
+		function relbl(t){	t.l=lbl.lbl[t.v];	t.c.forEach(relbl);		}
+		relbl(tree.vis);
+		tree.incMatx = lbl.incMatx;
+	}
+	
+	redraw = function(){
+		var edges = d3.select(&quot;#g_lines&quot;).selectAll(&#39;line&#39;).data(tree.getEdges());
+		
+		edges.transition().duration(500)
+			.attr(&#39;x1&#39;,function(d){ return d.p1.x;}).attr(&#39;y1&#39;,function(d){ return d.p1.y;})
+			.attr(&#39;x2&#39;,function(d){ return d.p2.x;}).attr(&#39;y2&#39;,function(d){ return d.p2.y;})
+	
+		edges.enter().append(&#39;line&#39;)
+			.attr(&#39;x1&#39;,function(d){ return d.p1.x;}).attr(&#39;y1&#39;,function(d){ return d.p1.y;})
+			.attr(&#39;x2&#39;,function(d){ return d.p1.x;}).attr(&#39;y2&#39;,function(d){ return d.p1.y;})
+			.transition().duration(500)
+			.attr(&#39;x2&#39;,function(d){ return d.p2.x;}).attr(&#39;y2&#39;,function(d){ return d.p2.y;});
+			
+		var circles = d3.select(&quot;#g_circles&quot;).selectAll(&#39;circle&#39;).data(tree.getVertices());
+
+		circles.transition().duration(500).attr(&#39;cx&#39;,function(d){ return d.p.x;}).attr(&#39;cy&#39;,function(d){ return d.p.y;});
+		
+		circles.enter().append(&#39;circle&#39;).attr(&#39;cx&#39;,function(d){ return d.f.p.x;}).attr(&#39;cy&#39;,function(d){ return d.f.p.y;}).attr(&#39;r&#39;,vRad)
+			.on(&#39;click&#39;,function(d){return tree.addLeaf(d.v);})
+			.transition().duration(500).attr(&#39;cx&#39;,function(d){ return d.p.x;}).attr(&#39;cy&#39;,function(d){ return d.p.y;});
+			
+		var labels = d3.select(&quot;#g_labels&quot;).selectAll(&#39;text&#39;).data(tree.getVertices());
+		
+		labels.text(function(d){return d.l;}).transition().duration(500)
+			.attr(&#39;x&#39;,function(d){ return d.p.x;}).attr(&#39;y&#39;,function(d){ return d.p.y+5;});
+			
+		labels.enter().append(&#39;text&#39;).attr(&#39;x&#39;,function(d){ return d.f.p.x;}).attr(&#39;y&#39;,function(d){ return d.f.p.y+5;})
+			.text(function(d){return d.l;}).on(&#39;click&#39;,function(d){return tree.addLeaf(d.v);})
+			.transition().duration(500)
+			.attr(&#39;x&#39;,function(d){ return d.p.x;}).attr(&#39;y&#39;,function(d){ return d.p.y+5;});		
+			
+		var elabels = d3.select(&quot;#g_elabels&quot;).selectAll(&#39;text&#39;).data(tree.getEdges());
+					
+		elabels
+			.attr(&#39;x&#39;,function(d){ return (d.p1.x+d.p2.x)/2+(d.p1.x &lt; d.p2.x? 8: -8);}).attr(&#39;y&#39;,function(d){ return (d.p1.y+d.p2.y)/2;})
+			.text(function(d){return tree.glabels.length==0? &#39;&#39;: Math.abs(d.l1 -d.l2);});	
+			
+		elabels.enter().append(&#39;text&#39;)
+			.attr(&#39;x&#39;,function(d){ return (d.p1.x+d.p2.x)/2+(d.p1.x &lt; d.p2.x? 8: -8);}).attr(&#39;y&#39;,function(d){ return (d.p1.y+d.p2.y)/2;})
+			.text(function(d){return tree.glabels.length==0? &#39;&#39;: Math.abs(d.l1 -d.l2);});	
+			
+		
+		d3.select(&#39;#incMatx&#39;).selectAll(&quot;.incrow&quot;).data(tree.incMatx)
+			.enter().append(&#39;g&#39;).attr(&#39;class&#39;,&#39;incrow&#39;);
+			
+		d3.select(&#39;#incMatx&#39;).selectAll(&quot;.incrow&quot;).selectAll(&#39;.incRect&#39;)
+			.data(function(d,i){ return getIncMatxRow(i).map(function(v,j){return {y:i, x:j, f:v};})})
+			.enter().append(&#39;rect&#39;).attr(&#39;class&#39;,&#39;incRect&#39;);
+			
+		d3.select(&#39;#incMatx&#39;).selectAll(&#39;.incRect&#39;)
+			.attr(&#39;x&#39;,function(d,i){ return (d.x+d.y)*tree.incS;}).attr(&#39;y&#39;,function(d,i){ return d.y*tree.incS;})
+			.attr(&#39;width&#39;,function(){ return tree.incS;}).attr(&#39;height&#39;,function(){ return tree.incS;})
+			.attr(&#39;fill&#39;,function(d){ return d.f == 1? &#39;black&#39;:&#39;white&#39;});
+			
+		d3.select(&quot;#incMatx&quot;).selectAll(&#39;.incrowlabel&#39;).data(d3.range(0,tree.size)).enter()
+			.append(&#39;text&#39;).attr(&#39;class&#39;,&#39;incrowlabel&#39;);
+			
+		d3.select(&quot;#incMatx&quot;).selectAll(&#39;.incrowlabel&#39;).text(function(d){ return d;})
+			.attr(&#39;x&#39;,function(d,i){ return (i-0.5)*tree.incS}).attr(&#39;y&#39;,function(d,i){ return (i+0.8)*tree.incS});
+	}
+	
+	getLeafCount = function(_){
+		if(_.c.length ==0) return 1;
+		else return _.c.map(getLeafCount).reduce(function(a,b){ return a+b;});
+	}
+	
+	reposition = function(v){
+		var lC = getLeafCount(v), left=v.p.x - tree.w*(lC-1)/2;
+		v.c.forEach(function(d){
+			var w =tree.w*getLeafCount(d); 
+			left+=w; 
+			d.p = {x:left-(w+tree.w)/2, y:v.p.y+tree.h};
+			reposition(d);
+		});		
+	}	
+	
+	initialize = function(){
+		d3.select(&quot;body&quot;).append(&quot;div&quot;).attr(&#39;id&#39;,&#39;navdiv&#39;);
+		
+		d3.select(&quot;#navdiv&quot;).append(&quot;button&quot;).attr(&#39;type&#39;,&#39;button&#39;).text(&#39;Generate labels&#39;)
+			.on(&#39;click&#39;,function(d){return tree.gracefulLabels();});
+		
+		d3.select(&quot;#navdiv&quot;).append(&quot;nav&quot;).attr(&#39;id&#39;,&#39;labelnav&#39;).style(&#39;display&#39;,&#39;inline-block&#39;).style(&#39;visibility&#39;,&#39;hidden&#39;);
+		
+		d3.select(&quot;#labelnav&quot;).append(&quot;button&quot;).attr(&#39;type&#39;,&#39;button&#39;).text(&#39;&lt;&#39;).attr(&#39;id&#39;,&#39;prevlabel&#39;)
+			.on(&#39;click&#39;,function(d){return tree.showLabel(tree.currLbl == 1? tree.glabels.length: tree.currLbl-1);});
+			
+		d3.select(&quot;#labelnav&quot;).append(&quot;text&quot;).text(&#39;&#39;).attr(&#39;id&#39;,&#39;labelpos&#39;);
+
+		d3.select(&quot;#labelnav&quot;).append(&quot;button&quot;).attr(&#39;type&#39;,&#39;button&#39;).text(&#39;&gt;&#39;).attr(&#39;id&#39;,&#39;nextlabel&#39;)
+			.on(&#39;click&#39;,function(){return tree.showLabel(tree.currLbl == tree.glabels.length? 1: tree.currLbl+1);});			
+						
+		d3.select(&quot;body&quot;).append(&quot;svg&quot;).attr(&quot;width&quot;, svgW).attr(&quot;height&quot;, svgH).attr(&#39;id&#39;,&#39;treesvg&#39;);
+
+		d3.select(&quot;#treesvg&quot;).append(&#39;g&#39;).attr(&#39;id&#39;,&#39;g_lines&#39;).selectAll(&#39;line&#39;).data(tree.getEdges()).enter().append(&#39;line&#39;)
+			.attr(&#39;x1&#39;,function(d){ return d.p1.x;}).attr(&#39;y1&#39;,function(d){ return d.p1.y;})
+			.attr(&#39;x2&#39;,function(d){ return d.p2.x;}).attr(&#39;y2&#39;,function(d){ return d.p2.y;});
+
+		d3.select(&quot;#treesvg&quot;).append(&#39;g&#39;).attr(&#39;id&#39;,&#39;g_circles&#39;).selectAll(&#39;circle&#39;).data(tree.getVertices()).enter()
+			.append(&#39;circle&#39;).attr(&#39;cx&#39;,function(d){ return d.p.x;}).attr(&#39;cy&#39;,function(d){ return d.p.y;}).attr(&#39;r&#39;,vRad)
+			.on(&#39;click&#39;,function(d){return tree.addLeaf(d.v);});
+			
+		d3.select(&quot;#treesvg&quot;).append(&#39;g&#39;).attr(&#39;id&#39;,&#39;g_labels&#39;).selectAll(&#39;text&#39;).data(tree.getVertices()).enter().append(&#39;text&#39;)
+			.attr(&#39;x&#39;,function(d){ return d.p.x;}).attr(&#39;y&#39;,function(d){ return d.p.y+5;}).text(function(d){return d.l;})
+			.on(&#39;click&#39;,function(d){return tree.addLeaf(d.v);});	
+			
+		d3.select(&quot;#treesvg&quot;).append(&#39;g&#39;).attr(&#39;id&#39;,&#39;g_elabels&#39;).selectAll(&#39;text&#39;).data(tree.getEdges()).enter().append(&#39;text&#39;)
+			.attr(&#39;x&#39;,function(d){ return (d.p1.x+d.p2.x)/2+(d.p1.x &lt; d.p2.x? 8: -8);}).attr(&#39;y&#39;,function(d){ return (d.p1.y+d.p2.y)/2;})
+			.text(function(d){return tree.glabels.length==0? &#39;&#39;: Math.abs(d.l1 -d.l2);});	
+			
+		d3.select(&quot;body&quot;).select(&quot;svg&quot;).append(&#39;g&#39;).attr(&#39;transform&#39;,function(){ return &#39;translate(&#39;+tree.incX+&#39;,&#39;+tree.incY+&#39;)&#39;;})
+			.attr(&#39;id&#39;,&#39;incMatx&#39;).selectAll(&#39;.incrow&#39;)
+			.data(tree.incMatx.map(function(d,i){ return {i:i, r:d};})).enter().append(&#39;g&#39;).attr(&#39;class&#39;,&#39;incrow&#39;);
+
+		d3.select(&quot;#incMatx&quot;).selectAll(&#39;.incrowlabel&#39;).data(d3.range(0,tree.size)).enter()
+			.append(&#39;text&#39;).attr(&#39;class&#39;,&#39;incrowlabel&#39;).text(function(d){ return d;})
+			.attr(&#39;x&#39;,function(d,i){ return (i-0.5)*tree.incS}).attr(&#39;y&#39;,function(d,i){ return (i+.8)*tree.incS});
+		
+		tree.addLeaf(0);
+		tree.addLeaf(0);
+	}
+	initialize();
+
+	return tree;
+}
+//var tree= tree();
+&lt;/script&gt;
+
+</description>
+        <pubDate>Sat, 30 Jan 2016 00:00:00 -0600</pubDate>
+        <link>http://dachicj.com/comptuer/science/-/a.i/2016/01/30/Artificial-Intelligence-Search-Algorithms.html</link>
+        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/2016/01/30/Artificial-Intelligence-Search-Algorithms.html</guid>
+        
+        
+        <category>comptuer</category>
+        
+        <category>science</category>
+        
+        <category>-</category>
+        
+        <category>a.i</category>
+        
+      </item>
     
       <item>
         <title>准备技术面试的心得</title>
@@ -187,67 +517,48 @@ This is where most of your interview questiones will come from, you have to spen
       </item>
     
       <item>
-        <title>Artificial Intelligence Search Algorithms</title>
-        <description>&lt;p&gt;I am taking a A.I class for this quarter. It’s so much fun and challenging. I wanted to take some notes on what I am learning.&lt;/p&gt;
+        <title>Matching Problem</title>
+        <description>&lt;p&gt;First of all, my deep apologies for not updating about weeks. My excuses are:
+1.I spent a week in Orlando for vacation.
+2.After came back from Orlando, my neck and back hurt so much thus kept me away from laptops.&lt;/p&gt;
 
-&lt;p&gt;DFS
-BFS
-Iterative Deepening
-Uniform Cost
-Best First Search
-A* Algorithm&lt;/p&gt;
-</description>
-        <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
-        <link>http://dachicj.com/comptuer/science/-/a.i/2015/10/25/Artificial-Intelligence-Search-Algorithms.html</link>
-        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/2015/10/25/Artificial-Intelligence-Search-Algorithms.html</guid>
-        
-        
-        <category>comptuer</category>
-        
-        <category>science</category>
-        
-        <category>-</category>
-        
-        <category>a.i</category>
-        
-      </item>
-    
-      <item>
-        <title>CSAPP Study Notes 10/27/2014</title>
-        <description>&lt;h4 id=&quot;study-focus-unix-io-and-standard-io-in-c&quot;&gt;Study Focus: Unix I/O and Standard I/O in C&lt;/h4&gt;
+&lt;p&gt;Today’s study material: MIT OCW Mathematic For Computer Science Lecture 6 Graph Theory
+***Please beware the below text might cover gender-related contents&lt;/p&gt;
 
-&lt;h4 id=&quot;study-material-computer-system-a-programmers-perspective&quot;&gt;Study Material: Computer System A Programmer’s Perspective&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Question: on average who has more opposite-gender partners in United States: men or women?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;study-summary&quot;&gt;Study Summary:&lt;/h4&gt;
+&lt;p&gt;Below are two results from University of Chicago and ABC news who conducted surveys on random people&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;1. What is I/O (Input/Output)?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Answer A(From U Chicago): Men have 78% more of opposite-gender partners than women
+Answer B(From ABC News ): Men have 233% more of opposite-gender partners than women.&lt;/p&gt;
 
-&lt;p&gt;According to the definitions in CSAPP:&lt;/p&gt;
+&lt;p&gt;Don’t get excited or upset by the numbers above, because we can use basic graph theory to show what the reality is.&lt;/p&gt;
 
-&lt;p&gt;Memory ==(Output)===&amp;gt; I/O Devices&lt;/p&gt;
+&lt;p&gt;First let’s introduce some basic definition of graph theory:
+&lt;em&gt;Vertex&lt;/em&gt;: or dot or node, in this example is a man or a woman.
+&lt;em&gt;Edge&lt;/em&gt;: or line, in this example a line represents one pair of man and woman who have sexual relationship.
+&lt;em&gt;Degree&lt;/em&gt;: number of edges joined by one vertex, in this example if Mr.X are connected with 3 different women in total, his degree is 3, and I don’t think I have to explain what does it mean in this example :)&lt;/p&gt;
 
-&lt;p&gt;Memory &amp;lt;==(Input)====  I/O Devices&lt;/p&gt;
+&lt;p&gt;So we can come up with one particular graph(Bipartite graph) fits this example really well.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;2. Type and levels of I/O operations&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-23-at-4.22.36-PM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-23-at-4.22.36-PM-289x300.png&quot; alt=&quot;Screen Shot 2014-08-23 at 4.22.36 PM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;2.1 Unix I/O (Low level)&lt;/p&gt;
+&lt;p&gt;Men are on the left of the above chart, and women are on the right. Each node represents one man or woman, and the edge(line)represents they are having *** relationship.&lt;/p&gt;
 
-&lt;p&gt;function calls including: open(), close(), read(), write()&lt;/p&gt;
+&lt;p&gt;Let’s back to the ratio of men to women opposite-gender partners,&lt;/p&gt;
 
-&lt;p&gt;2.2 Standard I/O (C Library)&lt;/p&gt;
+&lt;p&gt;so the average number of opposite-gender-partners on men would be the sum of degrees on the left side divide by the number of men population, same applies for the women.&lt;/p&gt;
 
-&lt;p&gt;function calls including: fopen(), fread(), fwrite(), fclose(),fstat() and etc.&lt;/p&gt;
+&lt;p&gt;Guess what, the sum of degree on the men and women are equal, which is obvious. So the ratio totally depends on the ratio between men and women population. And men’s population in U.S is about 147.6M and women’s is about 152.4M. Therefore the ratio should be 152.4/147.6- 100% = 3.25%. Based on the calculation men have 3.25% more opposite-gender partners than women.&lt;/p&gt;
 
-&lt;p&gt;Those functions are mostly used in c programming i/o operations&lt;/p&gt;
+&lt;p&gt;Computer science blows my mind.&lt;/p&gt;
 
-&lt;p&gt;2.3 Robust I/O&lt;/p&gt;
-
-&lt;p&gt;Inlcuding rio_readn, rio_writen(), RIO are mostly used for network socket related programming.&lt;/p&gt;
+&lt;p&gt;Thanks for reading!&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 27 Oct 2014 16:49:29 -0500</pubDate>
-        <link>http://dachicj.com/computer/science/2014/10/27/csapp-study-notes-2.html</link>
-        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/10/27/csapp-study-notes-2.html</guid>
+        <pubDate>Sat, 23 Aug 2014 16:33:20 -0500</pubDate>
+        <link>http://dachicj.com/computer/science/2014/08/23/matching-problem.html</link>
+        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/23/matching-problem.html</guid>
         
         
         <category>computer</category>
@@ -257,78 +568,42 @@ A* Algorithm&lt;/p&gt;
       </item>
     
       <item>
-        <title>CSAPP Study Notes 09/17/2014</title>
-        <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
+        <title>Turing&#39;s Code</title>
+        <description>&lt;p&gt;Today I studied:&lt;/p&gt;
 
-&lt;h4 id=&quot;study-material-computer-systems-a-programmers-perspective&quot;&gt;Study material: Computer Systems A Programmer’s Perspective&lt;/h4&gt;
+&lt;p&gt;MIT OCW Mathematic For Computer Science Text-note 1-4.3 Alan Turing:&lt;/p&gt;
 
-&lt;h4 id=&quot;study-focus-optimization-in-c-language&quot;&gt;Study focus: Optimization (in C language)&lt;/h4&gt;
+&lt;p&gt;At the beginning, let’s look at a string of numbers:&lt;/p&gt;
 
-&lt;h4 id=&quot;summary&quot;&gt;Summary:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;           **50369825549820718594667857.**
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;One of the most important concerning when optimizing you code is to ensure a safety optimization, which is your optimization&lt;/p&gt;
+&lt;p&gt;What the heck is that huh? Imagine it’s WWII now, and that is actually a piece of encrypted information which hidden the secret to defeat Nazi! World Peace depends on you!&lt;/p&gt;
 
-&lt;p&gt;will not change the behavior of your program.&lt;/p&gt;
+&lt;p&gt;Ok so how do we decipher this piece of code? One equation will helpful:&lt;/p&gt;
 
-&lt;p&gt;For example : pointer aliasing.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;           **m* = m * k** 
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;void foo1(int *xp, int *yp){&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;  *xp += *yp;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;  *xp += *yp;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;}&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;m is the original number representation of the word (A = 01, B = 02, … e.g Hello = 08 05 12 12 15), please note the number has to be a prime, if the original number is not a prime, we will append numbers to make it a prime.&lt;/p&gt;
 
-&lt;p&gt;could be optimized into&lt;/p&gt;
+&lt;p&gt;k is the secret key number shared only between sender and receiver ( a large prime)&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;void foo2(int *xp, int *yp){&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt; &lt;em&gt;xp += 2&lt;/em&gt; *yp;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;}&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;m* is the encrypted number.&lt;/p&gt;
 
-&lt;p&gt;However when I was trying to execute following code.&lt;/p&gt;
+&lt;p&gt;During the war time figuring out the key prime would take endless computations, so are the secrets all safe?&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-17-at-3.45.09-PM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-17-at-3.45.09-PM-300x232.png&quot; alt=&quot;Screen Shot 2014-09-17 at 3.45.09 PM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Actually not, though computing or guessing the k is mission impossible, but if the Nazi get two message, they can use Euclid’s algorithm to figure out the great common divisor of m&lt;em&gt;1 and m&lt;/em&gt;2. the Nazi can keep calculating using “gcd(a,b) = gcd(b,rem(a,b))” until they get the k!&lt;/p&gt;
 
-&lt;p&gt;I am getting an unexpected output like this:&lt;/p&gt;
+&lt;p&gt;Oops!&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Before Swap
-1 1
-0x7fff5f659978 0x7fff5f659978&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;After Swap
-0 0
-0x7fff5f659978 0x7fff5f659978&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;(The hidden message is “victory” , 22 09 03 20 15 18 25 appending 13 to make it a prime, and key is 22801763489, so
+m* = 2209032015182513 * 22801763489)&lt;/p&gt;
 
-&lt;p&gt;Be careful when optimizing involved pointer aliasing.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;No time for product analysis today. You catch me! Send “catch you lazy man!” to me on Weixin(WeChat) and there is a small reward for you! （offer expires at 23:59 09/17/2014)&lt;/p&gt;
 </description>
-        <pubDate>Wed, 17 Sep 2014 15:49:39 -0500</pubDate>
-        <link>http://dachicj.com/computer/science/2014/09/17/csapp-study-notes-1.html</link>
-        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/09/17/csapp-study-notes-1.html</guid>
+        <pubDate>Wed, 06 Aug 2014 11:02:33 -0500</pubDate>
+        <link>http://dachicj.com/computer/science/2014/08/06/turings-code.html</link>
+        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/06/turings-code.html</guid>
         
         
         <category>computer</category>
@@ -338,368 +613,111 @@ A* Algorithm&lt;/p&gt;
       </item>
     
       <item>
-        <title>JS and jQuery Study Notes 09/16/2014</title>
-        <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
+        <title>Strong Induction</title>
+        <description>&lt;p&gt;What I’ve studied today:&lt;/p&gt;
 
-&lt;h4 id=&quot;study-material-javascript-and-jquery&quot;&gt;Study material: JavaScript and JQuery&lt;/h4&gt;
+&lt;p&gt;1.MIT OCW: Mathematics For Computer Science Lecture 3 Strong Induction.&lt;/p&gt;
 
-&lt;h4 id=&quot;study-focus-dom-getupdate-element-content&quot;&gt;Study focus: DOM get/update element content&lt;/h4&gt;
+&lt;p&gt;Ok, why we need to study induction?&lt;/p&gt;
 
-&lt;h4 id=&quot;summary&quot;&gt;Summary:&lt;/h4&gt;
+&lt;p&gt;According to the textbook of this course:&lt;/p&gt;
 
-&lt;p&gt;Assume we have a list element&lt;/p&gt;
+&lt;p&gt;“One of the most important uses of induction in computer science involves proving that a program or process preserves
+one or more desirable properties as it proceeds. A property that is preserved through a series of operations or steps 
+is known as an invariant. “&lt;/p&gt;
 
-&lt;li id=&quot;one&quot;&gt;List&lt;/li&gt;
+&lt;p&gt;Have you ever play the 8 puzzle game? (In China we have a similar game named “Hua Rong Dao”, which have a better UI I guess.)
+&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/08/8_puzzle_goal_state_a.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/08/8_puzzle_goal_state_a.png&quot; alt=&quot;8_puzzle_goal_state_a&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;we can modify two things about this element: content and property.&lt;/p&gt;
+&lt;p&gt;Whether if you are a fan of this game, let’s try to figure out whether the chart on the left could reach to the right?&lt;/p&gt;
 
-&lt;p&gt;Content:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.02.29-PM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.02.29-PM-300x140.png&quot; alt=&quot;Screen Shot 2014-08-04 at 10.02.29 PM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;li.iinerHTML  // text and markup&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;li.textContent  // text only&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;li.iinerText&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;document.getElementById(“one”).firstChild.nodeValue // when you select the text node, you can change its value by this way&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;The answer is no actually.&lt;/p&gt;
 
-&lt;p&gt;Property:&lt;/p&gt;
+&lt;p&gt;Because in the situation above there only exist one set of inversion, but a row move(moving from left to right or vice versa)does not change the 
+number of inversion, and a column move(change up and down)change even number of inversion. It is unreachable to make it right by the move allowed
+in this game.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;element.getAttribute();&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;element.setAttribute();&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;element.removeAttribute():&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Official proof goes here:&lt;/p&gt;
 
-&lt;p&gt;Changing Elements:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.08.19-PM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.08.19-PM-300x135.png&quot; alt=&quot;Screen Shot 2014-08-04 at 10.08.19 PM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;document.createElment() // create element&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;document.createTextNode(); // create text node&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;element.appendChild(new_element); // insert the new element into the element calling this function.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;element.revmoveChild(); // remove child element from its parent node.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;o2o-online-to-offline-products-analysis&quot;&gt;O2O (Online to Offline) Products Analysis:&lt;/h4&gt;
-
-&lt;p&gt;dropbox link: https://www.dropbox.com/s/kg4n441drd03sok/%E5%8C%97%E4%BA%AC%E4%BA%8C%E6%9C%9F-%E5%BE%90%E8%BE%BE%E8%BF%9F-%E7%AC%AC%E4%B9%9D%E8%AF%BE%E5%A0%82%E4%B9%9D%E6%9C%88%E4%BD%9C%E4%B8%9A.pdf?dl=0&lt;/p&gt;
-
-&lt;p&gt;If the link is not working and you are interested in reading my analysis, please email me at dachi.xu@gmail.com and I will send you an copy.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 16 Sep 2014 17:04:43 -0500</pubDate>
-        <link>http://dachicj.com/web/development/2014/09/16/js-jQuery-study-notes-4.html</link>
-        <guid isPermaLink="true">http://dachicj.com/web/development/2014/09/16/js-jQuery-study-notes-4.html</guid>
+        <pubDate>Mon, 04 Aug 2014 22:09:00 -0500</pubDate>
+        <link>http://dachicj.com/computer/science/2014/08/04/strong-induction.html</link>
+        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/04/strong-induction.html</guid>
         
         
-        <category>web</category>
+        <category>computer</category>
         
-        <category>development</category>
+        <category>science</category>
         
       </item>
     
       <item>
-        <title>JS and jQuery Study Notes 09/15/2014</title>
-        <description>&lt;p&gt;&lt;strong&gt;Programming:&lt;/strong&gt;&lt;/p&gt;
+        <title>Jugs Problem</title>
+        <description>&lt;p&gt;What I’ve studied today:&lt;/p&gt;
 
-&lt;h4 id=&quot;study-materialjavascript--jquery-jon-duckett&quot;&gt;Study material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h4&gt;
+&lt;p&gt;1.MIT OCW: Mathematics For Computer Science Lecture 4 Number Theory I&lt;/p&gt;
 
-&lt;h4 id=&quot;study-focus-how-to-select-elements-in-dom-tree&quot;&gt;Study focus: how to select elements in DOM Tree&lt;/h4&gt;
+&lt;p&gt;Let’s watch a clip from “Die Hard 3” first.
+&lt;a href=&quot;https://www.youtube.com/watch?v=BVtQNK_ZUJg&quot;&gt;Die Hard 3 Jugs Problem&lt;/a&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;summary&quot;&gt;Summary:&lt;/h4&gt;
+&lt;p&gt;My solution is: 
+1.Fill the 3 gallon jug, and pour it into the 5 gallon jug, then we have (0,3) gallons in the 3g and 5g jugs
+2.Fill the 3 gallon jug again , and pour the water into the 5 gallon jug until it is full, then we have (1,5) gallons.
+3.Dump all the water in the 5 gallon jug and then pour the 1 gallon of water from the 3 gallon jug to 5 gallon (1,5) -&amp;gt; (1, 0) -&amp;gt; (0, 1)
+4.Fill the 3 gallon jug and pour all the water into the 5 gallon jug (3,1) -&amp;gt; (0, 4).
+5.Done&lt;/p&gt;
 
-&lt;p&gt;Let’s write some simple piece of mark-ups:&lt;/p&gt;
+&lt;p&gt;Let’s look at the problem from a more abstract perspective, can we use a 3 gallon jug and 6 gallon jug to get 4 gallons of water? 
+Maybe not, “suppose that we have water jugs with capacities a and b, the amount of water in each jugs is always a linear combination 
+of a and b.”&lt;/p&gt;
 
-&lt;html&gt;
-&lt;head&gt;&lt;/head&gt;
-&lt;body&gt;
-&amp;lt;h1 id=“header”&amp;gt;Header
-&lt;ul&gt;
-&amp;lt;li id=“1” class=“list&quot;&amp;gt;1
-&amp;lt;li id=“2” class=“list”&amp;gt;2
-&amp;lt;li id=“3” class=“list”&amp;gt;3
-&lt;/ul&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;p&gt;Below is the proof steps using induction from the MIT text-note.
+[gallery ids=”37”]&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Selecting individual element:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Let’s say the “h1” element, we can do it by&lt;/p&gt;
-
-&lt;p&gt;var headerElement = &lt;strong&gt;document.getElementById(‘header’);  //document.getElementById(id of the element you want to select)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;p&gt;var ulElement = &lt;strong&gt;document.querySelector(‘ul’); // return the first match &lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;And if we want to select a group of elements:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;var listElement = &lt;strong&gt;document.getElementByClassName(“list”); // parameter should be the class name of the elements&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;var listElement = &lt;strong&gt;document.getElementByTagName(“li”); //parameter should be the element type, such as h1, p, li and etc…&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;var listElement = &lt;strong&gt;document.querySelectorAll(“li.list”); // parameter could be type or id or class.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt; Once we get some elements , we can traverse around the element(s):&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;going up: listElement.&lt;strong&gt;parentNode&lt;/strong&gt; is ulElement&lt;/p&gt;
-
-&lt;p&gt;going dn: ulElement.&lt;strong&gt;firstChild&lt;/strong&gt; is the first li element, ulElement.&lt;strong&gt;lastChild&lt;/strong&gt; is the third li element&lt;/p&gt;
-
-&lt;p&gt;going left &amp;amp; right:  listElement[1].&lt;strong&gt;previousSibling&lt;/strong&gt; will be listElement[0], listElement[1].&lt;strong&gt;nextSibling&lt;/strong&gt; will be listElement[2];&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt; Timeline Hunt (http://timeline-product-hunt.herokuapp.com/)&lt;/p&gt;
-
-&lt;h4 id=&quot;description-the-best-products-of-product-hunt-on-a-timeline&quot;&gt;Description: The best products of Product Hunt on a timeline&lt;/h4&gt;
-
-&lt;h4 id=&quot;prototype&quot;&gt;Prototype:&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-15-at-10.25.24-AM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-15-at-10.25.24-AM-300x194.png&quot; alt=&quot;Screen Shot 2014-09-15 at 10.25.24 AM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ok, but why bother studying the number theory? because SECURITY matters! “Number theory underlies modern cryptography, which is what 
+enable secure online communication.”&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 15 Sep 2014 10:26:30 -0500</pubDate>
-        <link>http://dachicj.com/web/development/2014/09/15/js-jQuery-study-notes-3.html</link>
-        <guid isPermaLink="true">http://dachicj.com/web/development/2014/09/15/js-jQuery-study-notes-3.html</guid>
+        <pubDate>Sun, 03 Aug 2014 15:21:37 -0500</pubDate>
+        <link>http://dachicj.com/computer/science/2014/08/03/jugs-problem.html</link>
+        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/03/jugs-problem.html</guid>
         
         
-        <category>web</category>
+        <category>computer</category>
         
-        <category>development</category>
+        <category>science</category>
         
       </item>
     
       <item>
-        <title>JS and jQuery Study Notes 09/14/2014</title>
-        <description>&lt;p&gt;&lt;strong&gt;Programming: &lt;/strong&gt;&lt;/p&gt;
+        <title>printf(&quot;Hello World!\n&quot;);</title>
+        <description>&lt;h4 id=&quot;greetings&quot;&gt;Greetings!&lt;/h4&gt;
 
-&lt;h4 id=&quot;studying-material-javascript--jquery-jon-duckett&quot;&gt;Studying material: JavaScript &amp;amp; JQuery (Jon Duckett)&lt;/h4&gt;
+&lt;p&gt;Welcome to Dachi’s blog! A place that you can see my blogs, projects and learn more about me.&lt;/p&gt;
 
-&lt;h4 id=&quot;studying-focus-javascript-objects&quot;&gt;Studying focus: JavaScript Objects&lt;/h4&gt;
+&lt;p&gt;There are some fun places that you can go to on this website :)&lt;/p&gt;
 
-&lt;h4 id=&quot;summary&quot;&gt;Summary:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Hacks&lt;/strong&gt;: My programming projects, you can play with them and let me know how cool it is.&lt;/p&gt;
 
-&lt;p&gt;Objects Structure in JavaScript&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Blog&lt;/strong&gt; : Stuff about studying computer science, programming, general technolgy and all kinds of brain hole output.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;  Browser Objects:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;About&lt;/strong&gt;: About who I was, who I am and who I am going to be. (Please do not use those information for social engineering!)&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Window Object (Browser object, contains property and methods of browser interface , such as window.alert() //pop-up)&lt;/p&gt;
+&lt;p&gt;Thanks for your visiting and I hope you will enjoy it.&lt;/p&gt;
 
-        &lt;ul&gt;
-          &lt;li&gt;
-            &lt;p&gt;Document Object (Object of DOM Tree, HTML -&amp;gt; HEAD / BODY)&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;History (stores info about the pages you visited)&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;Location (url of page)&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;Navigator (info about browser)&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;Screen (info about devices)&lt;/p&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;  Global Objects:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;String(string type)&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Number(number type)&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Boolean(boolean type)&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Other built-in : date/math/regex(regular expression)&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Product:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;product-name-hacker-experience-httpshackerexperiencecomwelcome&quot;&gt;Product Name: Hacker Experience (https://hackerexperience.com/welcome)&lt;/h4&gt;
-
-&lt;h4 id=&quot;description-online-hacking-simulation-game&quot;&gt;Description: Online hacking simulation game&lt;/h4&gt;
-
-&lt;h4 id=&quot;prototypes&quot;&gt;Prototypes:&lt;/h4&gt;
-
-&lt;p&gt;Front Page&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-03-05.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-03-05-225x300.png&quot; alt=&quot;照片 14-9-14 上午11 03 05&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Back-end&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-07-14.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/09/照片-14-9-14-上午11-07-14-225x300.png&quot; alt=&quot;照片 14-9-14 上午11 07 14&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Thanks,&lt;br /&gt;
+Dachi&lt;/p&gt;
 </description>
-        <pubDate>Sun, 14 Sep 2014 11:23:18 -0500</pubDate>
-        <link>http://dachicj.com/web/development/2014/09/14/js-jQuery-study-notes-2.html</link>
-        <guid isPermaLink="true">http://dachicj.com/web/development/2014/09/14/js-jQuery-study-notes-2.html</guid>
+        <pubDate>Sat, 02 Aug 2014 09:51:42 -0500</pubDate>
+        <link>http://dachicj.com/general/2014/08/02/hello-world.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/08/02/hello-world.html</guid>
         
         
-        <category>web</category>
-        
-        <category>development</category>
-        
-      </item>
-    
-      <item>
-        <title>angularJS study notes 09/13/2014</title>
-        <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Programming: AngularJS (Material: https://docs.angularjs.org/tutorial)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;A example of Angular JS application template structure&lt;/p&gt;
-
-&lt;html ng-app=&quot;appName&quot;&gt; // ng-app set the root of the angularJS application
-
-&lt;head&gt;&lt;/head&gt;
-
-&lt;body ng-controller=&quot;controllerName&quot;&gt; // ng-controller set the scope of application
-
-&lt;div ng-repeat=&quot;&quot;&gt;
-
-&lt;p&gt;Hello,  // binding data with the controller
-
-
-
-
-
-
-
-The connection between the template / model / controller would looks like
-
-[![tutorial_02](http://dachicj.com/wp-content/uploads/2014/09/tutorial_02-300x182.png)](http://dachicj.com/wp-content/uploads/2014/09/tutorial_02.png)
-
-
-
-_**Product: http://www.algomation.com/**_
-
-Strategy: NA
-
-Scope: NA
-
-Skeleton: NA
-
-Structure: NA
-
-Surface:
-
-
-
-	
-  * wireframe
-
-
-[![Screen Shot 2014-09-13 at 12.33.18 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.33.18-PM-300x202.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.33.18-PM.png)
-
-[![Screen Shot 2014-09-13 at 12.18.12 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM-300x203.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM.png)
-
-
-
-
-
-
-
-	
-  * sitemap
-
-
-[![Screen Shot 2014-09-13 at 12.28.23 PM](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.28.23-PM-300x242.png)](http://dachicj.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-13-at-12.18.12-PM.png)
-&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
-</description>
-        <pubDate>Sat, 13 Sep 2014 12:43:47 -0500</pubDate>
-        <link>http://dachicj.com/web/development/2014/09/13/angularJS-study-notes.html</link>
-        <guid isPermaLink="true">http://dachicj.com/web/development/2014/09/13/angularJS-study-notes.html</guid>
-        
-        
-        <category>web</category>
-        
-        <category>development</category>
-        
-      </item>
-    
-      <item>
-        <title>Python Study Notes 09/04/2014</title>
-        <description>&lt;p&gt;Summary of what I’ve studied today:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;p&gt;Python Project Skeleton should look like this:
-~/bin
-~/docs
-~/source
-~/tests&lt;/p&gt;
-
-&lt;p&gt;Helpful Python packages:
-#### pip
-#### nosetest
-#### virtualenv&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;p&gt;Searching:
-#### /search text + ENTER
-#### after search use n to go to next match or ? go to previous match
-#### use “set hlsearch” to turn on the highlight of matched text.
-#### use “set incsearch” to highlight matching text as soon as you type(rather than after you press the ‘ENTER’)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;LINUX&lt;/em&gt;&lt;/strong&gt;:
-#### passwd: to change password of user
-#### useful shortcuts:
-CTRL + A : go to the left side of the line.
-CTRL + E : go to the right side of the line.
-CTRL + D : log out or exit
-CTRL + R : search command history ( you can also type ‘history’ to list all previous commands you typed. )&lt;/p&gt;
-</description>
-        <pubDate>Thu, 04 Sep 2014 18:03:18 -0500</pubDate>
-        <link>http://dachicj.com/programming/language/2014/09/04/python-study-notes.html</link>
-        <guid isPermaLink="true">http://dachicj.com/programming/language/2014/09/04/python-study-notes.html</guid>
-        
-        
-        <category>programming</category>
-        
-        <category>language</category>
+        <category>general</category>
         
       </item>
     

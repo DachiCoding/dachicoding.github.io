@@ -7,6 +7,8 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://dachicj.com" # the base hostname & protocol for your site
 twitter_username: DachiXu
 github_username:  DachiCoding
+exclude: 
+- _posts/archive/*.md
 
 # Build settings
 markdown: kramdown
