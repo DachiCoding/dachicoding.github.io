@@ -1,7 +1,7 @@
 ---
 author: dachi.xu@gmail.com
 comments: true
-date: 2015-10-25
+date: 2016-01-30
 layout: post
 title: Artificial Intelligence Search Algorithms
 categories: Comptuer Science - A.I
