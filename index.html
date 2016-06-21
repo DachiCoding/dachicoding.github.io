@@ -15,9 +15,9 @@ layout: default
   <br/>
   <h1 class="page-heading">Latest updates on Dachi's blog 最近更新</h1>
   <ul class="post-list">
-    {% for post in site.posts limit:2 %}
+    {% for post in site.posts limit: 4 %}
     <li class="post"></li>
-    <h3><strong><a href="{{post.url}}"> {{post.title}} </a> </strong></h3>
+    <strong><a href="{{post.url}}">{{post.title}}</a></strong>
     <p><em>{{post.date}}</em></p>
     <p>{{post.abstract}}</p>
     </li>
@@ -25,6 +25,6 @@ layout: default
   </ul>
   
   <br/><br/>
-  <h4 class="post-link-read-more"><a href="/blog/">Older Posts =></a></h4>
+  <a href="/blog/">Older Posts =></a>
 
 </div>

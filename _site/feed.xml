@@ -6,9 +6,48 @@
 </description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 30 Jan 2016 23:27:24 -0600</pubDate>
-    <lastBuildDate>Sat, 30 Jan 2016 23:27:24 -0600</lastBuildDate>
-    <generator>Jekyll v2.4.0</generator>
+    <pubDate>Tue, 21 Jun 2016 00:21:48 -0500</pubDate>
+    <lastBuildDate>Tue, 21 Jun 2016 00:21:48 -0500</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>NLP Study Note 20160620</title>
+        <description>&lt;h1 id=&quot;natural-language-processing-study-note-2016-06-20&quot;&gt;Natural Language Processing Study Note 2016-06-20&lt;/h1&gt;
+
+&lt;h2 id=&quot;study-materials&quot;&gt;Study materials:&lt;/h2&gt;
+&lt;p&gt;1.&lt;a href=&quot;https://www.coursera.org/course/nlangp&quot;&gt;Coursera NLP Course&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2.&lt;a href=&quot;mastering natural language processing with python&quot;&gt;Mastering Natural Language Processing With Python&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;why-on-earth-should-we-care-about-natural-language-processingnlp&quot;&gt;Why on earth should we care about natural language processing(NLP)?&lt;/h2&gt;
+&lt;p&gt;If computers can understand the human natural language, a lots of things can be automated!&lt;/p&gt;
+
+&lt;h3 id=&quot;some-concreate-examples&quot;&gt;Some concreate examples:&lt;/h3&gt;
+&lt;p&gt;1.Machine translation&lt;/p&gt;
+
+&lt;p&gt;2.Information extraction&lt;/p&gt;
+
+&lt;p&gt;3.Text summarization&lt;/p&gt;
+
+&lt;p&gt;4.Dialogue system&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 20 Jun 2016 00:00:00 -0500</pubDate>
+        <link>http://dachicj.com/comptuer/science/-/a.i/nlp/2016/06/20/NLP_Study_Notes_20160620.html</link>
+        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/nlp/2016/06/20/NLP_Study_Notes_20160620.html</guid>
+        
+        
+        <category>Comptuer</category>
+        
+        <category>Science</category>
+        
+        <category>-</category>
+        
+        <category>A.I</category>
+        
+        <category>NLP</category>
+        
+      </item>
     
       <item>
         <title>Artificial Intelligence Search Algorithms (Draft)</title>
@@ -85,243 +124,6 @@
 
 &lt;!--Additional javascript--&gt;
 &lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-function tree(){
-	var svgW=958, svgH =460, vRad=12, tree={cx:300, cy:30, w:40, h:70};
-	tree.vis={v:0, l:&#39;?&#39;, p:{x:tree.cx, y:tree.cy},c:[]};	
-	tree.size=1;
-	tree.glabels =[];
-	tree.incMatx =[];
-	tree.incX=500, tree.incY=30, tree.incS=20;
-	
-	tree.getVertices =  function(){
-		var v =[];
-		function getVertices(t,f){	
-			v.push({v:t.v, l:t.l, p:t.p, f:f});	
-			t.c.forEach(function(d){ return getVertices(d,{v:t.v, p:t.p}); });
-		}
-		getVertices(tree.vis,{});
-		return v.sort(function(a,b){ return a.v - b.v;});
-	}
-	
-	tree.getEdges =  function(){
-		var e =[];
-		function getEdges(_){
-			_.c.forEach(function(d){ e.push({v1:_.v, l1:_.l, p1:_.p, v2:d.v, l2:d.l, p2:d.p});});
-			_.c.forEach(getEdges);
-		}
-		getEdges(tree.vis);
-		return e.sort(function(a,b){ return a.v2 - b.v2;});	
-	}
-	
-	tree.addLeaf = function(_){
-		function addLeaf(t){
-			if(t.v==_){ t.c.push({v:tree.size++, l:&#39;?&#39;, p:{},c:[]}); return; }
-			t.c.forEach(addLeaf);
-		}
-		addLeaf(tree.vis);
-		reposition(tree.vis);
-		if(tree.glabels.length != 0){
-			tree.glabels =[]
-			relabel(
-				{
-					lbl:d3.range(0, tree.size).map(function(d){ return &#39;?&#39;;}), 
-					incMatx:d3.range(0,tree.size-1).map(function(){ return 0;})
-				});
-			d3.select(&quot;#labelnav&quot;).style(&#39;visibility&#39;,&#39;hidden&#39;);
-		}
-		else tree.incMatx = d3.range(0,tree.size-1).map(function(){ return 0;});
-		redraw();
-	}
-	
-	tree.gracefulLabels = function(){
-		tree.glabels =[], v = tree.getVertices();
-		var vlbls =[], elbls=[];
-		gracefulLbl = function(c){
-			if(c == tree.size) { 
-				var lbl = {lbl:vlbls.map(function(_){return _;}) }; 
-				relabel(lbl);
-				updateIncMatx();
-				var incMatx = tree.incMatx.map(function(_){ return _; });
-				if( (tree.incMatx[0] &amp; 2)&gt;&gt; 1 ==1 &amp;&amp; tree.glabels.every(function(d){ return d.incMatx.toString() != incMatx.toString(); })){
-					lbl.incMatx = incMatx;
-					tree.glabels.push(lbl); 
-				}
-				return; 
-			}
-			d3.range(0, tree.size)
-				.filter(function(d){ return (vlbls.indexOf(d) ==-1) &amp;&amp;(elbls.indexOf(Math.abs(vlbls[v[c].f.v] - d)) == -1);})
-				.forEach(function(d){  
-					vlbls[c]=d; 
-					elbls[c]=Math.abs(vlbls[v[c].f.v] - d); 
-					gracefulLbl(c+1); 
-					delete vlbls[c]; 		
-					delete elbls[c]; 				
-				});			
-		}
-		d3.range(0, tree.size).forEach(function(d){ vlbls =[d]; elbls=[]; gracefulLbl(1); });
-		tree.showLabel(1);
-		d3.select(&quot;#labelpos&quot;).text(tree.currLbl+&#39;/&#39;+tree.glabels.length);
-		d3.select(&quot;#labelnav&quot;).style(&#39;visibility&#39;,&#39;visible&#39;);
-	}
-	
-	updateIncMatx = function(){
-		var n = tree.size-1;
-		tree.incMatx = d3.range(0,tree.size-1).map(function(){return 0;});
-		updateIncMatxl = function(t){
-			t.c.forEach(function(c){
-				t.l &lt; c.l ? tree.incMatx[t.l]= tree.incMatx[t.l] | (1&lt;&lt;(n-c.l)) : tree.incMatx[c.l]= tree.incMatx[c.l] | (1&lt;&lt;(n-t.l));
-				updateIncMatxl(c);
-			});
-		}
-		updateIncMatxl(tree.vis);		
-	}
-	
-	getIncMatxRow = function(i){
-		return d3.range(0,tree.size-1-i).map(function(d,j){ var n=tree.size-2-i-j; return (tree.incMatx[i] &amp; 1&lt;&lt;n)&gt;&gt;n; });
-	}
-	
-	tree.showLabel = function(i){
-		if(i &gt;tree.glabels.length || i &lt; 1){ alert(&#39;invalid label position&#39;); return; } 
-		
-		relabel(tree.glabels[i-1]);
-		redraw();
-		tree.currLbl = i;
-		d3.select(&quot;#labelpos&quot;).text(tree.currLbl+&#39;/&#39;+tree.glabels.length);
-	}
-	
-	relabel = function(lbl){
-		function relbl(t){	t.l=lbl.lbl[t.v];	t.c.forEach(relbl);		}
-		relbl(tree.vis);
-		tree.incMatx = lbl.incMatx;
-	}
-	
-	redraw = function(){
-		var edges = d3.select(&quot;#g_lines&quot;).selectAll(&#39;line&#39;).data(tree.getEdges());
-		
-		edges.transition().duration(500)
-			.attr(&#39;x1&#39;,function(d){ return d.p1.x;}).attr(&#39;y1&#39;,function(d){ return d.p1.y;})
-			.attr(&#39;x2&#39;,function(d){ return d.p2.x;}).attr(&#39;y2&#39;,function(d){ return d.p2.y;})
-	
-		edges.enter().append(&#39;line&#39;)
-			.attr(&#39;x1&#39;,function(d){ return d.p1.x;}).attr(&#39;y1&#39;,function(d){ return d.p1.y;})
-			.attr(&#39;x2&#39;,function(d){ return d.p1.x;}).attr(&#39;y2&#39;,function(d){ return d.p1.y;})
-			.transition().duration(500)
-			.attr(&#39;x2&#39;,function(d){ return d.p2.x;}).attr(&#39;y2&#39;,function(d){ return d.p2.y;});
-			
-		var circles = d3.select(&quot;#g_circles&quot;).selectAll(&#39;circle&#39;).data(tree.getVertices());
-
-		circles.transition().duration(500).attr(&#39;cx&#39;,function(d){ return d.p.x;}).attr(&#39;cy&#39;,function(d){ return d.p.y;});
-		
-		circles.enter().append(&#39;circle&#39;).attr(&#39;cx&#39;,function(d){ return d.f.p.x;}).attr(&#39;cy&#39;,function(d){ return d.f.p.y;}).attr(&#39;r&#39;,vRad)
-			.on(&#39;click&#39;,function(d){return tree.addLeaf(d.v);})
-			.transition().duration(500).attr(&#39;cx&#39;,function(d){ return d.p.x;}).attr(&#39;cy&#39;,function(d){ return d.p.y;});
-			
-		var labels = d3.select(&quot;#g_labels&quot;).selectAll(&#39;text&#39;).data(tree.getVertices());
-		
-		labels.text(function(d){return d.l;}).transition().duration(500)
-			.attr(&#39;x&#39;,function(d){ return d.p.x;}).attr(&#39;y&#39;,function(d){ return d.p.y+5;});
-			
-		labels.enter().append(&#39;text&#39;).attr(&#39;x&#39;,function(d){ return d.f.p.x;}).attr(&#39;y&#39;,function(d){ return d.f.p.y+5;})
-			.text(function(d){return d.l;}).on(&#39;click&#39;,function(d){return tree.addLeaf(d.v);})
-			.transition().duration(500)
-			.attr(&#39;x&#39;,function(d){ return d.p.x;}).attr(&#39;y&#39;,function(d){ return d.p.y+5;});		
-			
-		var elabels = d3.select(&quot;#g_elabels&quot;).selectAll(&#39;text&#39;).data(tree.getEdges());
-					
-		elabels
-			.attr(&#39;x&#39;,function(d){ return (d.p1.x+d.p2.x)/2+(d.p1.x &lt; d.p2.x? 8: -8);}).attr(&#39;y&#39;,function(d){ return (d.p1.y+d.p2.y)/2;})
-			.text(function(d){return tree.glabels.length==0? &#39;&#39;: Math.abs(d.l1 -d.l2);});	
-			
-		elabels.enter().append(&#39;text&#39;)
-			.attr(&#39;x&#39;,function(d){ return (d.p1.x+d.p2.x)/2+(d.p1.x &lt; d.p2.x? 8: -8);}).attr(&#39;y&#39;,function(d){ return (d.p1.y+d.p2.y)/2;})
-			.text(function(d){return tree.glabels.length==0? &#39;&#39;: Math.abs(d.l1 -d.l2);});	
-			
-		
-		d3.select(&#39;#incMatx&#39;).selectAll(&quot;.incrow&quot;).data(tree.incMatx)
-			.enter().append(&#39;g&#39;).attr(&#39;class&#39;,&#39;incrow&#39;);
-			
-		d3.select(&#39;#incMatx&#39;).selectAll(&quot;.incrow&quot;).selectAll(&#39;.incRect&#39;)
-			.data(function(d,i){ return getIncMatxRow(i).map(function(v,j){return {y:i, x:j, f:v};})})
-			.enter().append(&#39;rect&#39;).attr(&#39;class&#39;,&#39;incRect&#39;);
-			
-		d3.select(&#39;#incMatx&#39;).selectAll(&#39;.incRect&#39;)
-			.attr(&#39;x&#39;,function(d,i){ return (d.x+d.y)*tree.incS;}).attr(&#39;y&#39;,function(d,i){ return d.y*tree.incS;})
-			.attr(&#39;width&#39;,function(){ return tree.incS;}).attr(&#39;height&#39;,function(){ return tree.incS;})
-			.attr(&#39;fill&#39;,function(d){ return d.f == 1? &#39;black&#39;:&#39;white&#39;});
-			
-		d3.select(&quot;#incMatx&quot;).selectAll(&#39;.incrowlabel&#39;).data(d3.range(0,tree.size)).enter()
-			.append(&#39;text&#39;).attr(&#39;class&#39;,&#39;incrowlabel&#39;);
-			
-		d3.select(&quot;#incMatx&quot;).selectAll(&#39;.incrowlabel&#39;).text(function(d){ return d;})
-			.attr(&#39;x&#39;,function(d,i){ return (i-0.5)*tree.incS}).attr(&#39;y&#39;,function(d,i){ return (i+0.8)*tree.incS});
-	}
-	
-	getLeafCount = function(_){
-		if(_.c.length ==0) return 1;
-		else return _.c.map(getLeafCount).reduce(function(a,b){ return a+b;});
-	}
-	
-	reposition = function(v){
-		var lC = getLeafCount(v), left=v.p.x - tree.w*(lC-1)/2;
-		v.c.forEach(function(d){
-			var w =tree.w*getLeafCount(d); 
-			left+=w; 
-			d.p = {x:left-(w+tree.w)/2, y:v.p.y+tree.h};
-			reposition(d);
-		});		
-	}	
-	
-	initialize = function(){
-		d3.select(&quot;body&quot;).append(&quot;div&quot;).attr(&#39;id&#39;,&#39;navdiv&#39;);
-		
-		d3.select(&quot;#navdiv&quot;).append(&quot;button&quot;).attr(&#39;type&#39;,&#39;button&#39;).text(&#39;Generate labels&#39;)
-			.on(&#39;click&#39;,function(d){return tree.gracefulLabels();});
-		
-		d3.select(&quot;#navdiv&quot;).append(&quot;nav&quot;).attr(&#39;id&#39;,&#39;labelnav&#39;).style(&#39;display&#39;,&#39;inline-block&#39;).style(&#39;visibility&#39;,&#39;hidden&#39;);
-		
-		d3.select(&quot;#labelnav&quot;).append(&quot;button&quot;).attr(&#39;type&#39;,&#39;button&#39;).text(&#39;&lt;&#39;).attr(&#39;id&#39;,&#39;prevlabel&#39;)
-			.on(&#39;click&#39;,function(d){return tree.showLabel(tree.currLbl == 1? tree.glabels.length: tree.currLbl-1);});
-			
-		d3.select(&quot;#labelnav&quot;).append(&quot;text&quot;).text(&#39;&#39;).attr(&#39;id&#39;,&#39;labelpos&#39;);
-
-		d3.select(&quot;#labelnav&quot;).append(&quot;button&quot;).attr(&#39;type&#39;,&#39;button&#39;).text(&#39;&gt;&#39;).attr(&#39;id&#39;,&#39;nextlabel&#39;)
-			.on(&#39;click&#39;,function(){return tree.showLabel(tree.currLbl == tree.glabels.length? 1: tree.currLbl+1);});			
-						
-		d3.select(&quot;body&quot;).append(&quot;svg&quot;).attr(&quot;width&quot;, svgW).attr(&quot;height&quot;, svgH).attr(&#39;id&#39;,&#39;treesvg&#39;);
-
-		d3.select(&quot;#treesvg&quot;).append(&#39;g&#39;).attr(&#39;id&#39;,&#39;g_lines&#39;).selectAll(&#39;line&#39;).data(tree.getEdges()).enter().append(&#39;line&#39;)
-			.attr(&#39;x1&#39;,function(d){ return d.p1.x;}).attr(&#39;y1&#39;,function(d){ return d.p1.y;})
-			.attr(&#39;x2&#39;,function(d){ return d.p2.x;}).attr(&#39;y2&#39;,function(d){ return d.p2.y;});
-
-		d3.select(&quot;#treesvg&quot;).append(&#39;g&#39;).attr(&#39;id&#39;,&#39;g_circles&#39;).selectAll(&#39;circle&#39;).data(tree.getVertices()).enter()
-			.append(&#39;circle&#39;).attr(&#39;cx&#39;,function(d){ return d.p.x;}).attr(&#39;cy&#39;,function(d){ return d.p.y;}).attr(&#39;r&#39;,vRad)
-			.on(&#39;click&#39;,function(d){return tree.addLeaf(d.v);});
-			
-		d3.select(&quot;#treesvg&quot;).append(&#39;g&#39;).attr(&#39;id&#39;,&#39;g_labels&#39;).selectAll(&#39;text&#39;).data(tree.getVertices()).enter().append(&#39;text&#39;)
-			.attr(&#39;x&#39;,function(d){ return d.p.x;}).attr(&#39;y&#39;,function(d){ return d.p.y+5;}).text(function(d){return d.l;})
-			.on(&#39;click&#39;,function(d){return tree.addLeaf(d.v);});	
-			
-		d3.select(&quot;#treesvg&quot;).append(&#39;g&#39;).attr(&#39;id&#39;,&#39;g_elabels&#39;).selectAll(&#39;text&#39;).data(tree.getEdges()).enter().append(&#39;text&#39;)
-			.attr(&#39;x&#39;,function(d){ return (d.p1.x+d.p2.x)/2+(d.p1.x &lt; d.p2.x? 8: -8);}).attr(&#39;y&#39;,function(d){ return (d.p1.y+d.p2.y)/2;})
-			.text(function(d){return tree.glabels.length==0? &#39;&#39;: Math.abs(d.l1 -d.l2);});	
-			
-		d3.select(&quot;body&quot;).select(&quot;svg&quot;).append(&#39;g&#39;).attr(&#39;transform&#39;,function(){ return &#39;translate(&#39;+tree.incX+&#39;,&#39;+tree.incY+&#39;)&#39;;})
-			.attr(&#39;id&#39;,&#39;incMatx&#39;).selectAll(&#39;.incrow&#39;)
-			.data(tree.incMatx.map(function(d,i){ return {i:i, r:d};})).enter().append(&#39;g&#39;).attr(&#39;class&#39;,&#39;incrow&#39;);
-
-		d3.select(&quot;#incMatx&quot;).selectAll(&#39;.incrowlabel&#39;).data(d3.range(0,tree.size)).enter()
-			.append(&#39;text&#39;).attr(&#39;class&#39;,&#39;incrowlabel&#39;).text(function(d){ return d;})
-			.attr(&#39;x&#39;,function(d,i){ return (i-0.5)*tree.incS}).attr(&#39;y&#39;,function(d,i){ return (i+.8)*tree.incS});
-		
-		tree.addLeaf(0);
-		tree.addLeaf(0);
-	}
-	initialize();
-
-	return tree;
-}
-//var tree= tree();
 &lt;/script&gt;
 
 </description>
@@ -330,13 +132,13 @@ function tree(){
         <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/2016/01/30/Artificial-Intelligence-Search-Algorithms.html</guid>
         
         
-        <category>comptuer</category>
+        <category>Comptuer</category>
         
-        <category>science</category>
+        <category>Science</category>
         
         <category>-</category>
         
-        <category>a.i</category>
+        <category>A.I</category>
         
       </item>
     
@@ -409,12 +211,10 @@ function tree(){
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;延伸阅读:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt; 著名程序员加喷神Steve Yegge所写的电面五个经典题目&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Good read on system desing interview&lt;/a&gt; 系统设计读物&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/DachiCoding/programming_practice/blob/master/python/sort.py&quot;&gt;我自己用Python实现各种排序算法的代码&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;###延伸阅读:
+* &lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt; 著名程序员加喷神Steve Yegge所写的电面五个经典题目
+* &lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Good read on system desing interview&lt;/a&gt; 系统设计读物
+* &lt;a href=&quot;https://github.com/DachiCoding/programming_practice/blob/master/python/sort.py&quot;&gt;我自己用Python实现各种排序算法的代码&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;祝所有在准备技术面试的同学同仁们取得好成绩，我继续刷题去了噢耶。&lt;/p&gt;
 </description>
@@ -423,9 +223,9 @@ function tree(){
         <guid isPermaLink="true">http://dachicj.com/career/development/2015/10/25/%E5%87%86%E5%A4%87%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%83%E5%BE%97.html</guid>
         
         
-        <category>career</category>
+        <category>Career</category>
         
-        <category>development</category>
+        <category>Development</category>
         
       </item>
     
@@ -498,11 +298,9 @@ This is where most of your interview questiones will come from, you have to spen
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;further-reading&quot;&gt;Further reading:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Good read on system desing interview&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;###Further reading:
+* &lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt;
+* &lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Good read on system desing interview&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
@@ -575,15 +373,17 @@ Answer B(From ABC News ): Men have 233% more of opposite-gender partners than wo
 
 &lt;p&gt;At the beginning, let’s look at a string of numbers:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;           **50369825549820718594667857.**
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;           **50369825549820718594667857.**
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;What the heck is that huh? Imagine it’s WWII now, and that is actually a piece of encrypted information which hidden the secret to defeat Nazi! World Peace depends on you!&lt;/p&gt;
 
 &lt;p&gt;Ok so how do we decipher this piece of code? One equation will helpful:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;           **m* = m * k** 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;           **m* = m * k** 
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;m is the original number representation of the word (A = 01, B = 02, … e.g Hello = 08 05 12 12 15), please note the number has to be a prime, if the original number is not a prime, we will append numbers to make it a prime.&lt;/p&gt;
 
@@ -695,7 +495,7 @@ enable secure online communication.”&lt;/p&gt;
     
       <item>
         <title>printf(&quot;Hello World!\n&quot;);</title>
-        <description>&lt;h4 id=&quot;greetings&quot;&gt;Greetings!&lt;/h4&gt;
+        <description>&lt;p&gt;####Greetings!&lt;/p&gt;
 
 &lt;p&gt;Welcome to Dachi’s blog! A place that you can see my blogs, projects and learn more about me.&lt;/p&gt;
 

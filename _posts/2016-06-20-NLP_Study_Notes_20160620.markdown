@@ -11,7 +11,7 @@ title: NLP Study Note 20160620
 # Natural Language Processing Study Note 2016-06-20
 
 ## Study materials:
-1.[Coursera NLP Course]() 
+1.[Coursera NLP Course](https://www.coursera.org/course/nlangp) 
 
 2.[Mastering Natural Language Processing With Python](mastering natural language processing with python)
 
