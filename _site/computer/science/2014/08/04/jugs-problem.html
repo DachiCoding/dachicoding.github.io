@@ -5,14 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Turing's Code</title>
-    <meta name="description" content="Dachi's Personal Blog.
-">
+    <title>Jugs Problem</title>
+    <meta name="description" content="Dachi's Personal Blog.">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/materialize.css">
     <link rel="stylesheet" href="/css/customize.css">
-    <link rel="canonical" href="http://dachicj.com/computer/science/2014/08/06/turings-code.html">
+    <link rel="canonical" href="http://dachicj.com/computer/science/2014/08/04/jugs-problem.html">
     <script src="/js/jquery.js"></script>
     <script src="/js/semantic.js"></script>
     <script src="/js/main.js"></script>
@@ -57,43 +56,34 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Turing's Code</h1>
-    <p class="post-meta">Aug 6, 2014 • dachi.xu@gmail.com</p>
+    <h1 class="post-title">Jugs Problem</h1>
+    <p class="post-meta">Aug 4, 2014 • dachi.xu@gmail.com</p>
   </header>
 
   <article class="post-content">
-    <p>Today I studied:</p>
+    <p>What I’ve studied today:</p>
 
-<p>MIT OCW Mathematic For Computer Science Text-note 1-4.3 Alan Turing:</p>
+<p>1.MIT OCW: Mathematics For Computer Science Lecture 4 Number Theory I</p>
 
-<p>At the beginning, let’s look at a string of numbers:</p>
+<p>Let’s watch a clip from “Die Hard 3” first.
+<a href="https://www.youtube.com/watch?v=BVtQNK_ZUJg">Die Hard 3 Jugs Problem</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>           **50369825549820718594667857.**
-</code></pre>
-</div>
+<p>My solution is: 
+1.Fill the 3 gallon jug, and pour it into the 5 gallon jug, then we have (0,3) gallons in the 3g and 5g jugs
+2.Fill the 3 gallon jug again , and pour the water into the 5 gallon jug until it is full, then we have (1,5) gallons.
+3.Dump all the water in the 5 gallon jug and then pour the 1 gallon of water from the 3 gallon jug to 5 gallon (1,5) -&gt; (1, 0) -&gt; (0, 1)
+4.Fill the 3 gallon jug and pour all the water into the 5 gallon jug (3,1) -&gt; (0, 4).
+5.Done</p>
 
-<p>What the heck is that huh? Imagine it’s WWII now, and that is actually a piece of encrypted information which hidden the secret to defeat Nazi! World Peace depends on you!</p>
+<p>Let’s look at the problem from a more abstract perspective, can we use a 3 gallon jug and 6 gallon jug to get 4 gallons of water? 
+Maybe not, “suppose that we have water jugs with capacities a and b, the amount of water in each jugs is always a linear combination 
+of a and b.”</p>
 
-<p>Ok so how do we decipher this piece of code? One equation will helpful:</p>
+<p>Below is the proof steps using induction from the MIT text-note.
+[gallery ids=”37”]</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>           **m* = m * k** 
-</code></pre>
-</div>
-
-<p>m is the original number representation of the word (A = 01, B = 02, … e.g Hello = 08 05 12 12 15), please note the number has to be a prime, if the original number is not a prime, we will append numbers to make it a prime.</p>
-
-<p>k is the secret key number shared only between sender and receiver ( a large prime)</p>
-
-<p>m* is the encrypted number.</p>
-
-<p>During the war time figuring out the key prime would take endless computations, so are the secrets all safe?</p>
-
-<p>Actually not, though computing or guessing the k is mission impossible, but if the Nazi get two message, they can use Euclid’s algorithm to figure out the great common divisor of m<em>1 and m</em>2. the Nazi can keep calculating using “gcd(a,b) = gcd(b,rem(a,b))” until they get the k!</p>
-
-<p>Oops!</p>
-
-<p>(The hidden message is “victory” , 22 09 03 20 15 18 25 appending 13 to make it a prime, and key is 22801763489, so
-m* = 2209032015182513 * 22801763489)</p>
+<p>Ok, but why bother studying the number theory? because SECURITY matters! “Number theory underlies modern cryptography, which is what 
+enable secure online communication.”</p>
 
 
   </article>

@@ -5,14 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Matching Problem</title>
-    <meta name="description" content="Dachi's Personal Blog.
-">
+    <title>Strong Induction</title>
+    <meta name="description" content="Dachi's Personal Blog.">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/materialize.css">
     <link rel="stylesheet" href="/css/customize.css">
-    <link rel="canonical" href="http://dachicj.com/computer/science/2014/08/23/matching-problem.html">
+    <link rel="canonical" href="http://dachicj.com/computer/science/2014/08/05/strong-induction.html">
     <script src="/js/jquery.js"></script>
     <script src="/js/semantic.js"></script>
     <script src="/js/main.js"></script>
@@ -57,47 +56,39 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Matching Problem</h1>
-    <p class="post-meta">Aug 23, 2014 • dachi.xu@gmail.com</p>
+    <h1 class="post-title">Strong Induction</h1>
+    <p class="post-meta">Aug 5, 2014 • dachi.xu@gmail.com</p>
   </header>
 
   <article class="post-content">
-    <p>First of all, my deep apologies for not updating about weeks. My excuses are:
-1.I spent a week in Orlando for vacation.
-2.After came back from Orlando, my neck and back hurt so much thus kept me away from laptops.</p>
+    <p>What I’ve studied today:</p>
 
-<p>Today’s study material: MIT OCW Mathematic For Computer Science Lecture 6 Graph Theory
-***Please beware the below text might cover gender-related contents</p>
+<p>1.MIT OCW: Mathematics For Computer Science Lecture 3 Strong Induction.</p>
 
-<p><strong>Question: on average who has more opposite-gender partners in United States: men or women?</strong></p>
+<p>Ok, why we need to study induction?</p>
 
-<p>Below are two results from University of Chicago and ABC news who conducted surveys on random people</p>
+<p>According to the textbook of this course:</p>
 
-<p>Answer A(From U Chicago): Men have 78% more of opposite-gender partners than women
-Answer B(From ABC News ): Men have 233% more of opposite-gender partners than women.</p>
+<p>“One of the most important uses of induction in computer science involves proving that a program or process preserves
+one or more desirable properties as it proceeds. A property that is preserved through a series of operations or steps 
+is known as an invariant. “</p>
 
-<p>Don’t get excited or upset by the numbers above, because we can use basic graph theory to show what the reality is.</p>
+<p>Have you ever play the 8 puzzle game? (In China we have a similar game named “Hua Rong Dao”, which have a better UI I guess.)
+<a href="http://dachicj.com/wp-content/uploads/2014/08/8_puzzle_goal_state_a.png"><img src="http://dachicj.com/wp-content/uploads/2014/08/8_puzzle_goal_state_a.png" alt="8_puzzle_goal_state_a" /></a></p>
 
-<p>First let’s introduce some basic definition of graph theory:
-<em>Vertex</em>: or dot or node, in this example is a man or a woman.
-<em>Edge</em>: or line, in this example a line represents one pair of man and woman who have sexual relationship.
-<em>Degree</em>: number of edges joined by one vertex, in this example if Mr.X are connected with 3 different women in total, his degree is 3, and I don’t think I have to explain what does it mean in this example :)</p>
+<p>Whether if you are a fan of this game, let’s try to figure out whether the chart on the left could reach to the right?</p>
 
-<p>So we can come up with one particular graph(Bipartite graph) fits this example really well.</p>
+<p><a href="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.02.29-PM.png"><img src="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.02.29-PM-300x140.png" alt="Screen Shot 2014-08-04 at 10.02.29 PM" /></a></p>
 
-<p><a href="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-23-at-4.22.36-PM.png"><img src="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-23-at-4.22.36-PM-289x300.png" alt="Screen Shot 2014-08-23 at 4.22.36 PM" /></a></p>
+<p>The answer is no actually.</p>
 
-<p>Men are on the left of the above chart, and women are on the right. Each node represents one man or woman, and the edge(line)represents they are having *** relationship.</p>
+<p>Because in the situation above there only exist one set of inversion, but a row move(moving from left to right or vice versa)does not change the 
+number of inversion, and a column move(change up and down)change even number of inversion. It is unreachable to make it right by the move allowed
+in this game.</p>
 
-<p>Let’s back to the ratio of men to women opposite-gender partners,</p>
+<p>Official proof goes here:</p>
 
-<p>so the average number of opposite-gender-partners on men would be the sum of degrees on the left side divide by the number of men population, same applies for the women.</p>
-
-<p>Guess what, the sum of degree on the men and women are equal, which is obvious. So the ratio totally depends on the ratio between men and women population. And men’s population in U.S is about 147.6M and women’s is about 152.4M. Therefore the ratio should be 152.4/147.6- 100% = 3.25%. Based on the calculation men have 3.25% more opposite-gender partners than women.</p>
-
-<p>Computer science blows my mind.</p>
-
-<p>Thanks for reading!</p>
+<p><a href="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.08.19-PM.png"><img src="http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.08.19-PM-300x135.png" alt="Screen Shot 2014-08-04 at 10.08.19 PM" /></a></p>
 
 
   </article>
