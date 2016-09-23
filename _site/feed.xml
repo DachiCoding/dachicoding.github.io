@@ -5,8 +5,8 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 23 Sep 2016 16:23:06 +0800</pubDate>
-    <lastBuildDate>Fri, 23 Sep 2016 16:23:06 +0800</lastBuildDate>
+    <pubDate>Fri, 23 Sep 2016 16:26:27 +0800</pubDate>
+    <lastBuildDate>Fri, 23 Sep 2016 16:26:27 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -110,137 +110,6 @@
         <category>-</category>
         
         <category>Career</category>
-        
-      </item>
-    
-      <item>
-        <title>NLP Study Note 20160620</title>
-        <description>&lt;h1 id=&quot;natural-language-processing-study-note-2016-06-20&quot;&gt;Natural Language Processing Study Note 2016-06-20&lt;/h1&gt;
-
-&lt;h2 id=&quot;study-materials&quot;&gt;Study materials:&lt;/h2&gt;
-&lt;p&gt;1.&lt;a href=&quot;https://www.coursera.org/course/nlangp&quot;&gt;Coursera NLP Course&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2.&lt;a href=&quot;mastering natural language processing with python&quot;&gt;Mastering Natural Language Processing With Python&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;why-on-earth-should-we-care-about-natural-language-processingnlp&quot;&gt;Why on earth should we care about natural language processing(NLP)?&lt;/h2&gt;
-&lt;p&gt;If computers can understand the human natural language, a lots of things can be automated!&lt;/p&gt;
-
-&lt;h3 id=&quot;some-concreate-examples&quot;&gt;Some concreate examples:&lt;/h3&gt;
-&lt;p&gt;1.Machine translation&lt;/p&gt;
-
-&lt;p&gt;2.Information extraction&lt;/p&gt;
-
-&lt;p&gt;3.Text summarization&lt;/p&gt;
-
-&lt;p&gt;4.Dialogue system&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 20 Jun 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/comptuer/science/-/a.i/nlp/2016/06/20/NLP_Study_Notes_20160620.html</link>
-        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/nlp/2016/06/20/NLP_Study_Notes_20160620.html</guid>
-        
-        
-        <category>Comptuer</category>
-        
-        <category>Science</category>
-        
-        <category>-</category>
-        
-        <category>A.I</category>
-        
-        <category>NLP</category>
-        
-      </item>
-    
-      <item>
-        <title>Artificial Intelligence Search Algorithms (Draft)</title>
-        <description>&lt;!--Custome style--&gt;
-&lt;style&gt;
-    body{
-    	width:960px;
-    	margin:10px auto;
-    }
-    circle{
-      fill:white;
-      stroke:steelblue;  
-      stroke-width:2px;
-    }
-    line{
-      stroke:grey;
-      stroke-width:3px;
-    }
-    .incRect{
-    	stroke:grey;
-    	shape-rendering:crispEdges;
-    }
-    #incMatx text{
-    	text-anchor:middle;
-    	cursor:default;
-    }
-    #treesvg g text:hover, #treesvg g circle:hover{
-    	cursor:pointer;
-    }
-    #navdiv{
-    	background:#555;
-    }
-    #treesvg{
-    	border:1px solid grey;
-    }
-    #labelpos{
-    	color:white;
-    }
-    #navdiv button, #navdiv textarea{
-    	vertical-align:middle;
-    }
-    #g_labels text{
-    	text-anchor:middle;
-    }
-    #g_elabels text{
-    	text-anchor:middle;
-    	fill:red;
-    	font-weight:bold;
-    }
-&lt;/style&gt;
-
-&lt;!--Contents--&gt;
-&lt;div id=&quot;content-wrapper&quot;&gt;
-&lt;h4&gt;I am taking a artificial intelligence class for this quarter. It's so much fun and challenging. I wanted to take some notes on what I am learning.&lt;/h4&gt;
-
-&lt;h4&gt;I will go through several things in this post:&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;h5&gt;What is a search algorithm in A.I context?&lt;/h5&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;h5&gt;What kind of problem does search algorithms solve?&lt;/h5&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;h5&gt;What are most widely used search algorithms and how to implement them.&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4&gt;Algorithm concepts and implementations&lt;/h4&gt;
-&lt;ol&gt;
-    &lt;li&gt;DFS&lt;/li&gt;
-    &lt;li&gt;BFS&lt;/li&gt;
-    &lt;li&gt;Iterative Deepening&lt;/li&gt;
-    &lt;li&gt;Uniform Cost&lt;/li&gt;
-    &lt;li&gt;Best First Search&lt;/li&gt;
-    &lt;li&gt;A* Algorithms with different heuristics functions&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;/div&gt;
-
-&lt;!--Additional javascript--&gt;
-&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
-
-</description>
-        <pubDate>Sat, 30 Jan 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/comptuer/science/-/a.i/2016/01/30/Artificial-Intelligence-Search-Algorithms.html</link>
-        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/2016/01/30/Artificial-Intelligence-Search-Algorithms.html</guid>
-        
-        
-        <category>Comptuer</category>
-        
-        <category>Science</category>
-        
-        <category>-</category>
-        
-        <category>A.I</category>
         
       </item>
     
@@ -596,6 +465,34 @@ enable secure online communication.”&lt;/p&gt;
         <category>computer</category>
         
         <category>science</category>
+        
+      </item>
+    
+      <item>
+        <title>printf(&quot;Hello World!\n&quot;);</title>
+        <description>&lt;p&gt;####Greetings!&lt;/p&gt;
+
+&lt;p&gt;Welcome to Dachi’s blog! A place that you can see my blogs, projects and learn more about me.&lt;/p&gt;
+
+&lt;p&gt;There are some fun places that you can go to on this website :)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hacks&lt;/strong&gt;: My programming projects, you can play with them and let me know how cool it is.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Blog&lt;/strong&gt; : Stuff about studying computer science, programming, general technolgy and all kinds of brain hole output.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;About&lt;/strong&gt;: About who I was, who I am and who I am going to be. (Please do not use those information for social engineering!)&lt;/p&gt;
+
+&lt;p&gt;Thanks for your visiting and I hope you will enjoy it.&lt;/p&gt;
+
+&lt;p&gt;Thanks,&lt;br /&gt;
+Dachi&lt;/p&gt;
+</description>
+        <pubDate>Sat, 02 Aug 2014 22:51:42 +0800</pubDate>
+        <link>http://dachicj.com/general/2014/08/02/hello-world.html</link>
+        <guid isPermaLink="true">http://dachicj.com/general/2014/08/02/hello-world.html</guid>
+        
+        
+        <category>general</category>
         
       </item>
     
