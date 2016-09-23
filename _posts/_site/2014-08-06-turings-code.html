@@ -1,0 +1,33 @@
+<p>Today I studied:</p>
+
+<p>MIT OCW Mathematic For Computer Science Text-note 1-4.3 Alan Turing:</p>
+
+<p>At the beginning, let’s look at a string of numbers:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>           **50369825549820718594667857.**
+</code></pre>
+</div>
+
+<p>What the heck is that huh? Imagine it’s WWII now, and that is actually a piece of encrypted information which hidden the secret to defeat Nazi! World Peace depends on you!</p>
+
+<p>Ok so how do we decipher this piece of code? One equation will helpful:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>           **m* = m * k** 
+</code></pre>
+</div>
+
+<p>m is the original number representation of the word (A = 01, B = 02, … e.g Hello = 08 05 12 12 15), please note the number has to be a prime, if the original number is not a prime, we will append numbers to make it a prime.</p>
+
+<p>k is the secret key number shared only between sender and receiver ( a large prime)</p>
+
+<p>m* is the encrypted number.</p>
+
+<p>During the war time figuring out the key prime would take endless computations, so are the secrets all safe?</p>
+
+<p>Actually not, though computing or guessing the k is mission impossible, but if the Nazi get two message, they can use Euclid’s algorithm to figure out the great common divisor of m<em>1 and m</em>2. the Nazi can keep calculating using “gcd(a,b) = gcd(b,rem(a,b))” until they get the k!</p>
+
+<p>Oops!</p>
+
+<p>(The hidden message is “victory” , 22 09 03 20 15 18 25 appending 13 to make it a prime, and key is 22801763489, so
+m* = 2209032015182513 * 22801763489)</p>
+
