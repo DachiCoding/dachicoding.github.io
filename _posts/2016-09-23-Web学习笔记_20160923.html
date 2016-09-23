@@ -7,6 +7,44 @@ title: 学习笔记_20160923
 ---
 
 <p>
-更新频率犹如企业发布财务年报一般的本博客又迎来更新了，今天是要总结一些Web开发的知识。
+更新频率犹如企业发布财务年报一般的本博客居然又迎来更新了，今天学习了一些HTML5标准的历史知识，在此稍作总结分享。
 </p>
 
+<p>
+<em>
+学习资料：HTML5 and CSS3 For The Real World, 2nd Edition
+</em>
+</p>
+
+<p>
+今天看到书中介绍的HTML5标准的故事到很有意思，在此稍作翻译总结。
+</p>
+
+<p>
+在HTML5标准诞生之前，大行其道的是HTML4和XHTML，而HTML4又让位于XHMTL(其实XHTML只不过是HTML4符合XML语法的版本)。
+而HTML5的标准则是由两个组织开发的，他们分别是W3C(World Wide Web Consortium 3W委员会)和
+WHATWG(Web Hypertext Application Technology Working Group)，W3C是自打有互联网以来便是HTML/CSS标准的制定者，
+而WHATWG是由一群来自苹果，Mozilla(火狐)，Opera等浏览器制作厂商中的人员组成的，他们在2004年的W3C会议上感觉到
+非常失望并且认为W3C忽视了浏览器制作者和用户的需求，所以另起炉灶开始制作他们自己的Web标准，从此也引发了两个组织之间的斗法。
+</p>
+
+<p>
+WHATWG的标准可以在<a href="http://www.whatwg.org/html/">http://www.whatwg.org/html/</a>找到，现在WHATWG已经去掉了
+HTML5中的5，这份标准现在叫做"活的标准"（或者叫动态标准)。这意味着这个标准将不停的处于演化的过程中，并不再被冠以版本号。
+WHATWG的标准基本只包括和HTML相关的特性，当然也有一些其他相关的技术比如Microdata, Canvas 2d Context, Web Worker, Web Storage
+等技术被包含在内。
+</p>
+
+<p>
+W3C的标准则可以在此处<a href="http://www.w3.org/html/wg/drafts/html/master/">http://www.w3.org/html/wg/drafts/html/master/</a>找到。
+</p>
+
+<p>一言以蔽之，WHATWG的标准更加非正式，也更具有试验性，但是大多数情况下这两个标准都基本一致。</p>
+
+<p>
+那么这些HTML标准之争除了拿来解闷还有什么其他意义呢，其实这些技术的演化也在影响着这个行业的业内人士，比如Web前端工程师天天要处理的
+浏览器兼容问题，说白了就是落后浏览器与更新的标准之间的矛盾，每一个版本的浏览器实现了当时的Web标准，却不能正确的处理新标准下的
+markup,style以及API，而这些过去的浏览器又缺乏自动更新的功能，工程师们只好要么忽视问题(Border-radius在低版本下不显示圆角也无伤大雅)，
+要么标注Doctype让浏览器选择正确的渲染模式，或者使用Polyfill的技术来在低版本浏览器下实现那些新的功能。除此之外，工程师们还可以阅读
+学习这些标准，为将来可能所发生的技术变化做好准备。
+</p>
