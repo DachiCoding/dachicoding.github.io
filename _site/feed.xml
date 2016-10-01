@@ -5,9 +5,50 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 26 Sep 2016 16:56:11 +0800</pubDate>
-    <lastBuildDate>Mon, 26 Sep 2016 16:56:11 +0800</lastBuildDate>
+    <pubDate>Sat, 01 Oct 2016 10:29:17 +0800</pubDate>
+    <lastBuildDate>Sat, 01 Oct 2016 10:29:17 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>知乎面试总结</title>
+        <description>&lt;p&gt;
+    在9月的最后一天，我非常荣幸得来到了我最喜欢的互联网公司-知乎来面试，在此稍稍总结面试中得到的反馈和自己的反思，并且附上对面试中
+    一些问题更深入的学习和理解。
+&lt;/p&gt;
+
+&lt;h4&gt;Python底层数据结构的实现&lt;/h4&gt;
+
+&lt;h4&gt;Python GIL&lt;/h4&gt;
+
+&lt;h4&gt;Multi-process vs Multi-thread&lt;/h4&gt;
+
+&lt;h4&gt;Comparision of concurrency mechanism in different languages&lt;/h4&gt;
+
+&lt;h4&gt;Node.js mechanism and advantages&lt;/h4&gt;
+
+&lt;h4&gt;Python encode/decode problem&lt;/h4&gt;
+
+&lt;h4&gt;Sorting algorithm complexity and stability&lt;/h4&gt;
+
+&lt;h4&gt;MySQL engine&lt;/h4&gt;
+
+&lt;h4&gt;Virtualization&lt;/h4&gt;
+
+&lt;h4&gt;How to design RESTful API&lt;/h4&gt;
+
+&lt;h4&gt;Vue.js MVVM Implementation&lt;/h4&gt;
+
+&lt;h4&gt;Bayesian network application&lt;/h4&gt;
+
+&lt;h4&gt;TD-IDF&lt;/h4&gt;
+
+</description>
+        <pubDate>Sat, 01 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2016/10/01/%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2016/10/01/%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>学习笔记_20160923</title>
