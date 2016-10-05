@@ -5,47 +5,304 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 01 Oct 2016 10:29:17 +0800</pubDate>
-    <lastBuildDate>Sat, 01 Oct 2016 10:29:17 +0800</lastBuildDate>
+    <pubDate>Wed, 05 Oct 2016 20:08:49 +0800</pubDate>
+    <lastBuildDate>Wed, 05 Oct 2016 20:08:49 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>今天来学习一下REST吧！</title>
+        <description>&lt;p&gt;
+    &lt;b&gt;REST , RESTful , RESTful API&lt;/b&gt;是程序员耳熟能详的概念，但是这些概念背后的具体含义是什么？有什么作用，又该怎么应用？
+    这些看似简单的问题却不是每一个程序员在面试中都能完全回答清楚的，为了更好的理解这些概念，今天我们牺牲rest的时间来学习一下来好好学一下REST。
+&lt;/p&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;
+        &lt;p&gt;
+        &lt;i&gt;首先，什么是REST呢?&lt;/i&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        REST的概念由Roy Thomas Fielding在其2000年的&lt;a href=&quot;http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm&quot;&gt;博士论文&lt;/a&gt;中提出。
+        REST是他提出的一套对互联网软件的架构原则。REST的全称是&lt;b&gt;Re&lt;/b&gt;presentational &lt;b&gt;S&lt;/b&gt;tate &lt;b&gt;T&lt;/b&gt;rasfer。
+        &lt;/p&gt;
+
+        &lt;img style=&quot;width:200px;&quot; src=&quot;/img/mengbi.jpeg&quot;&gt;&lt;br/&gt;&lt;br/&gt;
+
+        &lt;p&gt;
+        好吧，其实脱离了论文的语境来看Representational State Transfer确实有些难以理解，但是REST中的Representational是针对互联网中的资源，
+        这些资源可以是文本，图片，音频或者视频，按照REST风格的规定每一个资源都要有一个特定的URI，要获得一个资源就要访问它的URI。
+        而Representational则表示资源的表现形式，比如一段文字可以用txt,html等格式表示。而资源的获取者要使用不同的操作来获得这些资源的状态，
+        也就是State。Transfer相对就好理解了，它的字面意义就是传输。
+        所以REST的就是一套规定如何在分布式系统中&lt;b&gt;定位，表示以及获取&lt;/b&gt;资源的风格。
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        在Roy Thomas Fiedling的论文中，他设计了REST风格的规范（客户端-服务器模式，无状态请求，缓存，统一接口，分层系统，按需代码)。
+        以及REST风格中的组成部分，数据元素(资源，资源的识别URL/URN，资源的格式等)，连接者(客服端，服务器，缓存，DNS等)。
+        想要更深入理解REST的同学可以尽情阅读他的论文，在这里我们就不做更深入的展开了。
+        &lt;/p&gt;
+    &lt;/li&gt;
+
+    &lt;li&gt;
+        &lt;p&gt;
+        &lt;i&gt;好吧，勉强算是理解了REST,那什么是RESTful?&lt;/i&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        RESTful就是符合REST风格的意思。(逃
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        引用知乎上大神的总结来说就是用URI代表资源，用HTTP操作(GET,PUT,POST,DELETE,PATCH)来操作资源。
+        &lt;/p&gt;
+
+    &lt;/li&gt;
+
+    &lt;li&gt;
+        &lt;p&gt;
+        &lt;i&gt;要不要回答的那么简陋啊？那什么又是RESTful API?&lt;/i&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        RESTful API指的就是要按照符合REST架构的风格来设计API, 使得这些API能够符合REST架构简洁，清晰，易于理解和扩充的特性。
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        那么既然REST风格设定了用URL代表资源，用HTTP操作来获取资源，RESTful API的设计就要在这两个方面上下功夫。
+        当然出了URI设计和使用适合的HTTP操作之外，还要很多需要关注的方面，比如API的协议，API返回的状态码和结果，
+        异常处理，Hypermedia API等待。
+        &lt;/p&gt;
+
+    &lt;/li&gt;
+
+    &lt;li&gt;
+        &lt;p&gt;
+        &lt;i&gt;那说了这么多务虚的东西，到底应该如何设计RESTFUL API呢？(这才是吾等码农最为关心的好吗!)&lt;/i&gt;
+        &lt;/p&gt;
+        
+
+        &lt;p&gt;
+        我们可以来参考一下最大同性交友社区&lt;a href=&quot;https://developer.github.com/v3/&quot;&gt;Github的API&lt;/a&gt;，作为学习的对象。
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+        例子1，获取一个用户
+        &lt;/p&gt;
+
+        &lt;p class=&quot;grey lighten-2&quot;&gt;
+        &lt;i&gt;GET /users/:username&lt;/i&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        在这个例子中，URI的第一个部分是users,表示要获取的的是users相关的资源，获取某一个user则需要提供username
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        例子2: 更新已认证的用户信息
+        &lt;/p&gt;
+
+        &lt;p class=&quot;grey lighten-2&quot;&gt;
+        &lt;i&gt;PATCH /user&lt;/i&gt;
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+        传输的参数示例如下
+        {
+          &quot;name&quot;: &quot;monalisa octocat&quot;,
+          &quot;email&quot;: &quot;octocat@github.com&quot;,
+          &quot;blog&quot;: &quot;https://github.com/blog&quot;,
+          &quot;company&quot;: &quot;GitHub&quot;,
+          &quot;location&quot;: &quot;San Francisco&quot;,
+          &quot;hireable&quot;: true,
+          &quot;bio&quot;: &quot;There once...&quot;
+        }
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        例子3: 为已认证用户创建新的Repository
+        &lt;/p&gt;
+
+        &lt;p class=&quot;grey lighten-2&quot;&gt;
+        &lt;i&gt;POST /user/repos&lt;/i&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        参数示例如下
+        {
+          &quot;name&quot;: &quot;Hello-World&quot;,
+          &quot;description&quot;: &quot;This is your first repository&quot;,
+          &quot;homepage&quot;: &quot;https://github.com&quot;,
+          &quot;private&quot;: false,
+          &quot;has_issues&quot;: true,
+          &quot;has_wiki&quot;: true,
+          &quot;has_downloads&quot;: true
+        }
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        例子4：删除一个Repo
+        &lt;/p&gt;
+
+        &lt;p class=&quot;grey lighten-2&quot;&gt;
+        &lt;i&gt;DELETE /repos/:owner/:repo&lt;/i&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        通过以上例子我们可以看出，每一种HTTP协议的请求都对应CRUD中的一种操作：
+        GET用来获取资源，POST用来创建资源，PUT/PATCH用来更新资源，DELETE用来删除资源。
+        而在URI的设计中，资源都用名词来表示，一类资源用复数单词来表示（比如users,repos)，
+        获取其中的一个资源就需要给出更具体的资源识别名称。
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        以上的总结只是为了给不熟悉REST等概念的读者朋友们一个感性的认识，而想更加深入的了解REST和RESTful风格还需要读者们
+        研究更多的资料，参考优秀API的设计，并且多多实践，对本文有什么意见和建议也欢迎在下面留言评论。
+        &lt;/p&gt;
+
+    &lt;/li&gt;
+
+    &lt;li&gt;
+        &lt;p&gt;
+        参考文献:
+        &lt;/p&gt;
+        
+         &lt;p&gt;
+         &lt;a href=&quot;http://www.ruanyifeng.com/blog/2014/05/restful_api.html&quot;&gt;
+             RESTful API 设计指南 by 阮一峰
+         &lt;/a&gt;
+         &lt;/p&gt;
+         
+         &lt;p&gt;
+         &lt;a href=&quot;http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm&quot;&gt;
+             Architectural Styles and the Design of Network-based Software Architectures
+         &lt;/a&gt;
+         &lt;/p&gt;
+
+         &lt;p&gt;
+         &lt;a href=&quot;https://book.douban.com/subject/4791069/&quot;&gt;REST in Practice&lt;/a&gt;
+         &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Tue, 04 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2016/10/04/Study_RESTful_api.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2016/10/04/Study_RESTful_api.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Study_fe_mvvm</title>
+        <description>
+
+&lt;p&gt;
+    1.构建Virtual DOM树
+    2.比较新旧Virtual DOM树之间的差异
+    3.将差异应用到真正的DOM树上
+&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;propName&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;propValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;propName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;propName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;propValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;child&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;childEl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;child&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;child&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createTextNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;child&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;childEl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ulRoot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ulRoot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;
+    MVVM实现
+&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'input'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'input'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attachEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'oninput'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;air&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;defineProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;air&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'temperature'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'get!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'set!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;air&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;temperature&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;air&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+        <pubDate>Tue, 04 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2016/10/04/Study_FE_MVVM.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2016/10/04/Study_FE_MVVM.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>知乎面试总结</title>
         <description>&lt;p&gt;
-    在9月的最后一天，我非常荣幸得来到了我最喜欢的互联网公司-知乎来面试，在此稍稍总结面试中得到的反馈和自己的反思，并且附上对面试中
-    一些问题更深入的学习和理解。
+    在9月的最后一天，我非常荣幸得来到了我最喜欢的互联网公司-知乎来面试，在此稍稍总结面试中得到的反馈和自己的反思，
+    并且附上对面试中一些问题更深入的学习和理解。
 &lt;/p&gt;
 
-&lt;h4&gt;Python底层数据结构的实现&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python底层数据结构的实现&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;Python GIL&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python GIL&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;Multi-process vs Multi-thread&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python encode/decode problem&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;Comparision of concurrency mechanism in different languages&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Multi-process vs Multi-thread&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;Node.js mechanism and advantages&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Node.js mechanism and advantages&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;Python encode/decode problem&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Comparision of concurrency mechanism in different languages&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;Sorting algorithm complexity and stability&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Sorting algorithm complexity and stability&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;MySQL engine&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;MySQL engine&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;Virtualization&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;How to design RESTful API&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;How to design RESTful API&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;MVVM and Virtual DOM &lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;Vue.js MVVM Implementation&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Bayesian network application &lt;/a&gt; &lt;/h4&gt;
 
-&lt;h4&gt;Bayesian network application&lt;/h4&gt;
-
-&lt;h4&gt;TD-IDF&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;TD-IDF&lt;/a&gt;&lt;/h4&gt;
 
 </description>
         <pubDate>Sat, 01 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/2016/10/01/%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93.html</link>
-        <guid isPermaLink="true">http://dachicj.com/2016/10/01/%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93.html</guid>
+        <link>http://dachicj.com/2016/10/01/Zhihu_Interview_Notes.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2016/10/01/Zhihu_Interview_Notes.html</guid>
         
         
       </item>
@@ -506,72 +763,6 @@ in this game.&lt;/p&gt;
         <category>computer</category>
         
         <category>science</category>
-        
-      </item>
-    
-      <item>
-        <title>Jugs Problem</title>
-        <description>&lt;p&gt;What I’ve studied today:&lt;/p&gt;
-
-&lt;p&gt;1.MIT OCW: Mathematics For Computer Science Lecture 4 Number Theory I&lt;/p&gt;
-
-&lt;p&gt;Let’s watch a clip from “Die Hard 3” first.
-&lt;a href=&quot;https://www.youtube.com/watch?v=BVtQNK_ZUJg&quot;&gt;Die Hard 3 Jugs Problem&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;My solution is: 
-1.Fill the 3 gallon jug, and pour it into the 5 gallon jug, then we have (0,3) gallons in the 3g and 5g jugs
-2.Fill the 3 gallon jug again , and pour the water into the 5 gallon jug until it is full, then we have (1,5) gallons.
-3.Dump all the water in the 5 gallon jug and then pour the 1 gallon of water from the 3 gallon jug to 5 gallon (1,5) -&amp;gt; (1, 0) -&amp;gt; (0, 1)
-4.Fill the 3 gallon jug and pour all the water into the 5 gallon jug (3,1) -&amp;gt; (0, 4).
-5.Done&lt;/p&gt;
-
-&lt;p&gt;Let’s look at the problem from a more abstract perspective, can we use a 3 gallon jug and 6 gallon jug to get 4 gallons of water? 
-Maybe not, “suppose that we have water jugs with capacities a and b, the amount of water in each jugs is always a linear combination 
-of a and b.”&lt;/p&gt;
-
-&lt;p&gt;Below is the proof steps using induction from the MIT text-note.
-[gallery ids=”37”]&lt;/p&gt;
-
-&lt;p&gt;Ok, but why bother studying the number theory? because SECURITY matters! “Number theory underlies modern cryptography, which is what 
-enable secure online communication.”&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 04 Aug 2014 04:21:37 +0800</pubDate>
-        <link>http://dachicj.com/computer/science/2014/08/04/jugs-problem.html</link>
-        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/04/jugs-problem.html</guid>
-        
-        
-        <category>computer</category>
-        
-        <category>science</category>
-        
-      </item>
-    
-      <item>
-        <title>printf(&quot;Hello World!\n&quot;);</title>
-        <description>&lt;p&gt;####Greetings!&lt;/p&gt;
-
-&lt;p&gt;Welcome to Dachi’s blog! A place that you can see my blogs, projects and learn more about me.&lt;/p&gt;
-
-&lt;p&gt;There are some fun places that you can go to on this website :)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Hacks&lt;/strong&gt;: My programming projects, you can play with them and let me know how cool it is.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Blog&lt;/strong&gt; : Stuff about studying computer science, programming, general technolgy and all kinds of brain hole output.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;About&lt;/strong&gt;: About who I was, who I am and who I am going to be. (Please do not use those information for social engineering!)&lt;/p&gt;
-
-&lt;p&gt;Thanks for your visiting and I hope you will enjoy it.&lt;/p&gt;
-
-&lt;p&gt;Thanks,&lt;br /&gt;
-Dachi&lt;/p&gt;
-</description>
-        <pubDate>Sat, 02 Aug 2014 22:51:42 +0800</pubDate>
-        <link>http://dachicj.com/general/2014/08/02/hello-world.html</link>
-        <guid isPermaLink="true">http://dachicj.com/general/2014/08/02/hello-world.html</guid>
-        
-        
-        <category>general</category>
         
       </item>
     
