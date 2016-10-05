@@ -5,8 +5,8 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 05 Oct 2016 20:08:49 +0800</pubDate>
-    <lastBuildDate>Wed, 05 Oct 2016 20:08:49 +0800</lastBuildDate>
+    <pubDate>Wed, 05 Oct 2016 20:24:11 +0800</pubDate>
+    <lastBuildDate>Wed, 05 Oct 2016 20:24:11 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -194,14 +194,12 @@
       </item>
     
       <item>
-        <title>Study_fe_mvvm</title>
-        <description>
-
-&lt;p&gt;
-    1.构建Virtual DOM树
-    2.比较新旧Virtual DOM树之间的差异
-    3.将差异应用到真正的DOM树上
-&lt;/p&gt;
+        <title>今天来学习一下MVVM吧！</title>
+        <description>&lt;ol&gt;
+    &lt;li&gt;构建Virtual DOM树&lt;/li&gt;
+    &lt;li&gt;比较新旧Virtual DOM树之间的差异&lt;/li&gt;
+    &lt;li&gt;将差异应用到真正的DOM树上&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;
@@ -291,7 +289,7 @@
 
 &lt;h4&gt;&lt;a href=&quot;&quot;&gt;MySQL engine&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;How to design RESTful API&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;../04/Study_RESTful_api.html&quot;&gt;学习RESTful API&lt;/a&gt;&lt;/h4&gt;
 
 &lt;h4&gt;&lt;a href=&quot;&quot;&gt;MVVM and Virtual DOM &lt;/a&gt;&lt;/h4&gt;
 
