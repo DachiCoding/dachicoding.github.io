@@ -5,12 +5,12 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 05 Oct 2016 20:24:11 +0800</pubDate>
-    <lastBuildDate>Wed, 05 Oct 2016 20:24:11 +0800</lastBuildDate>
+    <pubDate>Wed, 05 Oct 2016 20:33:58 +0800</pubDate>
+    <lastBuildDate>Wed, 05 Oct 2016 20:33:58 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
-        <title>今天来学习一下REST吧！</title>
+        <title>学习RESTful API</title>
         <description>&lt;p&gt;
     &lt;b&gt;REST , RESTful , RESTful API&lt;/b&gt;是程序员耳熟能详的概念，但是这些概念背后的具体含义是什么？有什么作用，又该怎么应用？
     这些看似简单的问题却不是每一个程序员在面试中都能完全回答清楚的，为了更好的理解这些概念，今天我们牺牲rest的时间来学习一下来好好学一下REST。
@@ -260,8 +260,8 @@
 &lt;span class=&quot;nx&quot;&gt;air&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Tue, 04 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/2016/10/04/Study_FE_MVVM.html</link>
-        <guid isPermaLink="true">http://dachicj.com/2016/10/04/Study_FE_MVVM.html</guid>
+        <link>http://dachicj.com/2016/10/04/Study_MVVM_VIRTUALDOM.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2016/10/04/Study_MVVM_VIRTUALDOM.html</guid>
         
         
       </item>
@@ -273,29 +273,29 @@
     并且附上对面试中一些问题更深入的学习和理解。
 &lt;/p&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python底层数据结构的实现&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python底层数据结构的实现(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python GIL&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python GIL机制以及影响(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python encode/decode problem&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python encode/decode问题(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Multi-process vs Multi-thread&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;多进程与多线程比较(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Node.js mechanism and advantages&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Node.js机制(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Comparision of concurrency mechanism in different languages&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;不同并发模型比较(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Sorting algorithm complexity and stability&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;排序算法复杂度与稳定性总结(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;MySQL engine&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;MySQL引擎学习(未完成)&lt;/a&gt;&lt;/h4&gt;
 
 &lt;h4&gt;&lt;a href=&quot;../04/Study_RESTful_api.html&quot;&gt;学习RESTful API&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;MVVM and Virtual DOM &lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;../04/Study_MVVM_VIRTUALDOM.html&quot;&gt;MVVM以和Virtual DOM原理以及实现(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Bayesian network application &lt;/a&gt; &lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;贝叶斯网络应用(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;TD-IDF&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;&quot;&gt;TD-IDF总结(未完成)&lt;/a&gt;&lt;/h4&gt;
 
 </description>
         <pubDate>Sat, 01 Oct 2016 00:00:00 +0800</pubDate>
