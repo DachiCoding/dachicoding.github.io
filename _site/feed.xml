@@ -5,9 +5,147 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 06 Oct 2016 14:52:31 +0800</pubDate>
-    <lastBuildDate>Thu, 06 Oct 2016 14:52:31 +0800</lastBuildDate>
+    <pubDate>Thu, 06 Oct 2016 22:53:51 +0800</pubDate>
+    <lastBuildDate>Thu, 06 Oct 2016 22:53:51 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Python编码问题</title>
+        <description>&lt;p&gt;
+    那么，今天我们来学习一个非常骨骼精奇的Python知识点：Python的编码问题。
+&lt;/p&gt;
+
+&lt;p&gt;
+    不知道诸位使用Python2.x的同学们有没有在撸代码的时候遇到过这样的情况
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;    &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'之乎者也'&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;stdin&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;UnicodeEncodeError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ascii'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;codec&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;can&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'t encode characters in position 0-3: ordinal not in range(128)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    😳 什么鬼这是？
+&lt;/p&gt;
+
+&lt;p&gt;
+    没错，也许你用Python的第一天就遇到了这个问题，也许你一直都是在英文环境下编写Python程序所以从来没遇到过这个问题，择日不如撞日，
+    今天就让我们好好地近距离地活体解剖这个Bug!
+&lt;/p&gt;
+
+&lt;p&gt;
+    那么，用简洁的语言来概括这个问题就是Python2.x系统默认的编码系统(一般是ascii),
+    在试图编码(encode)你给的其他编码系统(比如utf-8)的字符时，遇到了非法字符从而产生了错误。
+&lt;/p&gt;
+
+&lt;p&gt;
+    打开Python2.x，然后输入下面的代码你就获得Python默认的encoding编码。
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;    &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'ascii'&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    而发生这个问题应该怎么解决呢？很简单，使用正确的编码就可以解决问题啦。
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;    &lt;span class=&quot;c&quot;&gt;# 改变默认的编码系统&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;reload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# 如果你的字符是用其他编码系统下书写的，你需要将你的字符先转化为Python的Unicode编码，再转化为正确的编码，假设你的字符串是由gb2312编码的&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sUnicode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gb2312'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sUTF8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sUnicode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    现在你的字符串都是由utf-8编码的，并且Python现在默认的解码系统也是utf-8。
+&lt;/p&gt;
+
+&lt;p&gt;
+    看到这里也有可能你会觉得更加一头雾水了，刚刚到底发生了什么？！
+    那么现在就让我们再次审视这个问题，从它的源头讲起...
+&lt;/p&gt;
+&lt;p&gt;
+    以下内容参考&lt;a href=&quot;https://docs.python.org/2/howto/unicode.html&quot;&gt;Python官方文档&lt;/a&gt;。
+&lt;/p&gt;
+
+&lt;p&gt;
+    我们都知道，在计算机的底层，每一种款式的数据都是由二进制数字表示的，字符也是。而最早出现的字符编码就是ascii。
+    你可以在shell里输入'man ascii'来查看每一个数字和英文字母／符号的对应关系。但是只有区区8bit的ascii无法满足对应世上不同语言的成千上万的字符。
+    所以新的编码系统就这样一个个被发明出来了，比如汉字的GBK，以及想要囊括全世界所有语言的编码系统Unicode。（瓦雷利亚语管不管?)
+&lt;/p&gt;
+
+&lt;p&gt;
+    Unicode是一头身材硕大的编码系统，在Unicode里每一个字符都被一个code points(编码点）表示，一个Unicode字符串就由一系列的编码点组成。
+    虽然Unicode非常简洁直接，但是它也存在几个问题。
+    &lt;ul&gt;
+        &lt;li&gt;*不可移植，因为不同的处理器对字节的处理顺序不同(Big endian vs Little endian)。&lt;/li&gt;
+        &lt;li&gt;*浪费空间，大多数使用的编码点都小于127或者说255，所以使用完整的Unicode会使用很多不必要的bytes。&lt;/li&gt;
+        &lt;li&gt;*与许多C的函数比如strlen()不兼容。&lt;/li&gt;
+        &lt;li&gt;*许多互联网标准都使用文本数据定义的，它们不能处理内嵌的0字节。&lt;/li&gt;
+    &lt;/ul&gt;
+    所以使用Unicode变成了一件不是很实际的选择，那我们靠什么来拯救拥挤的互联网宽带呢？UTF-8就这样登场了!
+&lt;/p&gt;
+
+&lt;p&gt;
+    UTF-8是一种针对Unicode的可变长度的字符编码，UTF的全称是UCS Transfer Format, 8代表着每次传输8bits的数据，
+    UTF-8用1到4个字节编码Unicode字符, 它作为Unicode的一种具体实现，
+    灵活的实现了在对应不同的字符时动态的变化长度，以达到节省内存以及网络带宽的目的。
+&lt;/p&gt;
+
+&lt;hr/&gt;&lt;br/&gt;
+&lt;p&gt;
+为了放松一下阅读了本篇文章的你的心情，转移一下注意力，现在让我们看一道和今天文章有关的LeetCode算法题目如何？（这么做根本不会放松啊混蛋!)
+&lt;/p&gt;
+
+&lt;p&gt;
+    LeetCode 393 UTF-8 Validation, &lt;a href=&quot;https://leetcode.com/problems/utf-8-validation/&quot;&gt;题目链接&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    以下则是本人的答案。
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validUtf8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++){&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//1 byte character&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//Get n&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toBinaryString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++){&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'1'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//N must be 2 to 4&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//Check if the following bytes are valid&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/p&gt;</description>
+        <pubDate>Thu, 06 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2016/10/06/Study_Python_Encode.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2016/10/06/Study_Python_Encode.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>学习RESTful API</title>
@@ -34,7 +172,7 @@
         这些资源可以是文本，图片，音频或者视频，按照REST风格的规定每一个资源都要有一个特定的URI，要获得一个资源就要访问它的URI。
         而Representational则表示资源的表现形式，比如一段文字可以用txt,html等格式表示。而资源的获取者要使用不同的操作来获得这些资源的状态，
         也就是State。Transfer相对就好理解了，它的字面意义就是传输。
-        所以REST的就是一套规定如何在分布式系统中&lt;b&gt;定位，表示以及获取&lt;/b&gt;资源的风格。
+        所以REST的就是一套规定如何在分布式系统中&lt;b&gt;定位，表示以及操作&lt;/b&gt;资源的风格。
         &lt;/p&gt;
 
         &lt;p&gt;
@@ -247,12 +385,26 @@
       </item>
     
       <item>
-        <title>今天来学习一下MVVM吧！</title>
-        <description>&lt;ol&gt;
+        <title>MVVM以和Virtual DOM原理以及实现</title>
+        <description>&lt;p&gt;
+    本文目的
+&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;什么是MVVM或者Virtual DOM?&lt;/li&gt;
+    &lt;li&gt;为什么使用MVVM或者Virtual DOM?&lt;/li&gt;
+    &lt;li&gt;如何实现MVVM和Virtual DOM&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Virtual DOM的工作机制&lt;/p&gt;
+&lt;ol&gt;
     &lt;li&gt;构建Virtual DOM树&lt;/li&gt;
     &lt;li&gt;比较新旧Virtual DOM树之间的差异&lt;/li&gt;
     &lt;li&gt;将差异应用到真正的DOM树上&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;
+    简单Virtual DOM实现
+&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tagName&lt;/span&gt;
@@ -289,7 +441,7 @@
 &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ulRoot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;
-    MVVM实现
+    简单MVVM实现
 &lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'input'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -374,7 +526,7 @@
 
 &lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python GIL机制以及影响(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python encode/decode问题(未完成)&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;../06/Study_Python_Encode&quot;&gt;Python encode/decode问题(未完成)&lt;/a&gt;&lt;/h4&gt;
 
 &lt;h4&gt;&lt;a href=&quot;&quot;&gt;多进程与多线程比较(未完成)&lt;/a&gt;&lt;/h4&gt;
 
@@ -810,49 +962,6 @@ m* = 2209032015182513 * 22801763489)&lt;/p&gt;
         <pubDate>Thu, 07 Aug 2014 00:02:33 +0800</pubDate>
         <link>http://dachicj.com/computer/science/2014/08/07/turings-code.html</link>
         <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/07/turings-code.html</guid>
-        
-        
-        <category>computer</category>
-        
-        <category>science</category>
-        
-      </item>
-    
-      <item>
-        <title>Strong Induction</title>
-        <description>&lt;p&gt;What I’ve studied today:&lt;/p&gt;
-
-&lt;p&gt;1.MIT OCW: Mathematics For Computer Science Lecture 3 Strong Induction.&lt;/p&gt;
-
-&lt;p&gt;Ok, why we need to study induction?&lt;/p&gt;
-
-&lt;p&gt;According to the textbook of this course:&lt;/p&gt;
-
-&lt;p&gt;“One of the most important uses of induction in computer science involves proving that a program or process preserves
-one or more desirable properties as it proceeds. A property that is preserved through a series of operations or steps 
-is known as an invariant. “&lt;/p&gt;
-
-&lt;p&gt;Have you ever play the 8 puzzle game? (In China we have a similar game named “Hua Rong Dao”, which have a better UI I guess.)
-&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/08/8_puzzle_goal_state_a.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/08/8_puzzle_goal_state_a.png&quot; alt=&quot;8_puzzle_goal_state_a&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Whether if you are a fan of this game, let’s try to figure out whether the chart on the left could reach to the right?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.02.29-PM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.02.29-PM-300x140.png&quot; alt=&quot;Screen Shot 2014-08-04 at 10.02.29 PM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The answer is no actually.&lt;/p&gt;
-
-&lt;p&gt;Because in the situation above there only exist one set of inversion, but a row move(moving from left to right or vice versa)does not change the 
-number of inversion, and a column move(change up and down)change even number of inversion. It is unreachable to make it right by the move allowed
-in this game.&lt;/p&gt;
-
-&lt;p&gt;Official proof goes here:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.08.19-PM.png&quot;&gt;&lt;img src=&quot;http://dachicj.com/wp-content/uploads/2014/08/Screen-Shot-2014-08-04-at-10.08.19-PM-300x135.png&quot; alt=&quot;Screen Shot 2014-08-04 at 10.08.19 PM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 05 Aug 2014 11:09:00 +0800</pubDate>
-        <link>http://dachicj.com/computer/science/2014/08/05/strong-induction.html</link>
-        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/05/strong-induction.html</guid>
         
         
         <category>computer</category>

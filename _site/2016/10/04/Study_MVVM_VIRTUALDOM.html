@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>今天来学习一下MVVM吧！</title>
+    <title>MVVM以和Virtual DOM原理以及实现</title>
     <meta name="description" content="Dachi's Personal Blog.">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/css/main.css">
@@ -56,16 +56,30 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">今天来学习一下MVVM吧！</h1>
+    <h1 class="post-title">MVVM以和Virtual DOM原理以及实现</h1>
     <p class="post-meta">Oct 4, 2016 • dachi.xu@gmail.com</p>
   </header>
 
   <article class="post-content">
-    <ol>
+    <p>
+    本文目的
+</p>
+<ol>
+    <li>什么是MVVM或者Virtual DOM?</li>
+    <li>为什么使用MVVM或者Virtual DOM?</li>
+    <li>如何实现MVVM和Virtual DOM</li>
+</ol>
+
+<p>Virtual DOM的工作机制</p>
+<ol>
     <li>构建Virtual DOM树</li>
     <li>比较新旧Virtual DOM树之间的差异</li>
     <li>将差异应用到真正的DOM树上</li>
 </ol>
+
+<p>
+    简单Virtual DOM实现
+</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Element</span><span class="p">(</span><span class="nx">tagName</span><span class="p">,</span><span class="nx">props</span><span class="p">,</span> <span class="nx">children</span><span class="p">){</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">=</span> <span class="nx">tagName</span>
@@ -102,7 +116,7 @@
 <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ulRoot</span><span class="p">)</span></code></pre></figure>
 
 <p>
-    MVVM实现
+    简单MVVM实现
 </p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'input'</span><span class="p">)</span>

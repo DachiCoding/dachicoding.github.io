@@ -1,0 +1,142 @@
+---
+author: dachi.xu@gmail.com
+comments: true
+date: 2016-10-06
+layout: post
+title: Python编码问题
+---
+
+<p>
+    那么，今天我们来学习一个非常骨骼精奇的Python知识点：Python的编码问题。
+</p>
+
+<p>
+    不知道诸位使用Python2.x的同学们有没有在撸代码的时候遇到过这样的情况
+    {% highlight python %}
+    >>> s = u'之乎者也'
+    >>> str(s)
+    Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-3: ordinal not in range(128)
+    {% endhighlight %}
+</p>
+
+<p>
+    😳 什么鬼这是？
+</p>
+
+<p>
+    没错，也许你用Python的第一天就遇到了这个问题，也许你一直都是在英文环境下编写Python程序所以从来没遇到过这个问题，择日不如撞日，
+    今天就让我们好好地近距离地活体解剖这个Bug!
+</p>
+
+<p>
+    那么，用简洁的语言来概括这个问题就是Python2.x系统默认的编码系统(一般是ascii),
+    在试图编码(encode)你给的其他编码系统(比如utf-8)的字符时，遇到了非法字符从而产生了错误。
+</p>
+
+<p>
+    打开Python2.x，然后输入下面的代码你就获得Python默认的encoding编码。
+    {% highlight python %}
+    >>> import sys
+    >>> sys.getdefaultencoding()
+    'ascii'
+    {% endhighlight %}
+</p>
+
+<p>
+    而发生这个问题应该怎么解决呢？很简单，使用正确的编码就可以解决问题啦。
+    {% highlight python %}
+    # 改变默认的编码系统
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
+    # 如果你的字符是用其他编码系统下书写的，你需要将你的字符先转化为Python的Unicode编码，再转化为正确的编码，假设你的字符串是由gb2312编码的
+    sUnicode = s.decode('gb2312')
+    sUTF8 = sUnicode.encode('utf-8')
+    {% endhighlight %}
+    现在你的字符串都是由utf-8编码的，并且Python现在默认的解码系统也是utf-8。
+</p>
+
+<p>
+    看到这里也有可能你会觉得更加一头雾水了，刚刚到底发生了什么？！
+    那么现在就让我们再次审视这个问题，从它的源头讲起...
+</p>
+<p>
+    以下内容参考<a href="https://docs.python.org/2/howto/unicode.html">Python官方文档</a>。
+</p>
+
+<p>
+    我们都知道，在计算机的底层，每一种款式的数据都是由二进制数字表示的，字符也是。而最早出现的字符编码就是ascii。
+    你可以在shell里输入'man ascii'来查看每一个数字和英文字母／符号的对应关系。但是只有区区8bit的ascii无法满足对应世上不同语言的成千上万的字符。
+    所以新的编码系统就这样一个个被发明出来了，比如汉字的GBK，以及想要囊括全世界所有语言的编码系统Unicode。（瓦雷利亚语管不管?)
+</p>
+
+<p>
+    Unicode是一头身材硕大的编码系统，在Unicode里每一个字符都被一个code points(编码点）表示，一个Unicode字符串就由一系列的编码点组成。
+    虽然Unicode非常简洁直接，但是它也存在几个问题。
+    <ul>
+        <li>*不可移植，因为不同的处理器对字节的处理顺序不同(Big endian vs Little endian)。</li>
+        <li>*浪费空间，大多数使用的编码点都小于127或者说255，所以使用完整的Unicode会使用很多不必要的bytes。</li>
+        <li>*与许多C的函数比如strlen()不兼容。</li>
+        <li>*许多互联网标准都使用文本数据定义的，它们不能处理内嵌的0字节。</li>
+    </ul>
+    所以使用Unicode变成了一件不是很实际的选择，那我们靠什么来拯救拥挤的互联网宽带呢？UTF-8就这样登场了!
+</p>
+
+<p>
+    UTF-8是一种针对Unicode的可变长度的字符编码，UTF的全称是UCS Transfer Format, 8代表着每次传输8bits的数据，
+    UTF-8用1到4个字节编码Unicode字符, 它作为Unicode的一种具体实现，
+    灵活的实现了在对应不同的字符时动态的变化长度，以达到节省内存以及网络带宽的目的。
+</p>
+
+<hr/><br/>
+<p>
+为了放松一下阅读了本篇文章的你的心情，转移一下注意力，现在让我们看一道和今天文章有关的LeetCode算法题目如何？（这么做根本不会放松啊混蛋!)
+</p>
+
+<p>
+    LeetCode 393 UTF-8 Validation, <a href="https://leetcode.com/problems/utf-8-validation/">题目链接</a>
+</p>
+
+<p>
+    以下则是本人的答案。
+{% highlight java %}
+public boolean validUtf8(int[] data) {
+    if(data == null || data.length == 0) return false;
+
+    for(int i = 0; i < data.length; i++){
+        //1 byte character
+        if(data[i] >> 7 == 0){
+            continue;
+        } else {
+
+            //Get n
+            String str = Integer.toBinaryString(data[i]);
+            int cnt = 0;
+            for(int j = 0; j < str.length(); j++){
+                if(str.charAt(j) == '1'){
+                    cnt++;
+                } else {
+                    break;
+                }
+            }
+
+            //N must be 2 to 4
+            if(cnt < 2 || cnt > 4) return false;
+
+            //Check if the following bytes are valid
+            while(cnt > 1){
+                i++;
+                if(i == data.length) return false;
+                if(data[i] >> 6 != 2) return false;
+                cnt--;
+            }
+        }
+    }
+
+    return true;
+}
+{% endhighlight %}
+</p>
