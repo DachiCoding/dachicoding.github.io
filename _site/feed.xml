@@ -5,8 +5,8 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 05 Oct 2016 20:33:58 +0800</pubDate>
-    <lastBuildDate>Wed, 05 Oct 2016 20:33:58 +0800</lastBuildDate>
+    <pubDate>Thu, 06 Oct 2016 08:24:27 +0800</pubDate>
+    <lastBuildDate>Thu, 06 Oct 2016 08:24:27 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -85,7 +85,19 @@
         &lt;p&gt;
         我们可以来参考一下最大同性交友社区&lt;a href=&quot;https://developer.github.com/v3/&quot;&gt;Github的API&lt;/a&gt;，作为学习的对象。
         &lt;/p&gt;
-        
+
+        &lt;p&gt;
+        首先，来看看Github API的域名根路径
+        &lt;/p&gt;
+
+        &lt;p class=&quot;grey lighten-2&quot;&gt;
+        https://api.github.com/
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        我们可以看到Github为API采用了专用的域名,并且使用的是HTTPS协议。接下来看一些实例。
+        &lt;/p&gt;
+
         &lt;p&gt;
         例子1，获取一个用户
         &lt;/p&gt;
@@ -95,7 +107,21 @@
         &lt;/p&gt;
 
         &lt;p&gt;
-        在这个例子中，URI的第一个部分是users,表示要获取的的是users相关的资源，获取某一个user则需要提供username
+        返回的结果如下
+        &lt;/p&gt;
+
+        &lt;p class=&quot;grey lighten-2&quot;&gt;
+        Status: 200 OK
+        {
+         &quot;login&quot;:&quot;octocat&quot;,
+         &quot;id&quot;:1,
+         ...
+        }
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        在这个例子中，URI的第一个部分是users,表示要获取的的是users相关的资源，获取某一个user则需要提供username,
+        而成功返回的Status code是200，返回的结果包括了这个user的各种信息。
         &lt;/p&gt;
 
         &lt;p&gt;
@@ -116,7 +142,8 @@
           &quot;location&quot;: &quot;San Francisco&quot;,
           &quot;hireable&quot;: true,
           &quot;bio&quot;: &quot;There once...&quot;
-        }
+        },
+        返回结果类同例子1。
         &lt;/p&gt;
 
         &lt;p&gt;
@@ -141,6 +168,21 @@
         &lt;/p&gt;
 
         &lt;p&gt;
+        返回结果为
+        &lt;p class=&quot;grey lighten-2&quot;&gt;
+        Status: 201 Created
+        &lt;br/&gt;
+        Location: https://api.github.com/repos/octocat/Hello-World
+        &lt;br/&gt;
+        {
+            &quot;id&quot;:1296269,
+            &quot;owner&quot;:...,
+            &quot;name&quot;:&quot;Hello-World&quot;...,
+        }
+        &lt;/p&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
         例子4：删除一个Repo
         &lt;/p&gt;
 
@@ -148,11 +190,22 @@
         &lt;i&gt;DELETE /repos/:owner/:repo&lt;/i&gt;
         &lt;/p&gt;
 
+        &lt;p class=&quot;grey lighten-2&quot;&gt;
+        Status: 204 No Content
+        &lt;/p&gt;
+
         &lt;p&gt;
         通过以上例子我们可以看出，每一种HTTP协议的请求都对应CRUD中的一种操作：
-        GET用来获取资源，POST用来创建资源，PUT/PATCH用来更新资源，DELETE用来删除资源。
+        GET用来获取资源，POST用来创建资源，PUT用来更新资源，PATCH用来更新部分资源。DELETE用来删除资源。
+        &lt;/p&gt;
+
+        &lt;p&gt;
         而在URI的设计中，资源都用名词来表示，一类资源用复数单词来表示（比如users,repos)，
-        获取其中的一个资源就需要给出更具体的资源识别名称。
+        定位更具体的资源则要在API路径里面详细标示出。
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        返回请求的Status code设计必须使用户简洁明了的明白该请求的结果，并反映了每一种结果的后果。
         &lt;/p&gt;
 
         &lt;p&gt;
