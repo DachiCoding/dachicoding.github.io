@@ -1,0 +1,74 @@
+---
+author: dachi.xu@gmail.com
+comments: true
+date: 2016-10-07
+layout: post
+title: Python数据结构List/Dict研究
+---
+
+<p>
+    <b>Python的List和Dict数据结构的底层是如何实现的?</b>
+</p>
+
+<p>
+    如果你曾经也思索过这个问题，或者在面试中被问到过这个问题？如果你是一名Python使用者，或者你是一名C语言程序员，无论如何如果这个问题引起了你的兴趣，
+    那么欢迎你今天和我一起探索一下Python(CPython）底层是如何实现这两个数据结构的。
+</p>
+
+<p>
+    list和dicts是Python里常用的数据结构, Python程序员的日常工作离不开这两个数据结构，
+    不过在list和dict为程序员提供了如此多的便利同时，我们也想了解它们工作时它的底层是如何真正运转的，研究这个问题不仅可以满足我们的好奇心，
+    同样也将增进我们对这么语言的理解。
+</p>
+
+<p>
+    今天我们的研究材料是Python的CPython实现，是Python使用最广泛的Python解释器，
+    其源代码可以在其<a href="https://github.com/python/cpython/tree/2.7">Github Repo</a>上获得。
+    而我们今天要学习的部分则位于Include和Objects文件夹下。
+</p>
+
+<p>
+    首先是list,让我们先来看看声明list数据结构的listobject.h，打开文件映入眼帘的是
+    {% highlight c %}
+    typedef struct {
+        /* 类型是名为PyVarObject的struct，其中的属性ob_size是记录了真正的数据的多寡 */
+        PyObject_VAR_HEAD
+
+        /* Vector of pointers to list elements.  list[0] is ob_item[0], etc. */
+        /* ob_item就是指向元素列表的指针。*/
+        PyObject **ob_item;
+
+        /* allocated记录着实际请求的内存，这个数目大于实际储存的内存空间
+         * 所以有 0 <= ob_size <= allocated
+        */
+        Py_ssize_t allocated;
+    } PyListObject;
+    #endif
+    {% endhighlight %}
+</p>
+
+<p>
+    再让我们来看看list的各种操作, 在listobject.c里首先定义了一些全局变量
+    {% highlight c %}
+    /* Empty list reuse scheme to save calls to malloc and free */
+    #ifndef PyList_MAXFREELIST
+    #define PyList_MAXFREELIST 80
+    #endif
+    static PyListObject *free_list[PyList_MAXFREELIST];
+    static int numfree = 0;
+
+    {% endhighlight %}
+    这个free_list数组里面维护的指针所指对的内存才是list里的干货---PyListObject,
+    那么这些指针到底指向哪里，list是如何进行初始化和各种操作的呢，我们接着往下看。
+</p>
+
+<h3>
+    未完待续...
+</h3>
+
+<p>
+    参考书籍：
+    <ol>
+        <li><a href="https://book.douban.com/subject/3117898/">Python源码剖析</a></li>
+    </ol>
+</p>

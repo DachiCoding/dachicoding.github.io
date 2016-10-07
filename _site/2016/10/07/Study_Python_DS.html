@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>知乎面试总结</title>
+    <title>Python数据结构List/Dict研究</title>
     <meta name="description" content="Dachi's Personal Blog.">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/materialize.css">
     <link rel="stylesheet" href="/css/customize.css">
-    <link rel="canonical" href="http://dachicj.com/2016/10/01/Zhihu_Interview_Notes.html">
+    <link rel="canonical" href="http://dachicj.com/2016/10/07/Study_Python_DS.html">
     <script src="/js/jquery.js"></script>
     <script src="/js/semantic.js"></script>
     <script src="/js/main.js"></script>
@@ -56,84 +56,75 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">知乎面试总结</h1>
-    <p class="post-meta">Oct 1, 2016 • dachi.xu@gmail.com</p>
+    <h1 class="post-title">Python数据结构List/Dict研究</h1>
+    <p class="post-meta">Oct 7, 2016 • dachi.xu@gmail.com</p>
   </header>
 
   <article class="post-content">
     <p>
-    在9月的最后一天，我很荣幸得来到了我非常喜欢的互联网公司<a href="https://www.zhihu.com" target="_blank">知乎</a>来面试，
-    在此我将稍加总结面试中得到的反馈和自己的反思，并且附上对面试中一些问题更深入的学习和理解。
+    <b>Python的List和Dict数据结构的底层是如何实现的?</b>
 </p>
 
 <p>
-    面试总共由两个来自不同部门的面试官考察，问到的题目涵盖了从计算机科学到编程的不同方面。
-    这次面试使我更加了解了国内互联网面试的考察风格（创业公司），并且也更加认识到自己知识面在水平和结构上的不足，
-    为我将来提高自身姿势水平提供了很好的指导作用, 实在需要感谢两位面试官的指点。
+    如果你曾经也思索过这个问题，或者在面试中被问到过这个问题？如果你是一名Python使用者，或者你是一名C语言程序员，无论如何如果这个问题引起了你的兴趣，
+    那么欢迎你今天和我一起探索一下Python(CPython）底层是如何实现这两个数据结构的。
 </p>
 
 <p>
-    此次面试中主要考察的有
+    list和dicts是Python里常用的数据结构, Python程序员的日常工作离不开这两个数据结构，
+    不过在list和dict为程序员提供了如此多的便利同时，我们也想了解它们工作时它的底层是如何真正运转的，研究这个问题不仅可以满足我们的好奇心，
+    同样也将增进我们对这么语言的理解。
 </p>
 
 <p>
-    面试官1
-    <ul>
-        <li>(1).Python里List的底层实现（是Array-based还是Linked-based)</li>
-        <li>(2).Python里Dict的底层如何实现</li>
-        <li>(3).解释一下Python的GIL，对性能有什么影响</li>
-        <li>(4).什么时候用多进程，什么时候用多线程</li>
-        <li>(5).node.js的机制（单线程异步，为什么在Java/Python都能多线程的时候还要用node.js, 用node.js能带来什么好处)</li>
-        <li>(5).讨论不同语言的并发机制</li>
-        <li>(6).Python的encode/decode 问题有没有遇到过</li>
-        <li>(7).简述Mergesort或者Quicksort的原理，复杂度是什么，是否稳定（Quicksort不稳定,原因是Pivot的选取有可能不理想，如何改善？给出两种改善方法）</li>
-        <li>(8).MySQL的引擎是什么？讨论一下(InnoDB)</li>
-    </ul>
+    今天我们的研究材料是Python的CPython实现，是Python使用最广泛的Python解释器，
+    其源代码可以在其<a href="https://github.com/python/cpython/tree/2.7">Github Repo</a>上获得。
+    而我们今天要学习的部分则位于Include和Objects文件夹下。
 </p>
 
 <p>
-    面试官2
-    <ul>
-        <li>(1).虚拟化的实现机理是什么(因为我有个实习是做云计算的，所以问到）</li>
-        <li>(2).如何设计RESTful API</li>
-        <li>(3).React.js/Vue.js这种前端MVVM具体如何实现。</li>
-        <li>(4).算法题: DFS相关</li>
-        <li>(5).一道数学推理题</li>
-        <li>(6).贝叶斯网络的应用，如何运用贝叶斯屏蔽垃圾邮件，TF-IDF的问题。</li>
-    </ul>
+    首先是list,让我们先来看看声明list数据结构的listobject.h，打开文件映入眼帘的是
+    <figure class="highlight"><pre><code class="language-c" data-lang="c">    <span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+        <span class="cm">/* 类型是名为PyVarObject的struct，其中的属性ob_size是记录了真正的数据的多寡 */</span>
+        <span class="n">PyObject_VAR_HEAD</span>
+
+        <span class="cm">/* Vector of pointers to list elements.  list[0] is ob_item[0], etc. */</span>
+        <span class="cm">/* ob_item就是指向元素列表的指针。*/</span>
+        <span class="n">PyObject</span> <span class="o">**</span><span class="n">ob_item</span><span class="p">;</span>
+
+        <span class="cm">/* allocated记录着实际请求的内存，这个数目大于实际储存的内存空间
+         * 所以有 0 &lt;= ob_size &lt;= allocated
+        */</span>
+        <span class="n">Py_ssize_t</span> <span class="n">allocated</span><span class="p">;</span>
+    <span class="p">}</span> <span class="n">PyListObject</span><span class="p">;</span>
+    <span class="cp">#endif
+</span>    </code></pre></figure>
 </p>
 
 <p>
-    这次面试让我感觉我目前的知识结构里最大的问题或特点就是"广而不精"，Web开发中的前端和后端，算法，语言，云计算，分布式系统，人工智能等等。
-    每种技术都有一些涉猎，有一些使用的经验，但是对于技术的钻研不够深入和透彻，对于技术的学习仅仅处在会使用而不是研究其底层机制的层次上，
-    这样的知识结构将不足以解决面试中会遇到的问题，更不足以解决日后工作中可能会遇上的种种难题，为此我应该以此为戒，改变以往见猎心喜，走马观花的学习习惯。
-    我将从这次面试中遇到的问题开始，慢慢钻研，将广度学习和深度学习相结合，成为更优秀的程序员。
+    再让我们来看看list的各种操作, 在listobject.c里首先定义了一些全局变量
+    <figure class="highlight"><pre><code class="language-c" data-lang="c">    <span class="cm">/* Empty list reuse scheme to save calls to malloc and free */</span>
+    <span class="cp">#ifndef PyList_MAXFREELIST
+</span>    <span class="cp">#define PyList_MAXFREELIST 80
+</span>    <span class="cp">#endif
+</span>    <span class="k">static</span> <span class="n">PyListObject</span> <span class="o">*</span><span class="n">free_list</span><span class="p">[</span><span class="n">PyList_MAXFREELIST</span><span class="p">];</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">numfree</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    </code></pre></figure>
+    这个free_list数组里面维护的指针所指对的内存才是list里的干货---PyListObject,
+    那么这些指针到底指向哪里，list是如何进行初始化和各种操作的呢，我们接着往下看。
 </p>
 
-<h4><a href="../07/Study_Python_DS.html">Python底层数据结构的实现(未完成)</a></h4>
+<h3>
+    未完待续...
+</h3>
 
-<h4><a href="">Python GIL机制以及影响(未完成)</a></h4>
-
-<h4><a href="../06/Study_Python_Encode.html">Python encode/decode问题</a></h4>
-
-<h4><a href="">多进程与多线程比较(未完成)</a></h4>
-
-<h4><a href="">Node.js机制(未完成)</a></h4>
-
-<h4><a href="">不同并发模型比较(未完成)</a></h4>
-
-<h4><a href="">排序算法复杂度与稳定性总结(未完成)</a></h4>
-
-<h4><a href="">MySQL引擎学习(未完成)</a></h4>
-
-<h4><a href="../04/Study_RESTful_api.html">学习RESTful API</a></h4>
-
-<h4><a href="../04/Study_MVVM_VIRTUALDOM.html">MVVM以和Virtual DOM原理以及实现(未完成)</a></h4>
-
-<h4><a href="">贝叶斯网络应用(未完成)</a></h4>
-
-<h4><a href="">TD-IDF总结(未完成)</a></h4>
-
+<p>
+    参考书籍：
+    <ol>
+        <li><a href="https://book.douban.com/subject/3117898/">Python源码剖析</a></li>
+    </ol>
+</p>
 
   </article>
 

@@ -5,9 +5,83 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 06 Oct 2016 23:03:27 +0800</pubDate>
-    <lastBuildDate>Thu, 06 Oct 2016 23:03:27 +0800</lastBuildDate>
+    <pubDate>Fri, 07 Oct 2016 23:27:08 +0800</pubDate>
+    <lastBuildDate>Fri, 07 Oct 2016 23:27:08 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Python数据结构List/Dict研究</title>
+        <description>&lt;p&gt;
+    &lt;b&gt;Python的List和Dict数据结构的底层是如何实现的?&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    如果你曾经也思索过这个问题，或者在面试中被问到过这个问题？如果你是一名Python使用者，或者你是一名C语言程序员，无论如何如果这个问题引起了你的兴趣，
+    那么欢迎你今天和我一起探索一下Python(CPython）底层是如何实现这两个数据结构的。
+&lt;/p&gt;
+
+&lt;p&gt;
+    list和dicts是Python里常用的数据结构, Python程序员的日常工作离不开这两个数据结构，
+    不过在list和dict为程序员提供了如此多的便利同时，我们也想了解它们工作时它的底层是如何真正运转的，研究这个问题不仅可以满足我们的好奇心，
+    同样也将增进我们对这么语言的理解。
+&lt;/p&gt;
+
+&lt;p&gt;
+    今天我们的研究材料是Python的CPython实现，是Python使用最广泛的Python解释器，
+    其源代码可以在其&lt;a href=&quot;https://github.com/python/cpython/tree/2.7&quot;&gt;Github Repo&lt;/a&gt;上获得。
+    而我们今天要学习的部分则位于Include和Objects文件夹下。
+&lt;/p&gt;
+
+&lt;p&gt;
+    首先是list,让我们先来看看声明list数据结构的listobject.h，打开文件映入眼帘的是
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;    &lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/* 类型是名为PyVarObject的struct，其中的属性ob_size是记录了真正的数据的多寡 */&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;PyObject_VAR_HEAD&lt;/span&gt;
+
+        &lt;span class=&quot;cm&quot;&gt;/* Vector of pointers to list elements.  list[0] is ob_item[0], etc. */&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/* ob_item就是指向元素列表的指针。*/&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;PyObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ob_item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;cm&quot;&gt;/* allocated记录着实际请求的内存，这个数目大于实际储存的内存空间
+         * 所以有 0 &amp;lt;= ob_size &amp;lt;= allocated
+        */&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Py_ssize_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allocated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PyListObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;cp&quot;&gt;#endif
+&lt;/span&gt;    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    再让我们来看看list的各种操作, 在listobject.c里首先定义了一些全局变量
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;    &lt;span class=&quot;cm&quot;&gt;/* Empty list reuse scheme to save calls to malloc and free */&lt;/span&gt;
+    &lt;span class=&quot;cp&quot;&gt;#ifndef PyList_MAXFREELIST
+&lt;/span&gt;    &lt;span class=&quot;cp&quot;&gt;#define PyList_MAXFREELIST 80
+&lt;/span&gt;    &lt;span class=&quot;cp&quot;&gt;#endif
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PyListObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;free_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PyList_MAXFREELIST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numfree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    这个free_list数组里面维护的指针所指对的内存才是list里的干货---PyListObject,
+    那么这些指针到底指向哪里，list是如何进行初始化和各种操作的呢，我们接着往下看。
+&lt;/p&gt;
+
+&lt;h3&gt;
+    未完待续...
+&lt;/h3&gt;
+
+&lt;p&gt;
+    参考书籍：
+    &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/3117898/&quot;&gt;Python源码剖析&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/p&gt;
+</description>
+        <pubDate>Fri, 07 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2016/10/07/Study_Python_DS.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2016/10/07/Study_Python_DS.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Python编码问题</title>
@@ -487,7 +561,7 @@
 &lt;p&gt;
     面试总共由两个来自不同部门的面试官考察，问到的题目涵盖了从计算机科学到编程的不同方面。
     这次面试使我更加了解了国内互联网面试的考察风格（创业公司），并且也更加认识到自己知识面在水平和结构上的不足，
-    为我将来提高自身姿势水平提供了很好的指导作用。
+    为我将来提高自身姿势水平提供了很好的指导作用, 实在需要感谢两位面试官的指点。
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -528,11 +602,11 @@
     我将从这次面试中遇到的问题开始，慢慢钻研，将广度学习和深度学习相结合，成为更优秀的程序员。
 &lt;/p&gt;
 
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python底层数据结构的实现(未完成)&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;../07/Study_Python_DS.html&quot;&gt;Python底层数据结构的实现(未完成)&lt;/a&gt;&lt;/h4&gt;
 
 &lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python GIL机制以及影响(未完成)&lt;/a&gt;&lt;/h4&gt;
 
-&lt;h4&gt;&lt;a href=&quot;../06/Study_Python_Encode&quot;&gt;Python encode/decode问题&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a href=&quot;../06/Study_Python_Encode.html&quot;&gt;Python encode/decode问题&lt;/a&gt;&lt;/h4&gt;
 
 &lt;h4&gt;&lt;a href=&quot;&quot;&gt;多进程与多线程比较(未完成)&lt;/a&gt;&lt;/h4&gt;
 
@@ -921,53 +995,6 @@ Answer B(From ABC News ): Men have 233% more of opposite-gender partners than wo
         <pubDate>Sun, 24 Aug 2014 05:33:20 +0800</pubDate>
         <link>http://dachicj.com/computer/science/2014/08/24/matching-problem.html</link>
         <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/24/matching-problem.html</guid>
-        
-        
-        <category>computer</category>
-        
-        <category>science</category>
-        
-      </item>
-    
-      <item>
-        <title>Turing's Code</title>
-        <description>&lt;p&gt;Today I studied:&lt;/p&gt;
-
-&lt;p&gt;MIT OCW Mathematic For Computer Science Text-note 1-4.3 Alan Turing:&lt;/p&gt;
-
-&lt;p&gt;At the beginning, let’s look at a string of numbers:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;           **50369825549820718594667857.**
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;What the heck is that huh? Imagine it’s WWII now, and that is actually a piece of encrypted information which hidden the secret to defeat Nazi! World Peace depends on you!&lt;/p&gt;
-
-&lt;p&gt;Ok so how do we decipher this piece of code? One equation will helpful:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;           **m* = m * k** 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;m is the original number representation of the word (A = 01, B = 02, … e.g Hello = 08 05 12 12 15), please note the number has to be a prime, if the original number is not a prime, we will append numbers to make it a prime.&lt;/p&gt;
-
-&lt;p&gt;k is the secret key number shared only between sender and receiver ( a large prime)&lt;/p&gt;
-
-&lt;p&gt;m* is the encrypted number.&lt;/p&gt;
-
-&lt;p&gt;During the war time figuring out the key prime would take endless computations, so are the secrets all safe?&lt;/p&gt;
-
-&lt;p&gt;Actually not, though computing or guessing the k is mission impossible, but if the Nazi get two message, they can use Euclid’s algorithm to figure out the great common divisor of m&lt;em&gt;1 and m&lt;/em&gt;2. the Nazi can keep calculating using “gcd(a,b) = gcd(b,rem(a,b))” until they get the k!&lt;/p&gt;
-
-&lt;p&gt;Oops!&lt;/p&gt;
-
-&lt;p&gt;(The hidden message is “victory” , 22 09 03 20 15 18 25 appending 13 to make it a prime, and key is 22801763489, so
-m* = 2209032015182513 * 22801763489)&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 07 Aug 2014 00:02:33 +0800</pubDate>
-        <link>http://dachicj.com/computer/science/2014/08/07/turings-code.html</link>
-        <guid isPermaLink="true">http://dachicj.com/computer/science/2014/08/07/turings-code.html</guid>
         
         
         <category>computer</category>
