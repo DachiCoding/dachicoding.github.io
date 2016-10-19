@@ -1,0 +1,38 @@
+---
+author: dachi.xu@gmail.com
+comments: true
+date: 2016-10-12
+layout: post
+title: 学习MySQL体系结构
+---
+
+<h2>MySQL技术内幕：InnoDB存储引擎大纲</h2>
+<ol>
+    <li><details><summary>MySQL体系结构</summary></details></li>
+    <li><details><summary>InnoDB存储引擎</summary></details></li>
+    <li><details><summary>文件</summary></details></li>
+    <li><details><summary>表</summary></details></li>
+    <li><details><summary>索引与算法</summary></details></li>
+    <li><details><summary>锁</summary></details></li>
+    <li><details><summary>事务</summary></details></li>
+    <li><details><summary>备份与恢复</summary></details></li>
+    <li><details><summary>性能调优</summary></details></li>
+    <li><details><summary>InnoDB存储引擎源代码的编译和调试</summary></details></li>
+</ol>
+
+<h3>1.MySQL体系结构</h3>
+<p>数据库(Database)是文件的集合</p>
+<p>示例(Instance)是运行在内存中的示例</p>
+<p>
+MySQL组成部分
+    <ul>
+      <li>连接池组件</li>
+      <li>管理服务和工具组件</li>
+      <li>SQL接口组件</li>
+      <li>查询分析器组件</li>
+      <li>优化器组件</li>
+      <li>缓冲(Cache)组件</li>
+      <li>插件式存储引擎</li>
+      <li>物理文件</li>
+    </ul>
+</p>

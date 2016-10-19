@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>知乎面试总结</title>
+    <title>学习Chromium源代码</title>
     <meta name="description" content="Dachi's Personal Blog.">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/materialize.css">
     <link rel="stylesheet" href="/css/customize.css">
-    <link rel="canonical" href="http://dachicj.com/2016/10/01/Zhihu_Interview_Notes.html">
+    <link rel="canonical" href="http://dachicj.com/2016/10/19/Chromium-Code-Structure.html">
     <script src="/js/jquery.js"></script>
     <script src="/js/semantic.js"></script>
     <script src="/js/main.js"></script>
@@ -56,84 +56,74 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">知乎面试总结</h1>
-    <p class="post-meta">Oct 1, 2016 • dachi.xu@gmail.com</p>
+    <h1 class="post-title">学习Chromium源代码</h1>
+    <p class="post-meta">Oct 19, 2016 • dachi.xu@gmail.com</p>
   </header>
 
   <article class="post-content">
     <p>
-    在9月的最后一天，我很荣幸得来到了我非常喜欢的互联网公司<a href="https://www.zhihu.com" target="_blank">知乎</a>来面试，
-    在此我将稍加总结面试中得到的反馈和自己的反思，并且附上对面试中一些问题更深入的学习和理解。
+    Chrome是谷歌自家出品的浏览器，Chromium则是Chrome背后的引擎，作为一名想(bu)要(de)学(bu)习(xue)浏览器知识的码农,
+    Chromium是非常具有研究价值的对象，不过这个Project极其庞大，我们只能从一些小的方面入手，做一些微小的学习工作。
 </p>
 
 <p>
-    面试总共由两个来自不同部门的面试官考察，问到的题目涵盖了从计算机科学到编程的不同方面。
-    这次面试使我更加了解了国内互联网面试的考察风格（创业公司），并且也更加认识到自己知识面在水平和结构上的不足，
-    为我将来提高自身姿势水平提供了很好的指导作用, 实在需要感谢两位面试官的指点。
+    在进行具体的学习之前，我们不妨从Chromium的代码结构入手，高屋建瓴地总览一下Chorimium, 这份
+    <a href="https://www.chromium.org/developers/how-tos/getting-around-the-chrome-source-code">官方文档</a>
+    是一个很好的学习材料。
 </p>
 
 <p>
-    此次面试中主要考察的有
+    Chromium大致可以分为三个部分:
+    <ol>
+        <li>浏览器,负责所有的UI以及I/O。</li>
+        <li>渲染器,在一般情况下是由浏览器驱动的基于tab的子程序。</li>
+        <li>Webkit,渲染器嵌入了Webkit来进行布局和渲染。</li>
+    </ol>
+</p>
+
+<p>Chromium架构图:</p>
+<img src="../../../img/chromium_arch.png">
+
+<p>
+    Chromium由许多个子项目组成，这些项目有:
+    <ol>
+    <li>android_webview</li>
+    <li>apps</li>
+    <li>base</li>
+    <li>breakpad</li>
+    <li>build</li>
+    <li>cc</li>
+    <li>chrome: Chromium浏览器</li>
+    <li>chrome/test/data</li>
+    <li>components</li>
+    <li>content: 一个多进程沙箱浏览器的核心代码</li>
+    <li>device</li>
+    <li>net</li>
+    <li>sandbox</li>
+    <li>skia</li>
+    <li>sql</li>
+    <li>testing</li>
+    <li>third_party</li>
+    <li>tools</li>
+    <li>ui/gfx</li>
+    <li>ui/views: 一个UI开发的简单框架</li>
+    <li>url: Google的开源URL parsing库</li>
+    <li>v8: V8 JavaScript库</li>
+    <li>webkit: webkit相关代码</li>
+    </ol>
 </p>
 
 <p>
-    面试官1
-    <ul>
-        <li>(1).Python里List的底层实现（是Array-based还是Linked-based)</li>
-        <li>(2).Python里Dict的底层如何实现</li>
-        <li>(3).解释一下Python的GIL，对性能有什么影响</li>
-        <li>(4).什么时候用多进程，什么时候用多线程</li>
-        <li>(5).node.js的机制（单线程异步，为什么在Java/Python都能多线程的时候还要用node.js, 用node.js能带来什么好处)</li>
-        <li>(5).讨论不同语言的并发机制</li>
-        <li>(6).Python的encode/decode 问题有没有遇到过</li>
-        <li>(7).简述Mergesort或者Quicksort的原理，复杂度是什么，是否稳定（Quicksort不稳定,原因是Pivot的选取有可能不理想，如何改善？给出两种改善方法）</li>
-        <li>(8).MySQL的引擎是什么？讨论一下(InnoDB)</li>
-    </ul>
+    缘于Chromium代码架构宏大，绝非一朝一夕能够理解、学习之项目，我将在未来持续地学习这个项目，加深我对浏览器的理解。
 </p>
 
 <p>
-    面试官2
-    <ul>
-        <li>(1).虚拟化的实现机理是什么(因为我有个实习是做云计算的，所以问到）</li>
-        <li>(2).如何设计RESTful API</li>
-        <li>(3).React.js/Vue.js这种前端MVVM具体如何实现。</li>
-        <li>(4).算法题: DFS相关</li>
-        <li>(5).一道数学推理题</li>
-        <li>(6).贝叶斯网络的应用，如何运用贝叶斯屏蔽垃圾邮件，TF-IDF的问题。</li>
-    </ul>
+    <a href="https://chromium.googlesource.com/chromium/src.git/+/master">源码地址</a>
 </p>
 
 <p>
-    这次面试让我感觉我目前的知识结构里最大的问题或特点就是"广而不精"，Web开发中的前端和后端，算法，语言，云计算，分布式系统，人工智能等等。
-    每种技术都有一些涉猎，有一些使用的经验，但是对于技术的钻研不够深入和透彻，对于技术的学习仅仅处在会使用而不是研究其底层机制的层次上，
-    这样的知识结构将不足以解决面试中会遇到的问题，更不足以解决日后工作中可能会遇上的种种难题，为此我应该以此为戒，改变以往见猎心喜，走马观花的学习习惯。
-    我将从这次面试中遇到的问题开始，慢慢钻研，将广度学习和深度学习相结合，成为更优秀的程序员。
+    <a href="https://www.chromium.org/Home">延伸阅读</a>
 </p>
-
-<h4><a href="../07/Study_Python_DS.html">Python底层数据结构的实现(未完成)</a></h4>
-
-<h4><a href="">Python GIL机制以及影响(未完成)</a></h4>
-
-<h4><a href="../06/Study_Python_Encode.html">Python encode/decode问题</a></h4>
-
-<h4><a href="">多进程与多线程比较(未完成)</a></h4>
-
-<h4><a href="">Node.js机制(未完成)</a></h4>
-
-<h4><a href="">不同并发模型比较(未完成)</a></h4>
-
-<h4><a href="">排序算法复杂度与稳定性总结(未完成)</a></h4>
-
-<h4><a href="../12/MySQL_Engine.html">MySQL引擎学习(未完成)</a></h4>
-
-<h4><a href="../04/Study_RESTful_api.html">学习RESTful API</a></h4>
-
-<h4><a href="../04/Study_MVVM_VIRTUALDOM.html">MVVM以和Virtual DOM原理以及实现(未完成)</a></h4>
-
-<h4><a href="">贝叶斯网络应用(未完成)</a></h4>
-
-<h4><a href="">TD-IDF总结(未完成)</a></h4>
-
 
   </article>
 

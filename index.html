@@ -4,16 +4,18 @@ layout: default
 
 <div class="home">
 
-  <!--Header-->
-  <h1 class="page-heading">Welcome to Dachi's Blog</h1>
-  <p>You can read my <a href="/blog/">articles</a>
-  ,or check my <a href="/hacks/">projects.</a>
-  Last but not least, you can learn more about <a href="/about/">me</a></p>
+  <h4>Welcome! 欢迎光临达迟的博客</h4>
+
   <hr/>
-  
-  <!--Lastest articles-->
+  <!-- Recommend articles -->
+  <h1 class="page-heading">置顶推荐博文</h1>
+  <a href="2016/10/01/Zhihu_Interview_Notes.html">知乎面试总结</a>
+  <br/><br/>
+
+  <hr/>
+  <!-- Lastest articles -->
   <br/>
-  <h1 class="page-heading">Latest updates on Dachi's blog 最近更新</h1>
+  <h1 class="page-heading">最近更新</h1>
   <ul class="post-list">
     {% for post in site.posts limit: 4 %}
     <li class="post"></li>
