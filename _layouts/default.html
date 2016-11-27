@@ -13,6 +13,9 @@
       </div>
     </div>
 
+    {% if notFinished %}
+        {% include notification.html %}
+    {% endif %}
     {% include footer.html %}
 
   </body>

@@ -5,9 +5,35 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 19 Oct 2016 21:59:37 +0800</pubDate>
-    <lastBuildDate>Wed, 19 Oct 2016 21:59:37 +0800</lastBuildDate>
+    <pubDate>Sun, 27 Nov 2016 20:06:53 +0800</pubDate>
+    <lastBuildDate>Sun, 27 Nov 2016 20:06:53 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>学习Webpack</title>
+        <description>&lt;h3&gt;Webpack Config&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li&gt;入口文件&lt;/li&gt;
+    &lt;li&gt;目的地址&lt;/li&gt;
+    &lt;li&gt;loader: 用于转换各种文件&lt;/li&gt;
+    &lt;li&gt;plugin: 提供各种插件功能&lt;/li&gt;
+    &lt;li&gt;externals: 外部设定&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 27 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/comptuer/science/-/a.i/2016/11/27/Study-Webpack.html</link>
+        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/2016/11/27/Study-Webpack.html</guid>
+        
+        
+        <category>Comptuer</category>
+        
+        <category>Science</category>
+        
+        <category>-</category>
+        
+        <category>A.I</category>
+        
+      </item>
     
       <item>
         <title>学习Chromium源代码</title>
@@ -74,6 +100,7 @@
 &lt;p&gt;
     &lt;a href=&quot;https://www.chromium.org/Home&quot;&gt;延伸阅读&lt;/a&gt;
 &lt;/p&gt;
+
 </description>
         <pubDate>Wed, 19 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://dachicj.com/2016/10/19/Chromium-Code-Structure.html</link>
@@ -886,95 +913,6 @@ markup,style以及API，而这些过去的浏览器又缺乏自动更新的功�
         <category>-</category>
         
         <category>Career</category>
-        
-      </item>
-    
-      <item>
-        <title>准备技术面试的心得</title>
-        <description>&lt;p&gt;笔者最近刚刚经历了一次谷歌的电话面试，遗憾的是笔者并没有获得onsite面试的机会，但是我还是想把准备面试中的心得体会和大家分享，希望为将来会准备技术面试的朋友提供一些帮助。&lt;/p&gt;
-
-&lt;p&gt;技术面试中包含的种类可能千差万别，让人准备起来无所适从，但是这些题目大致可以规约于以下几个大类：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;数据结构与算法:&lt;/strong&gt;
-&lt;br /&gt;&lt;br /&gt;
-这个是各种技术公司面试主要考察的题目类型，即使是在数据结构／算法这一大类里，常见的数据结构／算法题目类型包括:&lt;/p&gt;
-
-    &lt;p&gt;1.比特操作: 可能会考察二进制数字间的运算，包括并’|’,或‘&amp;amp;’以及异或’^’,非‘~’,经典的题目有数出一个整数的二进制形式里1的个数&lt;br /&gt;
-  2.数据类型: 数字(数论：比如n以内的质数数量),字符(字符串的搜索)&lt;br /&gt;
-  3.数据结构: 算法题中的重中之中，熟悉各种线性结构(数组，链表），哈希表，树结构（二叉树，红黑数，AVL),图论的实现以及种种算法.&lt;br /&gt;
-  4.算法设计：枚举，迭代，分治，动态规划，贪心算法.&lt;br /&gt;
-  5.程序设计: 例如实现一个迭代器&lt;br /&gt;
-&lt;br /&gt;  	
-  以上的五类题目可以用一条逻辑线串联起来，便于理解之间的层次关系:&lt;br /&gt;  &lt;br /&gt;
-&lt;strong&gt;比特(01)=通过编码成为了=&amp;gt;数据类型(int, string) =通过组织成为了=&amp;gt;数据结构 =加上了设计成为了=&amp;gt;程序。&lt;/strong&gt;
-&lt;br /&gt;  &lt;br /&gt;
-  当复习数据结构与算法的时候最好同时 &lt;strong&gt;学习数据结构／算法的理论与练习算法题&lt;/strong&gt;. 对于准备面试时使用LeetCode这样的online judge是必不可少的，同时你也有很大几率碰到从来没出现过的题目，所以对于基础理论更好的理解可以帮你更快识别新题目在考察什么数据类型和算法。 &lt;br /&gt;
-  &lt;br /&gt;
-  &lt;em&gt;推举学习材料:&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;
-  1.&lt;a href=&quot;http://www.amazon.com/Algorithms-4th-Edition-Robert-Sedgewick/dp/032157351X&quot;&gt;Algorithm 4th Ed&lt;/a&gt;&lt;br /&gt;
-  2.&lt;a href=&quot;http://www.amazon.com/gp/product/0262033844/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=1944687762&amp;amp;pf_rd_s=lpo-top-stripe-1&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=032157351X&amp;amp;pf_rd_m=ATVPDKIKX0DER&amp;amp;pf_rd_r=0JG05DDS4Z9GBQD0JX5A&quot;&gt;Introduction to algorithm&lt;/a&gt;&lt;br /&gt;
-  3.&lt;a href=&quot;http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150&quot;&gt;CC150&lt;/a&gt;&lt;br /&gt;
-  4.&lt;a href=&quot;http://www.amazon.com/Cracking-Coding-Interview-6th-Programming/dp/0984782850/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1445800204&amp;amp;sr=1-1&amp;amp;keywords=CC150&quot;&gt;LeetCode&lt;/a&gt;&lt;br /&gt;
-  5.这个北大在&lt;a href=&quot;https://www.coursera.org/learn/shuju-jiegou-suanfa&quot;&gt;Coursera&lt;/a&gt;上的公开课我也觉得很不错.  &lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;写代码&lt;/strong&gt;:&lt;br /&gt;	    &lt;br /&gt;
-  在面试的时候，（谷歌电面的时候是在Google Doc上写代码，onsite是在白板上），你需要不依赖IDE来写代码，所以你必须熟练掌握你惯用语言的语法以及种种细节，练习的最好方式是先复习语法基础，然后用你的语言来实现种种数据结构与算法，尽量使用text editor来实现。对于Python爱好者我推荐这篇文章&lt;a href=&quot;http://docs.python-guide.org/en/latest/&quot;&gt;The Hitchhiker’s guide to python&lt;/a&gt;来提高Python的姿势水平。
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;操作系统&lt;/strong&gt;:&lt;br /&gt;&lt;br /&gt;
-  一般情况下需要掌握操作系统的进程管理方面的知识（内存管理／文件系统的知识可酌情学习），掌握进程、线程、并发、并行、锁、死锁等概念。&lt;/p&gt;
-
-    &lt;p&gt;推荐学习材料:&lt;br /&gt;
-  1 &lt;a href=&quot;http://www.amazon.com/gp/product/0136006639?keywords=modern%20operating%20system&amp;amp;qid=1445800770&amp;amp;ref_=sr_1_2&amp;amp;sr=8-2&quot;&gt;Modern Opearting System&lt;/a&gt;&lt;br /&gt;
-  2 &lt;a href=&quot;https://www.coursera.org/course/os&quot;&gt;另外一个Cousera上的北大关于操作系统的公开课，基于上面这本书为提纲&lt;/a&gt;  &lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;脚本／正则表达式&lt;/strong&gt;:&lt;br /&gt;&lt;br /&gt;
-  笔者就被问了一道正则的题啊, 所以同学们你们也需要多少知道一点正则方面的知识啊, 最好平时多玩玩command line和正则相关的一些小工具(grep/sed/awk).推荐一本书，又讲了操作系统，又讲Shell scritping／正则等相关知识：&lt;a href=&quot;http://www.amazon.com/gp/product/1593275676?keywords=how%20linux%20works&amp;amp;qid=1445824874&amp;amp;ref_=sr_1_1&amp;amp;sr=8-1&quot;&gt;How Linux Works&lt;/a&gt;  &lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;系统设计&lt;/strong&gt;:&lt;br /&gt;&lt;br /&gt;
-  阅读谷歌的&lt;a href=&quot;http://research.google.com/archive/mapreduce.html&quot;&gt;mapreduce&lt;/a&gt;/&lt;a href=&quot;http://research.google.com/archive/bigtable.html&quot;&gt;big table&lt;/a&gt; 论文，延伸阅读里的第二个链接中有丰富优秀的资源，切克闹。&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;离散数学&lt;/strong&gt;:&lt;br /&gt;&lt;/p&gt;
-
-    &lt;p&gt;一些需要复习的概念包括但不限于：&lt;br /&gt;
-  1.递归证明&lt;br /&gt;
-  2.布尔代数&lt;br /&gt;
-  3.排列组合&lt;br /&gt;
-  4.概率论&lt;/p&gt;
-
-    &lt;p&gt;这个&lt;a href=&quot;http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm?utm_source=OCWDept&amp;amp;utm_medium=CarouselSm&amp;amp;utm_campaign=FeaturedCourse&quot;&gt;MIT的离散数学公开课&lt;/a&gt; 非常好，其中有一趟跟图论有关的课更是非常“内涵”，去看就懂了。 &lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;###延伸阅读:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions&quot;&gt;The Five Essential Phone-Screen Questions&lt;/a&gt; 著名程序员加喷神Steve Yegge所写的电面五个经典题目&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/checkcheckzz/system-design-interview&quot;&gt;Good read on system desing interview&lt;/a&gt; 系统设计读物&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/DachiCoding/programming_practice/blob/master/python/sort.py&quot;&gt;我自己用Python实现各种排序算法的代码&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;祝所有在准备技术面试的同学同仁们取得好成绩，我继续刷题去了噢耶。&lt;/p&gt;
-</description>
-        <pubDate>Sun, 25 Oct 2015 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/career/development/2015/10/25/%E5%87%86%E5%A4%87%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%83%E5%BE%97.html</link>
-        <guid isPermaLink="true">http://dachicj.com/career/development/2015/10/25/%E5%87%86%E5%A4%87%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E7%9A%84%E5%BF%83%E5%BE%97.html</guid>
-        
-        
-        <category>Career</category>
-        
-        <category>Development</category>
         
       </item>
     
