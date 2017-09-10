@@ -5,9 +5,77 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 03 Dec 2016 19:42:41 +0800</pubDate>
-    <lastBuildDate>Sat, 03 Dec 2016 19:42:41 +0800</lastBuildDate>
+    <pubDate>Sun, 10 Sep 2017 18:45:58 +0800</pubDate>
+    <lastBuildDate>Sun, 10 Sep 2017 18:45:58 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>本周JS学习笔记</title>
+        <description>&lt;h3 id=&quot;yon-dont-know-jstype--grammer-chapter-01&quot;&gt;学习材料： Yon don’t know JS(Type &amp;amp; Grammer) Chapter 01&lt;/h3&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;什么是类型&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;An intrinsic, built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other values, both to the engine and to the developer.(对JS引擎和开发者而言的一套拥有内置独特特性和行为的特殊值，并与其他值相区别)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;关键字&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;对JS引擎和开发者：引擎和开发者在处理不同类型时都需要不同的方式。&lt;/li&gt;
+  &lt;li&gt;独特特性和行为: 每种类型的值有自己的特性和行为。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;js&quot;&gt;JS内置类型&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;null&lt;/li&gt;
+  &lt;li&gt;undefined&lt;/li&gt;
+  &lt;li&gt;boolean&lt;/li&gt;
+  &lt;li&gt;number&lt;/li&gt;
+  &lt;li&gt;string&lt;/li&gt;
+  &lt;li&gt;object&lt;/li&gt;
+  &lt;li&gt;symbol(ES6新增)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//try this&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;object&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//会显示true,但是是不正确的，这个是历史遗留问题&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;function&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//true, 但是function并不是单独的类型，它是callable object, object的一种子类型&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;更安全的检查变量方式&lt;/h2&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//假设你的代码通过某个全局变量DEBUG来检查运行环境&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DEBUG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//会throw ReferenceError&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DEBUG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'undefined'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//更安全&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//使用typeof来查看某功能是否存在&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;doSomethingCool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 
+		&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FeatureXYZ&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;undefined&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;FeatureXYZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+
+		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;values-as-types&quot;&gt;Values as Types&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;在JS中，变量不拥有类型，但是values(值)拥有类型，变量可以绑定任意类型&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;coercion-&quot;&gt;Coercion 类型转换&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;类型转换有时是显式的，可读的，有的时候会在不经意间发生。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 10 Sep 2017 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2017/09/10/%E6%9C%AC%E5%91%A8JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2017/09/10/%E6%9C%AC%E5%91%A8JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>学习Webpack</title>
@@ -21,17 +89,9 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Sun, 27 Nov 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/comptuer/science/-/a.i/2016/11/27/Study-Webpack.html</link>
-        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/a.i/2016/11/27/Study-Webpack.html</guid>
+        <link>http://dachicj.com/2016/11/27/Study-Webpack.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2016/11/27/Study-Webpack.html</guid>
         
-        
-        <category>Comptuer</category>
-        
-        <category>Science</category>
-        
-        <category>-</category>
-        
-        <category>A.I</category>
         
       </item>
     
@@ -823,96 +883,6 @@ markup,style以及API，而这些过去的浏览器又缺乏自动更新的功�
         <link>http://dachicj.com/2016/09/23/Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_20160923.html</link>
         <guid isPermaLink="true">http://dachicj.com/2016/09/23/Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_20160923.html</guid>
         
-        
-      </item>
-    
-      <item>
-        <title>如何从人工智能领域开始职业道路</title>
-        <description>&lt;p&gt;在Quora看到一位脸书AI实验室的实习生对于这个问题的回答，觉得很有趣，也很有启发，所以尝试翻译一下和大家分享。大家对原回答和翻译有什么意见和建议都不访提出。（带＊号的内容为注释）&lt;/p&gt;
-
-&lt;p&gt;Quora 应该在哪里寻找跟人工智能相关的职业？
-原回答链接：&lt;a href=&quot;https://www.quora.com/Where-does-one-start-to-get-a-career-in-Artificial-Intelligence&quot;&gt;https://www.quora.com/Where-does-one-start-to-get-a-career-in-Artificial-Intelligence&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;目前来说绝大部分搞人工智能相关的工作意味着你要去做机器学习（特别是深度学习），这里有几种不同的路径，每一种方式都具有挑战性并且有不同的乐趣。&lt;/p&gt;
-
-&lt;p&gt;在过去十年业界对于深度学习技术的兴趣逐渐增长，极少数的几所大学开授了与时俱进的课程，比如Stanford的CS213n. 而对于从业人员的要求不仅仅是很好的计算机科学背景，而必须要熟悉神经网络的算法以及应用技巧。虽然这些教育背景并不是必须的要求，但是如果你能够有机会上这样的课程，你的老师就有可能是业界活跃的研究人士或者开发者，这种机会就会很有帮助。&lt;/p&gt;
-
-&lt;h4 id=&quot;section&quot;&gt;第一条路径是学术，优缺点如下&lt;/h4&gt;
-
-&lt;p&gt;优势:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;深度学习“深度学习”，是的，如果你读一个博士, 你会里里外外学通透至少一种技术，如果你努力学习并且和别人有很好的合作以及找到了强力导师，你甚至可以在NIPS(*神经信息处理系统）这样的会议上发表文章，而能做到这点你基本可以随便挑你想要的职位了（除非你有一些特别不利的条件）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;坚实的数学基础，你会比你的同僚们更快更深入地理解各种事物。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;劣势：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;对你学术水平的要求的困难级别从“非常高”到“这特么是什么鬼画符”不等，具体取决于你的专业领域以及你在实验室进行的一系列工作，在我的一次面试中一上来就被问到Integral operators’ kernels（*很好，果然不懂怎么翻译）。&lt;/li&gt;
-  &lt;li&gt;你的职业进度可能非常慢，读博士是一个长时间的付出，当别人在做东西的时候，你在试图研发能够超越别人的算法。也许你会成功。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;如果这不是你最理想的路径，那么你可以考虑人工智能的创业公司，在这个话题下请对我说的任何事情都保持一定的怀疑态度，我对人工神经网络有一些了解，但我对创业公司还不是很熟悉&lt;/h4&gt;
-
-&lt;p&gt;优势：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;你可以立马开始动手并且做任何你想做的。&lt;/li&gt;
-  &lt;li&gt;没有人对你该做什么指手画脚，至少来说一段时间是的。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;劣势：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;你有可能会失败，应该说很大可能会失败，而且对于其他的各种创业公司来说都是一样的，只不过人工智能创业公司还要面对人工智能技术门槛高，并且投资人不多的不利情况，除非你又一个很棒的计划，很棒的产品，很棒的团队并且你像Demis Hassabis一样聪明。&lt;/li&gt;
-  &lt;li&gt;制作人工智能产品很难&lt;/li&gt;
-  &lt;li&gt;非常难&lt;/li&gt;
-  &lt;li&gt;深度学习不是万金油&lt;/li&gt;
-  &lt;li&gt;我说过做人工智能产品很难了吗？&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;当你没什么经验的时候，对你未来最有效的投资就是获得更多的知识和经验，当加入一个创业公司时，令人头疼的财务烦恼以及情绪过山车都会让生活变的更加复杂，所以一个业内实习是一个更舒适的学习途径。&lt;/h4&gt;
-
-&lt;p&gt;优势：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;比进入一个很好的学校简单些&lt;/li&gt;
-  &lt;li&gt;你会开始做一些真正的产品&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;劣势：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;这一行的竞争还是很激烈，如果你的年龄偏大或者没有相关的经验，比如机器学习，科学思维或者计算机背景，这些都将成为你的劣势。&lt;/li&gt;
-  &lt;li&gt;你没法选择你要做什么。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;第一条劣势可能在你去创业公司会成为更大的劣势…&lt;/p&gt;
-
-&lt;p&gt;整个行业现在也在处于自我探索的阶段，没人知道什么时候都能搞清楚，也许不会很快，但你需要现在就行动。&lt;/p&gt;
-
-&lt;p&gt;暂时不要去管企业级技术(*原文里为coporate technologies)，不要去管编程竞赛，硬件，hacking等一切其他孩子觉得很cool的东西， 阅读Goodfellow, Bengio, Courville的深度学习，这本书有恰好的数学内容。获取一些一般性的机器学习经验，实现一些简单的东西。你会发现当你面试的时候这些知识还挺有用的。获得一些特殊技能，比如操作Theano或者TensorFlow, 对于这种复杂运算的经验将会使你的履历表很突出。找到你在A.I领域的特殊兴趣， 可以是计算机视觉，语音识别，自然语言处理或者任何你喜欢的领域。&lt;/p&gt;
-
-&lt;p&gt;语言层面，Python是很好的选择，写一堆的代码，放到GitHub上，之后再不断迭代成更好的代码，也许里面会包含着你未来可以发表在NIPS论文上的模型，谁知道呢。但是现在就动手，如果有一件事我是想回到过去改变的，就是花更多的时间用在写代码上。&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 17 Jul 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/comptuer/science/-/career/2016/07/17/%E5%A6%82%E4%BD%95%E4%BB%8E%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%A2%86%E5%9F%9F%E5%BC%80%E5%A7%8B%E8%81%8C%E4%B8%9A%E9%81%93%E8%B7%AF.html</link>
-        <guid isPermaLink="true">http://dachicj.com/comptuer/science/-/career/2016/07/17/%E5%A6%82%E4%BD%95%E4%BB%8E%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%A2%86%E5%9F%9F%E5%BC%80%E5%A7%8B%E8%81%8C%E4%B8%9A%E9%81%93%E8%B7%AF.html</guid>
-        
-        
-        <category>Comptuer</category>
-        
-        <category>Science</category>
-        
-        <category>-</category>
-        
-        <category>Career</category>
         
       </item>
     

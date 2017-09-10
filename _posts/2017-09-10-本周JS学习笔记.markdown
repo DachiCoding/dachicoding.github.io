@@ -1,0 +1,56 @@
+---
+author: dachi.xu@gmail.com
+comments: true
+date: 2017-09-10
+layout: post
+title: 本周JS学习笔记
+---
+
+### 学习材料： Yon don't know JS(Type & Grammer) Chapter 01
+
+## 什么是类型
+> An intrinsic, built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other values, both to the engine and to the developer.(对JS引擎和开发者而言的一套拥有内置独特特性和行为的特殊值，并与其他值相区别)
+
+### 关键字
++ 对JS引擎和开发者：引擎和开发者在处理不同类型时都需要不同的方式。
++ 独特特性和行为: 每种类型的值有自己的特性和行为。
+
+## JS内置类型
++ null
++ undefined
++ boolean
++ number
++ string
++ object
++ symbol(ES6新增)
+
+```javascript
+typeof Symbol() //try this
+typeof null === "object"; //会显示true,但是是不正确的，这个是历史遗留问题
+typeof function a(){} === "function"; //true, 但是function并不是单独的类型，它是callable object, object的一种子类型
+```
+
+## 更安全的检查变量方式
+
+```javascript
+//假设你的代码通过某个全局变量DEBUG来检查运行环境
+if (DEBUG){ ... } //会throw ReferenceError
+
+if (typeof DEBUG !== 'undefined'){ ... } //更安全
+
+//使用typeof来查看某功能是否存在
+function doSomethingCool(){
+	var helper = 
+		(typeof FeatureXYZ !== "undefined") ?
+		FeatureXYZ:
+		function() {}
+
+		var val = helper();
+}
+```
+
+## Values as Types
++ 在JS中，变量不拥有类型，但是values(值)拥有类型，变量可以绑定任意类型
+
+## Coercion 类型转换
++ 类型转换有时是显式的，可读的，有的时候会在不经意间发生。
