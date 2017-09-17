@@ -5,9 +5,73 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 10 Sep 2017 18:45:58 +0800</pubDate>
-    <lastBuildDate>Sun, 10 Sep 2017 18:45:58 +0800</lastBuildDate>
+    <pubDate>Sun, 17 Sep 2017 22:09:28 +0800</pubDate>
+    <lastBuildDate>Sun, 17 Sep 2017 22:09:28 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>2017-09-17 本周前端学习笔记</title>
+        <description>&lt;h3 id=&quot;css-in-depth-chapter-01&quot;&gt;学习材料： CSS In Depth Chapter 01&lt;/h3&gt;
+
+&lt;p&gt;因为一直想要巩固CSS基础和对于CSS的理解，碰巧找到了一本不错的书&lt;a href=&quot;https://www.manning.com/books/css-in-depth&quot;&gt;CSS In Depth&lt;/a&gt;, 本周阅读了其免费的第一章
+ &lt;/p&gt;
+&lt;h3 id=&quot;chatper-01-cascade-specificity-inheritance&quot;&gt;Chatper 01 Cascade(瀑布流), Specificity(特选性）, Inheritance(继承)&lt;/h3&gt;
+&lt;p&gt;我一直都很好奇CSS的Cascade（字面意义是瀑布)是什么意思, 为什么要用瀑布来形容样式? 在看过这一章后，我对Cascade的理解就是，同一个元素可以应用多种样式(甚至是冲突的样式)，而CSS要根据几个原则来解决冲突使得某个元素的样式可以从最宽泛的设置一直滑落到最适合它的范围(嗯，我知道这么强行解释有些尴尬不过CSS的创始人是&lt;a href=&quot;http://www.wiumlie.no/2006/phd/#cascading&quot;&gt;这么说&lt;/a&gt;的所以你们就忍了吧)&lt;/p&gt;
+
+&lt;p&gt;好的，那么我们来看看当一个元素被应用了多种样式后应该如何解决样式的合并和冲突。&lt;/p&gt;
+
+&lt;h3 id=&quot;css&quot;&gt;0.如何解决CSS的冲突&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;来源： 样式从何而来 (higher priority origin)&lt;/li&gt;
+  &lt;li&gt;范围： 是否有inline样式 (应用inline样式)&lt;/li&gt;
+  &lt;li&gt;选择器：选择元素的精细程度（higer specificity)&lt;/li&gt;
+  &lt;li&gt;顺序： 样式定义顺序 (later in source order)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;origin&quot;&gt;1.origin&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;用户设置的!important样式&lt;/li&gt;
+  &lt;li&gt;用户设置的样式&lt;/li&gt;
+  &lt;li&gt;浏览器默认样式&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;inline-scope&quot;&gt;2.inline scope&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a style='color:red;'&amp;gt;Link&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;注意,加了important的inline style无人能压制&lt;/p&gt;
+
+&lt;h3 id=&quot;selector-specificity&quot;&gt;3.selector specificity&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;规则: 更多的ids &amp;gt; 更多的classes &amp;gt; 更多的tags&lt;/li&gt;
+  &lt;li&gt;每一个元素的选择器都可以写成这样[id数量，class数量，tags数量]&lt;/li&gt;
+  &lt;li&gt;当你给元素一个id时，如何覆盖这个id的样式:
+    &lt;ul&gt;
+      &lt;li&gt;新样式加入important&lt;/li&gt;
+      &lt;li&gt;新样式加上id和class&lt;/li&gt;
+      &lt;li&gt;原样式的id降级为class&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;4.顺序这个就不用说了吧,后来者居上&lt;/h3&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;5.一点来自作者的建议&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;不要用id, 很难覆盖&lt;/li&gt;
+  &lt;li&gt;不要用important, 很难覆盖&lt;/li&gt;
+  &lt;li&gt;如果你在写一个库给别人用的话，不要用inline style, 否则用你库的人根本没法覆盖这个样式
+ 
+ &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Sun, 17 Sep 2017 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2017/09/17/%E6%9C%AC%E5%91%A8%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2017/09/17/%E6%9C%AC%E5%91%A8%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>本周JS学习笔记</title>
@@ -830,58 +894,6 @@ MySQL组成部分
         <pubDate>Sat, 01 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://dachicj.com/2016/10/01/Zhihu_Interview_Notes.html</link>
         <guid isPermaLink="true">http://dachicj.com/2016/10/01/Zhihu_Interview_Notes.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>学习笔记_20160923</title>
-        <description>&lt;p&gt;
-更新频率犹如企业发布财务年报一般的本博客居然又迎来更新了，今天学习了一些HTML5标准的历史知识，在此稍作总结分享。
-&lt;/p&gt;
-
-&lt;p&gt;
-&lt;em&gt;
-学习资料：HTML5 and CSS3 For The Real World, 2nd Edition
-&lt;/em&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-今天看到书中介绍的HTML5标准的故事到很有意思，在此稍作翻译总结。
-&lt;/p&gt;
-
-&lt;p&gt;
-在HTML5标准诞生之前，大行其道的是HTML4和XHTML，而HTML4又让位于XHMTL(其实XHTML只不过是HTML4符合XML语法的版本)。
-而HTML5的标准则是由两个组织开发的，他们分别是W3C(World Wide Web Consortium 3W委员会)和
-WHATWG(Web Hypertext Application Technology Working Group)，W3C是自打有互联网以来便是HTML/CSS标准的制定者，
-而WHATWG是由一群来自苹果，Mozilla(火狐)，Opera等浏览器制作厂商中的人员组成的，他们在2004年的W3C会议上感觉到
-非常失望并且认为W3C忽视了浏览器制作者和用户的需求，所以另起炉灶开始制作他们自己的Web标准，从此也引发了两个组织之间的斗法。
-&lt;/p&gt;
-
-&lt;p&gt;
-WHATWG的标准可以在&lt;a href=&quot;http://www.whatwg.org/html/&quot;&gt;http://www.whatwg.org/html/&lt;/a&gt;找到，现在WHATWG已经去掉了
-HTML5中的5，这份标准现在叫做&quot;活的标准&quot;（或者叫动态标准)。这意味着这个标准将不停的处于演化的过程中，并不再被冠以版本号。
-WHATWG的标准基本只包括和HTML相关的特性，当然也有一些其他相关的技术比如Microdata, Canvas 2d Context, Web Worker, Web Storage
-等技术被包含在内。
-&lt;/p&gt;
-
-&lt;p&gt;
-W3C的标准则可以在此处&lt;a href=&quot;http://www.w3.org/html/wg/drafts/html/master/&quot;&gt;http://www.w3.org/html/wg/drafts/html/master/&lt;/a&gt;找到。
-&lt;/p&gt;
-
-&lt;p&gt;一言以蔽之，WHATWG的标准更加非正式，也更具有试验性，但是大多数情况下这两个标准都基本一致。&lt;/p&gt;
-
-&lt;p&gt;
-那么这些HTML标准之争除了拿来解闷还有什么其他意义呢，其实这些技术的演化也在影响着这个行业的业内人士，比如Web前端工程师天天要处理的
-浏览器兼容问题，说白了就是落后浏览器与更新的标准之间的矛盾，每一个版本的浏览器实现了当时的Web标准，却不能正确的处理新标准下的
-markup,style以及API，而这些过去的浏览器又缺乏自动更新的功能，工程师们只好要么忽视问题(Border-radius在低版本下不显示圆角也无伤大雅)，
-要么标注Doctype让浏览器选择正确的渲染模式，或者使用Polyfill的技术来在低版本浏览器下实现那些新的功能。除此之外，工程师们还可以阅读
-学习这些标准，为将来可能所发生的技术变化做好准备。
-&lt;/p&gt;
-</description>
-        <pubDate>Fri, 23 Sep 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/2016/09/23/Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_20160923.html</link>
-        <guid isPermaLink="true">http://dachicj.com/2016/09/23/Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_20160923.html</guid>
         
         
       </item>

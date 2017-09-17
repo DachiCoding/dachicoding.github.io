@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2017-09-17 本周前端学习笔记</title>
+    <meta name="description" content="Dachi's Personal Blog.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/css/customize.css">
+    <link rel="canonical" href="http://dachicj.com/2017/09/17/%E6%9C%AC%E5%91%A8%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/semantic.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+    <nav>
+        <div class="nav-wrapper blue-grey lighten-4">
+            <a class="brand-logo center" href="/"><span class="black-text">Dachi's Blog 达迟的博客</span></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            
+                
+            
+                
+            
+                
+            
+                
+                <li><a class="" href="/hacks/">Hacks 作品</a></li>
+                
+            
+                
+            
+                
+                <li><a class="" href="/blog/">Blog 文章</a></li>
+                
+            
+                
+                <li><a class="" href="/about/">About 关于</a></li>
+                
+            
+        </div>
+    </nav>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    
+
+  <header class="post-header">
+    <h1 class="post-title">2017-09-17 本周前端学习笔记</h1>
+    <p class="post-meta">Sep 17, 2017 • dachi.xu@gmail.com</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="css-in-depth-chapter-01">学习材料： CSS In Depth Chapter 01</h3>
+
+<p>因为一直想要巩固CSS基础和对于CSS的理解，碰巧找到了一本不错的书<a href="https://www.manning.com/books/css-in-depth">CSS In Depth</a>, 本周阅读了其免费的第一章
+ </p>
+<h3 id="chatper-01-cascade-specificity-inheritance">Chatper 01 Cascade(瀑布流), Specificity(特选性）, Inheritance(继承)</h3>
+<p>我一直都很好奇CSS的Cascade（字面意义是瀑布)是什么意思, 为什么要用瀑布来形容样式? 在看过这一章后，我对Cascade的理解就是，同一个元素可以应用多种样式(甚至是冲突的样式)，而CSS要根据几个原则来解决冲突使得某个元素的样式可以从最宽泛的设置一直滑落到最适合它的范围(嗯，我知道这么强行解释有些尴尬不过CSS的创始人是<a href="http://www.wiumlie.no/2006/phd/#cascading">这么说</a>的所以你们就忍了吧)</p>
+
+<p>好的，那么我们来看看当一个元素被应用了多种样式后应该如何解决样式的合并和冲突。</p>
+
+<h3 id="css">0.如何解决CSS的冲突</h3>
+<ol>
+  <li>来源： 样式从何而来 (higher priority origin)</li>
+  <li>范围： 是否有inline样式 (应用inline样式)</li>
+  <li>选择器：选择元素的精细程度（higer specificity)</li>
+  <li>顺序： 样式定义顺序 (later in source order)</li>
+</ol>
+
+<h3 id="origin">1.origin</h3>
+<ol>
+  <li>用户设置的!important样式</li>
+  <li>用户设置的样式</li>
+  <li>浏览器默认样式</li>
+</ol>
+
+<h3 id="inline-scope">2.inline scope</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;a style='color:red;'&gt;Link&lt;/a&gt;
+</code></pre>
+</div>
+<p>注意,加了important的inline style无人能压制</p>
+
+<h3 id="selector-specificity">3.selector specificity</h3>
+<ol>
+  <li>规则: 更多的ids &gt; 更多的classes &gt; 更多的tags</li>
+  <li>每一个元素的选择器都可以写成这样[id数量，class数量，tags数量]</li>
+  <li>当你给元素一个id时，如何覆盖这个id的样式:
+    <ul>
+      <li>新样式加入important</li>
+      <li>新样式加上id和class</li>
+      <li>原样式的id降级为class</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="section">4.顺序这个就不用说了吧,后来者居上</h3>
+
+<h3 id="section-1">5.一点来自作者的建议</h3>
+<ol>
+  <li>不要用id, 很难覆盖</li>
+  <li>不要用important, 很难覆盖</li>
+  <li>如果你在写一个库给别人用的话，不要用inline style, 否则用你库的人根本没法覆盖这个样式
+ 
+ </li>
+</ol>
+
+
+  </article>
+
+  <!-- JiaThis Button BEGIN -->
+  <div class="jiathis_style_32x32">
+  	<a class="jiathis_button_qzone"></a>
+  	<a class="jiathis_button_tsina"></a>
+  	<a class="jiathis_button_tqq"></a>
+  	<a class="jiathis_button_weixin"></a>
+  	<a class="jiathis_button_renren"></a>
+  	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+  	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+  <!-- JiaThis Button END -->
+
+  
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//dachicjcom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Dachi's Blog 达迟的博客</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-2">
+
+        <ul class="contact-list">
+          <li><a href="mailto:dachi.xu@gmail.com">dachi.xu@gmail.com</a></li>
+          <li>微信: dachi_xu</li>
+          <li>Github:
+            <a href="https://github.com/DachiCoding">DachiCoding</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-col  footer-col-3">
+      </div>
+    </div>
+
+  </div>
+<br/><br/>
+</footer>
+
+
+  </body>
+
+</html>

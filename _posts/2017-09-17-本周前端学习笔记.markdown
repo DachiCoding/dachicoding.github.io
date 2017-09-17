@@ -1,0 +1,51 @@
+---
+author: dachi.xu@gmail.com
+comments: true
+date: 2017-09-17
+layout: post
+title: 2017-09-17 本周前端学习笔记
+---
+
+### 学习材料： CSS In Depth Chapter 01
+
+因为一直想要巩固CSS基础和对于CSS的理解，碰巧找到了一本不错的书[CSS In Depth](https://www.manning.com/books/css-in-depth), 本周阅读了其免费的第一章
+ 
+### Chatper 01 Cascade(瀑布流), Specificity(特选性）, Inheritance(继承) 
+我一直都很好奇CSS的Cascade（字面意义是瀑布)是什么意思, 为什么要用瀑布来形容样式? 在看过这一章后，我对Cascade的理解就是，同一个元素可以应用多种样式(甚至是冲突的样式)，而CSS要根据几个原则来解决冲突使得某个元素的样式可以从最宽泛的设置一直滑落到最适合它的范围(嗯，我知道这么强行解释有些尴尬不过CSS的创始人是[这么说](http://www.wiumlie.no/2006/phd/#cascading)的所以你们就忍了吧)
+
+好的，那么我们来看看当一个元素被应用了多种样式后应该如何解决样式的合并和冲突。
+
+### 0.如何解决CSS的冲突
+1. 来源： 样式从何而来 (higher priority origin)
+2. 范围： 是否有inline样式 (应用inline样式)
+3. 选择器：选择元素的精细程度（higer specificity)
+4. 顺序： 样式定义顺序 (later in source order)
+
+### 1.origin
+1. 用户设置的!important样式
+2. 用户设置的样式
+3. 浏览器默认样式
+
+### 2.inline scope
+```
+<a style='color:red;'>Link</a>
+```
+注意,加了important的inline style无人能压制
+
+### 3.selector specificity
+1. 规则: 更多的ids > 更多的classes > 更多的tags
+2. 每一个元素的选择器都可以写成这样[id数量，class数量，tags数量]
+3. 当你给元素一个id时，如何覆盖这个id的样式:
+	+ 新样式加入important
+	+ 新样式加上id和class
+	+ 原样式的id降级为class
+
+### 4.顺序这个就不用说了吧,后来者居上
+
+### 5.一点来自作者的建议
+1. 不要用id, 很难覆盖
+2. 不要用important, 很难覆盖
+3. 如果你在写一个库给别人用的话，不要用inline style, 否则用你库的人根本没法覆盖这个样式
+ 
+ 
+
