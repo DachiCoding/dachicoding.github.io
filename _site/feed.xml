@@ -5,9 +5,55 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 17 Sep 2017 22:09:28 +0800</pubDate>
-    <lastBuildDate>Sun, 17 Sep 2017 22:09:28 +0800</lastBuildDate>
+    <pubDate>Sun, 24 Sep 2017 23:27:16 +0800</pubDate>
+    <lastBuildDate>Sun, 24 Sep 2017 23:27:16 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>2017-09-24 本周前端学习笔记</title>
+        <description>&lt;h3 id=&quot;css-in-depth-chapter-01&quot;&gt;学习材料： CSS In Depth Chapter 01&lt;/h3&gt;
+
+&lt;p&gt;本周继续学习CSS In Depth第一章的剩余部分&lt;/p&gt;
+
+&lt;h3 id=&quot;inheritance&quot;&gt;1.2 Inheritance&lt;/h3&gt;
+&lt;p&gt; 
+当一个元素没有设置的样式，它将从它的母元素获得样式。
+注意inheritance和此前讨论的cascade概念并不相同，也并不是
+所有的样式都会被继承，被继承的属性包括:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;字体类属性: color, font, font-family, font-size, font-weight, font-variant等&lt;/li&gt;
+  &lt;li&gt;列表类属性: list-style, list-style-type, list-style-position,list-style-image&lt;/li&gt;
+  &lt;li&gt;表格边框属性: border-collapse, border-spacing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;inherit--initial&quot;&gt;1.3 Inherit &amp;amp; Initial&lt;/h3&gt;
+&lt;p&gt;有两种特殊的CSS值可以应用到任何CSS属性上, inherit和initial.
+ &lt;/p&gt;
+&lt;h4 id=&quot;inherit&quot;&gt;inherit&lt;/h4&gt;
+&lt;p&gt;有时你希望某个元素可以继承母元素的样式而不是使用默认定义的样式，那就是
+使用inherit的时候.
+ &lt;/p&gt;
+&lt;h4 id=&quot;initial&quot;&gt;initial&lt;/h4&gt;
+&lt;p&gt;有时候你想取消某些元素的样式，你可以使用initial这个值，使得某个属性被设定为默认的属性，比如&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;footer {
+ color: initial;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;等价于&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;footer {
+ color: black;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;有时initial值对于某些属性并不起作用，是因为这些属性没有默认值，比如border-width或者padding, 但是赋予他们initial的值完全合法。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 24 Sep 2017 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2017/09/24/%E6%9C%AC%E5%91%A8%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2017/09/24/%E6%9C%AC%E5%91%A8%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>2017-09-17 本周前端学习笔记</title>
@@ -811,89 +857,6 @@ MySQL组成部分
         <pubDate>Tue, 04 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://dachicj.com/2016/10/04/Study_MVVM_VIRTUALDOM.html</link>
         <guid isPermaLink="true">http://dachicj.com/2016/10/04/Study_MVVM_VIRTUALDOM.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>知乎面试总结</title>
-        <description>&lt;p&gt;
-    在9月的最后一天，我很荣幸得来到了我非常喜欢的互联网公司&lt;a href=&quot;https://www.zhihu.com&quot; target=&quot;_blank&quot;&gt;知乎&lt;/a&gt;来面试，
-    在此我将稍加总结面试中得到的反馈和自己的反思，并且附上对面试中一些问题更深入的学习和理解。
-&lt;/p&gt;
-
-&lt;p&gt;
-    面试总共由两个来自不同部门的面试官考察，问到的题目涵盖了从计算机科学到编程的不同方面。
-    这次面试使我更加了解了国内互联网面试的考察风格（创业公司），并且也更加认识到自己知识面在水平和结构上的不足，
-    为我将来提高自身姿势水平提供了很好的指导作用, 实在需要感谢两位面试官的指点。
-&lt;/p&gt;
-
-&lt;p&gt;
-    此次面试中主要考察的有
-&lt;/p&gt;
-
-&lt;p&gt;
-    面试官1
-    &lt;ul&gt;
-        &lt;li&gt;(1).Python里List的底层实现（是Array-based还是Linked-based)&lt;/li&gt;
-        &lt;li&gt;(2).Python里Dict的底层如何实现&lt;/li&gt;
-        &lt;li&gt;(3).解释一下Python的GIL，对性能有什么影响&lt;/li&gt;
-        &lt;li&gt;(4).什么时候用多进程，什么时候用多线程&lt;/li&gt;
-        &lt;li&gt;(5).node.js的机制（单线程异步，为什么在Java/Python都能多线程的时候还要用node.js, 用node.js能带来什么好处)&lt;/li&gt;
-        &lt;li&gt;(5).讨论不同语言的并发机制&lt;/li&gt;
-        &lt;li&gt;(6).Python的encode/decode 问题有没有遇到过&lt;/li&gt;
-        &lt;li&gt;(7).简述Mergesort或者Quicksort的原理，复杂度是什么，是否稳定（Quicksort不稳定,原因是Pivot的选取有可能不理想，如何改善？给出两种改善方法）&lt;/li&gt;
-        &lt;li&gt;(8).MySQL的引擎是什么？讨论一下(InnoDB)&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-    面试官2
-    &lt;ul&gt;
-        &lt;li&gt;(1).虚拟化的实现机理是什么(因为我有个实习是做云计算的，所以问到）&lt;/li&gt;
-        &lt;li&gt;(2).如何设计RESTful API&lt;/li&gt;
-        &lt;li&gt;(3).React.js/Vue.js这种前端MVVM具体如何实现。&lt;/li&gt;
-        &lt;li&gt;(4).算法题: DFS相关&lt;/li&gt;
-        &lt;li&gt;(5).一道数学推理题&lt;/li&gt;
-        &lt;li&gt;(6).贝叶斯网络的应用，如何运用贝叶斯屏蔽垃圾邮件，TF-IDF的问题。&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-    这次面试让我感觉我目前的知识结构里最大的问题或特点就是&quot;广而不精&quot;，Web开发中的前端和后端，算法，语言，云计算，分布式系统，人工智能等等。
-    每种技术都有一些涉猎，有一些使用的经验，但是对于技术的钻研不够深入和透彻，对于技术的学习仅仅处在会使用而不是研究其底层机制的层次上，
-    这样的知识结构将不足以解决面试中会遇到的问题，更不足以解决日后工作中可能会遇上的种种难题，为此我应该以此为戒，改变以往见猎心喜，走马观花的学习习惯。
-    我将从这次面试中遇到的问题开始，慢慢钻研，将广度学习和深度学习相结合，成为更优秀的程序员。
-&lt;/p&gt;
-
-&lt;h4&gt;&lt;a href=&quot;../07/Study_Python_DS.html&quot;&gt;Python底层数据结构的实现(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Python GIL机制以及影响(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;../06/Study_Python_Encode.html&quot;&gt;Python encode/decode问题&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;多进程与多线程比较(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;Node.js机制(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;不同并发模型比较(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;排序算法复杂度与稳定性总结(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;../12/MySQL_Engine.html&quot;&gt;MySQL引擎学习(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;../04/Study_RESTful_api.html&quot;&gt;学习RESTful API&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;../04/Study_MVVM_VIRTUALDOM.html&quot;&gt;MVVM以和Virtual DOM原理以及实现(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;贝叶斯网络应用(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4&gt;&lt;a href=&quot;&quot;&gt;TD-IDF总结(未完成)&lt;/a&gt;&lt;/h4&gt;
-
-</description>
-        <pubDate>Sat, 01 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/2016/10/01/Zhihu_Interview_Notes.html</link>
-        <guid isPermaLink="true">http://dachicj.com/2016/10/01/Zhihu_Interview_Notes.html</guid>
         
         
       </item>
