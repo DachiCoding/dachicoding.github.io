@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2017-10-15 前端学习笔记</title>
+    <meta name="description" content="Dachi's Personal Blog.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/css/customize.css">
+    <link rel="canonical" href="http://dachicj.com/2017/10/15/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/semantic.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+    <nav>
+        <div class="nav-wrapper blue-grey lighten-4">
+            <a class="brand-logo center" href="/"><span class="black-text">Dachi's Blog 达迟的博客</span></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            
+                
+            
+                
+            
+                
+            
+                
+                <li><a class="" href="/hacks/">Hacks 作品</a></li>
+                
+            
+                
+            
+                
+                <li><a class="" href="/blog/">Blog 文章</a></li>
+                
+            
+                
+                <li><a class="" href="/about/">About 关于</a></li>
+                
+            
+        </div>
+    </nav>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    
+
+  <header class="post-header">
+    <h1 class="post-title">2017-10-15 前端学习笔记</h1>
+    <p class="post-meta">Oct 15, 2017 • dachi.xu@gmail.com</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="css-in-depth-chapter-01--02">学习材料： CSS In Depth Chapter 01 &amp; 02</h3>
+
+<h2 id="chapter-01">Chapter 01</h2>
+
+<h3 id="shorthand">1.4 Shorthand</h3>
+
+<h4 id="font--fontinitial-value-">font:  会将font相关的属性都设置为initial value(默认值), 比如</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>.title {
+  font: 32px Helvetica, Arial, sans-serif; # 会将font-weight设为normal
+}
+</code></pre>
+</div>
+<h4 id="padding-paddingtop-right-bottom-left-paddingtoppadding-leftpaddingrightpadding">padding: 设置padding的顺序分别为top, right, bottom, left（顺时针), 如果底部的padding缺失，会使用top的padding, 如果left的padding缺失会使用right的padding.</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>.example {
+	padding: 1px 1px 1px 1px; # 完整
+	padding: 1px 2px 1px; # 等于1px 2px 1px 2px;
+	padding: 1px 2px; # 等于1px 2px 1px 2px;
+}
+</code></pre>
+</div>
+<h4 id="background-position-box-shadow-text-shadow--horizontalvertical">background-position, box-shadow, text-shadow: 这几个属性只有两个方向, 横向(horizontal)和纵向(vertical)</h4>
+
+<h2 id="chapter-02-working-with-relative-units">Chapter 02 Working with relative units</h2>
+
+<h3 id="section">第二章主要讲解</h3>
+<ul>
+  <li>使用相对单位时的种种变化</li>
+  <li>理解ems和rems,并且不被整疯</li>
+  <li>使用viewport相关单位</li>
+  <li>CSS变量</li>
+</ul>
+
+<h3 id="section-1">绝对单位和相对单位</h3>
+<ul>
+  <li>绝对单位:比如5px就是绝对单位</li>
+  <li>相对单位: em和rem是相对单位，在不同的设备上含义不同</li>
+</ul>
+
+<h3 id="powerful">2.1 相对单位很大力(Powerful)</h3>
+<p>早起的程序开发，程序员面对的都是一成不变的屏幕尺寸，比如一个程序的窗口就是确切的400*300像素，Web时代时，情况有所变化，因为浏览器的窗口会变化，每一次浏览器尺寸的变化，都需要重新计算和引用CSS值才能重新渲染页面，在很长一段时间内，网页设计师都追求”完美像素”风格的设计，他们会创建一个800像素左右宽的容器，然后在里面搞事情，这种设计有点像以前的桌面开发。</p>
+
+<p>但是随着显示器分辨率的提高（800-&gt;1024-&gt;1280)，这种Pixel-Perfect的开发方式不灵了，然后没几年智能手机又来了，所以设计师需要停止“所有用户都能获得完全一致的使用体验”这种幻觉，这种固定像素尺寸的设计也将被舍弃了。顺应时代的潮流CSS也提出了新的抽象，那就是相对单位。</p>
+
+<blockquote>
+  <p>CSS的各种单位，除了最广为人知的pixel,CSS还有mm(millimeter), cm(entimeter),in(inch),pt(point)，pc(pica) (*笔者注:我从来都用过这些), 这些单位的转换关系是1inch = 25.4mm =2.54cm =6pica = 72pt =96px</p>
+</blockquote>
+
+
+  </article>
+
+  <!-- JiaThis Button BEGIN -->
+  <div class="jiathis_style_32x32">
+  	<a class="jiathis_button_qzone"></a>
+  	<a class="jiathis_button_tsina"></a>
+  	<a class="jiathis_button_tqq"></a>
+  	<a class="jiathis_button_weixin"></a>
+  	<a class="jiathis_button_renren"></a>
+  	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+  	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+  <!-- JiaThis Button END -->
+
+  
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//dachicjcom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Dachi's Blog 达迟的博客</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-2">
+
+        <ul class="contact-list">
+          <li><a href="mailto:dachi.xu@gmail.com">dachi.xu@gmail.com</a></li>
+          <li>微信: dachi_xu</li>
+          <li>Github:
+            <a href="https://github.com/DachiCoding">DachiCoding</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-col  footer-col-3">
+      </div>
+    </div>
+
+  </div>
+<br/><br/>
+</footer>
+
+
+  </body>
+
+</html>
