@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2017-10-2 技术学习笔记</title>
+    <meta name="description" content="Dachi's Personal Blog.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/css/customize.css">
+    <link rel="canonical" href="http://dachicj.com/2017/10/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/semantic.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+    <nav>
+        <div class="nav-wrapper blue-grey lighten-4">
+            <a class="brand-logo center" href="/"><span class="black-text">Dachi's Blog 达迟的博客</span></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            
+                
+            
+                
+            
+                
+            
+                
+                <li><a class="" href="/hacks/">Hacks 作品</a></li>
+                
+            
+                
+            
+                
+                <li><a class="" href="/blog/">Blog 文章</a></li>
+                
+            
+                
+                <li><a class="" href="/about/">About 关于</a></li>
+                
+            
+        </div>
+    </nav>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    
+
+  <header class="post-header">
+    <h1 class="post-title">2017-10-2 技术学习笔记</h1>
+    <p class="post-meta">Oct 22, 2017 • dachi.xu@gmail.com</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="section">学习材料</h3>
+<ol>
+  <li><a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/</a></li>
+  <li><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/</a></li>
+</ol>
+
+<p>这周暂时放下CSS In Depth的学习，因为看到了来自Firefox浏览器工程师团队的两篇文章，觉得真的很不错，即介绍了火狐下一代浏览器内核的实现，又介绍了浏览器的工作流程，建议前端同学都可以看看（虽然是英文的，但是有很多图片，有助于阅读理解),可以加深对浏览器机制的理解。</p>
+
+<h2 id="part-1-quantum-css">Part 1 Quantum CSS</h2>
+
+<h3 id="quantum-css">Quantum CSS简介</h3>
+<p>Quantum，也就是下一代火狐浏览器的内核，大致由Quantum DOM, Quantum CSS, Quantom Compositor, Quantum Render几个部分组成，其中，Quantum CSS和Quantum Render是解析、渲染网页最为核心的部分，学习材料里的第一个首先介绍了Quantum CSS， 作者首先介绍了Quantum CSS快速的几个原因</p>
+<ol>
+  <li>Parallel computing: 平行计算, Quantum CSS新技术</li>
+  <li>Rule tree: Firefox原有技术，具体内容尚不明</li>
+  <li>Style sharing cache: 来自Chrome和Safari,估计是来自WebKit的技术。</li>
+</ol>
+
+<h3 id="css">CSS引擎的职责</h3>
+<p>CSS引擎是浏览器渲染引擎的一部分，渲染引擎的工作就是把前端工程师辛辛苦苦写好的HTML &amp; CSS转化为屏幕上的每一个像素,那么这个转化的过程可以大致分为五个步骤。</p>
+<ol>
+  <li>解析：将HTML解析为DOM(Document Object Model)，这是一个网页在内存中的虚拟对象，在React等技术出现前，以前的前端程序员都要依靠操作DOM来动态的改变网页的结构,这一步决定网页里应该有什么元素（标题，文字，按钮，等等等等)</li>
+  <li>样式: 计算出每个DOM中元素的样式应该是什么样的，每一个元素应该长成什么样子。</li>
+  <li>布局: 前端程序员肯定熟悉Box模型，在这一个步骤里，渲染引擎将计算出每一个元素自身的盒模型(Box)的尺寸和位置。</li>
+  <li>绘制：绘制各元素的Box, 绘制的过程可以发生在很多图层，这样使得修改一个图层而不影响其他图层变的可能。（在渲染过程中图层代表什么目前笔者尚不明确。)</li>
+  <li>组合：对各个图层应用某些特定属性(比如CSS transforms)，将所有图层组合在一起并呈现到显示器上。</li>
+</ol>
+
+<h3 id="css-1">CSS引擎具体工作流程</h3>
+<p>当开始计算样式前，CSS引擎已经拥有了</p>
+<ol>
+  <li>DOM树</li>
+  <li>样式规则列表
+CSS引擎会遍历每一个DOM节点，计算出该节点的样式，计算出这个节点的<strong>每一个</strong>CSS属性的值，即使stylesheet没有设置这个属性。为了完成这项工作，CSS引擎需要</li>
+  <li>selector matching: 寻找那些设置了值的样式属性</li>
+  <li>cascade: 找不到设定的属性，就寻找继承或者默认的属性, 这部分的相关内容可以在上上篇博文里找到:)</li>
+</ol>
+
+<h3 id="selector-matching">Selector matching</h3>
+<p>CSS引擎会对照样式表，将对应DOM节点的样式加载到一个列表上，由于一个CSS属性可以match多个值，所以需要根据优先级规则来决定某个id/class/tag的样式应该应用哪一个值,这个规则的设定也可以参考CSS In Depth第一章的学习笔记。</p>
+
+<h3 id="cascade">Cascade</h3>
+<p>当完成了selector matching后，某个id/class/tag对应的DOM node的样式仍然存在空缺，这时候需要寻找该属性的继承或者默认值，这样每一个DOM node的全部CSS属性就完成了计算。</p>
+
+<h3 id="style-struct-sharing">Style struct sharing</h3>
+<p>上面的文字存在一定误导成分啊哈，CSS总共有几百个属性，如果都要计算的话那估计很快就内存不足了，CSS引擎讲将这些值存储到一个叫style struct的对象里，这样DOM节点的样式可能指针指到这些对象上，拥有相似属性的DOM节点（比如兄弟节点）可以将样式都指到相同的style struct上；很多时候父节点会让很多子节点继承属性，他们之间也可以共享style struct。</p>
+
+<h3 id="quantum-css-1">Quantum CSS是如何优化上述过程的</h3>
+<p>我知道写到快干货的地方停了不太合适，不过后面篇幅有点长，等下周继续学习更新吧…Zzzzzz…</p>
+
+
+  </article>
+
+  <!-- JiaThis Button BEGIN -->
+  <div class="jiathis_style_32x32">
+  	<a class="jiathis_button_qzone"></a>
+  	<a class="jiathis_button_tsina"></a>
+  	<a class="jiathis_button_tqq"></a>
+  	<a class="jiathis_button_weixin"></a>
+  	<a class="jiathis_button_renren"></a>
+  	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+  	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+  <!-- JiaThis Button END -->
+
+  
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//dachicjcom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Dachi's Blog 达迟的博客</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-2">
+
+        <ul class="contact-list">
+          <li><a href="mailto:dachi.xu@gmail.com">dachi.xu@gmail.com</a></li>
+          <li>微信: dachi_xu</li>
+          <li>Github:
+            <a href="https://github.com/DachiCoding">DachiCoding</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-col  footer-col-3">
+      </div>
+    </div>
+
+  </div>
+<br/><br/>
+</footer>
+
+
+  </body>
+
+</html>
