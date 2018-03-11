@@ -5,9 +5,95 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 05 Nov 2017 23:29:52 +0800</pubDate>
-    <lastBuildDate>Sun, 05 Nov 2017 23:29:52 +0800</lastBuildDate>
+    <pubDate>Sun, 11 Mar 2018 16:13:17 +0800</pubDate>
+    <lastBuildDate>Sun, 11 Mar 2018 16:13:17 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>2018-03-11 [翻译]前端工程师手册2018回顾&amp;展望部分</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;学习材料&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;本周看到了这个前端工程师手册2018，觉得2017年回顾和2018年展望很有意思，稍稍翻译一下，个中观点是作者的主观意见，请各位读者加以甄别参考。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;1.&lt;a href=&quot;https://frontendmasters.com/books/front-end-handbook/2018/&quot;&gt;前端工程师手册2018/Front-End Developer Handbook 2018&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;part-1-recap-of-front-end-development-in-2017-2017&quot;&gt;Part 1 Recap of Front-end Development in 2017 回顾2017&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;=&amp;gt; HTML 5.2 版本完成&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 2017年从市场的接纳程度和流行程度来说是Vue.js很好的一年&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; HTML &amp;amp; CSS开发者和Web App开发者的分别已经很明显&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 前端工程师开发Web应用的技术在不断的变好和变坏(意指工具越来越多，生态越来越复杂)&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 有更多的工具/框架和主流开发框架竞争[React,Vue,Angular],其中包括[Moon, Marko, Hyperapp, Quasar Framework, POI, frint, BunnyJS, jsblocks, Sapper, Stimulus, Choo]&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 过去的在线js编辑器[jsbin,jsfiddle]进化成[StackBliz,codeSandbox]这样的工具，使得在线分享Web App变得十分简单&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 有越来越多的框架致敬或者采纳了React的理念[preact, inferno, nerv, dva, and rax.] Rax是阿里开发的一套在Web/Weex上跨平台的兼容React语法的开发框架&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 语法速查集成网站&lt;a href=&quot;https://devhints.io/&quot;&gt;devhints.io.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; “正确”搭建一个项目的方式有的时候因人而异，Create-React-App(facebook官方出品的React项目搭建工具)具有可以移除消除项目配置的功能&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 大多数开发者会一起使用好的code editor, eslint以及prettier使得编程更快、更简易、更愉悦。&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; CSS Flexbox和Grid都获得了浏览器的支持，开发者现在开始关注这两个布局方法&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 终于有了&lt;a href=&quot;https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md&quot;&gt;无界面chrome&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 有更好的&lt;a href=&quot;https://shoelace.style/&quot;&gt;CSS库&lt;/a&gt;来处理一些CSS的新特性&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; CSS有一些&lt;a href=&quot;http://ryanogles.by/css/javascript/2017/05/25/the-state-of-css.html&quot;&gt;巨大的变化&lt;/a&gt;在发生&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; JavaScript的&lt;a href=&quot;https://sdras.github.io/array-explorer/&quot;&gt;数组&lt;/a&gt;和对象检测工具出现了&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; &lt;a href=&quot;https://brave.com/&quot;&gt;Brave&lt;/a&gt;浏览器是最安全的浏览器&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; PhantomJS不再维护，headless chrome和puppeteer登场&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Prettier逐渐变为开发中必备工具&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 很多开发者开始对代码进行静态检查，比如TypeScript或者是Flow, 但是这会带来更多的复杂度，目前这还是主观趋势。&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 静态网站开发工具也逐渐进入开发者的视野&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Web Components依然不火，以后也未必能火&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 许多人现在在开发时开始转向CSS In JS&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Yarn的一个价值是给npm带来了竞争感&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 许多人开始意识到组件架构和原子化设计之间的关系&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; ES模块将变为浏览器实现的一部分，或者得使用webpack这样的工具来打包&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 一首凉凉送给MVC框架&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 独立设计React组件的工具出现了[Bluekit, Storybook, React Styleguidist, bit.]&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; HTML preloading功能出现了&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 所有主流浏览器现在都支持WebAssembly&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Webpack统治了市场，parcel这样的竞争者出现了&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; React 16(Fiber)发布了&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; React目前是构造UI最流行的框架&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; React更改了开源协议[React的新闻还真是多]&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; GraphQL在17年逐渐变得火爆&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Facebook继续在开发领域添砖加瓦(prepack.io,提升js性能的打包工具)&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; ECMA-262 editon 8 （JavaScript标准)发布了&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; React Router终于稳(chong)定(xie)了&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 所有主流浏览器都支持ES2015(ES6)了&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Async JS函数开始受到越来越多的关注，因为浏览器支持了&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 移动开发依然很难，有些人开始推崇PWA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;part-2-in-2018-expect-2018&quot;&gt;Part 2 In 2018 expect… 展望2018年&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;=&amp;gt; React在接下来的几年里都会持续火&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; GraphQL也许会替代很多REST API&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Web应用会变得更像原生应用，具备线下模式&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; HTML5.3 is coming&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; &lt;a href=&quot;https://medium.com/@ericsimons/introducing-turbo-5x-faster-than-yarn-npm-and-runs-natively-in-browser-cc2c39715403&quot;&gt;turbo&lt;/a&gt;是一个值得关注的npm客户端，非常快&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 学会使用CSS transform 3d, CSS transition, CSS flexbox, CSS filters ,CSS grid&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; JavaScript的使用场景将会越来越多&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 离Web Assembly大行其道还有一段距离，还需要好的工具&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; PostCSS, CSSnext, CSS in JS将会取代css预处理器&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; SPA + 服务器端渲染的架构正在渐渐发展(pjax: pushState + ajax)&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; PWA也许会火，也许(永远)不会，起码不是以目前的形式&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 建立在人工智能和神经网络的聊天机器人也许会促进线上沟通的，谁也不知道会走向何方&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Vue也许会超越Angular&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; AR/AV,AI会持续发展(js不也有深度学习框架了么～)&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; JavaScript Symbol和Generator估计不会进入程序员视野&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; Webpack4将会因为竞争者的出现变得更好&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 业界将会不停寻找树形UI组件的理想CSS解决方案&lt;/li&gt;
+  &lt;li&gt;=&amp;gt; 状态管理这一块逐渐稳定下来，mobx也许会大放异彩&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;译者注：根据作者的观点，前端界将在接下来的日子里继续出现新的变化，但同时一些领域开始逐渐稳定，比如MVVM框架[React,Vue,Angular], 围绕React生态出现了一些辅助工具和继承者，另一方面CSS将出现一些变化[CSS In JS, CSSnext], PWA可能不会太火但值得关注，无论如何随时随地保持学习，与大家共勉。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 11 Mar 2018 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2018/03/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2018/03/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>2017-11-05 技术学习笔记</title>
@@ -473,80 +559,6 @@ MySQL组成部分
         <pubDate>Wed, 12 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://dachicj.com/2016/10/12/MySQL_Engine.html</link>
         <guid isPermaLink="true">http://dachicj.com/2016/10/12/MySQL_Engine.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Python数据结构List/Dict研究</title>
-        <description>&lt;p&gt;
-    &lt;b&gt;Python的List和Dict数据结构的底层是如何实现的?&lt;/b&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-    如果你曾经也思索过这个问题，或者在面试中被问到过这个问题？如果你是一名Python使用者，或者你是一名C语言程序员，无论如何如果这个问题引起了你的兴趣，
-    那么欢迎你今天和我一起探索一下Python(CPython）底层是如何实现这两个数据结构的。
-&lt;/p&gt;
-
-&lt;p&gt;
-    list和dicts是Python里常用的数据结构, Python程序员的日常工作离不开这两个数据结构，
-    不过在list和dict为程序员提供了如此多的便利同时，我们也想了解它们工作时它的底层是如何真正运转的，研究这个问题不仅可以满足我们的好奇心，
-    同样也将增进我们对这么语言的理解。
-&lt;/p&gt;
-
-&lt;p&gt;
-    今天我们的研究材料是Python的CPython实现，是Python使用最广泛的Python解释器，
-    其源代码可以在其&lt;a href=&quot;https://github.com/python/cpython/tree/2.7&quot;&gt;Github Repo&lt;/a&gt;上获得。
-    而我们今天要学习的部分则位于Include和Objects文件夹下。
-&lt;/p&gt;
-
-&lt;p&gt;
-    首先是list,让我们先来看看声明list数据结构的listobject.h，打开文件映入眼帘的是
-    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;    &lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;cm&quot;&gt;/* 类型是名为PyVarObject的struct，其中的属性ob_size是记录了真正的数据的多寡 */&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;PyObject_VAR_HEAD&lt;/span&gt;
-
-        &lt;span class=&quot;cm&quot;&gt;/* Vector of pointers to list elements.  list[0] is ob_item[0], etc. */&lt;/span&gt;
-        &lt;span class=&quot;cm&quot;&gt;/* ob_item就是指向元素列表的指针。*/&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;PyObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ob_item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-        &lt;span class=&quot;cm&quot;&gt;/* allocated记录着实际请求的内存，这个数目大于实际储存的内存空间
-         * 所以有 0 &amp;lt;= ob_size &amp;lt;= allocated
-        */&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Py_ssize_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allocated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PyListObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;cp&quot;&gt;#endif
-&lt;/span&gt;    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-    再让我们来看看list的各种操作, 在listobject.c里首先定义了一些全局变量
-    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;    &lt;span class=&quot;cm&quot;&gt;/* Empty list reuse scheme to save calls to malloc and free */&lt;/span&gt;
-    &lt;span class=&quot;cp&quot;&gt;#ifndef PyList_MAXFREELIST
-&lt;/span&gt;    &lt;span class=&quot;cp&quot;&gt;#define PyList_MAXFREELIST 80
-&lt;/span&gt;    &lt;span class=&quot;cp&quot;&gt;#endif
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PyListObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;free_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PyList_MAXFREELIST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numfree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-    这个free_list数组里面维护的指针所指对的内存才是list里的干货---PyListObject,
-    那么这些指针到底指向哪里，list是如何进行初始化和各种操作的呢，我们接着往下看。
-&lt;/p&gt;
-
-&lt;h3&gt;
-    未完待续...
-&lt;/h3&gt;
-
-&lt;p&gt;
-    参考书籍：
-    &lt;ol&gt;
-        &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/3117898/&quot;&gt;Python源码剖析&lt;/a&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-&lt;/p&gt;
-</description>
-        <pubDate>Fri, 07 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/2016/10/07/Study_Python_DS.html</link>
-        <guid isPermaLink="true">http://dachicj.com/2016/10/07/Study_Python_DS.html</guid>
         
         
       </item>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2018-03-11 [翻译]前端工程师手册2018回顾&展望部分</title>
+    <meta name="description" content="Dachi's Personal Blog.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/css/customize.css">
+    <link rel="canonical" href="http://dachicj.com/2018/03/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/semantic.js"></script>
+	<script src="/js/main.js"></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?17093cbec04c01087da48f8005a1a6b2";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+    <nav>
+        <div class="nav-wrapper blue-grey lighten-4">
+            <a class="brand-logo center" href="/"><span class="black-text">Dachi's Blog 达迟的博客</span></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            
+                
+            
+                
+            
+                
+            
+                
+                <li><a class="" href="/hacks/">Hacks 作品</a></li>
+                
+            
+                
+            
+                
+                <li><a class="" href="/blog/">Blog 文章</a></li>
+                
+            
+                
+                <li><a class="" href="/about/">About 关于</a></li>
+                
+            
+        </div>
+    </nav>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    
+
+  <header class="post-header">
+    <h1 class="post-title">2018-03-11 [翻译]前端工程师手册2018回顾&展望部分</h1>
+    <p class="post-meta">Mar 11, 2018 • dachi.xu@gmail.com</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="section">学习材料</h3>
+<blockquote>
+  <p>本周看到了这个前端工程师手册2018，觉得2017年回顾和2018年展望很有意思，稍稍翻译一下，个中观点是作者的主观意见，请各位读者加以甄别参考。</p>
+</blockquote>
+
+<p>1.<a href="https://frontendmasters.com/books/front-end-handbook/2018/">前端工程师手册2018/Front-End Developer Handbook 2018</a></p>
+
+<h3 id="part-1-recap-of-front-end-development-in-2017-2017">Part 1 Recap of Front-end Development in 2017 回顾2017</h3>
+<ul>
+  <li>=&gt; HTML 5.2 版本完成</li>
+  <li>=&gt; 2017年从市场的接纳程度和流行程度来说是Vue.js很好的一年</li>
+  <li>=&gt; HTML &amp; CSS开发者和Web App开发者的分别已经很明显</li>
+  <li>=&gt; 前端工程师开发Web应用的技术在不断的变好和变坏(意指工具越来越多，生态越来越复杂)</li>
+  <li>=&gt; 有更多的工具/框架和主流开发框架竞争[React,Vue,Angular],其中包括[Moon, Marko, Hyperapp, Quasar Framework, POI, frint, BunnyJS, jsblocks, Sapper, Stimulus, Choo]</li>
+  <li>=&gt; 过去的在线js编辑器[jsbin,jsfiddle]进化成[StackBliz,codeSandbox]这样的工具，使得在线分享Web App变得十分简单</li>
+  <li>=&gt; 有越来越多的框架致敬或者采纳了React的理念[preact, inferno, nerv, dva, and rax.] Rax是阿里开发的一套在Web/Weex上跨平台的兼容React语法的开发框架</li>
+  <li>=&gt; 语法速查集成网站<a href="https://devhints.io/">devhints.io.</a></li>
+  <li>=&gt; “正确”搭建一个项目的方式有的时候因人而异，Create-React-App(facebook官方出品的React项目搭建工具)具有可以移除消除项目配置的功能</li>
+  <li>=&gt; 大多数开发者会一起使用好的code editor, eslint以及prettier使得编程更快、更简易、更愉悦。</li>
+  <li>=&gt; CSS Flexbox和Grid都获得了浏览器的支持，开发者现在开始关注这两个布局方法</li>
+  <li>=&gt; 终于有了<a href="https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md">无界面chrome</a></li>
+  <li>=&gt; 有更好的<a href="https://shoelace.style/">CSS库</a>来处理一些CSS的新特性</li>
+  <li>=&gt; CSS有一些<a href="http://ryanogles.by/css/javascript/2017/05/25/the-state-of-css.html">巨大的变化</a>在发生</li>
+  <li>=&gt; JavaScript的<a href="https://sdras.github.io/array-explorer/">数组</a>和对象检测工具出现了</li>
+  <li>=&gt; <a href="https://brave.com/">Brave</a>浏览器是最安全的浏览器</li>
+  <li>=&gt; PhantomJS不再维护，headless chrome和puppeteer登场</li>
+  <li>=&gt; Prettier逐渐变为开发中必备工具</li>
+  <li>=&gt; 很多开发者开始对代码进行静态检查，比如TypeScript或者是Flow, 但是这会带来更多的复杂度，目前这还是主观趋势。</li>
+  <li>=&gt; 静态网站开发工具也逐渐进入开发者的视野</li>
+  <li>=&gt; Web Components依然不火，以后也未必能火</li>
+  <li>=&gt; 许多人现在在开发时开始转向CSS In JS</li>
+  <li>=&gt; Yarn的一个价值是给npm带来了竞争感</li>
+  <li>=&gt; 许多人开始意识到组件架构和原子化设计之间的关系</li>
+  <li>=&gt; ES模块将变为浏览器实现的一部分，或者得使用webpack这样的工具来打包</li>
+  <li>=&gt; 一首凉凉送给MVC框架</li>
+  <li>=&gt; 独立设计React组件的工具出现了[Bluekit, Storybook, React Styleguidist, bit.]</li>
+  <li>=&gt; HTML preloading功能出现了</li>
+  <li>=&gt; 所有主流浏览器现在都支持WebAssembly</li>
+  <li>=&gt; Webpack统治了市场，parcel这样的竞争者出现了</li>
+  <li>=&gt; React 16(Fiber)发布了</li>
+  <li>=&gt; React目前是构造UI最流行的框架</li>
+  <li>=&gt; React更改了开源协议[React的新闻还真是多]</li>
+  <li>=&gt; GraphQL在17年逐渐变得火爆</li>
+  <li>=&gt; Facebook继续在开发领域添砖加瓦(prepack.io,提升js性能的打包工具)</li>
+  <li>=&gt; ECMA-262 editon 8 （JavaScript标准)发布了</li>
+  <li>=&gt; React Router终于稳(chong)定(xie)了</li>
+  <li>=&gt; 所有主流浏览器都支持ES2015(ES6)了</li>
+  <li>=&gt; Async JS函数开始受到越来越多的关注，因为浏览器支持了</li>
+  <li>=&gt; 移动开发依然很难，有些人开始推崇PWA</li>
+</ul>
+
+<h3 id="part-2-in-2018-expect-2018">Part 2 In 2018 expect… 展望2018年</h3>
+<ul>
+  <li>=&gt; React在接下来的几年里都会持续火</li>
+  <li>=&gt; GraphQL也许会替代很多REST API</li>
+  <li>=&gt; Web应用会变得更像原生应用，具备线下模式</li>
+  <li>=&gt; HTML5.3 is coming</li>
+  <li>=&gt; <a href="https://medium.com/@ericsimons/introducing-turbo-5x-faster-than-yarn-npm-and-runs-natively-in-browser-cc2c39715403">turbo</a>是一个值得关注的npm客户端，非常快</li>
+  <li>=&gt; 学会使用CSS transform 3d, CSS transition, CSS flexbox, CSS filters ,CSS grid</li>
+  <li>=&gt; JavaScript的使用场景将会越来越多</li>
+  <li>=&gt; 离Web Assembly大行其道还有一段距离，还需要好的工具</li>
+  <li>=&gt; PostCSS, CSSnext, CSS in JS将会取代css预处理器</li>
+  <li>=&gt; SPA + 服务器端渲染的架构正在渐渐发展(pjax: pushState + ajax)</li>
+  <li>=&gt; PWA也许会火，也许(永远)不会，起码不是以目前的形式</li>
+  <li>=&gt; 建立在人工智能和神经网络的聊天机器人也许会促进线上沟通的，谁也不知道会走向何方</li>
+  <li>=&gt; Vue也许会超越Angular</li>
+  <li>=&gt; AR/AV,AI会持续发展(js不也有深度学习框架了么～)</li>
+  <li>=&gt; JavaScript Symbol和Generator估计不会进入程序员视野</li>
+  <li>=&gt; Webpack4将会因为竞争者的出现变得更好</li>
+  <li>=&gt; 业界将会不停寻找树形UI组件的理想CSS解决方案</li>
+  <li>=&gt; 状态管理这一块逐渐稳定下来，mobx也许会大放异彩</li>
+</ul>
+
+<blockquote>
+  <p>译者注：根据作者的观点，前端界将在接下来的日子里继续出现新的变化，但同时一些领域开始逐渐稳定，比如MVVM框架[React,Vue,Angular], 围绕React生态出现了一些辅助工具和继承者，另一方面CSS将出现一些变化[CSS In JS, CSSnext], PWA可能不会太火但值得关注，无论如何随时随地保持学习，与大家共勉。</p>
+</blockquote>
+
+  </article>
+
+  <!-- JiaThis Button BEGIN -->
+  <div class="jiathis_style_32x32">
+  	<a class="jiathis_button_qzone"></a>
+  	<a class="jiathis_button_tsina"></a>
+  	<a class="jiathis_button_tqq"></a>
+  	<a class="jiathis_button_weixin"></a>
+  	<a class="jiathis_button_renren"></a>
+  	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+  	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+  <!-- JiaThis Button END -->
+
+  
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//dachicjcom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Dachi's Blog 达迟的博客</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-2">
+
+        <ul class="contact-list">
+          <li><a href="mailto:dachi.xu@gmail.com">dachi.xu@gmail.com</a></li>
+          <li>微信: dachi_xu</li>
+          <li>Github:
+            <a href="https://github.com/DachiCoding">DachiCoding</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-col  footer-col-3">
+      </div>
+    </div>
+
+  </div>
+<br/><br/>
+</footer>
+
+
+  </body>
+
+</html>
