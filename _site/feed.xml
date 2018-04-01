@@ -5,9 +5,105 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 11 Mar 2018 16:13:17 +0800</pubDate>
-    <lastBuildDate>Sun, 11 Mar 2018 16:13:17 +0800</lastBuildDate>
+    <pubDate>Sun, 01 Apr 2018 20:10:53 +0800</pubDate>
+    <lastBuildDate>Sun, 01 Apr 2018 20:10:53 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>2018-04-01 JS基础知识补习</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;学习材料&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;本周复习了一些JS语言的基础概念, 学习材料: &lt;a href=&quot;https://github.com/mqyqingfeng/Blog&quot;&gt;JavaScript深入系列&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;原型 &amp;amp; 原型链&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Prototype: 构造函数指向的原型对象&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__proto__&lt;/code&gt;: 对象实例指向的原型对象，沿着__proto__一路调用即为原型链(__proto__其实是getter/setter,也可以用Object.getPrototypeOf()来获取原型)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//构造函数&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//对象实例&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//只有函数才有prototype, prototype指向调用该构造函数创建的实例的原型&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Kevin'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//__proto__, 对象的属性，指向该对象的原型&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;词法作用域和动态作用域&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;词法：函数的作用域在函数定义的时候就决定了&lt;/li&gt;
+  &lt;li&gt;动态：函数的作用域是在函数调用的时候才决定&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;执行上下文栈&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;每个函数执行时都有一个执行上下文：Execution context stack，&lt;/li&gt;
+  &lt;li&gt;ECStack 最底部永远有个 globalContext&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;funcTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//do something&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;funcMiddle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;funcTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;funcBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;funcMiddle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;funcBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//执行时的ECS是&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;funcTop&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;execution&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:最后一个&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;进&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ECS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;第一个&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pop&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;funcMiddle&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;execution&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;funcBottom&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;execution&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;第一个&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;进&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ECS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最后一个&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pop&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;globalContext&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;：永远在底层&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;variable-object&quot;&gt;变量对象 Variable Object&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;上下文包含三个属性: 变量对象VO,作用域链(Scope Chain),this&lt;/li&gt;
+  &lt;li&gt;变量对象: 存储在上下文中定义的变量和函数声明&lt;/li&gt;
+  &lt;li&gt;全局上下文的变量对象：全局对象(DOM上为window,node上为global)是JS全局属性、函数的占位符，可以通过全局对象访问全局属性和函数。&lt;/li&gt;
+  &lt;li&gt;函数上下文的变量对象: activation object(AO), 在进入函数上下文时创建。包括函数的形参，内部的函数声明、内部的变量声明，并且在代码执行阶段会修改对象的属性值。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;作用域链&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;在查找变量时，会从当前的变量对象里查找，如果没有找到就会查找父级上下文的变量对象，直到全局对象&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascrip&quot;&gt;function Outter() {
+    function Inner() {
+    }
+}
+
+//外层函数的作用域链指向全局对象
+Outter.[[SCOPE] = [
+    globalContext.VO
+]
+
+//内层函数的作用域链先指向Outter函数的活动对象、其次再是全局对象
+INNER.[[SCOPE] = [
+    OutterContext.AO,
+    globalContext.VO
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Sun, 11 Mar 2018 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2018/03/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2018/03/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>2018-03-11 [翻译]前端工程师手册2018回顾&amp;展望部分</title>
@@ -519,46 +615,6 @@ CSS引擎会遍历每一个DOM节点，计算出该节点的样式，计算出�
         <pubDate>Wed, 19 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://dachicj.com/2016/10/19/Chromium-Code-Structure.html</link>
         <guid isPermaLink="true">http://dachicj.com/2016/10/19/Chromium-Code-Structure.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>学习MySQL体系结构</title>
-        <description>&lt;h2&gt;MySQL技术内幕：InnoDB存储引擎大纲&lt;/h2&gt;
-&lt;ol&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;MySQL体系结构&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;InnoDB存储引擎&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;文件&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;表&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;索引与算法&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;锁&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;事务&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;备份与恢复&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;性能调优&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;details&gt;&lt;summary&gt;InnoDB存储引擎源代码的编译和调试&lt;/summary&gt;&lt;/details&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;1.MySQL体系结构&lt;/h3&gt;
-&lt;p&gt;数据库(Database)是文件的集合&lt;/p&gt;
-&lt;p&gt;示例(Instance)是运行在内存中的示例&lt;/p&gt;
-&lt;p&gt;
-MySQL组成部分
-    &lt;ul&gt;
-      &lt;li&gt;连接池组件&lt;/li&gt;
-      &lt;li&gt;管理服务和工具组件&lt;/li&gt;
-      &lt;li&gt;SQL接口组件&lt;/li&gt;
-      &lt;li&gt;查询分析器组件&lt;/li&gt;
-      &lt;li&gt;优化器组件&lt;/li&gt;
-      &lt;li&gt;缓冲(Cache)组件&lt;/li&gt;
-      &lt;li&gt;插件式存储引擎&lt;/li&gt;
-      &lt;li&gt;物理文件&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/p&gt;
-</description>
-        <pubDate>Wed, 12 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/2016/10/12/MySQL_Engine.html</link>
-        <guid isPermaLink="true">http://dachicj.com/2016/10/12/MySQL_Engine.html</guid>
         
         
       </item>
