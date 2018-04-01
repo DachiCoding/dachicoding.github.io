@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2018-04-01 JS基础知识补习</title>
+    <meta name="description" content="Dachi's Personal Blog.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/css/customize.css">
+    <link rel="canonical" href="http://dachicj.com/2018/04/01/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/semantic.js"></script>
+	<script src="/js/main.js"></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?17093cbec04c01087da48f8005a1a6b2";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+    <nav>
+        <div class="nav-wrapper blue-grey lighten-4">
+            <a class="brand-logo center" href="/"><span class="black-text">Dachi's Blog 达迟的博客</span></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            
+                
+            
+                
+            
+                
+            
+                
+                <li><a class="" href="/hacks/">Hacks 作品</a></li>
+                
+            
+                
+            
+                
+                <li><a class="" href="/blog/">Blog 文章</a></li>
+                
+            
+                
+                <li><a class="" href="/about/">About 关于</a></li>
+                
+            
+        </div>
+    </nav>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    
+
+  <header class="post-header">
+    <h1 class="post-title">2018-04-01 JS基础知识补习</h1>
+    <p class="post-meta">Apr 1, 2018 • dachi.xu@gmail.com</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="section">学习材料</h3>
+<ul>
+  <li>本周复习了一些JS语言的基础概念, 学习材料: <a href="https://github.com/mqyqingfeng/Blog">JavaScript深入系列</a></li>
+</ul>
+
+<h2 id="section-1">原型 &amp; 原型链</h2>
+<ol>
+  <li>Prototype: 构造函数指向的原型对象</li>
+  <li><code class="highlighter-rouge">__proto__</code>: 对象实例指向的原型对象，沿着__proto__一路调用即为原型链(__proto__其实是getter/setter,也可以用Object.getPrototypeOf()来获取原型)</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//构造函数</span>
+<span class="kd">function</span> <span class="nx">Person</span><span class="p">(){</span>
+<span class="p">}</span>
+<span class="c1">//对象实例</span>
+<span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="c1">//只有函数才有prototype, prototype指向调用该构造函数创建的实例的原型</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'Kevin'</span><span class="p">;</span>
+<span class="c1">//__proto__, 对象的属性，指向该对象的原型</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">__proto</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span>
+</code></pre>
+</div>
+
+<h2 id="section-2">词法作用域和动态作用域</h2>
+<ol>
+  <li>词法：函数的作用域在函数定义的时候就决定了</li>
+  <li>动态：函数的作用域是在函数调用的时候才决定</li>
+</ol>
+
+<h2 id="section-3">执行上下文栈</h2>
+<ol>
+  <li>每个函数执行时都有一个执行上下文：Execution context stack，</li>
+  <li>ECStack 最底部永远有个 globalContext</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">funcTop</span><span class="p">(){</span>
+    <span class="c1">//do something</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">funcMiddle</span><span class="p">(){</span>
+    <span class="nx">funcTop</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">funcBottom</span><span class="p">(){</span>
+    <span class="nx">funcMiddle</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">funcBottom</span><span class="p">();</span>
+<span class="c1">//执行时的ECS是</span>
+<span class="nx">funcTop</span> <span class="nx">execution</span> <span class="nx">context</span><span class="err">:最后一个</span><span class="nx">push</span><span class="err">进</span><span class="nx">ECS</span><span class="p">,</span> <span class="err">第一个</span><span class="nx">pop</span>
+<span class="nx">funcMiddle</span> <span class="nx">execution</span> <span class="nx">context</span>
+<span class="nx">funcBottom</span> <span class="nx">execution</span> <span class="nx">context</span><span class="err">:</span> <span class="err">第一个</span><span class="nx">push</span><span class="err">进</span><span class="nx">ECS</span><span class="p">,</span> <span class="err">最后一个</span><span class="nx">pop</span>
+<span class="nx">globalContext</span><span class="err">：永远在底层</span>
+</code></pre>
+</div>
+
+<h2 id="variable-object">变量对象 Variable Object</h2>
+<ol>
+  <li>上下文包含三个属性: 变量对象VO,作用域链(Scope Chain),this</li>
+  <li>变量对象: 存储在上下文中定义的变量和函数声明</li>
+  <li>全局上下文的变量对象：全局对象(DOM上为window,node上为global)是JS全局属性、函数的占位符，可以通过全局对象访问全局属性和函数。</li>
+  <li>函数上下文的变量对象: activation object(AO), 在进入函数上下文时创建。包括函数的形参，内部的函数声明、内部的变量声明，并且在代码执行阶段会修改对象的属性值。</li>
+</ol>
+
+<h2 id="section-4">作用域链</h2>
+<ol>
+  <li>在查找变量时，会从当前的变量对象里查找，如果没有找到就会查找父级上下文的变量对象，直到全局对象</li>
+</ol>
+
+<pre><code class="language-javascrip">function Outter() {
+    function Inner() {
+    }
+}
+
+//外层函数的作用域链指向全局对象
+Outter.[[SCOPE] = [
+    globalContext.VO
+]
+
+//内层函数的作用域链先指向Outter函数的活动对象、其次再是全局对象
+INNER.[[SCOPE] = [
+    OutterContext.AO,
+    globalContext.VO
+]
+</code></pre>
+
+
+  </article>
+
+  <!-- JiaThis Button BEGIN -->
+  <div class="jiathis_style_32x32">
+  	<a class="jiathis_button_qzone"></a>
+  	<a class="jiathis_button_tsina"></a>
+  	<a class="jiathis_button_tqq"></a>
+  	<a class="jiathis_button_weixin"></a>
+  	<a class="jiathis_button_renren"></a>
+  	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+  	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+  <!-- JiaThis Button END -->
+
+  
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//dachicjcom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Dachi's Blog 达迟的博客</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-2">
+
+        <ul class="contact-list">
+          <li><a href="mailto:dachi.xu@gmail.com">dachi.xu@gmail.com</a></li>
+          <li>微信: dachi_xu</li>
+          <li>Github:
+            <a href="https://github.com/DachiCoding">DachiCoding</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-col  footer-col-3">
+      </div>
+    </div>
+
+  </div>
+<br/><br/>
+</footer>
+
+
+  </body>
+
+</html>
