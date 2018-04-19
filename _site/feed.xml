@@ -5,8 +5,8 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 19 Apr 2018 22:52:31 +0800</pubDate>
-    <lastBuildDate>Thu, 19 Apr 2018 22:52:31 +0800</lastBuildDate>
+    <pubDate>Thu, 19 Apr 2018 22:54:55 +0800</pubDate>
+    <lastBuildDate>Thu, 19 Apr 2018 22:54:55 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -108,8 +108,9 @@ EventPluginHub在获得了某一原生事件相关的一个或多个合成事件
   &lt;li&gt;EventPluginHub让合成事件队列里的各个合成事件执行相应的回调&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;三、React事件系统思考题
-3.1 React事件和原生事件回调的执行顺序&lt;/p&gt;
+&lt;p&gt;三、React事件系统思考题&lt;/p&gt;
+
+&lt;p&gt;3.1 React事件和原生事件回调的执行顺序&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Q: 如果给一个button设置了onClick回调handleClick1, 又手动给这个button的点击事件手动设置addEventListener handleClick2,如果点击这个按钮，哪个回调先执行?&lt;/li&gt;
   &lt;li&gt;A: handleClick2先执行,handleClick1再执行,因为React在Document层级冒泡阶段监听click事件,所以当原生事件在button上先触发handleClick2上再冒泡到document上,然后React再启动自有的事件处理流程.&lt;/li&gt;
@@ -121,7 +122,7 @@ Q: 如图有如下组件, onBtnClick里调用了合成事件的阻止冒泡方�
 
 &lt;p&gt;&lt;img src=&quot;https://github.com/DachiCoding/study-notes/blob/master/images/react-event-study/img07.png?raw=true&quot; alt=&quot;alt&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;想知道答案的同学可以去https://codesandbox.io/s/1q8n95oovq试试&lt;/p&gt;
+&lt;p&gt;想知道答案的同学可以去&lt;a href=&quot;https://codesandbox.io/s/1q8n95oovq&quot;&gt;https://codesandbox.io/s/1q8n95oovq&lt;/a&gt;试试&lt;/p&gt;
 
 &lt;p&gt;3.3 React在Document层级监听事件，如果有多个元素(不在同一条子树上)绑定同一事件，React如何准确触发回调?
 在2.2（6）步骤中,会调用accumulateTwoPhaseDispatches函数,这个函数会模拟事件的捕获/冒泡流程，收集virtual dom中事件触发的元素到根元素之间路径上每个元素针对这个事件的回调，只有在这里收集到的回调才会稍后被执行，所以不存在会误触发其他监听同样事件元素的回调.&lt;/p&gt;
