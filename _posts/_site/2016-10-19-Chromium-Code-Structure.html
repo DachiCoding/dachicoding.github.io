@@ -1,0 +1,64 @@
+<p>
+    Chrome是谷歌自家出品的浏览器，Chromium则是Chrome背后的引擎，作为一名想(bu)要(de)学(bu)习(xue)浏览器知识的码农,
+    Chromium是非常具有研究价值的对象，不过这个Project极其庞大，我们只能从一些小的方面入手，做一些微小的学习工作。
+</p>
+
+<p>
+    在进行具体的学习之前，我们不妨从Chromium的代码结构入手，高屋建瓴地总览一下Chorimium, 这份
+    <a href="https://www.chromium.org/developers/how-tos/getting-around-the-chrome-source-code">官方文档</a>
+    是一个很好的学习材料。
+</p>
+
+<p>
+    Chromium大致可以分为三个部分:
+    <ol>
+        <li>浏览器,负责所有的UI以及I/O。</li>
+        <li>渲染器,在一般情况下是由浏览器驱动的基于tab的子程序。</li>
+        <li>Webkit,渲染器嵌入了Webkit来进行布局和渲染。</li>
+    </ol>
+</p>
+
+<p>Chromium架构图:</p>
+<img src="../../../img/chromium_arch.png">
+
+<p>
+    Chromium由许多个子项目组成，这些项目有:
+    <ol>
+    <li>android_webview</li>
+    <li>apps</li>
+    <li>base</li>
+    <li>breakpad</li>
+    <li>build</li>
+    <li>cc</li>
+    <li>chrome: Chromium浏览器</li>
+    <li>chrome/test/data</li>
+    <li>components</li>
+    <li>content: 一个多进程沙箱浏览器的核心代码</li>
+    <li>device</li>
+    <li>net</li>
+    <li>sandbox</li>
+    <li>skia</li>
+    <li>sql</li>
+    <li>testing</li>
+    <li>third_party</li>
+    <li>tools</li>
+    <li>ui/gfx</li>
+    <li>ui/views: 一个UI开发的简单框架</li>
+    <li>url: Google的开源URL parsing库</li>
+    <li>v8: V8 JavaScript库</li>
+    <li>webkit: webkit相关代码</li>
+    </ol>
+</p>
+
+<p>
+    缘于Chromium代码架构宏大，绝非一朝一夕能够理解、学习之项目，我将在未来持续地学习这个项目，加深我对浏览器的理解。
+</p>
+
+<p>
+    <a href="https://chromium.googlesource.com/chromium/src.git/+/master">源码地址</a>
+</p>
+
+<p>
+    <a href="https://www.chromium.org/Home">延伸阅读</a>
+</p>
+

@@ -1,0 +1,86 @@
+<h3 id="section">学习材料</h3>
+<ul>
+  <li>本周复习了一些JS语言的基础概念, 学习材料: <a href="https://github.com/mqyqingfeng/Blog">JavaScript深入系列</a></li>
+</ul>
+
+<h2 id="section-1">原型 &amp; 原型链</h2>
+<ol>
+  <li>Prototype: 构造函数指向的原型对象</li>
+  <li><code class="highlighter-rouge">__proto__</code>: 对象实例指向的原型对象，沿着__proto__一路调用即为原型链(__proto__其实是getter/setter,也可以用Object.getPrototypeOf()来获取原型)</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//构造函数</span>
+<span class="kd">function</span> <span class="nx">Person</span><span class="p">(){</span>
+<span class="p">}</span>
+<span class="c1">//对象实例</span>
+<span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="c1">//只有函数才有prototype, prototype指向调用该构造函数创建的实例的原型</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'Kevin'</span><span class="p">;</span>
+<span class="c1">//__proto__, 对象的属性，指向该对象的原型</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">__proto</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span>
+</code></pre>
+</div>
+
+<h2 id="section-2">词法作用域和动态作用域</h2>
+<ol>
+  <li>词法：函数的作用域在函数定义的时候就决定了</li>
+  <li>动态：函数的作用域是在函数调用的时候才决定</li>
+</ol>
+
+<h2 id="section-3">执行上下文栈</h2>
+<ol>
+  <li>每个函数执行时都有一个执行上下文：Execution context stack，</li>
+  <li>ECStack 最底部永远有个 globalContext</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">funcTop</span><span class="p">(){</span>
+    <span class="c1">//do something</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">funcMiddle</span><span class="p">(){</span>
+    <span class="nx">funcTop</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">funcBottom</span><span class="p">(){</span>
+    <span class="nx">funcMiddle</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">funcBottom</span><span class="p">();</span>
+<span class="c1">//执行时的ECS是</span>
+<span class="nx">funcTop</span> <span class="nx">execution</span> <span class="nx">context</span><span class="err">:最后一个</span><span class="nx">push</span><span class="err">进</span><span class="nx">ECS</span><span class="p">,</span> <span class="err">第一个</span><span class="nx">pop</span>
+<span class="nx">funcMiddle</span> <span class="nx">execution</span> <span class="nx">context</span>
+<span class="nx">funcBottom</span> <span class="nx">execution</span> <span class="nx">context</span><span class="err">:</span> <span class="err">第一个</span><span class="nx">push</span><span class="err">进</span><span class="nx">ECS</span><span class="p">,</span> <span class="err">最后一个</span><span class="nx">pop</span>
+<span class="nx">globalContext</span><span class="err">：永远在底层</span>
+</code></pre>
+</div>
+
+<h2 id="variable-object">变量对象 Variable Object</h2>
+<ol>
+  <li>上下文包含三个属性: 变量对象VO,作用域链(Scope Chain),this</li>
+  <li>变量对象: 存储在上下文中定义的变量和函数声明</li>
+  <li>全局上下文的变量对象：全局对象(DOM上为window,node上为global)是JS全局属性、函数的占位符，可以通过全局对象访问全局属性和函数。</li>
+  <li>函数上下文的变量对象: activation object(AO), 在进入函数上下文时创建。包括函数的形参，内部的函数声明、内部的变量声明，并且在代码执行阶段会修改对象的属性值。</li>
+</ol>
+
+<h2 id="section-4">作用域链</h2>
+<ol>
+  <li>在查找变量时，会从当前的变量对象里查找，如果没有找到就会查找父级上下文的变量对象，直到全局对象</li>
+</ol>
+
+<pre><code class="language-javascrip">function Outter() {
+    function Inner() {
+    }
+}
+
+//外层函数的作用域链指向全局对象
+Outter.[[SCOPE] = [
+    globalContext.VO
+]
+
+//内层函数的作用域链先指向Outter函数的活动对象、其次再是全局对象
+INNER.[[SCOPE] = [
+    OutterContext.AO,
+    globalContext.VO
+]
+</code></pre>
+

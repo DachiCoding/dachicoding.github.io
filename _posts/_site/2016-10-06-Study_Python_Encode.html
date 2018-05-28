@@ -1,0 +1,135 @@
+<p>
+    那么，今天我们来学习一个非常骨骼精奇的Python知识点：Python的编码问题。
+</p>
+
+<p>
+    不知道诸位使用Python2.x的同学们有没有在撸代码的时候遇到过这样的情况
+    <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s">u'之乎者也'</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+    <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="nb">UnicodeEncodeError</span><span class="p">:</span> <span class="s">'ascii'</span> <span class="n">codec</span> <span class="n">can</span><span class="s">'t encode characters in position 0-3: ordinal not in range(128)</span><span class="err">
+</span><span class="s">    </span></code></pre></figure>
+</p>
+
+<p>
+    😳 什么鬼这是？
+</p>
+
+<p>
+    没错，也许你用Python的第一天就遇到了这个问题，也许你一直都是在英文环境下编写Python程序所以从来没遇到过这个问题，择日不如撞日，
+    今天就让我们好好地近距离地活体解剖这个Bug!
+</p>
+
+<p>
+    那么，用简洁的语言来概括这个问题就是Python2.x系统默认的编码系统(一般是ascii),
+    在试图编码(encode)你给的其他编码系统(比如utf-8)的字符时，遇到了非法字符从而产生了错误。
+</p>
+
+<p>
+    打开Python2.x，然后输入下面的代码你就获得Python默认的encoding编码。
+    <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
+    <span class="s">'ascii'</span>
+    </code></pre></figure>
+</p>
+
+<p>
+    而发生这个问题应该怎么解决呢？很简单，使用正确的编码就可以解决问题啦。
+    <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="c"># 改变默认的编码系统</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+
+    <span class="c"># 如果你的字符是用其他编码系统下书写的，你需要将你的字符先转化为Python的Unicode编码，再转化为正确的编码，假设你的字符串是由gb2312编码的</span>
+    <span class="n">sUnicode</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'gb2312'</span><span class="p">)</span>
+    <span class="n">sUTF8</span> <span class="o">=</span> <span class="n">sUnicode</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+    </code></pre></figure>
+    现在你的字符串都是由utf-8编码的，并且Python现在默认的解码系统也是utf-8。
+</p>
+
+<p>
+    看到这里也有可能你会觉得更加一头雾水了，刚刚到底发生了什么？！
+    那么现在就让我们再次审视这个问题，从它的源头讲起...
+</p>
+<p>
+    以下内容参考<a href="https://docs.python.org/2/howto/unicode.html">Python官方文档</a>。
+</p>
+
+<p>
+    我们都知道，在计算机的底层，每一种款式的数据都是由二进制数字表示的，字符也是。而最早出现的字符编码就是ascii。
+    你可以在shell里输入'man ascii'来查看每一个数字和英文字母／符号的对应关系。但是只有区区8bit的ascii无法满足对应世上不同语言的成千上万的字符。
+    所以新的编码系统就这样一个个被发明出来了，比如汉字的GBK，以及想要囊括全世界所有语言的编码系统Unicode。（瓦雷利亚语管不管?)
+</p>
+
+<p>
+    Unicode是一头身材硕大的编码系统，在Unicode里每一个字符都被一个code points(编码点）表示，一个Unicode字符串就由一系列的编码点组成。
+    虽然Unicode非常简洁直接，但是它也存在几个问题。
+    <ul>
+        <li>*不可移植，因为不同的处理器对字节的处理顺序不同(Big endian vs Little endian)。</li>
+        <li>*浪费空间，大多数使用的编码点都小于127或者说255，所以使用完整的Unicode会使用很多不必要的bytes。</li>
+        <li>*与许多C的函数比如strlen()不兼容。</li>
+        <li>*许多互联网标准都使用文本数据定义的，它们不能处理内嵌的0字节。</li>
+    </ul>
+    所以使用Unicode变成了一件不是很实际的选择，那我们靠什么来拯救拥挤的互联网宽带呢？UTF-8就这样登场了!
+</p>
+
+<p>
+    UTF-8是一种针对Unicode的可变长度的字符编码，UTF的全称是UCS Transfer Format, 8代表着每次传输8bits的数据，
+    UTF-8用1到4个字节编码Unicode字符, 它作为Unicode的一种具体实现，
+    灵活的实现了在对应不同的字符时动态的变化长度，以达到节省内存以及网络带宽的目的。
+</p>
+
+<p>
+    那么今天我们这篇文章到底讲了什么呢？我们研究了一个Python的编码bug，然后逐渐深入研究计算机里字符编码的问题，
+    有兴趣的同学可以阅读上面提供的Python官方文档，或者这个知乎上有关Unicde/UTF-8关系的<a href="https://www.zhihu.com/question/23374078">答案</a>,
+    提高一下姿势水平。
+</p>
+
+<hr/><br/>
+<p>
+为了放松一下阅读了本篇文章的你的心情，转移一下注意力，现在让我们看一道和今天文章有关的LeetCode算法题目如何？（这么做根本不会放松啊混蛋!)
+</p>
+
+<p>
+    LeetCode 393 UTF-8 Validation, <a href="https://leetcode.com/problems/utf-8-validation/">题目链接</a>
+</p>
+
+<p>
+    以下则是本人的答案。
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">validUtf8</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">data</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">data</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+        <span class="c1">//1 byte character</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;&gt;</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="k">continue</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+
+            <span class="c1">//Get n</span>
+            <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'1'</span><span class="o">){</span>
+                    <span class="n">cnt</span><span class="o">++;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="c1">//N must be 2 to 4</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">cnt</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+
+            <span class="c1">//Check if the following bytes are valid</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">cnt</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">){</span>
+                <span class="n">i</span><span class="o">++;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">data</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">data</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span> <span class="o">!=</span> <span class="mi">2</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="n">cnt</span><span class="o">--;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+</p>

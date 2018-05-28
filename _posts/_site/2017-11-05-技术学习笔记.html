@@ -1,0 +1,31 @@
+<h3 id="section">学习材料</h3>
+<ol>
+  <li><a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/</a></li>
+  <li><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/</a>
+本周继续承接<a href="http://dachicj.com/2017/10/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">上一篇文章</a>读的新一代火狐浏览器内核CSS引擎介绍文章,</li>
+</ol>
+
+<h2 id="part-1-quantum-css">Part 1 Quantum CSS</h2>
+
+<h3 id="quantum-csscss">Quantum CSS对CSS渲染的优化</h3>
+<p>在用户浏览网页的时候，CSS渲染无时不刻的发生，首次加载，用户的任何操作，都会导致重新CSS的重新渲染。Quantum CSS采用了混合多种策略对CSS渲染进行优化。</p>
+
+<h3 id="section-1">平行计算</h3>
+<p>随着多核CPU的普及，那么将样式计算分摊给不同的CPU内核似乎是个非常合理的思路，但是将不同的样式分拆给不同的CPU核其实没那么简单，因为DOM树有可能存在两边节点数目差距较大的情况，这样计算工作的分配就会不那么公平，为了解决这个问题，Quantum CSS将不同的DOM节点分配到不同的队列里，每一个CPU核在计算完分配给自己的计算任务后，会去其他的队列查看是否还有没完成的计算任务，这样甚至不需要提前计算如何分配样式的计算任务。</p>
+
+<p>但是由于平行计算和CSS样式计算的复杂性，这种工程设计很容易引入各种Bug以及一种叫<a href="https://hacks.mozilla.org/2017/06/avoiding-race-conditions-in-sharedarraybuffers-with-atomics/#data-race">Data races</a>的问题，火狐的工程师们利用了Rust语言的特性避免了这类问题的发生。</p>
+
+<h3 id="section-2">用规则树加速样式再计算</h3>
+<p>由于困这段没太看懂, 下次再研究一下…</p>
+
+<h3 id="style-sharing-cache">用样式共享缓存(Style sharing cache)加速首次加载样式计算</h3>
+<p>一个网页可能有成千上百DOM节点，并且其中大多数节点的部分样式都是一致的，没有优化的CSS引擎可能要重复无数次的相同计算，如果将相同元素的相同样式指向同一个样式对象，无疑可以为CSS引擎节省很多的无效开销，而Safari和Chrome浏览器使用了样式共享缓存。</p>
+
+<p>样式共享缓存在计算节点的样式时，会检查几点来确认是否某些元素可以共享样式：</p>
+<ul>
+  <li>两个节点是否有相同的id和class</li>
+  <li>两个节点的母节点是否指向相同的样式对象，如果是的话，这些节点继承的属性也应指向相同的地方。</li>
+  <li>…</li>
+</ul>
+
+<p>使用样式共享缓存无疑可以节省内存开销并且提高计算的速度。</p>

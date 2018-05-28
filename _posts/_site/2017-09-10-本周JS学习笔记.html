@@ -1,0 +1,58 @@
+<h3 id="yon-dont-know-jstype--grammer-chapter-01">学习材料： Yon don’t know JS(Type &amp; Grammer) Chapter 01</h3>
+
+<h2 id="section">什么是类型</h2>
+<blockquote>
+  <p>An intrinsic, built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other values, both to the engine and to the developer.(对JS引擎和开发者而言的一套拥有内置独特特性和行为的特殊值，并与其他值相区别)</p>
+</blockquote>
+
+<h3 id="section-1">关键字</h3>
+<ul>
+  <li>对JS引擎和开发者：引擎和开发者在处理不同类型时都需要不同的方式。</li>
+  <li>独特特性和行为: 每种类型的值有自己的特性和行为。</li>
+</ul>
+
+<h2 id="js">JS内置类型</h2>
+<ul>
+  <li>null</li>
+  <li>undefined</li>
+  <li>boolean</li>
+  <li>number</li>
+  <li>string</li>
+  <li>object</li>
+  <li>symbol(ES6新增)</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">typeof</span> <span class="nx">Symbol</span><span class="p">()</span> <span class="c1">//try this</span>
+<span class="k">typeof</span> <span class="kc">null</span> <span class="o">===</span> <span class="s2">"object"</span><span class="p">;</span> <span class="c1">//会显示true,但是是不正确的，这个是历史遗留问题</span>
+<span class="k">typeof</span> <span class="kd">function</span> <span class="nx">a</span><span class="p">(){}</span> <span class="o">===</span> <span class="s2">"function"</span><span class="p">;</span> <span class="c1">//true, 但是function并不是单独的类型，它是callable object, object的一种子类型</span>
+</code></pre>
+</div>
+
+<h2 id="section-2">更安全的检查变量方式</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//假设你的代码通过某个全局变量DEBUG来检查运行环境</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">DEBUG</span><span class="p">){</span> <span class="p">...</span> <span class="p">}</span> <span class="c1">//会throw ReferenceError</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">DEBUG</span> <span class="o">!==</span> <span class="s1">'undefined'</span><span class="p">){</span> <span class="p">...</span> <span class="p">}</span> <span class="c1">//更安全</span>
+
+<span class="c1">//使用typeof来查看某功能是否存在</span>
+<span class="kd">function</span> <span class="nx">doSomethingCool</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">helper</span> <span class="o">=</span> 
+		<span class="p">(</span><span class="k">typeof</span> <span class="nx">FeatureXYZ</span> <span class="o">!==</span> <span class="s2">"undefined"</span><span class="p">)</span> <span class="p">?</span>
+		<span class="nx">FeatureXYZ</span><span class="p">:</span>
+		<span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+
+		<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">helper</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="values-as-types">Values as Types</h2>
+<ul>
+  <li>在JS中，变量不拥有类型，但是values(值)拥有类型，变量可以绑定任意类型</li>
+</ul>
+
+<h2 id="coercion-">Coercion 类型转换</h2>
+<ul>
+  <li>类型转换有时是显式的，可读的，有的时候会在不经意间发生。</li>
+</ul>

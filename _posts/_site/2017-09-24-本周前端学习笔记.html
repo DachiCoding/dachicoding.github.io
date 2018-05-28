@@ -1,0 +1,36 @@
+<h3 id="css-in-depth-chapter-01">学习材料： CSS In Depth Chapter 01</h3>
+
+<p>本周继续学习CSS In Depth第一章的剩余部分</p>
+
+<h3 id="inheritance">1.2 Inheritance</h3>
+<p> 
+当一个元素没有设置的样式，它将从它的母元素获得样式。
+注意inheritance和此前讨论的cascade概念并不相同，也并不是
+所有的样式都会被继承，被继承的属性包括:</p>
+<ul>
+  <li>字体类属性: color, font, font-family, font-size, font-weight, font-variant等</li>
+  <li>列表类属性: list-style, list-style-type, list-style-position,list-style-image</li>
+  <li>表格边框属性: border-collapse, border-spacing</li>
+</ul>
+
+<h3 id="inherit--initial">1.3 Inherit &amp; Initial</h3>
+<p>有两种特殊的CSS值可以应用到任何CSS属性上, inherit和initial.
+ </p>
+<h4 id="inherit">inherit</h4>
+<p>有时你希望某个元素可以继承母元素的样式而不是使用默认定义的样式，那就是
+使用inherit的时候.
+ </p>
+<h4 id="initial">initial</h4>
+<p>有时候你想取消某些元素的样式，你可以使用initial这个值，使得某个属性被设定为默认的属性，比如</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>footer {
+ color: initial;
+}
+</code></pre>
+</div>
+<p>等价于</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>footer {
+ color: black;
+}
+</code></pre>
+</div>
+<p>有时initial值对于某些属性并不起作用，是因为这些属性没有默认值，比如border-width或者padding, 但是赋予他们initial的值完全合法。</p>

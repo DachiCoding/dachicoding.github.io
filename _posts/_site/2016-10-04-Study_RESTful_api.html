@@ -21,7 +21,7 @@
         这些资源可以是文本，图片，音频或者视频，按照REST风格的规定每一个资源都要有一个特定的URI，要获得一个资源就要访问它的URI。
         而Representational则表示资源的表现形式，比如一段文字可以用txt,html等格式表示。而资源的获取者要使用不同的操作来获得这些资源的状态，
         也就是State。Transfer相对就好理解了，它的字面意义就是传输。
-        所以REST的就是一套规定如何在分布式系统中<b>定位，表示以及获取</b>资源的风格。
+        所以REST的就是一套规定如何在分布式系统中<b>定位，表示以及操作</b>资源的风格。
         </p>
 
         <p>
@@ -72,7 +72,19 @@
         <p>
         我们可以来参考一下最大同性交友社区<a href="https://developer.github.com/v3/">Github的API</a>，作为学习的对象。
         </p>
-        
+
+        <p>
+        首先，来看看Github API的域名根路径
+        </p>
+
+        <p class="grey lighten-2">
+        https://api.github.com/
+        </p>
+
+        <p>
+        我们可以看到Github为API采用了专用的域名,并且使用的是HTTPS协议。接下来看一些实例。
+        </p>
+
         <p>
         例子1，获取一个用户
         </p>
@@ -82,7 +94,21 @@
         </p>
 
         <p>
-        在这个例子中，URI的第一个部分是users,表示要获取的的是users相关的资源，获取某一个user则需要提供username
+        返回的结果如下
+        </p>
+
+        <p class="grey lighten-2">
+        Status: 200 OK
+        {
+         "login":"octocat",
+         "id":1,
+         ...
+        }
+        </p>
+
+        <p>
+        在这个例子中，URI的第一个部分是users,表示要获取的的是users相关的资源，获取某一个user则需要提供username,
+        而成功返回的Status code是200，返回的结果包括了这个user的各种信息。
         </p>
 
         <p>
@@ -103,7 +129,8 @@
           "location": "San Francisco",
           "hireable": true,
           "bio": "There once..."
-        }
+        },
+        返回结果类同例子1。
         </p>
 
         <p>
@@ -128,6 +155,21 @@
         </p>
 
         <p>
+        返回结果为
+        <p class="grey lighten-2">
+        Status: 201 Created
+        <br/>
+        Location: https://api.github.com/repos/octocat/Hello-World
+        <br/>
+        {
+            "id":1296269,
+            "owner":...,
+            "name":"Hello-World"...,
+        }
+        </p>
+        </p>
+
+        <p>
         例子4：删除一个Repo
         </p>
 
@@ -135,11 +177,22 @@
         <i>DELETE /repos/:owner/:repo</i>
         </p>
 
+        <p class="grey lighten-2">
+        Status: 204 No Content
+        </p>
+
         <p>
         通过以上例子我们可以看出，每一种HTTP协议的请求都对应CRUD中的一种操作：
-        GET用来获取资源，POST用来创建资源，PUT/PATCH用来更新资源，DELETE用来删除资源。
+        GET用来获取资源，POST用来创建资源，PUT用来更新资源，PATCH用来更新部分资源。DELETE用来删除资源。
+        </p>
+
+        <p>
         而在URI的设计中，资源都用名词来表示，一类资源用复数单词来表示（比如users,repos)，
-        获取其中的一个资源就需要给出更具体的资源识别名称。
+        定位更具体的资源则要在API路径里面详细标示出。
+        </p>
+
+        <p>
+        返回请求的Status code设计必须使用户简洁明了的明白该请求的结果，并反映了每一种结果的后果。
         </p>
 
         <p>

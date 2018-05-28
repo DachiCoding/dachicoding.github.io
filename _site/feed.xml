@@ -5,16 +5,75 @@
     <description>Dachi's Personal Blog.</description>
     <link>http://dachicj.com/</link>
     <atom:link href="http://dachicj.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 19 Apr 2018 22:54:55 +0800</pubDate>
-    <lastBuildDate>Thu, 19 Apr 2018 22:54:55 +0800</lastBuildDate>
+    <pubDate>Mon, 28 May 2018 20:31:53 +0800</pubDate>
+    <lastBuildDate>Mon, 28 May 2018 20:31:53 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
-        <title>2018-04-19 React事件系统总结</title>
-        <description>&lt;p&gt;React作为目前前端业界最流行的mvvm框架之一已经被广大前端同学所熟知，而在日常工作中已经熟悉使用React的我们对React内部的工作流程、设计理念是否又有足够的了解呢？为了更深入理解MVVM框架以及React,我和组内其他同学展开了对React的学习，以下是本次系列研究中对于React事件(DOM)系统的研究。&lt;/p&gt;
+        <title>2018-05-28 2018的一些前端趋势</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;这篇文章在讲什么?&lt;/h4&gt;
+&lt;p&gt;2018年已经快要走完一半了，之前也看过不少18年前端趋势的预测分析文章，并且翻译过&lt;a href=&quot;http://dachicj.com/2018/03/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html&quot;&gt;类似的文章&lt;/a&gt;, 今天看到一个类似主题的视频，有部分观点比较有趣，所以总结之。
+视频地址：&lt;a href=&quot;https://www.youtube.com/watch?v=g13dSerjICk&amp;amp;t=791s&quot;&gt;https://www.youtube.com/watch?v=g13dSerjICk&amp;amp;t=791s&lt;/a&gt;（需要科学上网)&lt;/p&gt;
 
-&lt;p&gt;一、React事件系统概况
-1.1 React的事件处理
+&lt;h4 id=&quot;section-1&quot;&gt;视频总结补充&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/DachiCoding/dachicoding.github.io/blob/master/assets/20180528_img01.jpg?raw=true&quot; alt=&quot;精华截图&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Web基础: HTML/CSS/JavaScript也能成为前端趋势的一部分? 没错，HTML/CSS/JavaScript仍然是Web前端开发者必须熟练学习掌握的内容，不同级别的前端开发者对于这些技术掌握的程度不同，对于初级开发者来说最重要的是夯实基础，而对于中高级前端开发者，则需要学习不断发展的新技术，比如CSS中的Flexbox/Grid布局, JavaScript中的ES6/7/8语言特性等等, 未来Web标准里的新特性也可以在&lt;a href=&quot;http://www.chinaw3c.org/&quot;&gt;W3C&lt;/a&gt;上查看。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Node.js: 已经出道多年Node.js生态系统已经成为前段开发必不可少的资源，比如各种前端自动化工具如Webpack, Gulp, Grunt等， 并且也作为最适合前端同学进行服务器开发的最佳语言选择。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;前端框架: 前端框架三架马车React/Vue/Angular将继续作为开发复杂、大型前端应用的最佳工具，在这个时代手动管理复杂的UI状态是人力难以完成的事情，并且这些框架也在不断进化的更快更强。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Web Components/编译器: Web Components(自定义HTML标签)以及Web Components编译器&lt;a href=&quot;https://stenciljs.com/&quot;&gt;stencil&lt;/a&gt;, 目前国内的前端开发（或者上国外）对Web Component的实践比较少， stencil是个用来生成Web Component的框架，借鉴了一些前端开发框架的特点(比如Virtual DOM，异步渲染等), 对于Web Component概念不熟悉的同学，Web Component的目的是用来开发自定义HTML组件、定义其行为的技术，也许有人会问这和React/Vue里的组件有什么不同？区别在于Web Component可以被浏览器原生支持，而不像React/Vue组件必须配合自身的前端框架来开发, Web Component可以和React/Vue等框架互相合作补充，它们之间不是互相替代关系。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;静态网页生成器: 视频推荐了Jekyll/Hugo/Next.js(React服务端渲染框架)，但是目前使用React开发静态网页的框架GatsbyJS和Vue.js的同类框架VuePress受到了很多关注。使用静态网页工具开发出静态网页可以避免不必要的服务器端动态生成计算，可以有更好的SEO效果，并且很适合SPA应用。个人觉得文档类网站很适合用静态网页生成器生成SPA，对于有大量组件、API内容的文档如果做成多页面网站有时候体验不太好，比如点一个组件就要请求一次后台页面，费时又费网。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PWA: Progress Web App是Google推广的技术，主要是为了让Web页面能够尽量接近原生App的体验。国内已经有部分前端团队进行了PWA实践，但是目前还没有大热，而BAT各自推出的小程序更像是更接地气的解决方啊。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Serverless: Serverless不是真的没有服务器，而是前端调用的是云计算函数服务(比如AWS Lambda),  前端不用负责服务器的运维配置，只需专注写好业务代码，并且只需要为每一次调用付费而不是支付服务器的费用。相关的概念还有BBF(Backend For Frontend)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;AI/Bots: AI技术在前端的应用也可能成为未来的一大趋势，比如tensorflow.js等前端深度学习框架的出现使得前端也可以跑各种模型，这里可能最重要的是给前端找到好的AI场景，也许可以借鉴iOS开发者是如何使用CoreML的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Testing: 测试也许不会成为趋势，但是会越来越重要，前端开发者可以学习unit test和end to end test.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tooling: 关注现代前端开发的构建工具如Webpack &amp;amp; Babel&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;优化：代码最佳实践及规范、图片优化等。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;参考材料&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/Web_Components&quot;&gt;Web Component&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000012353473&quot;&gt;讲讲PWA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://os.alipayobjects.com/rmsportal/WtUmBLJSmqtDHkvJzuzM.pdf&quot;&gt;蚂蚁财富的BBF实践&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 28 May 2018 00:00:00 +0800</pubDate>
+        <link>http://dachicj.com/2018/05/28/2018%E7%9A%84%E4%B8%80%E4%BA%9B%E5%89%8D%E7%AB%AF%E8%B6%8B%E5%8A%BF.html</link>
+        <guid isPermaLink="true">http://dachicj.com/2018/05/28/2018%E7%9A%84%E4%B8%80%E4%BA%9B%E5%89%8D%E7%AB%AF%E8%B6%8B%E5%8A%BF.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>2018-04-19 React事件系统总结</title>
+        <description>&lt;p&gt;React作为目前前端业界最流行的前端框架之一已经被广大前端同学所熟知，而在日常工作中已经熟悉使用React的我们对React内部的工作流程、设计理念是否又有足够的了解呢？为了更深入理解MVVM框架以及React,我和组内其他同学展开了对React的学习，以下是本次系列研究中对于React事件(DOM)系统的研究。&lt;/p&gt;
+
+&lt;p&gt;一、React事件系统概况&lt;/p&gt;
+
+&lt;p&gt;1.1 React的事件处理
 熟练使用React的前端同学相信对于以下这段代码并会不陌生：&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://github.com/DachiCoding/study-notes/blob/master/images/react-event-study/img01.png?raw=true&quot; alt=&quot;alt&quot; /&gt;&lt;/p&gt;
@@ -47,8 +106,9 @@
   &lt;li&gt;现在我们对React事件系统已经有了一个抽象的了解，下面我们具体看看React是如何完成从绑定监听、事件触发到调用回调这样一个完整的流程的。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;二、React事件系统工作机制
-2.1 React源码事件系统相关代码介绍
+&lt;p&gt;二、React事件系统工作机制&lt;/p&gt;
+
+&lt;p&gt;2.1 React源码事件系统相关代码介绍
 在进入介绍React事件系统工作机制之前，我们先了解一下React源码中哪些部分在此次的讨论范围之内(以2018-04-13 v16.3版本为准)&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;packages/events是事件系统的核心代码，内含合成事件与EventPlugin相关模块，是跨平台(DOM,ReactNative)通用的抽象事件处理相关代码&lt;/li&gt;
@@ -973,74 +1033,6 @@ CSS引擎会遍历每一个DOM节点，计算出该节点的样式，计算出�
         <pubDate>Sun, 17 Sep 2017 00:00:00 +0800</pubDate>
         <link>http://dachicj.com/2017/09/17/%E6%9C%AC%E5%91%A8%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</link>
         <guid isPermaLink="true">http://dachicj.com/2017/09/17/%E6%9C%AC%E5%91%A8%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>本周JS学习笔记</title>
-        <description>&lt;h3 id=&quot;yon-dont-know-jstype--grammer-chapter-01&quot;&gt;学习材料： Yon don’t know JS(Type &amp;amp; Grammer) Chapter 01&lt;/h3&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;什么是类型&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;An intrinsic, built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other values, both to the engine and to the developer.(对JS引擎和开发者而言的一套拥有内置独特特性和行为的特殊值，并与其他值相区别)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;关键字&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;对JS引擎和开发者：引擎和开发者在处理不同类型时都需要不同的方式。&lt;/li&gt;
-  &lt;li&gt;独特特性和行为: 每种类型的值有自己的特性和行为。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;js&quot;&gt;JS内置类型&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;null&lt;/li&gt;
-  &lt;li&gt;undefined&lt;/li&gt;
-  &lt;li&gt;boolean&lt;/li&gt;
-  &lt;li&gt;number&lt;/li&gt;
-  &lt;li&gt;string&lt;/li&gt;
-  &lt;li&gt;object&lt;/li&gt;
-  &lt;li&gt;symbol(ES6新增)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//try this&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;object&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//会显示true,但是是不正确的，这个是历史遗留问题&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;function&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//true, 但是function并不是单独的类型，它是callable object, object的一种子类型&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;更安全的检查变量方式&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//假设你的代码通过某个全局变量DEBUG来检查运行环境&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DEBUG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//会throw ReferenceError&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DEBUG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'undefined'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//更安全&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;//使用typeof来查看某功能是否存在&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;doSomethingCool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 
-		&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FeatureXYZ&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;undefined&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;FeatureXYZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-		&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-
-		&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;values-as-types&quot;&gt;Values as Types&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;在JS中，变量不拥有类型，但是values(值)拥有类型，变量可以绑定任意类型&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;coercion-&quot;&gt;Coercion 类型转换&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;类型转换有时是显式的，可读的，有的时候会在不经意间发生。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sun, 10 Sep 2017 00:00:00 +0800</pubDate>
-        <link>http://dachicj.com/2017/09/10/%E6%9C%AC%E5%91%A8JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</link>
-        <guid isPermaLink="true">http://dachicj.com/2017/09/10/%E6%9C%AC%E5%91%A8JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</guid>
         
         
       </item>
